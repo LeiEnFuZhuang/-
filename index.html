@@ -1,847 +1,131 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>莱恩制造 Laien Manufacturing | 女装OEM/ODM工厂</title>
-<meta name="description" content="广州莱恩制造——专业女装休闲服装OEM/ODM制造商。SS 2026春夏系列，MOQ 100件，7-10天出样，25-35天大货。">
-<style>
-:root{--primary:#1a3c2f;--accent:#c9a96e;--light:#f8f6f3;--dark:#0f1f18;--text:#2d2d2d;--muted:#777;--border:#e8e4df}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);line-height:1.6;background:#fff;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-.container{max-width:1200px;margin:0 auto;padding:0 20px}
-.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;align-items:center;gap:10px;font-size:18px;font-weight:800;color:var(--primary);letter-spacing:1px}
-.logo-icon{width:34px;height:34px;background:var(--primary);color:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
-.nav{display:flex;gap:28px;align-items:center}
-.nav a{font-size:13px;font-weight:600;color:var(--text);position:relative;transition:.3s;cursor:pointer;padding:4px 0}
-.nav a:hover,.nav a.active{color:var(--primary)}
-.nav a::after{content:"";position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:.3s}
-.nav a:hover::after,.nav a.active::after{width:100%}
-.lang-switch{background:var(--light);border:1px solid var(--border);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:.3s;color:var(--primary)}
-.lang-switch:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-.mobile-menu{display:none;cursor:pointer;font-size:22px;padding:4px}
-.mobile-nav{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);padding:16px 20px;box-shadow:0 10px 30px rgba(0,0,0,.08);z-index:999}
-.mobile-nav a{display:block;padding:12px 0;font-size:15px;font-weight:600;border-bottom:1px solid var(--border);color:var(--text)}
-.mobile-nav a:last-child{border-bottom:none}
-.mobile-nav.show{display:block}
-.page{display:none;animation:fadeIn .4s ease}
-.page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,var(--dark) 0%,var(--primary) 100%)}
-.hero-bg{position:absolute;inset:0;opacity:.12;background:url("https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1920") center/cover}
-.hero-content{position:relative;z-index:2;text-align:center;color:#fff;max-width:800px;padding:100px 20px 40px}
-.hero-badge{display:inline-block;background:rgba(201,169,110,.15);border:1px solid var(--accent);color:var(--accent);padding:6px 18px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
-.hero h1{font-size:48px;font-weight:800;line-height:1.12;margin-bottom:20px;letter-spacing:-1px}
-.hero h1 span{color:var(--accent)}
-.hero p{font-size:17px;color:rgba(255,255,255,.78);margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--accent);color:var(--dark);padding:14px 32px;border-radius:8px;font-weight:700;font-size:14px;transition:.3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,169,110,.35)}
-.btn-secondary{background:rgba(255,255,255,.08);color:#fff;padding:14px 32px;border-radius:8px;font-weight:600;font-size:14px;transition:.3s;border:1px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
-.btn-secondary:hover{background:rgba(255,255,255,.18)}
-.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:56px;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-size:36px;font-weight:800;color:var(--accent);line-height:1}
-.stat-label{font-size:12px;color:rgba(255,255,255,.55);margin-top:6px;letter-spacing:1px;text-transform:uppercase}
-.section{padding:90px 0}
-.section-header{text-align:center;margin-bottom:56px}
-.section-label{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:10px}
-.section-title{font-size:32px;font-weight:800;color:var(--primary);margin-bottom:10px}
-.section-sub{color:var(--muted);font-size:15px;max-width:560px;margin:0 auto}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
-.product-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:.35s;cursor:pointer}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
-.product-card.hidden{display:none}
-.product-img{height:340px;background:var(--light);position:relative;overflow:hidden}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
-.product-card:hover .product-img img{transform:scale(1.05)}
-.product-tag{position:absolute;top:10px;left:10px;background:var(--primary);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
-.product-info{padding:18px}
-.product-id{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:1px;margin-bottom:4px}
-.product-name{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:8px;line-height:1.4}
-.product-meta{display:flex;gap:14px;font-size:12px;color:var(--muted)}
-.product-meta span{display:flex;align-items:center;gap:4px}
-.product-desc{font-size:12px;color:var(--muted);line-height:1.6;border-top:1px solid var(--border);padding-top:10px;margin-top:10px}
-.filter-bar{display:flex;gap:10px;justify-content:center;padding-bottom:36px;flex-wrap:wrap}
-.filter-btn{background:#fff;border:1px solid var(--border);padding:7px 18px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;transition:.3s;color:var(--text)}
-.filter-btn:hover,.filter-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(4px)}
-.modal-overlay.active{display:flex}
-.modal{background:#fff;border-radius:16px;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:modalIn .3s ease}
-@keyframes modalIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.modal-close{position:absolute;top:12px;right:12px;width:36px;height:36px;background:rgba(0,0,0,.06);border:none;border-radius:50%;font-size:20px;cursor:pointer;z-index:10;transition:.3s;display:flex;align-items:center;justify-content:center}
-.modal-close:hover{background:rgba(0,0,0,.12)}
-.modal-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.modal-img{height:100%;min-height:380px;background:var(--light)}
-.modal-img img{width:100%;height:100%;object-fit:cover}
-.modal-info{padding:32px}
-.modal-info .product-id{font-size:12px;margin-bottom:6px}
-.modal-info h2{font-size:22px;font-weight:800;color:var(--primary);margin-bottom:12px}
-.modal-info .desc{color:var(--muted);font-size:13px;line-height:1.8;margin-bottom:20px}
-.spec-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px}
-.spec-table td{padding:8px 0;border-bottom:1px solid var(--border)}
-.spec-table td:first-child{color:var(--muted);width:110px}
-.spec-table td:last-child{font-weight:600;color:var(--dark)}
-.modal-cta{display:flex;gap:10px;flex-wrap:wrap}
-.btn-outline{background:#fff;color:var(--primary);padding:10px 22px;border-radius:6px;font-weight:600;font-size:13px;transition:.3s;border:1px solid var(--primary);cursor:pointer;display:inline-flex;align-items:center;gap:4px}
-.btn-outline:hover{background:var(--primary);color:#fff}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.feature-card{background:#fff;padding:32px 24px;border-radius:14px;border:1px solid var(--border);text-align:center;transition:.3s}
-.feature-card:hover{border-color:var(--accent);transform:translateY(-4px)}
-.feature-icon{width:52px;height:52px;background:var(--light);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px}
-.feature-card h3{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--primary)}
-.feature-card p{font-size:13px;color:var(--muted);line-height:1.7}
-.process-wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.process-item{flex:1;min-width:140px;text-align:center;padding:20px 12px}
-.process-num{width:52px;height:52px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:18px;font-weight:800}
-.process-item h4{font-size:14px;font-weight:700;margin-bottom:6px}
-.process-item p{font-size:12px;color:var(--muted);line-height:1.6}
-.pdf-frame{width:100%;height:720px;border:1px solid var(--border);border-radius:12px;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.04)}
-.pdf-fallback{text-align:center;padding:60px 20px;background:#fff;border-radius:12px;border:1px solid var(--border)}
-.pdf-fallback h3{font-size:20px;margin-bottom:12px;color:var(--primary)}
-.pdf-fallback p{color:var(--muted);margin-bottom:20px;font-size:14px}
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px}
-.tip-card{padding:20px;border:1px solid var(--border);border-radius:10px;background:#fff}
-.tip-card h4{font-size:14px;color:var(--primary);margin-bottom:6px}
-.tip-card p{font-size:12px;color:var(--muted);line-height:1.7}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.about-img{border-radius:14px;overflow:hidden;height:420px;background:var(--light)}
-.about-img img{width:100%;height:100%;object-fit:cover}
-.about-content h2{font-size:28px;font-weight:800;color:var(--primary);margin-bottom:16px;line-height:1.3}
-.about-content p{color:var(--muted);line-height:1.9;margin-bottom:14px;font-size:14px}
-.about-content .highlight{color:var(--primary);font-weight:600}
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
-.stat-item{text-align:center;padding:18px 8px;background:var(--light);border-radius:10px}
-.stat-item .num{font-size:26px;font-weight:800;color:var(--accent)}
-.stat-item .label{font-size:11px;color:var(--muted);margin-top:4px}
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.service-card{background:#fff;padding:28px;border-radius:14px;border:1px solid var(--border);transition:.3s}
-.service-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.service-card .icon{width:44px;height:44px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
-.service-card h3{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:8px}
-.service-card p{font-size:13px;color:var(--muted);line-height:1.7}
-.timeline{position:relative;padding-left:32px}
-.timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border)}
-.timeline-item{position:relative;margin-bottom:32px}
-.timeline-item::before{content:"";position:absolute;left:-26px;top:4px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--accent)}
-.timeline-item h4{font-size:15px;font-weight:700;color:var(--primary);margin-bottom:6px}
-.timeline-item p{font-size:13px;color:var(--muted);line-height:1.7}
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
-.form-card{background:#fff;padding:32px;border-radius:14px;border:1px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.03)}
-.form-card h2{font-size:20px;font-weight:800;color:var(--primary);margin-bottom:6px}
-.form-card .sub{color:var(--muted);font-size:13px;margin-bottom:24px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:12px;font-weight:600;color:var(--dark);margin-bottom:5px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;transition:.3s;background:#fafafa}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);background:#fff}
-.form-group textarea{min-height:100px;resize:vertical}
-.btn-submit{width:100%;background:var(--primary);color:#fff;padding:12px;border-radius:8px;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:.3s}
-.btn-submit:hover{background:var(--dark);transform:translateY(-1px)}
-.info-card h3{font-size:16px;font-weight:700;color:var(--primary);margin-bottom:18px}
-.info-item{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
-.info-icon{width:40px;height:40px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.info-item h4{font-size:14px;font-weight:700;margin-bottom:3px}
-.info-item p{font-size:13px;color:var(--muted);line-height:1.6}
-.info-item a{color:var(--primary);font-weight:600}
-.map-placeholder{height:220px;background:var(--light);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;border:1px dashed var(--border);margin-top:16px}
-.whatsapp-float{position:fixed;bottom:20px;right:20px;z-index:1500;width:56px;height:56px;background:#25D366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 20px rgba(37,211,102,.4);cursor:pointer;transition:.3s;text-decoration:none}
-.whatsapp-float:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(37,211,102,.5)}
-.cta-banner{background:linear-gradient(135deg,var(--primary),var(--dark));color:#fff;padding:70px 0;text-align:center;position:relative;overflow:hidden}
-.cta-banner::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.cta-banner h2{font-size:28px;font-weight:800;margin-bottom:12px;position:relative}
-.cta-banner p{color:rgba(255,255,255,.7);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;position:relative;font-size:15px}
-.footer{background:var(--dark);color:rgba(255,255,255,.55);padding:50px 0 24px;font-size:13px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
-.footer-brand .logo{color:#fff;margin-bottom:12px}
-.footer-brand p{line-height:1.8;max-width:280px;font-size:13px}
-.footer h4{color:#fff;font-size:13px;font-weight:700;margin-bottom:16px;letter-spacing:1px}
-.footer ul{list-style:none}
-.footer ul li{margin-bottom:8px}
-.footer ul li a{transition:.3s;cursor:pointer}
-.footer ul li a:hover{color:var(--accent)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:12px;flex-wrap:wrap;gap:8px}
-@media(max-width:768px){
-.nav{display:none}
-.mobile-menu{display:block}
-.hero h1{font-size:32px}
-.hero-stats{gap:24px;margin-top:40px}
-.section{padding:60px 0}
-.products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-.product-img{height:220px}
-.modal-body{grid-template-columns:1fr}
-.modal-img{min-height:260px}
-.about-grid{grid-template-columns:1fr;gap:32px}
-.about-img{height:280px}
-.stats-bar{grid-template-columns:repeat(2,1fr)}
-.contact-grid{grid-template-columns:1fr;gap:32px}
-.footer-grid{grid-template-columns:1fr 1fr}
-.process-wrap{gap:8px}
-.process-item{min-width:100px;padding:12px 6px}
-.pdf-frame{height:480px}
-}
-@media(max-width:480px){
-.products-grid{grid-template-columns:1fr}
-.hero h1{font-size:26px}
-.hero-stats{gap:16px}
-.stat-num{font-size:28px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS 2026 产品目录 | 雷恩富庄 B2B</title>
+    <style>
+        :root { --primary: #1a3c2b; --primary-light: #2d5a45; --bg: #f5f5f0; --card-bg: #fff; --text: #333; --text-light: #666; --border: #e8e8e3; --shadow: 0 4px 24px rgba(0,0,0,0.06); --radius: 12px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .header { background: var(--primary); color: #fff; text-align: center; padding: 60px 20px 50px; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.3; }
+        .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 1px; position: relative; }
+        .header p { font-size: 1.05rem; opacity: 0.85; font-weight: 300; position: relative; }
+        .badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 6px 18px; border-radius: 20px; font-size: 0.85rem; margin-top: 16px; position: relative; }
+        .nav-bar { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); padding: 12px 20px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.1); }
+        .nav-bar a { color: rgba(255,255,255,0.8); text-decoration: none; padding: 6px 16px; border-radius: 20px; font-size: 0.9rem; transition: all 0.2s; }
+        .nav-bar a:hover, .nav-bar a.active { background: rgba(255,255,255,0.2); color: #fff; }
+        .stats-bar { background: var(--card-bg); border-radius: var(--radius); padding: 24px; margin: 24px auto; max-width: 1160px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .stat-item h4 { font-size: 1.8rem; color: var(--primary); margin-bottom: 4px; }
+        .stat-item p { font-size: 0.85rem; color: var(--text-light); }
+        .filter-bar { max-width: 1200px; margin: 0 auto; padding: 0 20px 16px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+        .filter-label { font-size: 0.9rem; color: var(--text-light); margin-right: 8px; }
+        .filter-btn { padding: 8px 18px; border: 1px solid var(--border); background: var(--card-bg); border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: all 0.2s; color: var(--text); }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 8px 20px 40px; }
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .product-card { background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+        .product-image { position: relative; width: 100%; padding-bottom: 133%; background: linear-gradient(135deg, #e8e8e3 0%, #d0d0c8 100%); overflow: hidden; }
+        .product-image img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .product-card:hover .product-image img { transform: scale(1.05); }
+        .product-image.no-image::after { content: attr(data-id); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #999; font-size: 0.9rem; font-weight: 500; }
+        .product-tag { position: absolute; top: 12px; left: 12px; background: var(--primary); color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 500; z-index: 2; }
+        .product-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .product-id { font-size: 0.8rem; color: var(--text-light); font-family: "SF Mono", Monaco, monospace; margin-bottom: 4px; }
+        .product-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; color: var(--text); line-height: 1.4; }
+        .product-meta { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; flex: 1; }
+        .meta-item { font-size: 0.85rem; color: var(--text-light); }
+        .product-actions { display: flex; gap: 8px; }
+        .btn-size, .btn-inquiry { flex: 1; padding: 10px 0; border-radius: 8px; border: none; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-align: center; text-decoration: none; transition: all 0.2s; }
+        .btn-size { background: #f0f0eb; color: var(--text); }
+        .btn-size:hover { background: #e0e0d8; }
+        .btn-size.disabled { opacity: 0.6; cursor: default; }
+        .btn-inquiry { background: var(--primary); color: #fff; }
+        .btn-inquiry:hover { background: var(--primary-light); }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center; padding: 20px; backdrop-filter: blur(4px); }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--card-bg); border-radius: var(--radius); max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); animation: modalIn 0.3s ease; }
+        @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-header { padding: 24px 24px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+        .modal-title { font-size: 1.2rem; font-weight: 600; }
+        .modal-subtitle { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; font-family: monospace; }
+        .modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); padding: 4px; line-height: 1; }
+        .modal-close:hover { color: var(--text); }
+        .modal-body { padding: 20px 24px 24px; }
+        .size-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .size-table th { background: var(--primary); color: #fff; padding: 12px 10px; text-align: center; font-weight: 500; }
+        .size-table th:first-child { border-radius: 8px 0 0 0; }
+        .size-table th:last-child { border-radius: 0 8px 0 0; }
+        .size-table td { padding: 10px; text-align: center; border-bottom: 1px solid var(--border); }
+        .size-table tr:nth-child(even) { background: #fafaf8; }
+        .size-table tr:hover { background: #f0f0eb; }
+        .modal-note { margin-top: 16px; padding: 12px; background: #fafaf8; border-radius: 8px; font-size: 0.85rem; color: var(--text-light); }
+        .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+        .modal-btn { flex: 1; padding: 12px; border-radius: 8px; border: none; font-size: 0.9rem; font-weight: 500; cursor: pointer; text-align: center; text-decoration: none; }
+        .modal-btn-primary { background: var(--primary); color: #fff; }
+        .modal-btn-secondary { background: #f0f0eb; color: var(--text); }
+        .contact-section { background: var(--primary); color: #fff; padding: 60px 20px; margin-top: 40px; }
+        .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-left h2 { font-size: 2rem; margin-bottom: 16px; }
+        .contact-left p { opacity: 0.85; line-height: 1.8; margin-bottom: 24px; }
+        .contact-info-list { display: flex; flex-direction: column; gap: 12px; }
+        .contact-info-item { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
+        .contact-info-item a { color: #fff; text-decoration: none; opacity: 0.9; }
+        .contact-info-item a:hover { opacity: 1; text-decoration: underline; }
+        .contact-right { background: rgba(255,255,255,0.1); border-radius: var(--radius); padding: 32px; backdrop-filter: blur(10px); }
+        .contact-right h3 { margin-bottom: 20px; font-size: 1.2rem; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 0.85rem; margin-bottom: 6px; opacity: 0.9; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-size: 0.95rem; font-family: inherit; }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: rgba(255,255,255,0.5); }
+        .form-group textarea { resize: vertical; min-height: 100px; }
+        .btn-submit { width: 100%; padding: 14px; background: #fff; color: var(--primary); border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-submit:hover { background: #f0f0eb; transform: translateY(-1px); }
+        .pdf-bar { background: var(--card-bg); border-radius: var(--radius); padding: 24px; margin: 0 auto 24px; max-width: 1160px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; box-shadow: var(--shadow); border: 1px solid var(--border); }
+        .pdf-bar-text h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .pdf-bar-text p { font-size: 0.9rem; color: var(--text-light); }
+        .btn-pdf { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 500; transition: all 0.2s; }
+        .btn-pdf:hover { background: var(--primary-light); }
+        .footer { text-align: center; padding: 24px; font-size: 0.85rem; color: var(--text-light); background: var(--bg); }
+        @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(2, 1fr); } .contact-inner { grid-template-columns: 1fr; gap: 40px; } }
+        @media (max-width: 640px) { .header { padding: 40px 20px; } .header h1 { font-size: 1.8rem; } .product-grid { grid-template-columns: 1fr; } .stats-bar { grid-template-columns: repeat(2, 1fr); } .pdf-bar { flex-direction: column; text-align: center; } .modal { max-height: 85vh; } .contact-right { padding: 24px; } }
+    </style>
 </head>
 <body>
-
-<!-- Header -->
-<header class="header">
-  <div class="container header-inner">
-    <a href="#home" class="logo" onclick="navigate('home');return false">
-      <div class="logo-icon">莱</div>
-      <span data-i18n="brand">莱恩制造</span>
-    </a>
-    <nav class="nav">
-      <a href="#home" onclick="navigate('home');return false" data-i18n="nav_home">首页</a>
-      <a href="#products" onclick="navigate('products');return false" data-i18n="nav_products">产品中心</a>
-      <a href="#catalog" onclick="navigate('catalog');return false" data-i18n="nav_catalog">电子画册</a>
-      <a href="#about" onclick="navigate('about');return false" data-i18n="nav_about">关于我们</a>
-      <a href="#contact" onclick="navigate('contact');return false" data-i18n="nav_contact">联系我们</a>
-      <button class="lang-switch" onclick="toggleLang()">EN / 中</button>
-    </nav>
-    <div class="mobile-menu" onclick="toggleMobileMenu()">☰</div>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#home" onclick="navigate('home');toggleMobileMenu();return false" data-i18n="nav_home">首页</a>
-    <a href="#products" onclick="navigate('products');toggleMobileMenu();return false" data-i18n="nav_products">产品中心</a>
-    <a href="#catalog" onclick="navigate('catalog');toggleMobileMenu();return false" data-i18n="nav_catalog">电子画册</a>
-    <a href="#about" onclick="navigate('about');toggleMobileMenu();return false" data-i18n="nav_about">关于我们</a>
-    <a href="#contact" onclick="navigate('contact');toggleMobileMenu();return false" data-i18n="nav_contact">联系我们</a>
-    <a onclick="toggleLang();toggleMobileMenu()" style="color:var(--accent)">🌐 English / 中文</a>
-  </div>
-</header>
-
-<!-- ==================== HOME ==================== -->
-<div class="page active" id="page-home">
-  <section class="hero" style="min-height:100vh">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <div class="hero-badge">Spring / Summer 2026</div>
-      <h1 data-i18n="hero_title">专业女装 <span>OEM / ODM</span><br>一站式制造服务</h1>
-      <p data-i18n="hero_desc">广州莱恩制造，专注女装休闲服装生产。从设计打样到批量出货，为全球品牌提供高品质、快交期的柔性供应链解决方案。</p>
-      <div class="hero-btns">
-        <a href="#products" class="btn-primary" onclick="navigate('products');return false" data-i18n="btn_browse">浏览产品系列</a>
-        <a href="#catalog" class="btn-secondary" onclick="navigate('catalog');return false">📖 <span data-i18n="btn_catalog">查看电子画册</span></a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">100</div><div class="stat-label" data-i18n="stat_moq">件起订 MOQ</div></div>
-        <div class="stat"><div class="stat-num">7-10</div><div class="stat-label" data-i18n="stat_sample">天出样</div></div>
-        <div class="stat"><div class="stat-num">25-35</div><div class="stat-label" data-i18n="stat_bulk">天大货</div></div>
-        <div class="stat"><div class="stat-num">18+</div><div class="stat-label" data-i18n="stat_styles">SS26 新款</div></div>
-      </div>
+    <header class="header">
+        <h1>SS 2026 产品目录</h1>
+        <p>18 款春夏新品 · 支持 OEM & ODM 定制 · 广州女装制造商</p>
+        <div class="badge">Women's Apparel | OEM & ODM Services</div>
+        <nav class="nav-bar">
+            <a href="#products" class="active">全部产品</a>
+            <a href="Fashion_Catalog_B2B.pdf" target="_blank">📄 PDF 画册</a>
+            <a href="#contact">联系我们</a>
+        </nav>
+    </header>
+    <div class="stats-bar">
+        <div class="stat-item"><h4>18</h4><p>春夏新款</p></div>
+        <div class="stat-item"><h4>100</h4><p>件起订/色</p></div>
+        <div class="stat-item"><h4>7-10</h4><p>天出样衣</p></div>
+        <div class="stat-item"><h4>25-35</h4><p>天大货交期</p></div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Featured Collection</div>
-        <h2 class="section-title" data-i18n="feat_title">SS 2026 春夏精选</h2>
-        <p class="section-sub" data-i18n="feat_sub">从画册中精选热门款式，支持 OEM/ODM 定制，100 件起订</p>
-      </div>
-      <div class="products-grid" id="featuredGrid"></div>
-      <div style="text-align:center;margin-top:36px">
-        <a href="#products" class="btn-primary" onclick="navigate('products');return false" data-i18n="btn_all">查看全部 18 款产品 →</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="section" style="background:var(--light)">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Digital Catalog</div>
-        <h2 class="section-title" data-i18n="cat_title2">在线浏览 SS 2026 画册</h2>
-        <p class="section-sub" data-i18n="cat_sub2">18 款春夏新品，支持翻页浏览，点击右下角下载完整 PDF</p>
-      </div>
-      <embed src="Fashion_Catalog_B2B.pdf" type="application/pdf" style="width:100%;height:700px;border:1px solid var(--border);border-radius:12px;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.06)">
-      <div style="text-align:center;margin-top:24px">
-        <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" download>📥 <span data-i18n="btn_download">下载 PDF 画册</span></a>
-        <a href="#products" class="btn-secondary" style="margin-left:12px;background:var(--primary);color:#fff;border:none" onclick="navigate('products');return false" data-i18n="btn_browse">浏览产品列表</a>
-      </div>
-    </div>
-  </section>
-
-<section class="section" style="background:var(--light)">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Our Advantages</div>
-        <h2 class="section-title" data-i18n="adv_title">为什么选择莱恩制造</h2>
-        <p class="section-sub" data-i18n="adv_sub">从设计到出货，全流程把控，让品牌方省心、放心</p>
-      </div>
-      <div class="features-grid">
-        <div class="feature-card"><div class="feature-icon">🎯</div><h3 data-i18n="f1_t">低起订量</h3><p data-i18n="f1_d">MOQ 仅 100 件/色，适合新兴品牌和测款需求，降低库存风险</p></div>
-        <div class="feature-card"><div class="feature-icon">⚡</div><h3 data-i18n="f2_t">快速出样</h3><p data-i18n="f2_d">7-10 天完成样衣制作，支持多次修改，确保产前样确认无误</p></div>
-        <div class="feature-card"><div class="feature-icon">🏭</div><h3 data-i18n="f3_t">柔性产能</h3><p data-i18n="f3_d">25-35 天大货交期，支持小批量多款式混单，适应快时尚节奏</p></div>
-        <div class="feature-card"><div class="feature-icon">🎨</div><h3 data-i18n="f4_t">OEM & ODM</h3><p data-i18n="f4_d">来样加工、来图定制、自主设计开发，满足多样化合作模式</p></div>
-        <div class="feature-card"><div class="feature-icon">✅</div><h3 data-i18n="f5_t">品质管控</h3><p data-i18n="f5_d">AQL 2.5 质检标准，三道全检工序，确保每件出厂产品符合要求</p></div>
-        <div class="feature-card"><div class="feature-icon">📦</div><h3 data-i18n="f6_t">定制包装</h3><p data-i18n="f6_d">支持定制吊牌、洗水唛、包装袋、包装盒，打造品牌专属形象</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Workflow</div>
-        <h2 class="section-title" data-i18n="flow_title">合作流程</h2>
-        <p class="section-sub" data-i18n="flow_sub">简单五步，从沟通到出货，全程专人对接</p>
-      </div>
-      <div class="process-wrap">
-        <div class="process-item"><div class="process-num">1</div><h4 data-i18n="p1_t">需求沟通</h4><p data-i18n="p1_d">提供款式图/样衣，确认面料、颜色、数量</p></div>
-        <div class="process-item"><div class="process-num">2</div><h4 data-i18n="p2_t">报价确认</h4><p data-i18n="p2_d">核算成本，确认价格、交期及付款方式</p></div>
-        <div class="process-item"><div class="process-num">3</div><h4 data-i18n="p3_t">样衣制作</h4><p data-i18n="p3_d">7-10 天出样，确认版型、工艺、尺寸</p></div>
-        <div class="process-item"><div class="process-num">4</div><h4 data-i18n="p4_t">大货生产</h4><p data-i18n="p4_d">25-35 天批量生产，全程 QC 跟进</p></div>
-        <div class="process-item"><div class="process-num">5</div><h4 data-i18n="p5_t">质检出货</h4><p data-i18n="p5_d">尾期全检，安排物流，交付成品</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-banner">
-    <div class="container" style="position:relative;z-index:2">
-      <h2 data-i18n="cta_title">下载完整 SS 2026 产品画册</h2>
-      <p data-i18n="cta_desc">18 款春夏新品，含高清产品图、详细尺码表、面料及工艺说明</p>
-      <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" download>📥 <span data-i18n="btn_download">下载 PDF 画册</span></a>
-      <a href="#catalog" class="btn-secondary" style="margin-left:12px" onclick="navigate('catalog');return false" data-i18n="btn_preview">在线预览</a>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== PRODUCTS ==================== -->
-<div class="page" id="page-products">
-  <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
-    <div class="container">
-      <h1 style="font-size:36px;font-weight:800;margin-bottom:10px" data-i18n="prod_title">产品中心</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="prod_sub">SS 2026 春夏系列 · 18 款可定制产品 · 100 件起订</p>
-    </div>
-  </section>
-  <section style="padding:32px 0 0">
-    <div class="container">
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all" onclick="filterProducts('all')" data-i18n="filt_all">全部</button>
-        <button class="filter-btn" data-filter="套装" onclick="filterProducts('套装')">套装</button>
-        <button class="filter-btn" data-filter="连衣裙" onclick="filterProducts('连衣裙')">连衣裙</button>
-        <button class="filter-btn" data-filter="裤装" onclick="filterProducts('裤装')">裤装</button>
-        <button class="filter-btn" data-filter="连体裤" onclick="filterProducts('连体裤')">连体裤</button>
-        <button class="filter-btn" data-filter="上衣" onclick="filterProducts('上衣')">上衣</button>
-      </div>
-    </div>
-  </section>
-  <section class="section" style="padding-top:20px">
-    <div class="container">
-      <div class="products-grid" id="productGrid"></div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== CATALOG ==================== -->
-<div class="page" id="page-catalog">
-  <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
-    <div class="container">
-      <h1 style="font-size:36px;font-weight:800;margin-bottom:10px">SS 2026 <span data-i18n="cat_title">电子画册</span></h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="cat_sub">在线预览或下载完整 PDF 产品目录 · 18 款春夏新品</p>
-    </div>
-  </section>
-  <section style="padding:50px 0;background:var(--light);min-height:60vh">
-    <div class="container">
-      <embed src="Fashion_Catalog_B2B.pdf" type="application/pdf" class="pdf-frame" id="pdfEmbed">
-      <noscript>
-        <div class="pdf-fallback">
-          <h3>📖 Fashion Catalog B2B — Spring/Summer 2026</h3>
-          <p>您的浏览器不支持 PDF 在线预览，请下载后查看完整画册。</p>
-          <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" download>📥 下载 PDF 画册</a>
+    <div class="pdf-bar">
+        <div class="pdf-bar-text">
+            <h3>需要完整产品资料？</h3>
+            <p>下载 PDF 版本，包含全部 18 款产品的详细尺码表和工艺说明</p>
         </div>
-      </noscript>
-      <div style="text-align:center;margin-top:28px">
-        <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" download>📥 <span data-i18n="btn_download">下载 PDF 画册</span></a>
-        <a href="#products" class="btn-secondary" style="margin-left:12px" onclick="navigate('products');return false" data-i18n="btn_browse">浏览产品列表</a>
-      </div>
-      <div class="tips-grid">
-        <div class="tip-card"><h4>🖥️ 电脑端浏览</h4><p>推荐使用 Chrome / Edge / Safari 浏览器直接预览 PDF。支持缩放、翻页、搜索款号。</p></div>
-        <div class="tip-card"><h4>📱 移动端浏览</h4><p>手机端建议直接下载 PDF 后使用微信/钉钉/WPS 打开查看，体验更佳。</p></div>
-        <div class="tip-card"><h4>🔄 画册更新</h4><p>本画册为 SS 2026 春夏系列。后续上新后，替换同名 PDF 文件即可自动更新。</p></div>
-        <div class="tip-card"><h4>💡 嵌入到主页</h4><p>如果你想在主页直接展示画册，可以添加「查看电子画册」按钮链接到本页。</p></div>
-      </div>
+        <a href="Fashion_Catalog_B2B.pdf" download class="btn-pdf">📥 下载 PDF 画册</a>
     </div>
-  </section>
-</div>
-
-<!-- ==================== ABOUT ==================== -->
-<div class="page" id="page-about">
-  <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
-    <div class="container">
-      <h1 style="font-size:36px;font-weight:800;margin-bottom:10px" data-i18n="about_title">关于莱恩制造</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="about_sub">专注女装休闲服装 OEM/ODM · 广州白云 · 服务全球品牌</p>
+    <div class="filter-bar">
+        <span class="filter-label">筛选:</span>
+        <button class="filter-btn active" onclick="filterProducts('all', this)">全部</button>
+        <button class="filter-btn" onclick="filterProducts('套装', this)">套装</button>
+        <button class="filter-btn" onclick="filterProducts('连衣裙', this)">连衣裙</button>
+        <button class="filter-btn" onclick="filterProducts('休闲裤', this)">裤装</button>
+        <button class="filter-btn" onclick="filterProducts('上衣', this)">上衣</button>
+        <button class="filter-btn" onclick="filterProducts('两件套', this)">两件套</button>
     </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=600&fit=crop" alt="factory"></div>
-        <div class="about-content">
-          <h2 data-i18n="about_h2">从设计到成衣<br>一站式柔性供应链</h2>
-          <p data-i18n="about_p1">莱恩制造位于中国广州白云区，是一家专注于<b>女装休闲服装 OEM/ODM</b>生产的专业制造商。我们服务全球独立设计师品牌、电商卖家、批发商及连锁零售商。</p>
-          <p data-i18n="about_p2">从 SS 2026 春夏系列开始，我们推出了 18 款全新设计，涵盖裤装、套装、连衣裙、连体裤及上衣等品类。所有款式均支持<b>颜色定制、尺码调整、标签包装定制</b>，满足品牌差异化需求。</p>
-          <p data-i18n="about_p3">我们坚持 <b>AQL 2.5 质检标准</b>，配备专业 QC 团队进行面料检验、中期巡检及尾期全检，确保每一件出厂产品都符合客户要求。</p>
-          <div class="stats-bar">
-            <div class="stat-item"><div class="num">10+</div><div class="label" data-i18n="s1">年行业经验</div></div>
-            <div class="stat-item"><div class="num">200+</div><div class="label" data-i18n="s2">合作客户</div></div>
-            <div class="stat-item"><div class="num">50+</div><div class="label" data-i18n="s3">月产能(万件)</div></div>
-            <div class="stat-item"><div class="num">98%</div><div class="label" data-i18n="s4">客户满意度</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section" style="background:var(--light)">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Our Services</div>
-        <h2 class="section-title" data-i18n="svc_title">核心服务</h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-card"><div class="icon">🎨</div><h3 data-i18n="sv1_t">OEM 来样加工</h3><p data-i18n="sv1_d">客户提供样衣或设计图，我们负责打版、选料、生产。支持来样复刻、来图定制，保留客户原有设计细节。</p></div>
-        <div class="service-card"><div class="icon">💡</div><h3 data-i18n="sv2_t">ODM 自主设计</h3><p data-i18n="sv2_d">基于市场趋势和我们的设计能力，为客户提供从款式开发到成品交付的全套方案。适合希望快速上新的品牌。</p></div>
-        <div class="service-card"><div class="icon">📐</div><h3 data-i18n="sv3_t">版型定制</h3><p data-i18n="sv3_d">支持根据客户目标市场的体型数据调整版型，提供 EU 34-46 全尺码覆盖，可定制加大码及特殊尺码。</p></div>
-        <div class="service-card"><div class="icon">🧵</div><h3 data-i18n="sv4_t">面料开发</h3><p data-i18n="sv4_d">与广州中大面料市场及多家面料厂深度合作，可为客户寻找、开发、定制专属面料，提供面料色卡。</p></div>
-        <div class="service-card"><div class="icon">🏷️</div><h3 data-i18n="sv5_t">标签包装定制</h3><p data-i18n="sv5_d">支持定制品牌吊牌、洗水唛、尺码标、包装袋、包装盒，帮助客户打造完整的品牌视觉体系。</p></div>
-        <div class="service-card"><div class="icon">📦</div><h3 data-i18n="sv6_t">一件代发支持</h3><p data-i18n="sv6_d">可为跨境电商卖家提供贴单代发服务，支持混款混色小批量发货，降低库存压力。</p></div>
-      </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Quality Control</div>
-        <h2 class="section-title" data-i18n="qc_title">质量控制体系</h2>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
-        <div><img src="https://images.unsplash.com/photo-1580893246395-52aead8960dc?w=800&h=500&fit=crop" alt="质检" style="border-radius:14px;width:100%;height:280px;object-fit:cover"></div>
-        <div class="timeline">
-          <div class="timeline-item"><h4 data-i18n="q1_t">面料入库检验</h4><p data-i18n="q1_d">所有面料入仓前进行色牢度、克重、幅宽、瑕疵点检验，不合格面料直接退回供应商。</p></div>
-          <div class="timeline-item"><h4 data-i18n="q2_t">产前样确认</h4><p data-i18n="q2_d">大货生产前制作产前样（PP Sample），客户确认版型、工艺、尺寸后方可开裁。</p></div>
-          <div class="timeline-item"><h4 data-i18n="q3_t">中期巡检</h4><p data-i18n="q3_d">生产进行到 30%-50% 时进行中期巡检，检查车缝工艺、尺寸偏差、对称性等关键指标。</p></div>
-          <div class="timeline-item"><h4 data-i18n="q4_t">尾期全检</h4><p data-i18n="q4_d">成品完成后进行 100% 全检，按 AQL 2.5 标准验收，确保无脏污、破洞、线头、尺寸超标等问题。</p></div>
-          <div class="timeline-item"><h4 data-i18n="q5_t">包装复核</h4><p data-i18n="q5_d">包装前再次核对款号、颜色、尺码、数量，确保与客户订单完全一致。</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="cta-banner">
-    <div class="container" style="position:relative;z-index:2">
-      <h2 data-i18n="ready_title">准备好开始合作了吗？</h2>
-      <p data-i18n="ready_desc">无论您是初创品牌还是成熟卖家，我们都能为您提供灵活的生产方案和专业的服务支持。</p>
-      <a href="#contact" class="btn-primary" onclick="navigate('contact');return false" data-i18n="btn_contact">联系我们获取报价</a>
-      <a href="Fashion_Catalog_B2B.pdf" class="btn-secondary" style="margin-left:12px" download data-i18n="btn_download">下载产品画册</a>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== CONTACT ==================== -->
-<div class="page" id="page-contact">
-  <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
-    <div class="container">
-      <h1 style="font-size:36px;font-weight:800;margin-bottom:10px" data-i18n="ct_title">联系我们</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="ct_sub">获取报价、申请样衣、洽谈合作 — 我们期待与您建立长期伙伴关系</p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="form-card">
-          <h2 data-i18n="form_title">发送询盘</h2>
-          <p class="sub" data-i18n="form_sub">填写以下信息，我们将在 24 小时内回复您</p>
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" onsubmit="handleSubmit(event)">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="form-group"><label data-i18n="lbl_name">您的姓名 *</label><input type="text" name="name" required placeholder="Name"></div>
-              <div class="form-group"><label data-i18n="lbl_company">公司名称</label><input type="text" name="company" placeholder="Company"></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="form-group"><label data-i18n="lbl_email">电子邮箱 *</label><input type="email" name="email" required placeholder="example@company.com"></div>
-              <div class="form-group"><label>WhatsApp / <span data-i18n="lbl_phone">电话</span></label><input type="tel" name="phone" placeholder="+86 17551350093"></div>
-            </div>
-            <div class="form-group">
-              <label data-i18n="lbl_type">咨询类型</label>
-              <select name="type">
-                <option value="" data-i18n="sel_default">请选择</option>
-                <option value="quote" data-i18n="sel_quote">产品报价</option>
-                <option value="sample" data-i18n="sel_sample">样衣申请</option>
-                <option value="oem" data-i18n="sel_oem">OEM 合作</option>
-                <option value="odm" data-i18n="sel_odm">ODM 开发</option>
-                <option value="other" data-i18n="sel_other">其他</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label data-i18n="lbl_msg">感兴趣的产品 / 需求描述 *</label>
-              <textarea name="message" required placeholder="请描述您的需求，例如：
-- 感兴趣的款号
-- 目标数量及颜色
-- 目标市场及尺码要求
-- 期望交期"></textarea>
-            </div>
-            <button type="submit" class="btn-submit" data-i18n="btn_submit">提交询盘</button>
-            <p style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center">💡 <span data-i18n="tip_form">提示：您也可以直接通过右侧 WhatsApp / 微信联系我们，响应更快</span></p>
-          </form>
-        </div>
-        <div class="info-card">
-          <h3 data-i18n="info_title">联系方式</h3>
-          <div class="info-item"><div class="info-icon">📧</div><div><h4>Email</h4><p><a href="mailto:LeiEnFuZhuang@outlook.com">LeiEnFuZhuang@outlook.com</a></p></div></div>
-          <div class="info-item"><div class="info-icon">📱</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/8617551350093" target="_blank">+86 17551350093</a></p></div></div>
-          <div class="info-item"><div class="info-icon">💬</div><div><h4>WeChat</h4><p>17551350093</p></div></div>
-          <div class="info-item"><div class="info-icon">📞</div><div><h4 data-i18n="info_tel">电话</h4><p>+86 17551350093</p></div></div>
-          <div class="info-item"><div class="info-icon">📍</div><div><h4 data-i18n="info_addr">地址</h4><p>Guangzhou, China<br>Guangzhou, Guangdong, China</p></div></div>
-          <div class="map-placeholder">🗺️ <span data-i18n="map_tip">地图占位 — 建议替换为 Google Maps / 百度地图嵌入代码</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ==================== FOOTER ==================== -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo"><div class="logo-icon">莱</div><span data-i18n="brand">莱恩制造</span></div>
-        <p data-i18n="footer_desc">广州专业女装休闲服装 OEM/ODM 制造商。SS 2026 春夏系列已全面上线，欢迎品牌方、批发商、电商卖家洽谈合作。</p>
-      </div>
-      <div>
-        <h4 data-i18n="f_nav">快速导航</h4>
-        <ul>
-          <li><a onclick="navigate('home')" data-i18n="nav_home">首页</a></li>
-          <li><a onclick="navigate('products')" data-i18n="nav_products">产品中心</a></li>
-          <li><a onclick="navigate('catalog')" data-i18n="nav_catalog">电子画册</a></li>
-          <li><a onclick="navigate('about')" data-i18n="nav_about">关于我们</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="f_svc">服务支持</h4>
-        <ul>
-          <li><a onclick="navigate('contact')" data-i18n="nav_contact">获取报价</a></li>
-          <li><a onclick="navigate('contact')" data-i18n="f_sample">样衣申请</a></li>
-          <li><a onclick="navigate('about')" data-i18n="f_cap">生产能力</a></li>
-          <li><a onclick="navigate('about')" data-i18n="f_qc">质量控制</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="f_contact">联系方式</h4>
-        <ul>
-          <li>📧 LeiEnFuZhuang@outlook.com</li>
-          <li>📱 +86 17551350093</li>
-          <li>📍 <span data-i18n="f_addr">Guangzhou, China</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 <span data-i18n="brand">莱恩制造</span> Laien Manufacturing</div>
-      <div data-i18n="f_tag">女装休闲服装 OEM/ODM | 广州</div>
-    </div>
-  </div>
-</footer>
-
-<!-- WhatsApp Float -->
-<a href="https://wa.me/8617551350093" class="whatsapp-float" target="_blank" title="WhatsApp">💬</a>
-
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-body" id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-// ===== Product Data =====
-const products = [
-  {id:"251KZ65215-A199",name:"抽绳灯笼休闲裤",nameEn:"Drawstring Lantern Casual Pants",cat:"裤装",catEn:"Pants",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"宽松灯笼版型，腰部抽绳设计，侧边大口袋",descEn:"Loose lantern fit, drawstring waist, side cargo pockets",img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop"},
-  {id:"2525TZ63224-A008",name:"V领短袖上衣+阔腿裤套装",nameEn:"V-Neck Top + Wide Leg Pants Set",cat:"套装",catEn:"Sets",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"简约V领短袖上衣搭配高腰阔腿裤，通勤休闲两相宜",descEn:"Minimalist V-neck top with high-waist wide leg pants",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"265KZ02112-A008",name:"高腰百褶阔腿裤",nameEn:"High-Waist Pleated Wide Leg Pants",cat:"裤装",catEn:"Pants",size:"XXS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"高腰设计配百褶细节，优雅阔腿剪裁，后腰松紧",descEn:"High-waist with pleated details, elastic back waistband",img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop"},
-  {id:"265KZ03007-A886",name:"高腰阔腿裙裤",nameEn:"High-Waist Wide Leg Culottes",cat:"裤装",catEn:"Pants",size:"S-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"裙裤设计，高腰收腹，后背拉链，下摆褶皱细节",descEn:"Culotte style, high-waist tummy control, back zipper",img:"https://images.unsplash.com/photo-1584370848010-d7cc637733f3?w=600&h=800&fit=crop"},
-  {id:"265KZ102299-A899",name:"豹纹工装短裤",nameEn:"Leopard Print Cargo Shorts",cat:"裤装",catEn:"Pants",size:"0XL-4XL",moq:"100 pcs/color",name:"豹纹工装短裤",nameEn:"Leopard Print Cargo Shorts",cat:"裤装",catEn:"Pants",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"豹纹印花工装风短裤，侧边抽绳口袋，时尚个性",descEn:"Leopard print cargo shorts with side drawstring pockets",img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&h=800&fit=crop"},
-  {id:"265SY02419-A886",name:"单肩不对称雪纺上衣",nameEn:"One-Shoulder Asymmetric Chiffon Top",cat:"上衣",catEn:"Tops",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"单肩不对称设计，轻盈雪纺面料，下摆不规则剪裁",descEn:"One-shoulder asymmetric design, lightweight chiffon, irregular hem",img:"https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&h=800&fit=crop"},
-  {id:"265TZ00934-A888",name:"植物印花Crop Top+长裙套装",nameEn:"Tropical Print Crop Top + Maxi Skirt Set",cat:"套装",catEn:"Sets",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"热带植物印花，无袖Crop Top搭配大摆长裙，度假风情",descEn:"Tropical print sleeveless crop top with flowing maxi skirt",img:"https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=600&h=800&fit=crop"},
-  {id:"265TZ01791-A008",name:"条纹单肩连体短裤",nameEn:"Striped One-Shoulder Romper",cat:"连体裤",catEn:"Jumpsuits",size:"XS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"斜条纹单肩设计，连体短裤版型，时尚休闲",descEn:"Diagonal stripe one-shoulder design, shorts romper style",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"265TZ01961-A882",name:"波点蕾丝拼接连体短裤",nameEn:"Polka Dot Lace Patch Romper",cat:"连体裤",catEn:"Jumpsuits",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"经典波点印花，蕾丝拼接细节，单肩设计",descEn:"Classic polka dot with lace patch details, one-shoulder design",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008-1",name:"彩色印花泡泡袖上衣+阔腿裤",nameEn:"Colorful Print Puff Sleeve Top + Pants",cat:"套装",catEn:"Sets",size:"0XL-3XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"艺术感彩色印花，泡泡袖上衣配高腰阔腿裤",descEn:"Artistic colorful print, puff sleeve top with high-waist pants",img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008-9",name:"棕色单肩褶皱连衣裙",nameEn:"Brown One-Shoulder Ruched Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"单肩不对称设计，修身褶皱剪裁，优雅长裙",descEn:"One-shoulder asymmetric, bodycon ruched cut, elegant midi dress",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008",name:"黄色西装马甲+百慕大短裤套装",nameEn:"Yellow Blazer Vest + Bermuda Shorts Set",cat:"套装",catEn:"Sets",size:"XS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"西装领马甲搭配百慕大短裤，干练时尚",descEn:"Notch lapel vest with Bermuda shorts, smart casual style",img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop"},
-  {id:"265TZ02196-A882",name:"红白格子上衣+短裤套装",nameEn:"Red Plaid Top + Shorts Set",cat:"套装",catEn:"Sets",size:"0XL-3XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"经典红白格纹，泡泡袖上衣配高腰短裤",descEn:"Classic red plaid, puff sleeve top with high-waist shorts",img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop"},
-  {id:"265TZ70203-A886",name:"橙色Crop Top+大摆长裙套装",nameEn:"Orange Crop Top + Maxi Skirt Set",cat:"套装",catEn:"Sets",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"翻领短袖Crop Top，腰部刺绣细节，大摆长裙",descEn:"Collared crop top with waist embroidery, flowing maxi skirt",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"266LQ02834-A899",name:"红色无袖不规则连衣裙",nameEn:"Red Sleeveless Asymmetric Dress",cat:"连衣裙",catEn:"Dresses",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"无袖设计，腰部褶皱，前短后长不规则裙摆",descEn:"Sleeveless, waist ruching, high-low asymmetric hem",img:"https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=600&h=800&fit=crop"},
-  {id:"266LQ03104-A008",name:"棕色露肩褶皱长裙",nameEn:"Brown Off-Shoulder Ruched Maxi Dress",cat:"连衣裙",catEn:"Dresses",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"露肩一字领设计，全身褶皱修身，及地长裙",descEn:"Off-shoulder bardot neckline, full body ruching, floor-length",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"266LQ04239-A008",name:"灰色高领长袖连衣裙",nameEn:"Grey Mock Neck Long Sleeve Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"小高领设计，腰部V型镂空褶皱，修身长裙",descEn:"Mock neck, waist V-cut ruching, bodycon midi dress",img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop"},
-  {id:"266LQ04104-A008",name:"紫色长袖褶皱连衣裙",nameEn:"Purple Long Sleeve Ruched Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"圆领长袖，腰部金属环扣褶皱设计，侧开叉",descEn:"Crew neck long sleeve, metal ring waist ruching, side slit",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"}
-];
-
-// ===== i18n =====
-const i18n = {
-  zh: {
-    brand:"莱恩制造", nav_home:"首页", nav_products:"产品中心", nav_catalog:"电子画册", nav_about:"关于我们", nav_contact:"联系我们",
-    hero_title:"专业女装 <span>OEM / ODM</span><br>一站式制造服务",
-    hero_desc:"广州莱恩制造，专注女装休闲服装生产。从设计打样到批量出货，为全球品牌提供高品质、快交期的柔性供应链解决方案。",
-    btn_browse:"浏览产品系列", btn_catalog:"查看电子画册", btn_all:"查看全部 18 款产品 →",
-    stat_moq:"件起订 MOQ", stat_sample:"天出样", stat_bulk:"天大货", stat_styles:"SS26 新款",
-    feat_title:"SS 2026 春夏精选", feat_sub:"从画册中精选热门款式，支持 OEM/ODM 定制，100 件起订",
-    adv_title:"为什么选择莱恩制造", adv_sub:"从设计到出货，全流程把控，让品牌方省心、放心",
-    f1_t:"低起订量", f1_d:"MOQ 仅 100 件/色，适合新兴品牌和测款需求，降低库存风险",
-    f2_t:"快速出样", f2_d:"7-10 天完成样衣制作，支持多次修改，确保产前样确认无误",
-    f3_t:"柔性产能", f3_d:"25-35 天大货交期，支持小批量多款式混单，适应快时尚节奏",
-    f4_t:"OEM & ODM", f4_d:"来样加工、来图定制、自主设计开发，满足多样化合作模式",
-    f5_t:"品质管控", f5_d:"AQL 2.5 质检标准，三道全检工序，确保每件出厂产品符合要求",
-    f6_t:"定制包装", f6_d:"支持定制吊牌、洗水唛、包装袋、包装盒，打造品牌专属形象",
-    flow_title:"合作流程", flow_sub:"简单五步，从沟通到出货，全程专人对接",
-    p1_t:"需求沟通", p1_d:"提供款式图/样衣，确认面料、颜色、数量",
-    p2_t:"报价确认", p2_d:"核算成本，确认价格、交期及付款方式",
-    p3_t:"样衣制作", p3_d:"7-10 天出样，确认版型、工艺、尺寸",
-    p4_t:"大货生产", p4_d:"25-35 天批量生产，全程 QC 跟进",
-    p5_t:"质检出货", p5_d:"尾期全检，安排物流，交付成品",
-    cta_title:"下载完整 SS 2026 产品画册", cta_desc:"18 款春夏新品，含高清产品图、详细尺码表、面料及工艺说明",
-    btn_download:"下载 PDF 画册", btn_preview:"在线预览",
-    prod_title:"产品中心", prod_sub:"SS 2026 春夏系列 · 18 款可定制产品 · 100 件起订", filt_all:"全部",
-    cat_title:"电子画册", cat_sub:"在线预览或下载完整 PDF 产品目录 · 18 款春夏新品",
-    about_title:"关于莱恩制造", about_sub:"专注女装休闲服装 OEM/ODM · 广州白云 · 服务全球品牌",
-    about_h2:"从设计到成衣<br>一站式柔性供应链",
-    about_p1:"莱恩制造位于中国广州白云区，是一家专注于<b>女装休闲服装 OEM/ODM</b>生产的专业制造商。我们服务全球独立设计师品牌、电商卖家、批发商及连锁零售商。",
-    about_p2:"从 SS 2026 春夏系列开始，我们推出了 18 款全新设计，涵盖裤装、套装、连衣裙、连体裤及上衣等品类。所有款式均支持<b>颜色定制、尺码调整、标签包装定制</b>，满足品牌差异化需求。",
-    about_p3:"我们坚持 <b>AQL 2.5 质检标准</b>，配备专业 QC 团队进行面料检验、中期巡检及尾期全检，确保每一件出厂产品都符合客户要求。",
-    s1:"年行业经验", s2:"合作客户", s3:"月产能(万件)", s4:"客户满意度",
-    svc_title:"核心服务",
-    sv1_t:"OEM 来样加工", sv1_d:"客户提供样衣或设计图，我们负责打版、选料、生产。支持来样复刻、来图定制，保留客户原有设计细节。",
-    sv2_t:"ODM 自主设计", sv2_d:"基于市场趋势和我们的设计能力，为客户提供从款式开发到成品交付的全套方案。适合希望快速上新的品牌。",
-    sv3_t:"版型定制", sv3_d:"支持根据客户目标市场的体型数据调整版型，提供 EU 34-46 全尺码覆盖，可定制加大码及特殊尺码。",
-    sv4_t:"面料开发", sv4_d:"与广州中大面料市场及多家面料厂深度合作，可为客户寻找、开发、定制专属面料，提供面料色卡。",
-    sv5_t:"标签包装定制", sv5_d:"支持定制品牌吊牌、洗水唛、尺码标、包装袋、包装盒，帮助客户打造完整的品牌视觉体系。",
-    sv6_t:"一件代发支持", sv6_d:"可为跨境电商卖家提供贴单代发服务，支持混款混色小批量发货，降低库存压力。",
-    qc_title:"质量控制体系",
-    q1_t:"面料入库检验", q1_d:"所有面料入仓前进行色牢度、克重、幅宽、瑕疵点检验，不合格面料直接退回供应商。",
-    q2_t:"产前样确认", q2_d:"大货生产前制作产前样（PP Sample），客户确认版型、工艺、尺寸后方可开裁。",
-    q3_t:"中期巡检", q3_d:"生产进行到 30%-50% 时进行中期巡检，检查车缝工艺、尺寸偏差、对称性等关键指标。",
-    q4_t:"尾期全检", q4_d:"成品完成后进行 100% 全检，按 AQL 2.5 标准验收，确保无脏污、破洞、线头、尺寸超标等问题。",
-    q5_t:"包装复核", q5_d:"包装前再次核对款号、颜色、尺码、数量，确保与客户订单完全一致。",
-    ready_title:"准备好开始合作了吗？", ready_desc:"无论您是初创品牌还是成熟卖家，我们都能为您提供灵活的生产方案和专业的服务支持。",
-    btn_contact:"联系我们获取报价",
-    ct_title:"联系我们", ct_sub:"获取报价、申请样衣、洽谈合作 — 我们期待与您建立长期伙伴关系",
-    form_title:"发送询盘", form_sub:"填写以下信息，我们将在 24 小时内回复您",
-    lbl_name:"您的姓名 *", lbl_company:"公司名称", lbl_email:"电子邮箱 *", lbl_phone:"电话",
-    lbl_type:"咨询类型", lbl_msg:"感兴趣的产品 / 需求描述 *",
-    sel_default:"请选择", sel_quote:"产品报价", sel_sample:"样衣申请", sel_oem:"OEM 合作", sel_odm:"ODM 开发", sel_other:"其他",
-    btn_submit:"提交询盘", tip_form:"提示：您也可以直接通过右侧 WhatsApp / 微信联系我们，响应更快",
-    info_title:"联系方式", info_tel:"电话", info_addr:"地址",
-    map_tip:"地图占位 — 建议替换为 Google Maps / 百度地图嵌入代码",
-    footer_desc:"广州专业女装休闲服装 OEM/ODM 制造商。SS 2026 春夏系列已全面上线，欢迎品牌方、批发商、电商卖家洽谈合作。",
-    f_nav:"快速导航", f_svc:"服务支持", f_contact:"联系方式", f_addr:"Guangzhou, China",
-    f_sample:"样衣申请", f_cap:"生产能力", f_qc:"质量控制", f_tag:"女装休闲服装 OEM/ODM | 广州"
-  },
-  en: {
-    brand:"Laien Mfg", nav_home:"Home", nav_products:"Products", nav_catalog:"Catalog", nav_about:"About", nav_contact:"Contact",
-    hero_title:"Professional Women's Apparel<br><span>OEM / ODM</span> Manufacturing",
-    hero_desc:"Based in Guangzhou, China. From design sampling to bulk production, we provide high-quality, fast-turnaround flexible supply chain solutions for global brands.",
-    btn_browse:"Browse Collection", btn_catalog:"View Catalog", btn_all:"View All 18 Products →",
-    stat_moq:"pcs MOQ", stat_sample:"Days Sample", stat_bulk:"Days Bulk", stat_styles:"SS26 Styles",
-    feat_title:"SS 2026 Featured Collection", feat_sub:"Selected styles from our catalog. OEM/ODM customization available. 100 pcs MOQ.",
-    adv_title:"Why Laien Manufacturing", adv_sub:"End-to-end control from design to delivery. Hassle-free for brand owners.",
-    f1_t:"Low MOQ", f1_d:"Only 100 pcs per color. Perfect for emerging brands and test orders with low inventory risk.",
-    f2_t:"Fast Sampling", f2_d:"7-10 days for sample production. Multiple revisions supported to ensure pre-production approval.",
-    f3_t:"Flexible Capacity", f3_d:"25-35 days bulk lead time. Small batch multi-style mixed orders supported for fast fashion.",
-    f4_t:"OEM & ODM", f4_d:"Sample-based production, design-to-order, and in-house development for diverse partnership models.",
-    f5_t:"Quality Control", f5_d:"AQL 2.5 inspection standard with three-stage QC to ensure every piece meets requirements.",
-    f6_t:"Custom Packaging", f6_d:"Custom hang tags, care labels, poly bags, and cartons to build your brand identity.",
-    flow_title:"Our Workflow", flow_sub:"Five simple steps from inquiry to delivery, with dedicated account managers.",
-    p1_t:"Inquiry", p1_d:"Share designs/samples. Confirm fabric, color, and quantity.",
-    p2_t:"Quotation", p2_d:"Cost calculation. Confirm price, lead time, and payment terms.",
-    p3_t:"Sampling", p3_d:"7-10 days for samples. Confirm fit, workmanship, and measurements.",
-    p4_t:"Production", p4_d:"25-35 days bulk production with ongoing QC monitoring.",
-    p5_t:"Inspection & Delivery", p5_d:"Final inspection, logistics arrangement, and delivery.",
-    cta_title:"Download Full SS 2026 Catalog", cta_desc:"18 new styles with high-res images, detailed size charts, fabric and workmanship specs.",
-    btn_download:"Download PDF Catalog", btn_preview:"Preview Online",
-    prod_title:"Products", prod_sub:"SS 2026 Collection · 18 Customizable Styles · 100 pcs MOQ", filt_all:"All",
-    cat_title:"Digital Catalog", cat_sub:"Preview or download the full PDF product catalog · 18 SS styles",
-    about_title:"About Laien Manufacturing", about_sub:"Women's Casual Apparel OEM/ODM · Baiyun, Guangzhou · Serving Global Brands",
-    about_h2:"From Design to Garment<br>One-Stop Flexible Supply Chain",
-    about_p1:"Laien Manufacturing is a professional <b>women's casual apparel OEM/ODM</b> manufacturer based in Baiyun District, Guangzhou, China. We serve independent designer brands, e-commerce sellers, wholesalers, and retail chains worldwide.",
-    about_p2:"Starting from the SS 2026 collection, we launched 18 new designs covering pants, sets, dresses, jumpsuits, and tops. All styles support <b>color customization, size adjustment, and private labeling/packaging</b> to meet brand differentiation needs.",
-    about_p3:"We adhere to <b>AQL 2.5 quality standards</b> with a dedicated QC team for fabric inspection, in-line checks, and final inspection to ensure every piece meets client requirements.",
-    s1:"Years Experience", s2:"Clients", s3:"Monthly Capacity (10K)", s4:"Satisfaction",
-    svc_title:"Core Services",
-    sv1_t:"OEM Production", sv1_d:"Clients provide samples or tech packs. We handle pattern-making, sourcing, and production. Sample replication and design-to-order supported.",
-    sv2_t:"ODM Development", sv2_d:"Based on market trends and our design capabilities, we provide full-package solutions from style development to finished goods delivery.",
-    sv3_t:"Fit Customization", sv3_d:"Adjust patterns based on target market body data. Full EU 34-46 size range. Plus sizes and special fits available.",
-    sv4_t:"Fabric Sourcing", sv4_d:"Deep partnerships with Zhongda fabric market and mills. We can source, develop, and customize exclusive fabrics with swatch cards.",
-    sv5_t:"Private Label & Packaging", sv5_d:"Custom hang tags, care labels, size labels, poly bags, and cartons to build a complete brand visual system.",
-    sv6_t:"Dropshipping Support", sv6_d:"Dropshipping services for cross-border e-commerce sellers. Mixed style/color small batch shipping supported.",
-    qc_title:"Quality Control System",
-    q1_t:"Incoming Fabric Inspection", q1_d:"All fabrics are inspected for color fastness, weight, width, and defects before warehousing. Rejected fabrics are returned.",
-    q2_t:"Pre-Production Sample", q2_d:"PP samples are made before bulk cutting. Clients approve fit, workmanship, and measurements before production starts.",
-    q3_t:"In-Line Inspection", q3_d:"Mid-production inspection at 30-50% completion. Checking stitching, measurement deviation, and symmetry.",
-    q4_t:"Final Inspection", q4_d:"100% final inspection per AQL 2.5 standard. Ensuring no stains, holes, loose threads, or out-of-tolerance sizes.",
-    q5_t:"Packing Verification", q5_d:"Re-checking style numbers, colors, sizes, and quantities before packing to ensure order accuracy.",
-    ready_title:"Ready to Partner?", ready_desc:"Whether you are a startup brand or an established seller, we offer flexible production solutions and professional support.",
-    btn_contact:"Contact for Quote",
-    ct_title:"Contact Us", ct_sub:"Get quotes, request samples, discuss partnerships — we look forward to building long-term relationships",
-    form_title:"Send Inquiry", form_sub:"Fill in the form below. We will reply within 24 hours.",
-    lbl_name:"Your Name *", lbl_company:"Company", lbl_email:"Email *", lbl_phone:"Phone",
-    lbl_type:"Inquiry Type", lbl_msg:"Products of Interest / Requirements *",
-    sel_default:"Select", sel_quote:"Product Quote", sel_sample:"Sample Request", sel_oem:"OEM Partnership", sel_odm:"ODM Development", sel_other:"Other",
-    btn_submit:"Submit Inquiry", tip_form:"Tip: You can also reach us directly via WhatsApp / WeChat on the right for faster response.",
-    info_title:"Contact Info", info_tel:"Tel", info_addr:"Address",
-    map_tip:"Map placeholder — Replace with Google Maps / Baidu Maps embed code",
-    footer_desc:"Professional women's casual apparel OEM/ODM manufacturer in Guangzhou. SS 2026 collection now available. Welcome brands, wholesalers, and e-commerce sellers.",
-    f_nav:"Quick Links", f_svc:"Services", f_contact:"Contact", f_addr:"Baiyun, Guangzhou",
-    f_sample:"Sample Request", f_cap:"Capacity", f_qc:"Quality Control", f_tag:"Women's Apparel OEM/ODM | Guangzhou"
-  }
-};
-
-let currentLang = 'zh';
-
-function applyLang(){
-  const dict = i18n[currentLang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if(dict[key]) el.innerHTML = dict[key];
-  });
-  document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
-}
-
-function toggleLang(){
-  currentLang = currentLang === 'zh' ? 'en' : 'zh';
-  applyLang();
-  renderFeatured();
-  const activeFilter = document.querySelector('.filter-btn.active');
-  if(activeFilter) filterProducts(activeFilter.dataset.filter || 'all');
-}
-
-// ===== Routing =====
-function navigate(page){
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
-  const target = document.getElementById('page-' + page);
-  if(target) target.classList.add('active');
-  document.querySelectorAll('.nav a').forEach(a => {
-    if(a.getAttribute('href') === '#' + page) a.classList.add('active');
-  });
-  window.scrollTo(0,0);
-  history.pushState(null, null, '#' + page);
-}
-
-window.addEventListener('popstate', function(){
-  const hash = location.hash.replace('#','') || 'home';
-  navigate(hash);
-});
-
-// ===== Product Rendering =====
-function renderCard(p, lang){
-  const name = lang === 'en' ? p.nameEn : p.name;
-  const cat = lang === 'en' ? p.catEn : p.cat;
-  const desc = lang === 'en' ? p.descEn : p.desc;
-  const moq = lang === 'en' ? p.moq : p.moq.replace('pcs/color','件/色');
-  return `<div class="product-card" onclick="openModal('${p.id}')">
-    <div class="product-img"><img src="${p.img}" alt="${p.id}" loading="lazy"><span class="product-tag">${cat}</span></div>
-    <div class="product-info">
-      <div class="product-id">${p.id}</div>
-      <div class="product-name">${name}</div>
-      <div class="product-meta"><span>📐 ${p.size}</span><span>🎨 ${moq}</span></div>
-      <div class="product-desc">${desc}</div>
-    </div>
-  </div>`;
-}
-
-function renderFeatured(){
-  const grid = document.getElementById('featuredGrid');
-  if(!grid) return;
-  const featured = [products[0], products[1], products[6], products[9], products[14], products[16]];
-  grid.innerHTML = featured.map(p => renderCard(p, currentLang)).join('');
-}
-
-function filterProducts(filter){
-  const grid = document.getElementById('productGrid');
-  if(!grid) return;
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    b.classList.toggle('active', b.dataset.filter === filter);
-  });
-  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
-  grid.innerHTML = filtered.map(p => renderCard(p, currentLang)).join('');
-}
-
-// ===== Modal =====
-function openModal(id){
-  const p = products.find(x => x.id === id);
-  if(!p) return;
-  const isEn = currentLang === 'en';
-  document.getElementById('modalBody').innerHTML = `
-    <div class="modal-img"><img src="${p.img}" alt="${p.id}"></div>
-    <div class="modal-info">
-      <div class="product-id">STYLE NO. ${p.id}</div>
-      <h2>${isEn ? p.nameEn : p.name}</h2>
-      <p class="desc">${isEn ? p.descEn : p.desc}</p>
-      <table class="spec-table">
-        <tr><td>${isEn ? 'Category' : '品类'}</td><td>${isEn ? p.catEn : p.cat}</td></tr>
-        <tr><td>${isEn ? 'Size Range' : '尺码范围'}</td><td>${p.size} (EU 34-46)</td></tr>
-        <tr><td>${isEn ? 'MOQ' : '起订量'}</td><td>${isEn ? p.moq : p.moq.replace('pcs/color','件/色')}</td></tr>
-        <tr><td>${isEn ? 'Sample Lead' : '样衣交期'}</td><td>${p.sample}</td></tr>
-        <tr><td>${isEn ? 'Bulk Lead' : '大货交期'}</td><td>${p.bulk}</td></tr>
-        <tr><td>${isEn ? 'Packing' : '包装'}</td><td>${isEn ? '1 pc/polybag, standard carton' : '1件/胶袋，标准纸箱'}</td></tr>
-        <tr><td>${isEn ? 'Payment' : '付款方式'}</td><td>${isEn ? 'T/T 30% deposit, 70% before shipment' : 'T/T 30%定金，70%出货前'}</td></tr>
-        <tr><td>${isEn ? 'Customization' : '定制服务'}</td><td>${isEn ? 'OEM & ODM. Colors/labels/packaging customizable.' : 'OEM & ODM 可定制颜色/标签/包装'}</td></tr>
-      </table>
-      <div class="modal-cta">
-        <a href="#contact" class="btn-primary" onclick="navigate('contact');closeModal();return false">${isEn ? 'Inquire This Style' : '咨询此款报价'}</a>
-        <a href="Fashion_Catalog_B2B.pdf" class="btn-outline" download>📥 ${isEn ? 'Download Catalog' : '下载画册'}</a>
-      </div>
-    </div>`;
-  document.getElementById('modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(){
-  document.getElementById('modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('modal').addEventListener('click', e => { if(e.target.id === 'modal') closeModal(); });
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
-
-// ===== Mobile Menu =====
-function toggleMobileMenu(){
-  document.getElementById('mobileNav').classList.toggle('show');
-}
-
-// ===== Form =====
-function handleSubmit(e){
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}})
-    .then(r => {
-      if(r.ok){
-        alert(currentLang === 'zh' ? '✅ 询盘已提交，我们会尽快联系您！' : '✅ Inquiry submitted! We will contact you soon.');
-        form.reset();
-      } else {
-        alert(currentLang === 'zh' ? '❌ 提交失败，请直接通过 WhatsApp 联系我们。' : '❌ Submission failed. Please contact us via WhatsApp.');
-      }
-    })
-    .catch(() => {
-      alert(currentLang === 'zh' ? '❌ 提交失败，请直接通过 WhatsApp 联系我们。' : '❌ Submission failed. Please contact us via WhatsApp.');
-    });
-}
-
-// ===== Init =====
-document.addEventListener('DOMContentLoaded', function(){
-  const hash = location.hash.replace('#','') || 'home';
-  navigate(hash);
-  applyLang();
-  renderFeatured();
-  filterProducts('all');
-});
-</script>
-</body>
-</html>
+    <main class="container" id="products">
+        <div class="product-grid">
