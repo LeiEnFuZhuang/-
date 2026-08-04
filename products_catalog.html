@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SS 2026 产品目录 | 莱恩制造</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #0a0a0a;
+    color: #e5e5e5;
+    line-height: 1.6;
+  }
+  .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
+
+  /* Header */
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  .page-header p {
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+  .page-header .badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+
+  /* Filter Tabs */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  .filter-btn {
+    padding: 8px 22px;
+    background: transparent;
+    border: 1px solid #333;
+    color: #888;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+  }
+
+  /* Product Grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  /* Product Card */
+  .product-card {
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+  }
+  .product-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    background: #1a1a1a;
+    display: block;
+  }
+  .product-image.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    font-size: 0.9rem;
+  }
+  .product-body {
+    padding: 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-category {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .product-style {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+    font-family: "Courier New", monospace;
+  }
+  .product-desc {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  /* Specs */
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #222;
+    font-size: 0.85rem;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-label { color: #666; }
+  .spec-value { color: #ccc; font-weight: 500; }
+
+  /* Buttons */
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 18px;
+  }
+  .btn {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+  }
+  .btn-primary {
+    background: #fff;
+    color: #000;
+  }
+  .btn-primary:hover { background: #ddd; }
+  .btn-secondary {
+    background: transparent;
+    color: #aaa;
+    border: 1px solid #333;
+  }
+  .btn-secondary:hover { border-color: #666; color: #fff; }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal-content {
+    background: #141414;
+    border: 1px solid #333;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+  }
+  .modal-header {
+    padding: 24px 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-header h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: "Courier New", monospace;
+  }
+  .modal-close {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { background: #222; color: #fff; }
+  .modal-body {
+    padding: 20px 24px 24px;
+  }
+  .modal-section {
+    margin-bottom: 20px;
+  }
+  .modal-section h4 {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .modal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .modal-table th, .modal-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid #222;
+  }
+  .modal-table th {
+    color: #888;
+    font-weight: 500;
+    background: #1a1a1a;
+  }
+  .modal-table td { color: #ccc; }
+  .modal-note {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* PDF Modal */
+  .pdf-modal .modal-content {
+    max-width: 900px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .pdf-modal .modal-body {
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+  }
+  .pdf-modal iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0 0 12px 12px;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .page-header h1 { font-size: 1.6rem; }
+    .product-grid { grid-template-columns: 1fr; gap: 20px; }
+    .product-image { height: 320px; }
+    .pdf-modal .modal-content { max-width: 100%; height: 80vh; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="page-header">
+    <h1>SS 2026 产品目录</h1>
+    <p>Spring / Summer 2026 · Women's Apparel · OEM & ODM</p>
+    <div class="badge">18 款可定制产品 · 100 件起订</div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProducts('all')">全部</button>
+    <button class="filter-btn" onclick="filterProducts('裤装')">裤装</button>
+    <button class="filter-btn" onclick="filterProducts('上衣')">上衣</button>
+    <button class="filter-btn" onclick="filterProducts('套装')">套装</button>
+    <button class="filter-btn" onclick="filterProducts('连体裤')">连体裤</button>
+    <button class="filter-btn" onclick="filterProducts('连衣裙')">连衣裙</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+
+    <div class="product-card" data-category="裤装">
+      <img src="images/251KZ65215-A199.jpg" alt="251KZ65215-A199" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 251KZ65215-A199</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">裤装</div>
+        <div class="product-style">251KZ65215-A199</div>
+        <div class="product-desc">抽绳灯笼休闲裤，宽松灯笼版型，腰部抽绳设计，侧边大口袋</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">0XL-4XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=3" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('251KZ65215-A199', '裤装', '抽绳灯笼休闲裤，宽松灯笼版型，腰部抽绳设计，侧边大口袋', '0XL-4XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 3)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/2525TZ63224-A008.jpg" alt="2525TZ63224-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 2525TZ63224-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">2525TZ63224-A008</div>
+        <div class="product-desc">V领短袖上衣+阔腿裤套装，简约V领短袖上衣搭配高腰阔腿裤，通勤休闲两相宜</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=5" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('2525TZ63224-A008', '套装', 'V领短袖上衣+阔腿裤套装，简约V领短袖上衣搭配高腰阔腿裤，通勤休闲两相宜', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 5)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="裤装">
+      <img src="images/265KZ02112-A008.jpg" alt="265KZ02112-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265KZ02112-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">裤装</div>
+        <div class="product-style">265KZ02112-A008</div>
+        <div class="product-desc">高腰百褶阔腿裤，高腰设计配百褶细节，优雅阔腿剪裁，后腰松紧</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XXS-XXL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=7" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265KZ02112-A008', '裤装', '高腰百褶阔腿裤，高腰设计配百褶细节，优雅阔腿剪裁，后腰松紧', 'XXS-XXL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 7)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="裤装">
+      <img src="images/265KZ03007-A886.jpg" alt="265KZ03007-A886" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265KZ03007-A886</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">裤装</div>
+        <div class="product-style">265KZ03007-A886</div>
+        <div class="product-desc">高腰阔腿裙裤，裙裤设计，高腰收腹，后背拉链，下摆褶皱细节</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XXL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=9" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265KZ03007-A886', '裤装', '高腰阔腿裙裤，裙裤设计，高腰收腹，后背拉链，下摆褶皱细节', 'S-XXL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 9)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="裤装">
+      <img src="images/265KZ102299-A899.jpg" alt="265KZ102299-A899" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265KZ102299-A899</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">裤装</div>
+        <div class="product-style">265KZ102299-A899</div>
+        <div class="product-desc">豹纹工装短裤，豹纹印花工装风短裤，侧边抽绳口袋，时尚个性</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">0XL-4XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=11" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265KZ102299-A899', '裤装', '豹纹工装短裤，豹纹印花工装风短裤，侧边抽绳口袋，时尚个性', '0XL-4XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 11)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="上衣">
+      <img src="images/265SY02419-A886.jpg" alt="265SY02419-A886" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265SY02419-A886</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">上衣</div>
+        <div class="product-style">265SY02419-A886</div>
+        <div class="product-desc">单肩不对称雪纺上衣，单肩不对称设计，轻盈雪纺面料，下摆不规则剪裁</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=13" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265SY02419-A886', '上衣', '单肩不对称雪纺上衣，单肩不对称设计，轻盈雪纺面料，下摆不规则剪裁', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 13)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/265TZ00934-A888.jpg" alt="265TZ00934-A888" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ00934-A888</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">265TZ00934-A888</div>
+        <div class="product-desc">植物印花Crop Top+长裙套装，热带植物印花，无袖Crop Top搭配大摆长裙，度假风情</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=15" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ00934-A888', '套装', '植物印花Crop Top+长裙套装，热带植物印花，无袖Crop Top搭配大摆长裙，度假风情', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 15)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连体裤">
+      <img src="images/265TZ01791-A008.jpg" alt="265TZ01791-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ01791-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连体裤</div>
+        <div class="product-style">265TZ01791-A008</div>
+        <div class="product-desc">条纹单肩连体短裤，斜条纹单肩设计，连体短裤版型，时尚休闲</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XS-XXL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=17" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ01791-A008', '连体裤', '条纹单肩连体短裤，斜条纹单肩设计，连体短裤版型，时尚休闲', 'XS-XXL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 17)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连体裤">
+      <img src="images/265TZ01961-A882.jpg" alt="265TZ01961-A882" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ01961-A882</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连体裤</div>
+        <div class="product-style">265TZ01961-A882</div>
+        <div class="product-desc">波点单肩连体短裤，单肩波点设计，腰部褶皱，蕾丝拼接细节</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XS-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=19" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ01961-A882', '连体裤', '波点单肩连体短裤，单肩波点设计，腰部褶皱，蕾丝拼接细节', 'XS-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 19)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/265TZ02058-A008-1.jpg" alt="265TZ02058-A008 (1)" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ02058-A008 (1)</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">265TZ02058-A008 (1)</div>
+        <div class="product-desc">彩色印花泡泡袖上衣+阔腿裤，艺术感彩色印花，泡泡袖上衣配高腰阔腿裤</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">0XL-3XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=21" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ02058-A008 (1)', '套装', '彩色印花泡泡袖上衣+阔腿裤，艺术感彩色印花，泡泡袖上衣配高腰阔腿裤', '0XL-3XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 21)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连衣裙">
+      <img src="images/265TZ02058-A008-9.jpg" alt="265TZ02058-A008 (9)" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ02058-A008 (9)</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连衣裙</div>
+        <div class="product-style">265TZ02058-A008 (9)</div>
+        <div class="product-desc">棕色单肩褶皱连衣裙，单肩不对称设计，腰部褶皱修身，优雅长裙</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=23" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ02058-A008 (9)', '连衣裙', '棕色单肩褶皱连衣裙，单肩不对称设计，腰部褶皱修身，优雅长裙', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 23)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/265TZ02058-A008.jpg" alt="265TZ02058-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ02058-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">265TZ02058-A008</div>
+        <div class="product-desc">黄色马甲+短裤套装，西装领马甲搭配高腰短裤，通勤时尚</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XS-XXL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=25" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ02058-A008', '套装', '黄色马甲+短裤套装，西装领马甲搭配高腰短裤，通勤时尚', 'XS-XXL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 25)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/265TZ02196-A882.jpg" alt="265TZ02196-A882" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ02196-A882</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">265TZ02196-A882</div>
+        <div class="product-desc">格纹泡泡袖上衣+短裤套装，V领系带设计，泡泡袖搭配高腰短裤</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">0XL-3XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=27" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ02196-A882', '套装', '格纹泡泡袖上衣+短裤套装，V领系带设计，泡泡袖搭配高腰短裤', '0XL-3XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 27)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="套装">
+      <img src="images/265TZ70203-A886.jpg" alt="265TZ70203-A886" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 265TZ70203-A886</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">套装</div>
+        <div class="product-style">265TZ70203-A886</div>
+        <div class="product-desc">橙色衬衫+长裙套装，翻领短袖衬衫搭配高腰大摆长裙，度假通勤两相宜</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XS-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=29" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('265TZ70203-A886', '套装', '橙色衬衫+长裙套装，翻领短袖衬衫搭配高腰大摆长裙，度假通勤两相宜', 'XS-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 29)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连衣裙">
+      <img src="images/266LQ02834-A899.jpg" alt="266LQ02834-A899" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 266LQ02834-A899</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连衣裙</div>
+        <div class="product-style">266LQ02834-A899</div>
+        <div class="product-desc">红色无袖不规则连衣裙，无袖设计，腰部褶皱，前短后长不规则裙摆</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">0XL-4XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=31" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('266LQ02834-A899', '连衣裙', '红色无袖不规则连衣裙，无袖设计，腰部褶皱，前短后长不规则裙摆', '0XL-4XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 31)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连衣裙">
+      <img src="images/266LQ03104-A008.jpg" alt="266LQ03104-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 266LQ03104-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连衣裙</div>
+        <div class="product-style">266LQ03104-A008</div>
+        <div class="product-desc">棕色露肩褶皱长裙，露肩设计，腰部褶皱修身，大摆长裙优雅</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">XS-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=33" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('266LQ03104-A008', '连衣裙', '棕色露肩褶皱长裙，露肩设计，腰部褶皱修身，大摆长裙优雅', 'XS-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 33)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连衣裙">
+      <img src="images/266LQ04239-A008.jpg" alt="266LQ04239-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 266LQ04239-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连衣裙</div>
+        <div class="product-style">266LQ04239-A008</div>
+        <div class="product-desc">灰色高领长袖连衣裙，小高领设计，腰部V型镂空褶皱，修身长裙</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=35" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('266LQ04239-A008', '连衣裙', '灰色高领长袖连衣裙，小高领设计，腰部V型镂空褶皱，修身长裙', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 35)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="连衣裙">
+      <img src="images/266LQ04104-A008.jpg" alt="266LQ04104-A008" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <div class="product-image placeholder" style="display:none;">
+        <span>📷 266LQ04104-A008</span>
+      </div>
+      <div class="product-body">
+        <div class="product-category">连衣裙</div>
+        <div class="product-style">266LQ04104-A008</div>
+        <div class="product-desc">紫色长袖褶皱连衣裙，圆领设计，腰部金属扣褶皱，侧开叉修身</div>
+
+        <div class="spec-row">
+          <span class="spec-label">📐 尺码范围</span>
+          <span class="spec-value">S-XL (EU 34-46)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🎨 MOQ</span>
+          <span class="spec-value">100 件/色</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">⚡ 样衣</span>
+          <span class="spec-value">7-10 天</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-label">🏭 大货</span>
+          <span class="spec-value">25-35 天</span>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="pdfs/catalog.pdf#page=37" target="_blank">
+            📐 尺寸表
+          </a>
+          <button class="btn btn-secondary" onclick="openDetail('266LQ04104-A008', '连衣裙', '紫色长袖褶皱连衣裙，圆领设计，腰部金属扣褶皱，侧开叉修身', 'S-XL (EU 34-46)', '100 件/色', '7-10 天', '25-35 天', 37)">
+            📋 详情
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Detail Modal -->
+<div class="modal-overlay" id="detailModal" onclick="closeModal(event, 'detailModal')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modalStyle">STYLE NO.</h3>
+      <button class="modal-close" onclick="document.getElementById('detailModal').classList.remove('active')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h4>产品信息</h4>
+        <div class="spec-row"><span class="spec-label">品类</span><span class="spec-value" id="modalCategory">-</span></div>
+        <div class="spec-row"><span class="spec-label">描述</span><span class="spec-value" id="modalDesc">-</span></div>
+        <div class="spec-row"><span class="spec-label">尺码范围</span><span class="spec-value" id="modalSize">-</span></div>
+        <div class="spec-row"><span class="spec-label">MOQ</span><span class="spec-value" id="modalMoq">-</span></div>
+      </div>
+      <div class="modal-section">
+        <h4>交期 & 付款</h4>
+        <div class="spec-row"><span class="spec-label">样衣交期</span><span class="spec-value" id="modalSample">-</span></div>
+        <div class="spec-row"><span class="spec-label">大货交期</span><span class="spec-value" id="modalBulk">-</span></div>
+        <div class="spec-row"><span class="spec-label">付款方式</span><span class="spec-value">T/T 30% 定金, 70% 出货前</span></div>
+        <div class="spec-row"><span class="spec-label">包装</span><span class="spec-value">1 件/胶袋，标准纸箱</span></div>
+      </div>
+      <div class="modal-section">
+        <h4>服务</h4>
+        <p class="modal-note">
+          ✅ OEM & ODM 服务可接<br>
+          ✅ 定制吊牌、洗水唛、包装袋<br>
+          ✅ 可提供面料色卡<br>
+          ✅ AQL 2.5 质检标准
+        </p>
+      </div>
+      <div style="margin-top: 20px;">
+        <a id="modalPdfLink" href="#" target="_blank" class="btn btn-primary" style="width: 100%;">📐 查看完整尺寸表 (PDF)</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function filterProducts(cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.querySelectorAll('.product-card').forEach(card => {
+    if (cat === 'all' || card.dataset.category === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+function openDetail(style, category, desc, size, moq, sample, bulk, page) {
+  document.getElementById('modalStyle').textContent = style;
+  document.getElementById('modalCategory').textContent = category;
+  document.getElementById('modalDesc').textContent = desc;
+  document.getElementById('modalSize').textContent = size;
+  document.getElementById('modalMoq').textContent = moq;
+  document.getElementById('modalSample').textContent = sample;
+  document.getElementById('modalBulk').textContent = bulk;
+  document.getElementById('modalPdfLink').href = 'pdfs/catalog.pdf#page=' + page;
+  document.getElementById('detailModal').classList.add('active');
+}
+
+function closeModal(e, id) {
+  if (e.target.id === id) {
+    document.getElementById(id).classList.remove('active');
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.getElementById('detailModal').classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
