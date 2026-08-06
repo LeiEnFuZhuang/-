@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - LEIEN</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .contact-header h1 {
+            font-size: 2.2rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .contact-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+        .form-wrapper {
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        }
+        .alert {
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        .alert.show { display: flex; }
+        .alert-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #444;
+            font-size: 0.9rem;
+        }
+        .form-group label .required { color: #ef4444; margin-left: 2px; }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .submit-btn:hover { background: #333; }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .form-wrapper { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← 返回首页</a>
+        
+        <div class="contact-header">
+            <h1>联系我们</h1>
+            <p>填写下方表单，我们会尽快回复您</p>
+        </div>
+
+        <div class="form-wrapper">
+            <div class="alert alert-success" id="successAlert">
+                <span>✅</span>
+                <span>提交成功！我们会尽快与您联系。</span>
+            </div>
+
+            <!-- 把 action 里的邮箱改成你自己的 -->
+<form action="https://formsubmit.co/LeiEnFuZhuang@outlook.com" method="POST">               
+                <!-- 提交后跳转回当前页面并显示成功提示 -->
+                <input type="hidden" name="_next" value="https://leienfuzhuang.github.io/-/contact.html?sent=1">
+                <!-- 邮件主题 -->
+                <input type="hidden" name="_subject" value="【LEIEN官网询盘】新客户提交">
+                <!-- 邮件模板 -->
+                <input type="hidden" name="_template" value="table">
+                <!-- 关闭验证码（如需开启，删除这行） -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- 自动回复给客户 -->
+                <input type="hidden" name="_autoresponse" value="感谢您联系 LEIEN 蕾恩服饰，我们已收到您的询盘，将在24小时内与您联系。">
+                <input type="hidden" name="_replyto">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>姓名 <span class="required">*</span></label>
+                        <input type="text" name="name" placeholder="您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label>公司名称</label>
+                        <input type="text" name="company" placeholder="选填">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>邮箱 <span class="required">*</span></label>
+                        <input type="email" name="email" id="emailInput" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>电话 / WhatsApp <span class="required">*</span></label>
+                        <input type="tel" name="phone" placeholder="+86 138-XXXX-XXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>产品类型</label>
+                        <select name="product_type">
+                            <option value="">请选择</option>
+                            <option value="T恤/上衣">T恤 / 上衣</option>
+                            <option value="连衣裙">连衣裙</option>
+                            <option value="裤装">裤装</option>
+                            <option value="外套">外套</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>预计订单量</label>
+                        <select name="order_quantity">
+                            <option value="">请选择</option>
+                            <option value="100-500件">100 - 500 件</option>
+                            <option value="500-1000件">500 - 1,000 件</option>
+                            <option value="1000-5000件">1,000 - 5,000 件</option>
+                            <option value="5000件以上">5,000 件以上</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>询盘内容 <span class="required">*</span></label>
+                    <textarea name="message" placeholder="请描述您的需求：款式、面料、颜色、交期等..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">发送询盘</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 自动设置回复邮箱
+        document.getElementById('emailInput').addEventListener('input', function() {
+            document.querySelector('input[name="_replyto"]').value = this.value;
+        });
+        // 检测提交成功
+        if (window.location.search.includes('sent=1')) {
+            document.getElementById('successAlert').classList.add('show');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
+</body>
+</html>
