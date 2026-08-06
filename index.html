@@ -335,6 +335,7 @@ img{max-width:100%;display:block}
         <button class="filter-btn" data-filter="连体裤" onclick="filterProducts('连体裤')">连体裤</button>
         <button class="filter-btn" data-filter="上衣" onclick="filterProducts('上衣')">上衣</button>
       </div>
+    
     </div>
   </section>
   <section class="section" style="padding-top:20px">
@@ -513,8 +514,13 @@ img{max-width:100%;display:block}
         <div class="form-card">
           <h2 data-i18n="form_title">发送询盘</h2>
           <p class="sub" data-i18n="form_sub">填写以下信息，我们将在 24 小时内回复您</p>
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" onsubmit="handleSubmit(event)">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <form action="https://formsubmit.co/LeiEnFuZhuang@outlook.com" method="POST" id="contactForm">
+               <input type="hidden" name="_next" value="https://leienfuzhuang.github.io/">
+    <input type="hidden" name="_subject" value="【LEIEN官网询盘】新客户提交">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_autoresponse" value="感谢您联系 LEIEN 蕾恩服饰，我们已收到您的询盘，将在24小时内与您联系。">
+    <input type="hidden" name="_replyto"> <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
               <div class="form-group"><label data-i18n="lbl_name">您的姓名 *</label><input type="text" name="name" required placeholder="Name"></div>
               <div class="form-group"><label data-i18n="lbl_company">公司名称</label><input type="text" name="company" placeholder="Company"></div>
             </div>
@@ -867,24 +873,7 @@ function toggleMobileMenu(){
   document.getElementById('mobileNav').classList.toggle('show');
 }
 
-// ===== Form =====
-function handleSubmit(e){
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-  fetch(form.action, {method:'POST', body:data, headers:{Accept:'application/json'}})
-    .then(r => {
-      if(r.ok){
-        alert(currentLang === 'zh' ? '✅ 询盘已提交，我们会尽快联系您！' : '✅ Inquiry submitted! We will contact you soon.');
-        form.reset();
-      } else {
-        alert(currentLang === 'zh' ? '❌ 提交失败，请直接通过 WhatsApp 联系我们。' : '❌ Submission failed. Please contact us via WhatsApp.');
-      }
-    })
-    .catch(() => {
-      alert(currentLang === 'zh' ? '❌ 提交失败，请直接通过 WhatsApp 联系我们。' : '❌ Submission failed. Please contact us via WhatsApp.');
-    });
-}
+
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', function(){
