@@ -628,41 +628,17 @@ img{max-width:100%;display:block}
   <section class="section">
     <div class="container">
       <div class="contact-grid">
-        <div class="form-card">
-          <h2 data-i18n="form_title">发送询盘</h2>
-          <p class="sub" data-i18n="form_sub">填写以下信息，我们将在 24 小时内回复您</p>
-    <form action="mailto:LeiEnFuZhuang@outlook.com?subject=【LEIEN官网询盘】&body=询盘内容：" method="GET" id="contactForm">
-            
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="form-group"><label data-i18n="lbl_name">您的姓名 *</label><input type="text" name="name" required placeholder="Name"></div>
-              <div class="form-group"><label data-i18n="lbl_company">公司名称</label><input type="text" name="company" placeholder="Company"></div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-              <div class="form-group"><label data-i18n="lbl_email">电子邮箱 *</label><input type="email" name="email" required placeholder="example@company.com"></div>
-              <div class="form-group"><label>WhatsApp / <span data-i18n="lbl_phone">电话</span></label><input type="tel" name="phone" placeholder="+86 17551350093"></div>
-            </div>
-            <div class="form-group">
-              <label data-i18n="lbl_type">咨询类型</label>
-              <select name="type">
-                <option value="" data-i18n="sel_default">请选择</option>
-                <option value="quote" data-i18n="sel_quote">产品报价</option>
-                <option value="sample" data-i18n="sel_sample">样衣申请</option>
-                <option value="oem" data-i18n="sel_oem">OEM 合作</option>
-                <option value="odm" data-i18n="sel_odm">ODM 开发</option>
-                <option value="other" data-i18n="sel_other">其他</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label data-i18n="lbl_msg">感兴趣的产品 / 需求描述 *</label>
-              <textarea name="message" required placeholder="请描述您的需求，例如：
-- 感兴趣的款号
-- 目标数量及颜色
-- 目标市场及尺码要求
-- 期望交期"></textarea>
-            </div>
-            <button type="submit" class="btn-submit" data-i18n="btn_submit">提交询盘</button>
-            <p style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center">💡 <span data-i18n="tip_form">提示：您也可以直接通过右侧 WhatsApp / 微信联系我们，响应更快</span></p>
-          </form>
+    <div class="form-card" style="text-align:center; padding:40px 30px;">
+  <h2 data-i18n="form_title">发送询盘</h2>
+  <p class="sub" data-i18n="form_sub">点击按钮，将自动打开您的邮箱客户端</p>
+  <a href="mailto:LeiEnFuZhuang@outlook.com?subject=【LEIEN官网询盘】&body=您好，我对莱恩制造的以下产品感兴趣：%0A%0A款式号：%0A数量：%0A目标市场：%0A%0A请回复报价和交期，谢谢！"
+     style="display:inline-block; background:#1a3c2f; color:#fff; padding:16px 40px; border-radius:10px; text-decoration:none; font-weight:700; font-size:16px; margin-top:20px;">
+    📧 发送询盘邮件
+  </a>
+  <p style="margin-top:16px; font-size:13px; color:#888;">
+    或直接联系：LeiEnFuZhuang@outlook.com
+  </p>
+</div>
         </div>
         <div class="info-card">
           <h3 data-i18n="info_title">联系方式</h3>
