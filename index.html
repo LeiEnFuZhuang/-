@@ -631,13 +631,9 @@ img{max-width:100%;display:block}
         <div class="form-card">
           <h2 data-i18n="form_title">发送询盘</h2>
           <p class="sub" data-i18n="form_sub">填写以下信息，我们将在 24 小时内回复您</p>
-          <form action="https://formsubmit.co/LeiEnFuZhuang@outlook.com" method="POST" id="contactForm">
-               <input type="hidden" name="_next" value="https://leienfuzhuang.github.io/-/index.html#contact">
-    <input type="hidden" name="_subject" value="【LEIEN官网询盘】新客户提交">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_autoresponse" value="感谢您联系 LEIEN 蕾恩服饰，我们已收到您的询盘，将在24小时内与您联系。">
-    <input type="hidden" name="_replyto"> <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <form action="mailto:LeiEnFuZhuang@outlook.com?subject=【LEIEN官网询盘】&body=询盘内容：" method="GET" id="contactForm">
+            
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
               <div class="form-group"><label data-i18n="lbl_name">您的姓名 *</label><input type="text" name="name" required placeholder="Name"></div>
               <div class="form-group"><label data-i18n="lbl_company">公司名称</label><input type="text" name="company" placeholder="Company"></div>
             </div>
