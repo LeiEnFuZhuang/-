@@ -241,7 +241,124 @@ img{max-width:100%;display:block}
       </div>
     </div>
   </section>
+<!-- ===== 交期说明区域（复制到首页统计区下方）===== -->
+<style>
+.delivery-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.delivery-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a3c2f;
+  margin-bottom: 24px;
+}
+.delivery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.delivery-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid #e8e8e8;
+  transition: transform 0.3s;
+}
+.delivery-card:hover {
+  transform: translateY(-3px);
+}
+.delivery-card.highlight {
+  border: 2px solid #c9a96e;
+  background: linear-gradient(135deg, #fff 0%, #fdfbf6 100%);
+}
+.delivery-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.badge-standard {
+  background: #e8f0ec;
+  color: #1a3c2f;
+}
+.badge-express {
+  background: #c9a96e;
+  color: #fff;
+}
+.delivery-days {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a3c2f;
+  line-height: 1.2;
+}
+.delivery-days span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #888;
+}
+.delivery-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin: 8px 0 6px;
+}
+.delivery-desc {
+  font-size: 13px;
+  color: #777;
+  line-height: 1.6;
+}
+.delivery-note {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #999;
+}
+.delivery-note a {
+  color: #c9a96e;
+  text-decoration: none;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  .delivery-grid {
+    grid-template-columns: 1fr;
+  }
+  .delivery-days {
+    font-size: 30px;
+  }
+}
+</style>
 
+<div class="delivery-section">
+  <div class="delivery-title">📦 灵活交期 · 满足不同需求</div>
+  <div class="delivery-grid">
+
+    <div class="delivery-card">
+      <div class="delivery-badge badge-standard">标准服务</div>
+      <div class="delivery-days">25-35 <span>天</span></div>
+      <div class="delivery-label">常规大货交期</div>
+      <div class="delivery-desc">适用于新款式首次下单、复杂工艺或需定制面料的订单，品质稳定，流程规范。</div>
+    </div>
+
+    <div class="delivery-card highlight">
+      <div class="delivery-badge badge-express">快返服务</div>
+      <div class="delivery-days">15-20 <span>天</span></div>
+      <div class="delivery-label">快返 / 加急交期</div>
+      <div class="delivery-desc">适用于返单、现货面料、成熟款式的紧急补单。具体交期视产能和面料情况确认。</div>
+    </div>
+
+  </div>
+  <div class="delivery-note">
+    💡 具体交期因款式复杂度、面料供应和排期而异，<a href="#contact">联系我们获取准确排期 →</a>
+  </div>
+</div>
+<!-- ===== 交期说明区域结束 ===== -->
   <section class="section">
     <div class="container">
       <div class="section-header">
