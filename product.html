@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品详情 | 莱恩制造</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .breadcrumb a { color: #2d5a3d; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 8px; color: #ccc; }
+
+        /* Product Header */
+        .product-header {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .product-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .product-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        .category-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #2d5a3d;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .product-info h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .style-no {
+            font-size: 16px;
+            color: #888;
+            font-family: monospace;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+        .product-desc {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .spec-item .icon { font-size: 20px; }
+        .spec-item .label { color: #888; font-size: 12px; display: block; }
+        .spec-item .value { color: #333; font-weight: 600; }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #2d5a3d;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover { background: #234a30; transform: translateY(-1px); }
+        .btn-secondary {
+            background: #fff;
+            color: #2d5a3d;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid #2d5a3d;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-secondary:hover { background: #f0f7f2; }
+
+        /* Size Chart Section */
+        .section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #2d5a3d;
+            border-radius: 2px;
+        }
+        .chart-note {
+            background: #fff8e6;
+            border-left: 4px solid #f0a030;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+            color: #8b6914;
+        }
+
+        /* Table Styles */
+        .size-table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+        }
+        .size-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 600px;
+        }
+        .size-table thead {
+            background: #2d5a3d;
+            color: #fff;
+        }
+        .size-table th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .size-table tbody tr:nth-child(even) { background: #f8f9fa; }
+        .size-table tbody tr:hover { background: #f0f7f2; }
+        .size-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+        .size-table td:first-child {
+            font-weight: 600;
+            color: #2d5a3d;
+            white-space: nowrap;
+        }
+        .size-table .method-col {
+            color: #888;
+            font-size: 12px;
+            max-width: 200px;
+        }
+        .tolerance { color: #c45c3e; font-weight: 500; }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .info-card h4 {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .info-card p {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .info-card ul li::before {
+            content: "✓";
+            color: #2d5a3d;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Navigation */
+        .nav-products {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #eee;
+        }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #555;
+            padding: 12px 16px;
+            border-radius: 10px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            background: #f0f7f2;
+            color: #2d5a3d;
+        }
+        .nav-link .nav-label {
+            font-size: 12px;
+            color: #888;
+            display: block;
+        }
+        .nav-link .nav-name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-main { grid-template-columns: 1fr; }
+            .specs-grid { grid-template-columns: 1fr; }
+            .section { padding: 20px; }
+            .product-header { padding: 20px; }
+            .action-buttons { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="index.html">首页</a>
+            <span>/</span>
+            <a href="index.html#products">产品中心</a>
+            <span>/</span>
+            <span id="breadcrumb-category">套装</span>
+            <span>/</span>
+            <span id="breadcrumb-name">产品详情</span>
+        </nav>
+
+        <!-- Product Header -->
+        <div class="product-header">
+            <div class="product-main">
+                <div class="product-image">
+                    <span class="category-tag" id="detail-category">套装</span>
+                    <img id="detail-image" src="images/STYLE-NO.jpg" alt="产品图片">
+                </div>
+                <div class="product-info">
+                    <h1 id="detail-name">产品名称</h1>
+                    <span class="style-no" id="detail-style">STYLE-NO</span>
+                    <p class="product-desc" id="detail-desc">产品描述...</p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <span class="icon">📐</span>
+                            <div>
+                                <span class="label">尺码范围</span>
+                                <span class="value" id="detail-size">S-XL</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <span class="icon">🎨</span>
+                            <div>
+                                <span class="label">起订量</span>
+                                <span class="value" id="detail-moq">100 件/色</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <span class="icon">⚡</span>
+                            <div>
+                                <span class="label">样衣交期</span>
+                                <span class="value" id="detail-sample">7-10 天</span>
+                            </div>
+                        </div>
+                        <div class="spec-item">
+                            <span class="icon">🏭</span>
+                            <div>
+                                <span class="label">大货交期</span>
+                                <span class="value" id="detail-bulk">25-35 天</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="#contact" class="btn-primary" id="inquiry-btn">
+                            📧 询盘此款
+                        </a>
+                        <a href="Fashion_Catalog_B2B.pdf" target="_blank" class="btn-secondary">
+                            📄 下载完整画册
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Size Chart -->
+        <div class="section">
+            <h2 class="section-title">尺码表</h2>
+            <div class="chart-note" id="chart-title">
+                所有尺寸单位为厘米（cm），平铺测量，误差 ±2cm。
+            </div>
+            <div class="size-table-wrapper">
+                <table class="size-table" id="size-table">
+                    <thead>
+                        <tr id="table-header">
+                            <!-- JS will populate -->
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        <!-- JS will populate -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Product Info -->
+        <div class="section">
+            <h2 class="section-title">产品信息</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>包装方式</h4>
+                    <p id="detail-packing">1 pc/polybag, standard carton</p>
+                </div>
+                <div class="info-card">
+                    <h4>付款方式</h4>
+                    <p id="detail-payment">T/T 30% deposit, 70% before shipment</p>
+                </div>
+                <div class="info-card">
+                    <h4>服务说明</h4>
+                    <ul id="detail-notes">
+                        <li>OEM & ODM services available</li>
+                        <li>Custom labels, tags and packaging</li>
+                        <li>Fabric swatches available upon request</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h4>温馨提示</h4>
+                    <p>面料成分及具体细节请联系获取。支持定制颜色、尺码标签及包装设计。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-products">
+            <a href="#" class="nav-link" id="prev-product">
+                <span>←</span>
+                <div>
+                    <span class="nav-label">上一款</span>
+                    <span class="nav-name" id="prev-name">—</span>
+                </div>
+            </a>
+            <a href="index.html#products" class="nav-link" style="justify-content: center;">
+                <span>查看全部产品</span>
+            </a>
+            <a href="#" class="nav-link" id="next-product" style="flex-direction: row-reverse; text-align: right;">
+                <span>→</span>
+                <div>
+                    <span class="nav-label">下一款</span>
+                    <span class="nav-name" id="next-name">—</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Product data - in production, load this from products_data.json
+        const productsData = [{"style_no": "251KZ65215-A199", "name": "抽绳灯笼休闲裤", "category": "裤装", "size_range": "0XL-4XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | All measurements are taken flat in CM. Manual measurement tolerance: ±2cm.", "headers": ["Size Code", "EU", "Waist(Rlx)", "Waist(Str)", "Hip", "Outseam", "Inseam", "Thigh"], "rows": [["0XL", "34", "78", "124", "194", "101.3", "69", "128.2"], ["1XL", "36", "84", "130", "200", "102.0", "69", "132.0"], ["2XL", "38", "90", "136", "206", "102.7", "69", "135.8"], ["3XL", "42", "96", "142", "212", "103.4", "69", "139.6"], ["4XL", "46", "—", "—", "—", "104.1", "69", "143.4"]], "extra_notes": "Side drawstring: 106cm; Front decorative string: 90cm. Sizing conversion (EU/US/UK) for reference only, flat measurements prevail."}}, {"style_no": "2525TZ63224-A008", "name": "V领短袖上衣+阔腿裤套装", "category": "套装", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Two-piece Set. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Measurement Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder point to hem", "52.5", "53.5", "55.0", "56.5", "1.5", "±2cm"], ["Neck width", "Left shoulder point to right", "17.0", "17.5", "18.5", "—", "0.5", "±0.8cm"], ["Bust", "Full bust circumference", "96.0", "100.0", "106.0", "112.0", "6.0", "±2cm"], ["Hem circumference", "Full hem (measured flat ×2)", "91.3", "95.3", "101.3", "107.3", "6.0", "±2cm"], ["Raglan sleeve length", "Neckline to sleeve opening", "28.0", "28.8", "29.8", "30.8", "1.0", "±1cm"], ["Sleeve opening", "Full circumference at edge", "40.0", "41.4", "43.6", "45.8", "2.2", "±1cm"], ["Back neck (bound)", "Finished measurement", "20.0", "20.5", "21.0", "21.5", "0.5", "±0.5cm"], ["Outseam", "Side waist to bottom hem", "104.0", "104.9", "105.5", "106.1", "0.6", "±2cm"], ["Waist", "Full circumference at waist top", "64.0", "68.0", "74.0", "80.0", "6.0", "±2cm"], ["Waist (stretched)", "Waist stretch capacity", "71.0", "75.0", "81.0", "87.0", "6.0", "±2cm"], ["Hip", "Full circumference at hip position", "105.5", "109.5", "115.5", "121.5", "6.0", "±2cm"], ["Hip position", "Up from crotch", "9.0", "9.4", "10.0", "10.6", "0.6", "±0.01cm"], ["Thigh circumference", "Full circumference at crotch", "70.0", "72.4", "76.2", "80.0", "3.8", "±1cm"], ["Leg opening", "Full circumference at hem", "63.5", "64.7", "66.7", "68.7", "2.0", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. All measurements in cm."}}, {"style_no": "265KZ02112-A008", "name": "高腰百褶阔腿裤", "category": "裤装", "size_range": "XXS-XXL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Pants. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "XXL", "Grade", "Tolerance"], "rows": [["Outseam", "Side waist to bottom hem", "80.0", "79.2", "79.6", "80.0", "80.4", "81.0", "0.4/0.6", "±1cm"], ["Inseam", "Crotch to leg opening", "49.5", "49.5", "49.5", "49.5", "49.5", "49.5", "0/0", "±1cm"], ["Waist", "Full circumference at waist top", "64.0", "56.0", "60.0", "64.0", "68.0", "74.0", "4/6", "±2cm"], ["Waist(stretched)", "Waist stretch capacity", "100.0", "92.0", "96.0", "100.0", "104.0", "110.0", "4/6", "±2cm"], ["Hip", "Pleated style hip (see spec)", "102.0", "94.0", "98.0", "102.0", "106.0", "112.0", "4/6", "±2cm"], ["Front rise", "Waistband top to crotch seam", "32.0", "31.0", "31.5", "32.0", "32.5", "33.4", "0.5/0.9", "±0.5cm"], ["Back rise", "Back waistband to crotch seam", "42.0", "40.6", "41.3", "42.0", "42.7", "43.8", "0.7/1.1", "±0.7cm"], ["Thigh circumference", "1\" below crotch, full circ.", "103.0", "98.2", "100.6", "103.0", "105.4", "109.2", "2.4/3.8", "±1cm"], ["Leg opening", "Leg opening circumference", "109.0", "104.2", "106.6", "109.0", "111.4", "115.2", "2.4/3.8", "±1.5cm"], ["Back waist elastic", "Back waist elastic (finished)", "28.0", "24.0", "26.0", "28.0", "30.0", "33.0", "2/3", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. All measurements in cm."}}, {"style_no": "265KZ03007-A886", "name": "高腰阔腿裙裤", "category": "裤装", "size_range": "S-XXL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Pants. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "0XL", "1XL", "2XL", "3XL", "Grade", "Tolerance"], "rows": [["Outseam", "Side waist to bottom hem", "104.3", "105.0", "105.7", "106.4", "0.7/0.7", "±2cm"], ["Waist", "Full circumference at waist top", "84.0", "90.0", "96.0", "102.0", "6/6", "±2cm"], ["Waist (stretched)", "Waist stretch capacity", "94.0", "100.0", "106.0", "112.0", "6/6", "±2cm"], ["Hip", "Full hip at fullest point", "116.0", "122.0", "128.0", "134.0", "6/6", "±2cm"], ["Thigh circumference", "Full circumference at crotch", "122.2", "126.0", "129.8", "133.6", "3.8/3.8", "±1cm"], ["Leg opening", "Full circumference at leg opening", "114.5", "116.5", "118.5", "120.5", "2/2", "±1cm"], ["Inseam", "Crotch to leg opening, inseam", "73.0", "73.0", "73.0", "73.0", "0/0", "±1cm"], ["Front rise", "Waistband top to crotch seam", "33.0", "34.0", "35.0", "36.0", "1/1", "±0.5cm"], ["Back rise", "Back waistband to crotch seam", "46.8", "48.0", "49.2", "50.4", "1.2/1.2", "±0.6cm"], ["Front lower gathers", "Finished, one side", "29.5", "31.0", "32.5", "34.0", "1.5/1.5", "±1cm"], ["Back lower gathers", "Finished, one side", "32.6", "34.0", "35.4", "36.9", "1.4/1.5", "±0.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample(1XL) = base sample size. All measurements in cm."}}, {"style_no": "265KZ102299-A899", "name": "豹纹工装短裤", "category": "裤装", "size_range": "0XL-4XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Shorts. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Size", "EU", "Waist", "Hip", "Outseam", "Inseam", "Thigh", "Leg Opening"], "rows": [["0XL", "34", "78", "104", "42.0", "12.0", "68.0", "64.0"], ["1XL", "36", "84", "110", "43.0", "12.5", "72.0", "67.0"], ["2XL", "38", "90", "116", "44.0", "13.0", "76.0", "70.0"], ["3XL", "42", "96", "122", "45.0", "13.5", "80.0", "73.0"], ["4XL", "46", "102", "128", "46.0", "14.0", "84.0", "76.0"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (1XL). All measurements in cm."}}, {"style_no": "265SY02419-A886", "name": "单肩不对称雪纺上衣", "category": "上衣", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Top. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Measurement Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder point to hem (on mannequin)", "85.0", "87.0", "—", "—", "1.0/1.0", "±2cm"], ["Bust", "Underarm, edge to edge flat (ref.)", "93.0", "97.0", "103.0", "109.0", "4.0/6.0", "±2cm"], ["Hem sweep", "Widest hem point, edge to edge (asymmetric)", "240.0", "244.0", "250.0", "256.0", "4.0/6.0", "±2cm"], ["Neckline (asymmetric)", "Along neckline curve incl. elastic", "76.0", "78.8", "82.7", "86.6", "2.8/3.9", "±1cm"], ["Right underarm binding", "Finished measurement", "47.0", "48.8", "51.5", "54.2", "1.8/2.7", "±1cm"], ["Hem elastic (inside)", "Finished measurement", "64.0", "68.0", "74.0", "80.0", "4.0/6.0", "±2cm"]], "extra_notes": "Grade = size increment between adjacent sizes. All measurements in cm. Asymmetric style — hem measured at widest point."}}, {"style_no": "265TZ00934-A888", "name": "植物印花Crop Top+长裙套装", "category": "套装", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Two-piece Set: Top (rows 1-6) + Skirt (rows 7-11). All measurements in cm.", "headers": ["Part", "Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Top: Front length", "Shoulder to hem", "38.0", "39.0", "40.5", "42.0", "1.0/1.5", "±1cm"], ["Top: Bust", "Underarm, edge to edge flat", "84.0", "88.0", "94.0", "100.0", "4.0/6.0", "±2cm"], ["Top: Hem sweep", "Along bottom edge", "80.0", "84.0", "90.0", "96.0", "4.0/6.0", "±2cm"], ["Top: Armhole", "Along armhole bone, curved", "48.0", "49.8", "52.5", "55.2", "1.8/2.7", "±1cm"], ["Top: Neck width", "Shoulder point to point", "18.0", "18.5", "19.5", "20.5", "0.5/1.0", "±1cm"], ["Top: Back neck binding", "Finished measurement", "22.0", "22.5", "23.5", "24.5", "0.5/1.0", "±0.5cm"], ["Skirt: Waist", "Full circumference at waist top", "64.0", "68.0", "74.0", "80.0", "4.0/6.0", "±2cm"], ["Skirt: Waist (stretched)", "Waist stretch capacity", "80.0", "84.0", "90.0", "96.0", "4.0/6.0", "±2cm"], ["Skirt: Hip", "Full circumference at hip", "100.0", "104.0", "110.0", "116.0", "4.0/6.0", "±2cm"], ["Skirt: Length", "Waist to hem", "95.0", "96.0", "97.5", "99.0", "1.0/1.5", "±2cm"], ["Skirt: Hem sweep", "Full bottom circumference", "280.0", "286.0", "294.0", "302.0", "6.0/8.0", "±2cm"]], "extra_notes": "Grade = size increment between adjacent sizes. All measurements in cm."}}, {"style_no": "265TZ01791-A008", "name": "条纹单肩连体短裤", "category": "连体裤", "size_range": "XS-XXL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Romper. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "XXL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder to longest hem (on mannequin)", "74.0", "75.0", "76.0", "77.5", "79.0", "80.5", "1.0/1.5", "±2cm"], ["Zipper length", "Actual zipper opening length", "32.0", "32.0", "31.5", "32.0", "33.5", "34.0", "0.5/0.5", "±0.5cm"], ["Bust", "Underarm, edge to edge flat (ref.)", "97.0", "97.0", "94.2", "97.0", "103.7", "107.6", "2.8/3.9", "±1cm"], ["Waist", "Narrowest point, edge to edge flat", "82.0", "82.0", "78.0", "82.0", "92.0", "98.0", "4.0/6.0", "±2cm"], ["Armhole", "Along right armhole, curved (ref.)", "48.0", "48.0", "46.2", "48.0", "52.5", "55.2", "1.8/2.7", "±2cm"], ["Hem sweep", "Along bottom edge, curved (ref.)", "115.0", "115.0", "111.0", "115.0", "125.0", "131.0", "4.0/6.0", "±2cm"], ["Outseam", "Side waist to bottom, curved (side seam)", "34.0", "34.0", "33.6", "34.0", "35.0", "35.6", "0.4/0.6", "±2cm"], ["Inseam", "Crotch to leg opening, inseam", "6.0", "6.0", "6.0", "6.0", "6.0", "6.0", "0.0/0.0", "±1cm"], ["Waist (lower)", "Along waist top, elastic measured", "66.0", "66.0", "62.0", "66.0", "76.0", "82.0", "4.0/6.0", "±2cm"], ["Waist (stretched)", "Waist stretch capacity", "98.0", "98.0", "102.0", "106.0", "112.0", "118.0", "4.0/6.0", "±2cm"], ["Hip position", "Up from crotch", "9.0", "9.0", "8.6", "9.0", "10.0", "10.6", "0.4/0.6", "±0.5cm"], ["Hip", "Full circumference at crotch level (pants)", "110.0", "110.0", "106.0", "110.0", "120.0", "126.0", "4.0/6.0", "±2cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (XS). All measurements in cm."}}, {"style_no": "265TZ01961-A882", "name": "波点单肩连体短裤", "category": "连体裤", "size_range": "XS-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Romper. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder to hem, straight (on mannequin)", "69.0", "70.0", "71.0", "72.5", "74.0", "1.0/1.5", "±2cm"], ["Bust", "Underarm, edge to edge flat (ref.)", "82.0", "86.0", "90.0", "96.0", "102.0", "4.0/6.0", "±2cm"], ["Waist position", "Down from underarm", "15.0", "15.0", "15.0", "15.0", "15.0", "0.0/0.0", "±0.5cm"], ["Waist", "At waist position, edge to edge flat", "68.0", "72.0", "76.0", "82.0", "88.0", "4.0/6.0", "±2cm"], ["Hem sweep", "Widest hem point, edge to edge (asymmetric ref.)", "72.0", "76.0", "80.0", "86.0", "92.0", "4.0/6.0", "±2cm"], ["Front neckline binding", "Finished measurement", "33.6", "35.0", "36.4", "38.35", "40.3", "1.4/1.95", "±1cm"], ["Back neckline binding", "Finished measurement", "33.6", "35.0", "36.4", "38.35", "40.3", "1.4/1.95", "±1cm"], ["Right armhole binding", "Finished measurement", "50.2", "52.0", "53.8", "56.5", "59.2", "1.8/2.7", "±1cm"], ["Left zipper length", "Finished measurement", "25.5", "26.0", "26.5", "27.0", "27.5", "0.5/0.5", "±1cm"], ["Left smocking", "Along smocking position", "6.0", "6.0", "6.0", "6.0", "6.0", "0.0/0.0", "±0.5cm"], ["Front lower lace trim", "Along bone position", "53.7", "55.5", "57.3", "60.1", "62.9", "1.8/2.8", "±1cm"], ["Back lower lace trim", "Along bone position", "53.6", "55.5", "57.4", "60.3", "63.2", "1.9/2.9", "±1cm"], ["Outseam", "Side waist to leg opening, curved", "34.1", "34.5", "34.9", "35.5", "36.1", "0.4/0.6", "±2cm"], ["Waist (lower)", "Edge to edge, relaxed", "64.0", "68.0", "72.0", "78.0", "84.0", "4.0/6.0", "±2cm"], ["Waist (stretched)", "Waist stretch capacity", "92.0", "96.0", "100.0", "106.0", "112.0", "4.0/6.0", "±2cm"], ["Hip position", "Up from crotch", "9.0", "9.0", "9.0", "9.0", "9.0", "0.0/0.0", "±0.5cm"], ["Hip", "At crotch level, 3-point V measure (ref.)", "98.0", "102.0", "106.0", "112.0", "118.0", "4.0/6.0", "±2cm"], ["Leg opening", "Edge to edge flat", "61.1", "63.5", "65.9", "69.7", "73.5", "2.4/3.8", "±1cm"], ["Front rise", "Waistband top to crotch", "32.0", "32.5", "33.0", "33.9", "34.8", "0.5/0.9", "±0.6cm"], ["Back rise", "Waistband top to crotch", "41.3", "42.0", "42.7", "43.8", "44.9", "0.7/1.1", "±0.8cm"], ["Inseam", "Crotch to leg opening, inseam", "5.0", "5.0", "5.0", "5.0", "5.0", "0.0/0.0", "±0.5cm"], ["Back waist elastic", "Finished measurement", "30.0", "32.0", "34.0", "37.0", "40.0", "2.0/3.0", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (S). All measurements in cm."}}, {"style_no": "265TZ02058-A008-1", "name": "彩色印花泡泡袖上衣+阔腿裤", "category": "套装", "size_range": "0XL-3XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Two-piece Set. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "0XL", "1XL", "2XL", "3XL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder to hem, straight", "56.5", "58.0", "59.5", "61.0", "1.5", "±1.5cm"], ["Neck width", "Left shoulder point to right", "22.5", "23.0", "23.5", "24.0", "0.5", "±1cm"], ["Shoulder width", "Back shoulder point to point", "38.0", "39.0", "40.0", "41.0", "1.0", "±1cm"], ["Bust", "Underarm, edge to edge flat (w/darts)", "115.0", "121.0", "127.0", "133.0", "6.0", "±2cm"], ["Armhole", "Along edge, full circumference", "55.3", "58.0", "60.7", "63.4", "2.7", "±1cm"], ["Sleeve length", "Sleeve top to cuff, curved", "35.8", "36.5", "37.2", "37.9", "0.7", "±1cm"], ["Cuff elastic", "Edge to edge flat", "33.8", "36.0", "38.2", "40.4", "2.2", "±1cm"], ["Hem sweep", "Along bottom edge, curved", "124.0", "130.0", "136.0", "142.0", "6.0", "±2cm"], ["Front V-neck binding", "Finished, one side", "9.0", "9.0", "9.0", "9.0", "0.0", "±0.5cm"], ["Outseam", "Side waist to bottom hem (side seam)", "103.3", "104.0", "104.7", "105.4", "0.7", "±1cm"], ["Inseam", "Crotch to leg opening", "76.0", "76.0", "76.0", "76.0", "0.0", "±1cm"], ["Waist (elastic)", "Along waist top, full circumference", "77.0", "82.0", "87.0", "92.0", "5.0", "±2cm"], ["Waist (stretched)", "Stretch capacity, no thread break", "118.0", "124.0", "130.0", "136.0", "6.0", "±2cm"], ["Hip position", "Up from crotch", "11.4", "12.0", "12.6", "13.2", "0.6", "±0.01cm"], ["Hip", "At crotch level, 3-point V full circ.", "100.0", "106.0", "112.0", "118.0", "6.0", "±2cm"], ["Front rise (incl.WB)", "Waistband top to crotch", "28.0", "29.0", "30.0", "31.0", "1.0", "±0.5cm"], ["Back rise (incl.WB)", "Waistband top to crotch", "39.8", "41.0", "42.2", "43.4", "1.2", "±0.7cm"], ["Thigh circumference", "At crotch, edge to edge flat", "66.7", "70.5", "74.3", "78.1", "3.8", "±1cm"], ["Leg opening", "Edge to edge flat", "59.0", "61.0", "63.0", "65.0", "2.0", "±1.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (1XL). All measurements in cm."}}, {"style_no": "265TZ02058-A008-9", "name": "棕色斜肩褶皱连衣裙", "category": "连衣裙", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Dress. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Neck width", "Shoulder point to point, flat", "20.5", "21.0", "21.5", "22.0", "0.5/0.5", "±1cm"], ["Bust", "Underarm, edge to edge flat (spread)", "82.0", "86.0", "92.0", "98.0", "4.0/6.0", "±2cm"], ["Waist", "Narrowest point, edge to edge flat", "64.0", "68.0", "74.0", "80.0", "4.0/6.0", "±2cm"], ["Waist (stretched)", "Stretch capacity, no thread break", "96.0", "100.0", "106.0", "112.0", "4.0/6.0", "±2cm"], ["Hip position", "Down from underarm", "35.0", "35.4", "36.2", "37.0", "0.4/0.8", "±0.1cm"], ["Hip", "At hip position, edge to edge flat", "85.0", "89.0", "95.0", "101.0", "4.0/6.0", "±2cm"], ["Hem sweep", "Along bottom edge, curved", "79.0", "83.0", "89.0", "95.0", "4.0/6.0", "±2cm"], ["Back length", "Back shoulder point to hem, straight", "132.0", "133.0", "134.0", "135.0", "1.0/1.0", "±1.5cm"], ["Front shoulder elastic", "Finished measurement", "11.5", "11.75", "12.0", "12.25", "0.25/0.25", "±0.5cm"], ["Front right underarm binding", "Finished measurement", "19.0", "19.9", "21.25", "22.6", "0.9/1.35", "±0.5cm"], ["Front left upper elastic", "Finished measurement", "30.0", "30.4", "31.2", "32.0", "0.4/0.8", "±0.5cm"], ["Front left neckline clear strap", "Finished measurement", "34.0", "34.9", "36.2", "37.5", "0.9/1.3", "±0.5cm"], ["Front left armhole binding", "Finished measurement", "18.5", "19.4", "20.75", "22.1", "0.9/1.35", "±0.5cm"], ["Back underarm binding", "Finished measurement", "23.0", "23.9", "25.25", "26.6", "0.9/1.35", "±0.5cm"], ["Back neckline binding", "Finished measurement", "22.5", "23.0", "23.5", "24.0", "0.5/0.5", "±0.5cm"], ["Back vent", "Finished vent opening", "44.0", "44.0", "44.0", "44.0", "0.0/0.0", "±0.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (S). All measurements in cm."}}, {"style_no": "265TZ02058-A008", "name": "黄色马甲+短裤套装", "category": "套装", "size_range": "XS-XXL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Two-piece Set. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "XXL", "Grade", "Tolerance"], "rows": [["Front length", "Shoulder to hem, straight", "66.0", "67.0", "68.0", "69.5", "71.0", "72.5", "1.0/1.5", "±1.5cm"], ["Neck width", "Shoulder point to point, flat", "17.5", "18.0", "18.5", "19.0", "19.5", "20.0", "0.5/0.5", "±1cm"], ["Shoulder width", "Back shoulder point to point", "42.0", "43.0", "44.0", "45.0", "46.0", "47.0", "1.0/1.0", "±1cm"], ["Bust", "Underarm, edge to edge (back x2)", "83.0", "87.0", "91.0", "97.0", "103.0", "109.0", "4.0/6.0", "±2cm"], ["Waist", "Narrowest point, edge to edge flat", "75.0", "79.0", "83.0", "89.0", "95.0", "101.0", "4.0/6.0", "±2cm"], ["Armhole", "Along armhole bone, curved (ref.)", "44.2", "46.0", "47.8", "50.5", "53.2", "55.9", "1.8/2.7", "±2cm"], ["Hem sweep", "Along bottom edge, curved (back×2)", "98.0", "102.0", "106.0", "112.0", "118.0", "124.0", "4.0/6.0", "±2cm"], ["Underarm binding", "Finished measurement", "47.2", "49.0", "50.8", "53.5", "56.2", "58.9", "1.8/2.7", "±1cm"], ["Waist sash", "Highest point, flat", "64.0", "65.0", "66.0", "67.5", "69.0", "70.5", "1.0/1.5", "±1cm"], ["Outseam", "Side waist to leg opening (side seam)", "61.6", "62.0", "62.4", "63.0", "63.6", "64.2", "0.4/0.6", "±1cm"], ["Inseam", "Crotch to leg opening", "31.0", "31.0", "31.0", "31.0", "31.0", "31.0", "0.0/0.0", "±1cm"], ["Waist (lower)", "Along waist top, full circumference", "63.0", "67.0", "71.0", "77.0", "83.0", "89.0", "4.0/6.0", "±2cm"], ["Waist (stretched)", "Stretch capacity, no thread break", "98.0", "102.0", "106.0", "112.0", "118.0", "124.0", "4.0/6.0", "±2cm"], ["Hip position", "Up from crotch", "8.6", "9.0", "9.4", "10.0", "10.6", "11.2", "0.4/0.6", "±0.01cm"], ["Hip", "At crotch level, 3-point V full circ", "117.0", "121.0", "125.0", "131.0", "137.0", "143.0", "4.0/6.0", "±2cm"], ["Front rise", "Waistband top to crotch", "31.5", "32.0", "32.5", "33.4", "34.3", "35.2", "0.5/0.9", "±0.5cm"], ["Back rise", "Waistband top to crotch", "41.3", "42.0", "42.7", "43.8", "44.9", "46.0", "0.7/1.1", "±0.7cm"], ["Thigh circumference", "At crotch, edge to edge flat", "73.6", "76.0", "78.4", "82.2", "86.0", "89.8", "2.4/3.8", "±1cm"], ["Leg opening", "Edge to edge flat", "65.6", "68.0", "70.4", "74.2", "78.0", "81.8", "2.4/3.8", "±1.5cm"], ["Back waist elastic", "Finished measurement", "29.0", "31.0", "33.0", "36.0", "39.0", "42.0", "2.0/3.0", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (S). All measurements in cm."}}, {"style_no": "265TZ02196-A882", "name": "红白格子上衣+短裤套装", "category": "套装", "size_range": "0XL-3XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Two-piece Set. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "0XL", "1XL", "2XL", "3XL", "Grade", "Tolerance"], "rows": [["Back length", "Shoulder point to hem, straight", "51.0", "52.5", "54.0", "55.5", "1.5", "±2cm"], ["Neck width", "Shoulder point to point, flat", "20.5", "21.0", "21.5", "22.0", "0.5", "±0.8cm"], ["Shoulder width", "Back shoulder point to point", "36.5", "37.5", "38.5", "39.5", "1.0", "±1cm"], ["Bust", "Underarm, edge to edge flat (ref.)", "104.0", "110.0", "116.0", "122.0", "6.0", "±2cm"], ["Waist", "At waist seam, edge to edge flat", "83.0", "89.0", "95.0", "101.0", "6.0", "±2cm"], ["Hem sweep", "Along bottom edge, curved (ref.)", "172.0", "178.0", "184.0", "190.0", "6.0", "±2cm"], ["Armhole", "Along armhole bone, curved (ref.)", "56.8", "59.5", "62.2", "64.9", "2.7", "±1cm"], ["Sleeve length", "Sleeve top to cuff, curved (puff sleeve)", "29.3", "30.0", "30.7", "31.4", "0.7", "±1cm"], ["Sleeve opening", "Edge to edge, relaxed", "35.8", "38.0", "40.2", "42.4", "2.2", "±1cm"], ["Back neckline binding", "Finished measurement", "22.5", "23.0", "23.5", "24.0", "0.5", "±0.5cm"], ["Front upper waist elastic", "Finished, one side", "22.5", "24.0", "25.5", "27.0", "1.5", "±0.5cm"], ["Front lower waist elastic", "Finished, one side", "22.0", "23.5", "25.0", "26.5", "1.5", "±0.5cm"], ["Back waist elastic", "Finished measurement", "39.5", "42.5", "45.5", "48.5", "3.0", "±1cm"], ["Front center tie", "Finished measurement", "50.0", "50.0", "50.0", "50.0", "0.0", "±1cm"], ["Sleeve top smocking", "Finished measurement", "9.0", "9.0", "9.0", "9.0", "0.0", "±0.5cm"], ["Chest bottom smocking", "Finished measurement", "7.0", "7.0", "7.0", "7.0", "0.0", "±0.5cm"], ["Sleeve cuff elastic", "Finished measurement", "35.8", "38.0", "40.2", "42.4", "2.2", "±0.5cm"], ["Outseam", "Side waist to leg opening, curved", "39.8", "40.5", "41.2", "41.9", "0.7", "±2cm"], ["Waist (elastic)", "Full circumference at waist top", "78.0", "84.0", "90.0", "96.0", "6.0", "±2cm"], ["Waist (stretched)", "Waist stretch capacity", "120.0", "126.0", "132.0", "138.0", "6.0", "±2cm"], ["Hip position", "Up from crotch", "11.5", "12.0", "12.5", "13.0", "0.5", "±0.5cm"], ["Hip", "At crotch level, 3-point V full circ", "138.0", "144.0", "150.0", "156.0", "6.0", "±2cm"], ["Leg opening", "Edge to edge flat", "96.2", "100.0", "103.8", "107.6", "3.8", "±1cm"], ["Front rise", "Waistband top to crotch", "35.0", "36.0", "37.0", "38.0", "1.0", "±0.6cm"], ["Back rise", "Waistband top to crotch", "48.8", "50.0", "51.2", "52.4", "1.2", "±0.8cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (1XL). All measurements in cm."}}, {"style_no": "265TZ70203-A886", "name": "橙色衬衫+阔腿裤套装", "category": "套装", "size_range": "XS-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Two-piece Set. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Top: Front length", "Shoulder to hem", "52.0", "53.0", "54.5", "56.0", "57.5", "1.0/1.5", "±1.5cm"], ["Top: Shoulder width", "Back shoulder point to point", "37.0", "38.0", "39.0", "40.0", "41.0", "1.0", "±1cm"], ["Top: Bust", "Underarm, edge to edge flat", "92.0", "96.0", "102.0", "108.0", "114.0", "4.0/6.0", "±2cm"], ["Top: Hem sweep", "Along bottom edge", "88.0", "92.0", "98.0", "104.0", "110.0", "4.0/6.0", "±2cm"], ["Top: Sleeve length", "Sleeve top to cuff", "28.0", "28.5", "29.5", "30.5", "31.5", "0.5/1.0", "±1cm"], ["Top: Sleeve opening", "Edge to edge flat", "38.0", "39.5", "41.5", "43.5", "45.5", "2.0/2.0", "±1cm"], ["Pants: Outseam", "Side waist to bottom hem", "98.0", "99.0", "100.5", "102.0", "103.5", "1.0/1.5", "±2cm"], ["Pants: Waist", "Full circumference at waist top", "62.0", "66.0", "72.0", "78.0", "84.0", "4.0/6.0", "±2cm"], ["Pants: Waist (stretched)", "Waist stretch capacity", "78.0", "82.0", "88.0", "94.0", "100.0", "4.0/6.0", "±2cm"], ["Pants: Hip", "Full circumference at hip", "100.0", "104.0", "110.0", "116.0", "122.0", "4.0/6.0", "±2cm"], ["Pants: Thigh circumference", "Full circumference at crotch", "64.0", "66.0", "69.5", "73.0", "76.5", "2.4/3.5", "±1cm"], ["Pants: Leg opening", "Full circumference at hem", "58.0", "60.0", "63.0", "66.0", "69.0", "2.0/3.0", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Base size: S. All measurements in cm."}}, {"style_no": "266LQ02834-A899", "name": "红色无袖不规则连衣裙", "category": "连衣裙", "size_range": "0XL-4XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Dress. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "0XL", "1XL", "2XL", "3XL", "4XL", "Grade", "Tolerance"], "rows": [["Back center length", "Back neckline to hem, straight", "118.0", "120.0", "122.0", "124.0", "126.0", "2.0", "±1.5cm"], ["Neck width", "Shoulder point to point, flat", "20.0", "20.5", "21.0", "21.5", "22.0", "0.5", "±1cm"], ["Neck stretch", "Stretch capacity, no thread break", "58.8", "60.0", "61.2", "62.4", "63.6", "1.2", "±0.1cm"], ["Shoulder width", "Back shoulder point to point, flat", "29.0", "30.0", "31.0", "32.0", "33.0", "1.0", "±1cm"], ["Bust", "Underarm, bone to bone flat", "90.0", "96.0", "102.0", "108.0", "114.0", "6.0", "±2cm"], ["Armhole binding", "Along armhole bone, curved", "57.3", "60.0", "62.7", "65.4", "68.1", "2.7", "±1cm"], ["Waist (elastic)", "Waist bone to bone, flat", "78.0", "84.0", "90.0", "96.0", "102.0", "6.0", "±2cm"], ["Waist (stretched)", "Stretch capacity, no thread break", "110.0", "116.0", "122.0", "128.0", "134.0", "6.0", "±2cm"], ["Hem sweep", "Along bottom edge, curved (inner)", "96.0", "102.0", "108.0", "114.0", "120.0", "6.0", "±2cm"], ["Front/back left elastic", "Finished measurement", "32.0", "34.5", "37.0", "39.5", "42.0", "2.5", "±0.5cm"], ["Front/back right elastic", "Finished measurement", "30.0", "32.5", "35.0", "37.5", "40.0", "2.5", "±0.5cm"], ["Front center elastic", "Finished measurement", "19.0", "20.0", "21.0", "22.0", "23.0", "1.0", "±0.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Sample = base sample size (1XL). All measurements in cm."}}, {"style_no": "266LQ03104-A008", "name": "棕色斜肩褶皱长裙", "category": "连衣裙", "size_range": "XS-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Dress. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "XS", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length (ref.)", "Shoulder point to floor, straight", "146.0", "147.0", "148.0", "149.0", "150.0", "1.0", "±2cm"], ["Neckline (asymmetric)", "Along neckline, curved", "77.2", "80.0", "82.8", "86.7", "90.6", "3.9", "±1cm"], ["Bust", "Full circumference at underarm", "71.0", "75.0", "79.0", "85.0", "91.0", "6.0", "±2cm"], ["Left armhole", "Along armhole bone, curved", "47.2", "49.0", "50.8", "53.5", "56.2", "2.7", "±1cm"], ["Waist position", "Down from underarm", "15.0", "15.0", "15.0", "15.2", "15.4", "0.2", "±0.01cm"], ["Waist", "Full circumference at waist, horizontal", "58.0", "62.0", "66.0", "72.0", "78.0", "6.0", "±2cm"], ["Waist (stretched)", "Stretch capacity, no thread break", "92.0", "96.0", "100.0", "106.0", "112.0", "6.0", "±2cm"], ["Hip position", "Down from underarm", "34.6", "35.0", "35.4", "36.2", "37.0", "0.8", "±0.01cm"], ["Hip", "Full circumference at hip, horizontal", "78.0", "82.0", "86.0", "92.0", "98.0", "6.0", "±2cm"], ["Hem sweep", "Full bottom circumference", "202.0", "206.0", "210.0", "216.0", "222.0", "6.0", "±2cm"], ["Front neckline elastic", "Finished, excl. sleeve", "27.0", "27.9", "28.8", "30.1", "31.4", "1.3", "±0.5cm"], ["Back neckline elastic", "Finished, excl. sleeve", "25.6", "26.5", "27.4", "28.7", "30.0", "1.3", "±0.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Base size: XS. All measurements in cm."}}, {"style_no": "266LQ04239-A008", "name": "灰色高领长袖连衣裙", "category": "连衣裙", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Dress. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length (ref.)", "Shoulder point to hem, straight", "139.0", "139.0", "139.0", "139.0", "0.0/0.0", "±2cm"], ["Neck width", "Shoulder point to point, flat", "19.0", "19.5", "20.0", "20.5", "0.5/0.5", "±0.5cm"], ["Shoulder width", "Back shoulder point to point, flat", "35.5", "36.5", "37.5", "38.5", "1.0/1.0", "±1cm"], ["Bust", "Underarm, edge to edge flat (ref.)", "90.0", "94.0", "100.0", "106.0", "4.0/6.0", "±2cm"], ["Waist", "At waist seam, edge to edge flat", "61.5", "65.5", "71.5", "77.5", "4.0/6.0", "±2cm"], ["Hip", "20cm below waist, edge to edge flat (ref.)", "83.0", "87.0", "93.0", "99.0", "4.0/6.0", "±2cm"], ["Hem sweep", "Edge to edge flat", "85.0", "89.0", "95.0", "101.0", "4.0/6.0", "±2cm"], ["Armhole", "Along armhole bone, curved", "43.7", "45.5", "48.2", "50.9", "1.8/2.7", "±1cm"], ["Sleeve length", "Sleeve top to cuff, straight", "62.5", "63.5", "64.5", "65.5", "1.0/1.0", "±1cm"], ["Sleeve arm circ.", "Underarm, vertical to sleeve center line", "27.0", "28.4", "30.6", "32.8", "1.4/2.2", "±1cm"], ["Sleeve opening", "Edge to edge flat", "18.0", "19.0", "20.5", "22.0", "1.0/1.5", "±1cm"], ["Back binding", "Along edge, curved", "84.0", "84.0", "84.0", "84.0", "0.0/0.0", "±2cm"], ["Back waist elastic", "Finished measurement", "30.0", "32.0", "35.0", "38.0", "2.0/3.0", "±1cm"], ["Front waist smocking", "Finished measurement", "24.6", "25.4", "26.6", "27.8", "0.8/1.2", "±0.5cm"], ["Front center smocking", "Finished measurement", "5.0", "5.0", "5.0", "5.0", "0.0/0.0", "±0.5cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Base size: S. All measurements in cm."}}, {"style_no": "266LQ04104-A008", "name": "紫色长袖褶皱连衣裙", "category": "连衣裙", "size_range": "S-XL (EU 34-46)", "moq": "100 pcs per color", "sample_lead": "7-10 days", "bulk_lead": "25-35 days", "packing": "1 pc/polybag, standard carton", "payment": "T/T 30% deposit, 70% before shipment", "notes": ["OEM & ODM services available", "Custom labels, tags and packaging", "Fabric swatches available upon request"], "size_chart": {"title": "SIZE CHART | Women's Casual Dress. All measurements taken flat in cm. Tolerance: ±2cm.", "headers": ["Part", "Method", "S", "M", "L", "XL", "Grade", "Tolerance"], "rows": [["Front length (ref.)", "Shoulder to hem, straight (mannequin ref.)", "135.0", "136.0", "137.0", "138.0", "1.0/1.0", "±1.5cm"], ["Neck width", "Shoulder point to point, flat (bound neckline)", "17.0", "17.5", "18.0", "18.5", "0.5/0.5", "±1cm"], ["Neck circumference", "Along neckline, curved (bound neckline)", "40.0", "41.2", "42.4", "43.6", "1.2/1.2", "±1cm"], ["Shoulder width", "Back shoulder point to point, straight", "37.0", "38.0", "39.0", "40.0", "1.0/1.0", "±1cm"], ["Bust", "Underarm, edge to edge flat", "78.0", "82.0", "88.0", "94.0", "4.0/6.0", "±2cm"], ["Waist position", "Down from underarm", "15.0", "15.0", "15.2", "15.4", "0.0/0.2", "±0.1cm"], ["Waist", "At waist position, edge to edge flat", "63.0", "67.0", "73.0", "79.0", "4.0/6.0", "±2cm"], ["Hip position", "Down from underarm", "35.0", "35.4", "36.2", "37.0", "0.4/0.8", "±0.1cm"], ["Hip", "At hip position, edge to edge flat", "86.0", "90.0", "96.0", "102.0", "4.0/6.0", "±2cm"], ["Hem sweep", "Edge to edge flat", "83.0", "87.0", "93.0", "99.0", "4.0/6.0", "±2cm"], ["Armhole", "Along armhole bone, curved", "44.0", "45.8", "48.5", "51.2", "1.8/2.7", "±1cm"], ["Sleeve length", "Sleeve top to cuff, straight", "60.0", "61.0", "62.0", "63.0", "1.0/1.0", "±1cm"], ["Sleeve arm circ.", "Underarm, perp. to sleeve CL, flat", "27.5", "28.9", "31.1", "33.3", "1.4/2.2", "±1cm"], ["Sleeve opening", "Along cuff edge", "19.0", "20.0", "21.5", "23.0", "1.0/1.5", "±1cm"], ["Front chest smocking", "Finished measurement", "7.0", "7.0", "7.0", "7.0", "0.0/0.0", "±0.5cm"], ["Back right smocking", "Finished measurement", "7.0", "7.0", "7.0", "7.0", "0.0/0.0", "±0.5cm"], ["Back panel smocking", "Finished measurement", "18.0", "18.4", "19.2", "20.0", "0.4/0.8", "±0.5cm"], ["Neckline binding", "Along edge, curved", "40.0", "41.2", "42.4", "43.6", "1.2/1.2", "±1cm"]], "extra_notes": "Grade = size increment between adjacent sizes. Base size: S. All measurements in cm."}}];
+
+        // Get style from URL parameter: ?style=251KZ65215-A199
+        function getUrlParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Find product by style number
+        function findProduct(styleNo) {
+            return productsData.find(p => p.style_no === styleNo);
+        }
+
+        // Find product index
+        function findProductIndex(styleNo) {
+            return productsData.findIndex(p => p.style_no === styleNo);
+        }
+
+        // Render size table
+        function renderSizeTable(sizeChart) {
+            const thead = document.getElementById('table-header');
+            const tbody = document.getElementById('table-body');
+            const chartTitle = document.getElementById('chart-title');
+
+            chartTitle.textContent = sizeChart.title;
+
+            // Render header
+            thead.innerHTML = sizeChart.headers.map(h => `<th>${h}</th>`).join('');
+
+            // Render rows
+            tbody.innerHTML = sizeChart.rows.map(row => {
+                return `<tr>${row.map((cell, idx) => {
+                    if (idx === 1) return `<td class="method-col">${cell}</td>`;
+                    if (idx === row.length - 1) return `<td class="tolerance">${cell}</td>`;
+                    return `<td>${cell}</td>`;
+                }).join('')}</tr>`;
+            }).join('');
+        }
+
+        // Load product detail
+        function loadProduct(styleNo) {
+            const product = findProduct(styleNo);
+            if (!product) {
+                document.querySelector('.container').innerHTML = '<div style="padding:80px;text-align:center;"><h2>产品未找到</h2><a href="index.html">返回首页</a></div>';
+                return;
+            }
+
+            // Update page info
+            document.title = `${product.name} | 莱恩制造`;
+            document.getElementById('breadcrumb-category').textContent = product.category;
+            document.getElementById('breadcrumb-name').textContent = product.name;
+
+            // Update product info
+            document.getElementById('detail-category').textContent = product.category;
+            document.getElementById('detail-image').src = `images/${product.style_no}.jpg`;
+            document.getElementById('detail-image').alt = product.name;
+            document.getElementById('detail-name').textContent = product.name;
+            document.getElementById('detail-style').textContent = product.style_no;
+            document.getElementById('detail-desc').textContent = product.desc;
+            document.getElementById('detail-size').textContent = product.size_range;
+            document.getElementById('detail-moq').textContent = product.moq;
+            document.getElementById('detail-sample').textContent = product.sample_lead;
+            document.getElementById('detail-bulk').textContent = product.bulk_lead;
+            document.getElementById('detail-packing').textContent = product.packing;
+            document.getElementById('detail-payment').textContent = product.payment;
+
+            // Update notes
+            const notesList = document.getElementById('detail-notes');
+            notesList.innerHTML = product.notes.map(n => `<li>${n}</li>`).join('');
+
+            // Update inquiry button
+            document.getElementById('inquiry-btn').href = `contact.html?style=${product.style_no}`;
+
+            // Render size chart
+            renderSizeTable(product.size_chart);
+
+            // Update navigation
+            const idx = findProductIndex(styleNo);
+            const prev = productsData[idx - 1];
+            const next = productsData[idx + 1];
+
+            if (prev) {
+                document.getElementById('prev-product').href = `product.html?style=${prev.style_no}`;
+                document.getElementById('prev-name').textContent = prev.name;
+            } else {
+                document.getElementById('prev-product').style.visibility = 'hidden';
+            }
+
+            if (next) {
+                document.getElementById('next-product').href = `product.html?style=${next.style_no}`;
+                document.getElementById('next-name').textContent = next.name;
+            } else {
+                document.getElementById('next-product').style.visibility = 'hidden';
+            }
+        }
+
+        // Initialize
+        const styleNo = getUrlParam('style') || '251KZ65215-A199';
+        loadProduct(styleNo);
+    </script>
+</body>
+</html>
