@@ -221,6 +221,7 @@ img{max-width:100%;display:block}
 .stat-num{font-size:28px}
 }
 </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -398,7 +399,7 @@ img{max-width:100%;display:block}
       </div>
       <div class="products-grid" id="featuredGrid"></div>
       <div style="text-align:center;margin-top:36px">
-        <a href="#products" class="btn-primary" onclick="navigate('products');return false" data-i18n="btn_all">查看全部 18 款产品 →</a>
+        <a href="#products" class="btn-primary" onclick="navigate('products');return false" data-i18n="btn_all">查看全部产品 →</a>
       </div>
     </div>
   </section>
@@ -457,7 +458,7 @@ img{max-width:100%;display:block}
   <section class="cta-banner">
     <div class="container" style="position:relative;z-index:2">
       <h2 data-i18n="cta_title">下载完整 SS 2026 产品画册</h2>
-      <p data-i18n="cta_desc">18 款春夏新品，含高清产品图、详细尺码表、面料及工艺说明</p>
+      <p data-i18n="cta_desc">春夏新品，含高清产品图、详细尺码表、面料及工艺说明</p>
       <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" download>📥 <span data-i18n="btn_download">下载 PDF 画册</span></a>
       <a href="#catalog" class="btn-secondary" style="margin-left:12px" onclick="navigate('catalog');return false" data-i18n="btn_preview">在线预览</a>
     </div>
@@ -469,7 +470,7 @@ img{max-width:100%;display:block}
   <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
     <div class="container">
       <h1 style="font-size:36px;font-weight:800;margin-bottom:10px" data-i18n="prod_title">产品中心</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="prod_sub">SS 2026 春夏系列 · 18 款可定制产品 · 100 件起订</p>
+      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="prod_sub">SS 2026 春夏系列 · 可定制产品 · 100 件起订</p>
     </div>
   </section>
   <section style="padding:32px 0 0">
@@ -739,26 +740,35 @@ img{max-width:100%;display:block}
 
 <script>
 // ===== Product Data =====
-const products = [
-  {id:"251KZ65215-A199",name:"抽绳灯笼休闲裤",nameEn:"Drawstring Lantern Casual Pants",cat:"裤装",catEn:"Pants",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"宽松灯笼版型，腰部抽绳设计，侧边大口袋",descEn:"Loose lantern fit, drawstring waist, side cargo pockets",img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&h=800&fit=crop"},
-  {id:"2525TZ63224-A008",name:"V领短袖上衣+阔腿裤套装",nameEn:"V-Neck Top + Wide Leg Pants Set",cat:"套装",catEn:"Sets",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"简约V领短袖上衣搭配高腰阔腿裤，通勤休闲两相宜",descEn:"Minimalist V-neck top with high-waist wide leg pants",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"265KZ02112-A008",name:"高腰百褶阔腿裤",nameEn:"High-Waist Pleated Wide Leg Pants",cat:"裤装",catEn:"Pants",size:"XXS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"高腰设计配百褶细节，优雅阔腿剪裁，后腰松紧",descEn:"High-waist with pleated details, elastic back waistband",img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=800&fit=crop"},
-  {id:"265KZ03007-A886",name:"高腰阔腿裙裤",nameEn:"High-Waist Wide Leg Culottes",cat:"裤装",catEn:"Pants",size:"S-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"裙裤设计，高腰收腹，后背拉链，下摆褶皱细节",descEn:"Culotte style, high-waist tummy control, back zipper",img:"https://images.unsplash.com/photo-1584370848010-d7cc637733f3?w=600&h=800&fit=crop"},
-  {id:"265KZ102299-A899",name:"豹纹工装短裤",nameEn:"Leopard Print Cargo Shorts",cat:"裤装",catEn:"Pants",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"豹纹印花工装风短裤，侧边抽绳口袋，时尚个性",descEn:"Leopard print cargo shorts with side drawstring pockets",img:"https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&h=800&fit=crop"},
-  {id:"265SY02419-A886",name:"单肩不对称雪纺上衣",nameEn:"One-Shoulder Asymmetric Chiffon Top",cat:"上衣",catEn:"Tops",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"单肩不对称设计，轻盈雪纺面料，下摆不规则剪裁",descEn:"One-shoulder asymmetric design, lightweight chiffon, irregular hem",img:"https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=600&h=800&fit=crop"},
-  {id:"265TZ00934-A888",name:"植物印花Crop Top+长裙套装",nameEn:"Tropical Print Crop Top + Maxi Skirt Set",cat:"套装",catEn:"Sets",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"热带植物印花，无袖Crop Top搭配大摆长裙，度假风情",descEn:"Tropical print sleeveless crop top with flowing maxi skirt",img:"https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=600&h=800&fit=crop"},
-  {id:"265TZ01791-A008",name:"条纹单肩连体短裤",nameEn:"Striped One-Shoulder Romper",cat:"连体裤",catEn:"Jumpsuits",size:"XS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"斜条纹单肩设计，连体短裤版型，时尚休闲",descEn:"Diagonal stripe one-shoulder design, shorts romper style",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"265TZ01961-A882",name:"波点蕾丝拼接连体短裤",nameEn:"Polka Dot Lace Patch Romper",cat:"连体裤",catEn:"Jumpsuits",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"经典波点印花，蕾丝拼接细节，单肩设计",descEn:"Classic polka dot with lace patch details, one-shoulder design",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008-1",name:"彩色印花泡泡袖上衣+阔腿裤",nameEn:"Colorful Print Puff Sleeve Top + Pants",cat:"套装",catEn:"Sets",size:"0XL-3XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"艺术感彩色印花，泡泡袖上衣配高腰阔腿裤",descEn:"Artistic colorful print, puff sleeve top with high-waist pants",img:"https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008-9",name:"棕色单肩褶皱连衣裙",nameEn:"Brown One-Shoulder Ruched Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"单肩不对称设计，修身褶皱剪裁，优雅长裙",descEn:"One-shoulder asymmetric, bodycon ruched cut, elegant midi dress",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"265TZ02058-A008",name:"黄色西装马甲+百慕大短裤套装",nameEn:"Yellow Blazer Vest + Bermuda Shorts Set",cat:"套装",catEn:"Sets",size:"XS-XXL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"西装领马甲搭配百慕大短裤，干练时尚",descEn:"Notch lapel vest with Bermuda shorts, smart casual style",img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop"},
-  {id:"265TZ02196-A882",name:"红白格子上衣+短裤套装",nameEn:"Red Plaid Top + Shorts Set",cat:"套装",catEn:"Sets",size:"0XL-3XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"经典红白格纹，泡泡袖上衣配高腰短裤",descEn:"Classic red plaid, puff sleeve top with high-waist shorts",img:"https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=600&h=800&fit=crop"},
-  {id:"265TZ70203-A886",name:"橙色Crop Top+大摆长裙套装",nameEn:"Orange Crop Top + Maxi Skirt Set",cat:"套装",catEn:"Sets",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"翻领短袖Crop Top，腰部刺绣细节，大摆长裙",descEn:"Collared crop top with waist embroidery, flowing maxi skirt",img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=800&fit=crop"},
-  {id:"266LQ02834-A899",name:"红色无袖不规则连衣裙",nameEn:"Red Sleeveless Asymmetric Dress",cat:"连衣裙",catEn:"Dresses",size:"0XL-4XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"无袖设计，腰部褶皱，前短后长不规则裙摆",descEn:"Sleeveless, waist ruching, high-low asymmetric hem",img:"https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=600&h=800&fit=crop"},
-  {id:"266LQ03104-A008",name:"棕色露肩褶皱长裙",nameEn:"Brown Off-Shoulder Ruched Maxi Dress",cat:"连衣裙",catEn:"Dresses",size:"XS-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"露肩一字领设计，全身褶皱修身，及地长裙",descEn:"Off-shoulder bardot neckline, full body ruching, floor-length",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"},
-  {id:"266LQ04239-A008",name:"灰色高领长袖连衣裙",nameEn:"Grey Mock Neck Long Sleeve Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"小高领设计，腰部V型镂空褶皱，修身长裙",descEn:"Mock neck, waist V-cut ruching, bodycon midi dress",img:"https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&h=800&fit=crop"},
-  {id:"266LQ04104-A008",name:"紫色长袖褶皱连衣裙",nameEn:"Purple Long Sleeve Ruched Dress",cat:"连衣裙",catEn:"Dresses",size:"S-XL",moq:"100 pcs/color",sample:"7-10 days",bulk:"25-35 days",desc:"圆领长袖，腰部金属环扣褶皱设计，侧开叉",descEn:"Crew neck long sleeve, metal ring waist ruching, side slit",img:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=600&h=800&fit=crop"}
-];
+const IMAGE_FOLDER = "图片/";
+let products = [];
+
+async function loadProducts() {
+  try {
+    const res = await fetch("products_data.json");
+    if (!res.ok) throw new Error("Failed to load");
+    products = await res.json();
+    // 字段映射兼容
+    products.forEach(p => {
+      p.id = p.style_no;
+      p.nameEn = p.name_en || p.name;
+      p.cat = p.category;
+      p.catEn = p.category_en || p.category;
+      p.size = p.size_range;
+      p.sample = p.sample_lead;
+      p.bulk = p.bulk_lead;
+      p.desc = p.description || "";
+      p.descEn = p.description_en || p.description || "";
+      p.img = IMAGE_FOLDER + p.image;
+    });
+    renderFeatured();
+    filterProducts('all');
+  } catch (e) {
+    console.error(e);
+    document.getElementById('featuredGrid').innerHTML = '<p style="text-align:center;color:#888;padding:40px;">Loading products...</p>';
+    document.getElementById('productGrid').innerHTML = '<p style="text-align:center;color:#888;padding:40px;">Loading products...</p>';
+  }
+}
 
 // ===== i18n =====
 const i18n = {
@@ -766,7 +776,7 @@ const i18n = {
     brand:"莱恩制造", nav_home:"首页", nav_products:"产品中心", nav_catalog:"电子画册", nav_about:"关于我们", nav_contact:"联系我们",
     hero_title:"专业女装 <span>OEM / ODM</span><br>一站式制造服务",
     hero_desc:"广州莱恩制造，专注女装休闲服装生产。从设计打样到批量出货，为全球品牌提供高品质、快交期的柔性供应链解决方案。",
-    btn_browse:"浏览产品系列", btn_catalog:"查看电子画册", btn_all:"查看全部 18 款产品 →",
+    btn_browse:"浏览产品系列", btn_catalog:"查看电子画册", btn_all:"查看全部产品 →",
     stat_moq:"件起订 MOQ", stat_sample:"天出样", stat_bulk:"天大货", stat_styles:"SS26 新款",
     feat_title:"SS 2026 春夏精选", feat_sub:"从画册中精选热门款式，支持 OEM/ODM 定制，100 件起订",
     adv_title:"为什么选择莱恩制造", adv_sub:"从设计到出货，全流程把控，让品牌方省心、放心",
@@ -782,9 +792,9 @@ const i18n = {
     p3_t:"样衣制作", p3_d:"7-10 天出样，确认版型、工艺、尺寸",
     p4_t:"大货生产", p4_d:"25-35 天批量生产，全程 QC 跟进",
     p5_t:"质检出货", p5_d:"尾期全检，安排物流，交付成品",
-    cta_title:"下载完整 SS 2026 产品画册", cta_desc:"18 款春夏新品，含高清产品图、详细尺码表、面料及工艺说明",
+    cta_title:"下载完整 SS 2026 产品画册", cta_desc:"春夏新品，含高清产品图、详细尺码表、面料及工艺说明",
     btn_download:"下载 PDF 画册", btn_preview:"在线预览",
-    prod_title:"产品中心", prod_sub:"SS 2026 春夏系列 · 18 款可定制产品 · 100 件起订", filt_all:"全部",
+    prod_title:"产品中心", prod_sub:"SS 2026 春夏系列 · 可定制产品 · 100 件起订", filt_all:"全部",
     cat_title:"电子画册", cat_sub:"在线预览或下载完整 PDF 产品目录 · 18 款春夏新品",
     about_title:"关于莱恩制造", about_sub:"专注女装休闲服装 OEM/ODM · 广州白云 · 服务全球品牌",
     about_h2:"从设计到成衣<br>一站式柔性供应链",
@@ -823,7 +833,7 @@ const i18n = {
     brand:"Laien Mfg", nav_home:"Home", nav_products:"Products", nav_catalog:"Catalog", nav_about:"About", nav_contact:"Contact",
     hero_title:"Professional Women's Apparel<br><span>OEM / ODM</span> Manufacturing",
     hero_desc:"Based in Guangzhou, China. From design sampling to bulk production, we provide high-quality, fast-turnaround flexible supply chain solutions for global brands.",
-    btn_browse:"Browse Collection", btn_catalog:"View Catalog", btn_all:"View All 18 Products →",
+    btn_browse:"Browse Collection", btn_catalog:"View Catalog", btn_all:"View All Products →",
     stat_moq:"pcs MOQ", stat_sample:"Days Sample", stat_bulk:"Days Bulk", stat_styles:"SS26 Styles",
     feat_title:"SS 2026 Featured Collection", feat_sub:"Selected styles from our catalog. OEM/ODM customization available. 100 pcs MOQ.",
     adv_title:"Why Laien Manufacturing", adv_sub:"End-to-end control from design to delivery. Hassle-free for brand owners.",
@@ -839,9 +849,9 @@ const i18n = {
     p3_t:"Sampling", p3_d:"7-10 days for samples. Confirm fit, workmanship, and measurements.",
     p4_t:"Production", p4_d:"25-35 days bulk production with ongoing QC monitoring.",
     p5_t:"Inspection & Delivery", p5_d:"Final inspection, logistics arrangement, and delivery.",
-    cta_title:"Download Full SS 2026 Catalog", cta_desc:"18 new styles with high-res images, detailed size charts, fabric and workmanship specs.",
+    cta_title:"Download Full SS 2026 Catalog", cta_desc:"New styles with high-res images, detailed size charts, fabric and workmanship specs.",
     btn_download:"Download PDF Catalog", btn_preview:"Preview Online",
-    prod_title:"Products", prod_sub:"SS 2026 Collection · 18 Customizable Styles · 100 pcs MOQ", filt_all:"All",
+    prod_title:"Products", prod_sub:"SS 2026 Collection · Customizable Styles · 100 pcs MOQ", filt_all:"All",
     cat_title:"Digital Catalog", cat_sub:"Preview or download the full PDF product catalog · 18 SS styles",
     about_title:"About Laien Manufacturing", about_sub:"Women's Casual Apparel OEM/ODM · Baiyun, Guangzhou · Serving Global Brands",
     about_h2:"From Design to Garment<br>One-Stop Flexible Supply Chain",
@@ -1010,8 +1020,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const hash = location.hash.replace('#','') || 'home';
   navigate(hash);
   applyLang();
-  renderFeatured();
-  filterProducts('all');
+  loadProducts(); // 动态加载69款产品
 });
 </script>
 </body>
