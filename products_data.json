@@ -501,7 +501,19 @@
     "bulk_lead": "25-35 days",
     "image": "265SY00209-A886.jpg",
     "description": "百搭单品，轻松搭配各类下装",
-    "description_en": "Versatile piece that pairs easily with any bottoms"
+    "description_en": "Versatile piece that pairs easily with any bottoms",
+    "colors": [
+      {
+        "name": "白色",
+        "name_en": "White",
+        "image": "265SY00209-A886白色.jpg"
+      },
+      {
+        "name": "墨绿色",
+        "name_en": "Dark Green",
+        "image": "265SY00209-A886墨绿色.jpg"
+      }
+    ]
   },
   {
     "style_no": "266KZ04507-A008",
@@ -641,7 +653,19 @@
     "bulk_lead": "25-35 days",
     "image": "265TZ00686-A882.jpg",
     "description": "上下搭配，省心穿搭，通勤休闲两相宜",
-    "description_en": "Coordinated top and bottom, effortless styling for work and leisure"
+    "description_en": "Coordinated top and bottom, effortless styling for work and leisure",
+    "colors": [
+      {
+        "name": "红色",
+        "name_en": "Red",
+        "image": "265TZ00686-A882红色.jpg"
+      },
+      {
+        "name": "黄色",
+        "name_en": "Yellow",
+        "image": "265TZ00686-A882黄色.jpg"
+      }
+    ]
   },
   {
     "style_no": "266LQ02959-A899",
