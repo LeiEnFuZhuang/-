@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>莱恩制造 Laien Garments | 女装OEM/ODM工厂</title>
-    <meta name="description" content="广州女装OEM/ODM供应链，100件起订，7-10天打样，支持小单快返。服务全球独立设计师品牌与电商卖家。">
-    <meta name="keywords" content="女装工厂,OEM,ODM,服装定制,小单快返,广州服装厂">
+    <title>Laien Garments | Women's Apparel OEM & ODM Manufacturer</title>
+    <meta name="description" content="Guangzhou-based women's apparel OEM/ODM factory. 100 pcs MOQ, 7-10 days sampling, 10-15 days bulk production. Serving global brands and e-commerce sellers.">
+    <meta name="keywords" content="women's clothing manufacturer, OEM, ODM, apparel factory, small batch production, Guangzhou garment factory">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333;background:#fafafa}
@@ -13,131 +13,146 @@
         img{max-width:100%;height:auto;display:block}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-        /* 导航 */
+        /* Nav */
         nav{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
         nav .container{display:flex;justify-content:space-between;align-items:center;height:64px}
-        .logo{font-size:20px;font-weight:700;letter-spacing:1px}
-        .nav-links{display:flex;gap:32px}
-        .nav-links a{color:#666;font-size:15px;transition:color .2s}
+        .logo{font-size:20px;font-weight:700;letter-spacing:1.5px;color:#111}
+        .nav-links{display:flex;gap:32px;align-items:center}
+        .nav-links a{color:#666;font-size:15px;transition:color .2s;font-weight:500}
         .nav-links a:hover{color:#000}
-        .nav-cta{background:#000;color:#fff;padding:8px 20px;border-radius:4px;font-size:14px}
+        .nav-cta{background:#111;color:#fff;padding:10px 22px;border-radius:4px;font-size:14px;font-weight:500;transition:all .2s}
+        .nav-cta:hover{background:#333}
 
-        /* Hero */
-        .hero{background:linear-gradient(135deg,#f5f5f5 0%,#e8e8e8 100%);padding:100px 0 80px;text-align:center}
-        .hero h1{font-size:42px;font-weight:700;margin-bottom:16px;letter-spacing:-0.5px}
-        .hero p{font-size:18px;color:#666;margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto}
-        .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-        .btn-primary{background:#000;color:#fff;padding:14px 32px;border-radius:4px;font-size:15px;display:inline-block;transition:opacity .2s;border:none;cursor:pointer}
-        .btn-primary:hover{opacity:.85}
-        .btn-secondary{background:#fff;color:#000;padding:14px 32px;border-radius:4px;font-size:15px;border:1px solid #ddd;display:inline-block}
+        /* Hero - Dark */
+        .hero{background:#1a1a1a;padding:120px 0 100px;text-align:center;color:#fff;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.03) 0%,transparent 50%)}
+        .hero h1{font-size:48px;font-weight:700;margin-bottom:20px;letter-spacing:-1px;line-height:1.2;position:relative}
+        .hero p{font-size:18px;color:#aaa;margin-bottom:40px;max-width:620px;margin-left:auto;margin-right:auto;position:relative}
+        .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+        .btn-primary{background:#fff;color:#111;padding:14px 32px;border-radius:4px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:500}
+        .btn-primary:hover{background:#f0f0f0;transform:translateY(-1px)}
+        .btn-secondary{background:transparent;color:#fff;padding:14px 32px;border-radius:4px;font-size:15px;border:1px solid rgba(255,255,255,0.3);display:inline-block;transition:all .2s}
+        .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,0.05)}
 
-        /* 数据条 */
-        .stats{background:#fff;padding:60px 0;border-bottom:1px solid #eee}
+        /* Stats */
+        .stats{background:#fff;padding:70px 0;border-bottom:1px solid #eee}
         .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
-        .stat-number{font-size:36px;font-weight:700;margin-bottom:4px}
-        .stat-label{color:#666;font-size:14px}
+        .stat-number{font-size:40px;font-weight:700;margin-bottom:6px;color:#111}
+        .stat-label{color:#888;font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
+        .stat-divider{width:1px;height:40px;background:#eee;margin:0 auto}
 
-        /* 服务 */
-        .services{padding:80px 0;background:#fafafa}
-        .section-title{text-align:center;font-size:28px;margin-bottom:48px}
-        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-        .service-card{background:#fff;padding:32px;border-radius:8px;border:1px solid #eee;transition:box-shadow .2s}
-        .service-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.06)}
-        .service-icon{font-size:32px;margin-bottom:16px}
-        .service-card h3{font-size:18px;margin-bottom:8px}
-        .service-card p{color:#666;font-size:14px;line-height:1.6}
+        /* Services */
+        .services{padding:100px 0;background:#fafafa}
+        .section-title{text-align:center;font-size:32px;margin-bottom:16px;color:#111;font-weight:700}
+        .section-subtitle{text-align:center;color:#888;margin-bottom:60px;font-size:16px}
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+        .service-card{background:#fff;padding:36px 32px;border-radius:12px;border:1px solid #eee;transition:all .3s;position:relative}
+        .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.08);border-color:#ddd}
+        .service-icon{width:52px;height:52px;background:#f5f5f5;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;font-size:24px;transition:all .3s}
+        .service-card:hover .service-icon{background:#111;color:#fff}
+        .service-card h3{font-size:18px;margin-bottom:10px;color:#111;font-weight:600}
+        .service-card p{color:#777;font-size:14.5px;line-height:1.7}
 
-        /* 产品 */
-        .products{padding:80px 0;background:#fff}
-        .products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}
-        .products-header h2{font-size:28px}
-        .catalog-link{color:#000;font-size:15px;border-bottom:1px solid #000;padding-bottom:2px}
-        .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-        .product-card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #eee;transition:transform .2s}
-        .product-card:hover{transform:translateY(-4px)}
-        .product-img{aspect-ratio:3/4;background:#f0f0f0;position:relative}
-        .product-img img{width:100%;height:100%;object-fit:cover}
-        .product-tag{position:absolute;top:12px;left:12px;background:#000;color:#fff;padding:4px 10px;font-size:12px;border-radius:2px}
-        .product-info{padding:20px}
-        .product-info h4{font-size:16px;margin-bottom:6px}
-        .product-info p{color:#666;font-size:13px}
+        /* Products */
+        .products{padding:100px 0;background:#fff}
+        .products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px}
+        .products-header h2{font-size:32px;font-weight:700;color:#111}
+        .catalog-link{color:#111;font-size:15px;border-bottom:1px solid #111;padding-bottom:2px;font-weight:500;transition:opacity .2s}
+        .catalog-link:hover{opacity:.7}
+        .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+        .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eee;transition:all .3s}
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,0.08)}
+        .product-img{aspect-ratio:3/4;background:#f0f0f0;position:relative;overflow:hidden}
+        .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .product-card:hover .product-img img{transform:scale(1.05)}
+        .product-tag{position:absolute;top:14px;left:14px;background:#111;color:#fff;padding:5px 12px;font-size:11px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+        .product-info{padding:24px}
+        .product-info h4{font-size:17px;margin-bottom:8px;color:#111;font-weight:600}
+        .product-info p{color:#888;font-size:13.5px;line-height:1.5}
 
-        /* 流程 */
-        .process{padding:80px 0;background:#fafafa}
-        .process-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:center}
-        .process-step{padding:24px}
-        .step-num{width:40px;height:40px;background:#000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-weight:700}
-        .process-step h4{font-size:15px;margin-bottom:6px}
-        .process-step p{color:#666;font-size:13px}
+        /* Process */
+        .process{padding:100px 0;background:#fafafa}
+        .process-grid{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
+        .process-grid::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(to right,transparent,#ddd 10%,#ddd 90%,transparent);z-index:0}
+        .process-step{flex:1;text-align:center;padding:0 12px;position:relative;z-index:1}
+        .step-num{width:56px;height:56px;background:#fff;color:#111;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:700;font-size:18px;border:2px solid #eee;transition:all .3s}
+        .process-step:hover .step-num{background:#111;color:#fff;border-color:#111}
+        .process-step h4{font-size:15px;margin-bottom:8px;color:#111;font-weight:600}
+        .process-step p{color:#888;font-size:13px;line-height:1.6}
 
-        /* 询盘表单 */
-        .inquiry{padding:80px 0;background:#fff}
-        .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
-        .inquiry-info h2{font-size:28px;margin-bottom:16px}
-        .inquiry-info p{color:#666;margin-bottom:24px}
-        .contact-item{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+        /* Inquiry */
+        .inquiry{padding:100px 0;background:#fff}
+        .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+        .inquiry-info h2{font-size:32px;margin-bottom:16px;color:#111;font-weight:700}
+        .inquiry-info > p{color:#777;margin-bottom:32px;font-size:16px;line-height:1.7}
+        .contact-item{display:flex;align-items:center;gap:14px;margin-bottom:18px}
         .contact-item svg{width:20px;height:20px;color:#666;flex-shrink:0}
-        .form-group{margin-bottom:20px}
-        .form-group label{display:block;font-size:14px;margin-bottom:6px;color:#444}
-        .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;font-family:inherit}
-        .form-group textarea{min-height:120px;resize:vertical}
-        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#000}
-        .submit-btn{background:#000;color:#fff;padding:14px 32px;border:none;border-radius:4px;font-size:15px;cursor:pointer;width:100%;transition:opacity .2s}
-        .submit-btn:hover{opacity:.9}
+        .contact-item span{color:#444;font-size:15px}
+        .form-group{margin-bottom:22px}
+        .form-group label{display:block;font-size:13px;margin-bottom:8px;color:#555;font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:8px;font-size:15px;font-family:inherit;background:#fafafa;transition:all .2s}
+        .form-group textarea{min-height:130px;resize:vertical}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#111;background:#fff}
+        .submit-btn{background:#111;color:#fff;padding:16px 32px;border:none;border-radius:8px;font-size:15px;cursor:pointer;width:100%;transition:all .2s;font-weight:500}
+        .submit-btn:hover{background:#333;transform:translateY(-1px)}
 
-        /* 页脚 */
-        footer{background:#111;color:#999;padding:40px 0;text-align:center;font-size:13px}
-        footer a{color:#ccc;margin:0 12px}
+        /* Footer */
+        footer{background:#111;color:#777;padding:50px 0 30px;text-align:center;font-size:13px}
+        footer a{color:#aaa;margin:0 16px;font-size:13px;transition:color .2s}
+        footer a:hover{color:#fff}
+        .footer-brand{font-size:18px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:1px}
 
-        /* 响应式 */
+        /* Responsive */
         @media(max-width:768px){
-            .hero h1{font-size:28px}
-            .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+            .hero h1{font-size:32px}
+            .hero p{font-size:16px}
+            .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
             .services-grid,.products-grid{grid-template-columns:1fr}
-            .process-grid{grid-template-columns:1fr}
-            .inquiry-grid{grid-template-columns:1fr;gap:40px}
+            .process-grid{flex-direction:column;gap:32px}
+            .process-grid::before{display:none}
+            .inquiry-grid{grid-template-columns:1fr;gap:48px}
             .nav-links{display:none}
         }
 
-        /* ===== 企微客服浮层样式 ===== */
+        /* WeChat Kefu Modal */
         #kefu-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center}
         #kefu-modal.active{display:flex}
-        .kefu-box{background:#fff;padding:32px;border-radius:12px;text-align:center;max-width:360px;width:90%;position:relative;animation:kefuIn .3s ease}
+        .kefu-box{background:#fff;padding:36px;border-radius:16px;text-align:center;max-width:380px;width:90%;position:relative;animation:kefuIn .3s ease}
         @keyframes kefuIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-        .kefu-box h3{margin-bottom:8px;font-size:18px}
-        .kefu-box p{color:#666;font-size:14px;margin-bottom:20px}
-        .kefu-qr{width:200px;height:200px;margin:0 auto 16px;background:#f5f5f5;border-radius:8px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #eee}
+        .kefu-box h3{margin-bottom:10px;font-size:18px;color:#111}
+        .kefu-box > p{color:#888;font-size:14px;margin-bottom:24px}
+        .kefu-qr{width:200px;height:200px;margin:0 auto 20px;background:#f5f5f5;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #eee}
         .kefu-qr img{width:100%;height:100%;object-fit:cover}
-        .kefu-alt{border-top:1px solid #eee;padding-top:16px;margin-top:16px}
-        .kefu-alt p{font-size:13px;color:#888;margin-bottom:8px}
-        .kefu-copy{background:#f5f5f5;border:1px solid #ddd;padding:8px 16px;border-radius:6px;font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit}
+        .kefu-alt{border-top:1px solid #eee;padding-top:18px;margin-top:18px}
+        .kefu-alt p{font-size:13px;color:#999;margin-bottom:10px}
+        .kefu-copy{background:#f5f5f5;border:1px solid #e0e0e0;padding:10px 20px;border-radius:8px;font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit;color:#333}
         .kefu-copy:hover{background:#eee;border-color:#ccc}
-        .kefu-close{position:absolute;top:8px;right:14px;font-size:28px;color:#999;cursor:pointer;line-height:1;background:none;border:none;padding:0}
+        .kefu-close{position:absolute;top:12px;right:16px;font-size:28px;color:#bbb;cursor:pointer;line-height:1;background:none;border:none;padding:0;transition:color .2s}
         .kefu-close:hover{color:#333}
         #wx-kefu{position:fixed;bottom:28px;right:28px;z-index:9999;cursor:pointer}
-        #wx-kefu .kefu-btn{width:56px;height:56px;background:#07C160;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(7,193,96,0.35);transition:transform .2s}
-        #wx-kefu .kefu-btn:hover{transform:scale(1.1)}
-        #kefu-tip{position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:6px 12px;border-radius:4px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none}
+        #wx-kefu .kefu-btn{width:56px;height:56px;background:#07C160;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(7,193,96,0.35);transition:all .2s}
+        #wx-kefu .kefu-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(7,193,96,0.45)}
+        #kefu-tip{position:absolute;top:-40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;font-weight:500}
 
-        /* 邮件按钮 */
+        /* Mail button */
         #mail-kefu{position:fixed;bottom:28px;right:96px;z-index:9999}
-        #mail-kefu a{width:56px;height:56px;background:#333;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:transform .2s}
-        #mail-kefu a:hover{transform:scale(1.1)}
+        #mail-kefu a{width:56px;height:56px;background:#333;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
+        #mail-kefu a:hover{transform:scale(1.1);background:#444}
     </style>
 <base target="_blank">
 </head>
 <body>
 
-<!-- 导航 -->
+<!-- Navigation -->
 <nav>
     <div class="container">
         <div class="logo">LAIEN GARMENTS</div>
         <div class="nav-links">
-            <a href="#home">首页</a>
-            <a href="#services">服务</a>
-            <a href="#products">产品</a>
-            <a href="#process">流程</a>
-            <a href="#contact" class="nav-cta">立即询盘</a>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#process">Process</a>
+            <a href="#contact" class="nav-cta">Get a Quote</a>
         </div>
     </div>
 </nav>
@@ -146,147 +161,161 @@
 <section class="hero" id="home">
     <div class="container">
         <h1>Professional Women's Apparel<br>OEM / ODM Supply Chain</h1>
-        <p>Based in Guangzhou, we connect global brands with vetted manufacturing partners. From design sampling to bulk production.</p>
+        <p>Based in Guangzhou, we connect global brands with vetted manufacturing partners. From design sampling to bulk production, we deliver flexible, fast-turnaround solutions.</p>
         <div class="hero-btns">
-            <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" target="_blank">📥 下载 SS2026 画册</a>
-            <a href="#contact" class="btn-secondary">获取报价</a>
+            <a href="Fashion_Catalog_B2B.pdf" class="btn-primary" target="_blank">📥 Download SS2026 Catalog</a>
+            <a href="#contact" class="btn-secondary">Request a Quote</a>
         </div>
     </div>
 </section>
 
-<!-- 数据 -->
+<!-- Stats -->
 <section class="stats">
     <div class="container">
         <div class="stats-grid">
-            <div><div class="stat-number">100</div><div class="stat-label">件起订 (MOQ)</div></div>
-            <div><div class="stat-number">7-10</div><div class="stat-label">天打样周期</div></div>
-            <div><div class="stat-number">10-15</div><div class="stat-label">天大货快返</div></div>
-            <div><div class="stat-number">60+</div><div class="stat-label">SS2026 新款</div></div>
+            <div>
+                <div class="stat-number">100</div>
+                <div class="stat-label">pcs MOQ</div>
+            </div>
+            <div>
+                <div class="stat-number">7-10</div>
+                <div class="stat-label">Days Sampling</div>
+            </div>
+            <div>
+                <div class="stat-number">10-15</div>
+                <div class="stat-label">Days Express</div>
+            </div>
+            <div>
+                <div class="stat-number">60+</div>
+                <div class="stat-label">New Styles SS2026</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- 服务 -->
+<!-- Services -->
 <section class="services" id="services">
     <div class="container">
-        <h2 class="section-title">核心服务</h2>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">End-to-end apparel manufacturing solutions tailored for emerging brands and established labels</p>
         <div class="services-grid">
             <div class="service-card">
                 <div class="service-icon">🎯</div>
-                <h3>小单快返</h3>
-                <p>100件/色起订，支持多款式混单。适合新兴品牌测款、电商卖家补单，库存风险极低。</p>
+                <h3>Low MOQ</h3>
+                <p>Starting from 100 pcs per color. Perfect for emerging brands, test orders, and low-inventory-risk operations.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">⚡</div>
-                <h3>快速打样</h3>
-                <p>7-10天完成首样，支持多次修改。提供产前样(PP Sample)确认，确保大货与样板一致。</p>
+                <h3>Fast Sampling</h3>
+                <p>7-10 days for sample production with multiple revisions supported. PP sample approval before bulk cutting.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🎨</div>
                 <h3>OEM & ODM</h3>
-                <p>来样生产、设计稿打版、市场趋势选款开发，灵活匹配不同合作模式。</p>
+                <p>Sample-based production, design-to-order, and in-house style development for diverse partnership models.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏭</div>
-                <h3>柔性产能</h3>
-                <p>标准交期15-20天，快返10-15天。多工厂协同排产，应对季节性爆单需求。</p>
+                <h3>Flexible Capacity</h3>
+                <p>10-15 days express bulk lead time. Small batch multi-style mixed orders supported for fast fashion cycles.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">✅</div>
-                <h3>品控体系</h3>
-                <p>AQL 2.5 标准，面料入仓检、中段巡检、尾段全检三道关卡，驻厂QC全程跟进。</p>
+                <h3>Quality Control</h3>
+                <p>AQL 2.5 inspection standard with three-stage QC: incoming fabric, in-line, and final inspection.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🏷️</div>
-                <h3>品牌包装</h3>
-                <p>定制吊牌、洗水唛、尺码标、包装袋、外箱，一站式完成品牌视觉输出。</p>
+                <h3>Custom Branding</h3>
+                <p>Custom hang tags, care labels, size labels, poly bags, and cartons to build your complete brand identity.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 产品 -->
+<!-- Products -->
 <section class="products" id="products">
     <div class="container">
         <div class="products-header">
-            <h2>SS 2026 系列</h2>
-            <a href="Fashion_Catalog_B2B.pdf" class="catalog-link" target="_blank">查看完整画册 →</a>
+            <h2>SS 2026 Collection</h2>
+            <a href="Fashion_Catalog_B2B.pdf" class="catalog-link" target="_blank">View Full Catalog →</a>
         </div>
         <div class="products-grid">
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/style_001.jpg" alt="SS2026 Style 001" onerror="this.style.display='none';this.parentElement.style.background='#e0e0e0'">
-                    <span class="product-tag">NEW</span>
+                    <img src="images/style_001.jpg" alt="Casual Shirt Collection" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <span class="product-tag">New</span>
                 </div>
                 <div class="product-info">
-                    <h4>休闲衬衫系列</h4>
-                    <p>天丝棉混纺 · 4色可选 · MOQ 100件</p>
+                    <h4>Casual Shirts</h4>
+                    <p>Tencel-cotton blend · 4 colors · MOQ 100 pcs</p>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/style_002.jpg" alt="SS2026 Style 002" onerror="this.style.display='none';this.parentElement.style.background='#e0e0e0'">
-                    <span class="product-tag">HOT</span>
+                    <img src="images/style_002.jpg" alt="Wide Leg Pants Collection" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <span class="product-tag">Hot</span>
                 </div>
                 <div class="product-info">
-                    <h4>阔腿长裤系列</h4>
-                    <p>垂感面料 · 6码全码 · 快返10天</p>
+                    <h4>Wide Leg Pants</h4>
+                    <p>Drape fabric · Sizes S-XXL · Express 10 days</p>
                 </div>
             </div>
             <div class="product-card">
                 <div class="product-img">
-                    <img src="images/style_003.jpg" alt="SS2026 Style 003" onerror="this.style.display='none';this.parentElement.style.background='#e0e0e0'">
+                    <img src="images/style_003.jpg" alt="Dress Collection" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                 </div>
                 <div class="product-info">
-                    <h4>连衣裙系列</h4>
-                    <p>印花/纯色可选 · ODM开发 · 支持改版</p>
+                    <h4>Dresses</h4>
+                    <p>Print & solid options · ODM development · Custom fit</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 流程 -->
+<!-- Process -->
 <section class="process" id="process">
     <div class="container">
-        <h2 class="section-title">合作流程</h2>
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">From inquiry to delivery in 5 streamlined steps</p>
         <div class="process-grid">
             <div class="process-step">
                 <div class="step-num">1</div>
-                <h4>询盘</h4>
-                <p>发送设计图/样衣<br>确认面料、颜色、数量</p>
+                <h4>Inquiry</h4>
+                <p>Share designs or samples.<br>Confirm fabric, color, and quantity.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">2</div>
-                <h4>报价</h4>
-                <p>核算成本<br>确认价格、交期、付款方式</p>
+                <h4>Quotation</h4>
+                <p>Cost calculation.<br>Confirm price, lead time, and terms.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">3</div>
-                <h4>打样</h4>
-                <p>7-10天出样<br>确认版型、做工、尺寸</p>
+                <h4>Sampling</h4>
+                <p>7-10 days for samples.<br>Confirm fit, workmanship, and measurements.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">4</div>
-                <h4>生产</h4>
-                <p>大货生产<br>驻厂QC全程监控</p>
+                <h4>Production</h4>
+                <p>Bulk production at partner factories with on-site QC monitoring.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">5</div>
-                <h4>交付</h4>
-                <p>尾段全检<br>物流安排、发货</p>
+                <h4>Delivery</h4>
+                <p>Final inspection and logistics arrangement. Door-to-door delivery.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 询盘 -->
+<!-- Inquiry -->
 <section class="inquiry" id="contact">
     <div class="container">
         <div class="inquiry-grid">
             <div class="inquiry-info">
-                <h2>联系我们</h2>
-                <p>获取报价、申请样衣、讨论合作模式 — 我们期待与您建立长期合作关系。</p>
+                <h2>Contact Us</h2>
+                <p>Get quotes, request samples, or discuss partnership opportunities. We look forward to building long-term relationships with your brand.</p>
                 <div class="contact-item">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     <span>shawnlin@laingarments.com</span>
@@ -297,75 +326,75 @@
                 </div>
                 <div class="contact-item">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>广州市番禺区</span>
+                    <span>Panyu, Guangzhou, China</span>
                 </div>
             </div>
 
             <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
-                <!-- 提交后跳转回首页（可选） -->
                 <input type="hidden" name="_next" value="https://www.laingarments.com/?submitted=1">
-                <!-- 邮件标题 -->
-                <input type="hidden" name="_subject" value="【Laien Garments】新询盘">
-                <!-- 禁用验证码（首次验证后生效） -->
+                <input type="hidden" name="_subject" value="[Laien Garments] New Inquiry">
                 <input type="hidden" name="_captcha" value="false">
 
                 <div class="form-group">
-                    <label>姓名 *</label>
-                    <input type="text" name="name" placeholder="您的称呼" required>
+                    <label>Full Name *</label>
+                    <input type="text" name="name" placeholder="Your name" required>
                 </div>
                 <div class="form-group">
-                    <label>邮箱 *</label>
-                    <input type="email" name="email" placeholder="用于接收报价" required>
+                    <label>Email *</label>
+                    <input type="email" name="email" placeholder="For receiving quotation" required>
                 </div>
                 <div class="form-group">
-                    <label>公司名称</label>
-                    <input type="text" name="company" placeholder="品牌名 / 公司名">
+                    <label>Company / Brand</label>
+                    <input type="text" name="company" placeholder="Your brand or company name">
                 </div>
                 <div class="form-group">
-                    <label>需求类型 *</label>
+                    <label>Inquiry Type *</label>
                     <select name="type" required>
-                        <option value="">请选择</option>
-                        <option value="oem">OEM 来样生产</option>
-                        <option value="odm">ODM 设计开发</option>
-                        <option value="catalog">索取产品画册</option>
-                        <option value="sample">申请打样</option>
-                        <option value="other">其他</option>
+                        <option value="">Select an option</option>
+                        <option value="oem">OEM — Sample-based Production</option>
+                        <option value="odm">ODM — Design & Development</option>
+                        <option value="catalog">Request Product Catalog</option>
+                        <option value="sample">Request Sample</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>需求描述</label>
-                    <textarea name="message" placeholder="请描述款式、数量、目标市场、面料要求等..."></textarea>
+                    <label>Project Details</label>
+                    <textarea name="message" placeholder="Please describe styles, quantities, target market, fabric requirements..."></textarea>
                 </div>
-                <button type="submit" class="submit-btn">提交询盘</button>
-                <p style="font-size:12px;color:#999;margin-top:12px;text-align:center">提交后我们将在24小时内回复至您的邮箱</p>
+                <button type="submit" class="submit-btn">Submit Inquiry</button>
+                <p style="font-size:12px;color:#aaa;margin-top:14px;text-align:center">We will reply within 24 hours</p>
             </form>
         </div>
     </div>
 </section>
 
-<!-- 页脚 -->
+<!-- Footer -->
 <footer>
     <div class="container">
-        <p>© 2026 Laien Garments. All rights reserved.</p>
-        <p style="margin-top:8px">
-            <a href="#home">首页</a>
-            <a href="#services">服务</a>
-            <a href="#products">产品</a>
-            <a href="#contact">联系</a>
+        <div class="footer-brand">LAIEN GARMENTS</div>
+        <p style="margin-bottom:16px">Women's Casual Apparel OEM / ODM · Guangzhou · Serving Global Brands</p>
+        <p>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
         </p>
+        <p style="margin-top:24px;color:#555">© 2026 Laien Garments. All rights reserved.</p>
     </div>
 </footer>
 
-<!-- ===== 邮件询盘按钮（备选通道） ===== -->
+<!-- Mail Button -->
 <div id="mail-kefu">
-    <a href="mailto:shawnlin@laingarments.com?subject=Laien%20Garments%20询盘&body=您好，我想了解以下信息：%0D%0A%0D%0A1.%20需求类型：OEM/ODM/画册%0D%0A2.%20款式/数量：%0D%0A3.%20目标市场：%0D%0A4.%20其他需求：" title="邮件询盘">
+    <a href="mailto:shawnlin@laingarments.com?subject=Laien%20Garments%20Inquiry&body=Hi%20Laien%20Team,%0D%0A%0D%0AI%20would%20like%20to%20inquire%20about:%0D%0A%0D%0A1.%20Inquiry%20Type:%20OEM%20/%20ODM%20/%20Catalog%0D%0A2.%20Styles%20/%20Quantities:%0D%0A3.%20Target%20Market:%0D%0A4.%20Other%20Requirements:%0D%0A%0D%0ABest%20regards," title="Email Us">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
     </a>
 </div>
 
-<!-- ===== 企业微信客服（智能环境检测版） ===== -->
+<!-- WeChat Kefu -->
 <div id="wx-kefu">
-    <div id="kefu-tip">微信咨询</div>
+    <div id="kefu-tip">WeChat</div>
     <div class="kefu-btn">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
             <path d="M9.5 4C5.36 4 2 6.69 2 10c0 1.89 1.08 3.56 2.78 4.66L4 17l2.5-1.18C7.47 16.1 8.2 16.24 9 16.3c-.03-.25-.05-.5-.05-.76 0-3.46 3.18-6.27 7.1-6.27.34 0 .67.03 1 .08C16.43 5.93 13.31 4 9.5 4z" fill="white"/>
@@ -377,61 +406,51 @@
 <div id="kefu-modal">
     <div class="kefu-box">
         <button class="kefu-close" onclick="closeKefu()">&times;</button>
-        <h3>📱 微信扫码咨询</h3>
-        <p>请使用手机微信扫描下方二维码<br>联系客服获取报价</p>
+        <h3>📱 Scan to Chat</h3>
+        <p>Use WeChat to scan the QR code<br>and chat with our team</p>
         <div class="kefu-qr">
-            <img src="images/kefu-qr.jpg" alt="客服二维码" onerror="this.parentElement.innerHTML='<span style=color:#999;font-size:13px;>请上传二维码至 images/kefu-qr.jpg</span>'">
+            <img src="images/kefu-qr.jpg" alt="WeChat QR" onerror="this.parentElement.innerHTML='<span style=color:#999;font-size:13px;>Please upload QR code to images/kefu-qr.jpg</span>'">
         </div>
         <div class="kefu-alt">
-            <p>或复制微信号手动添加</p>
+            <p>Or copy WeChat ID</p>
             <button class="kefu-copy" onclick="copyWechat()">📋 17551350093</button>
-            <p style="margin-top:12px;font-size:12px;color:#aaa">电脑未安装微信？扫码即可咨询</p>
+            <p style="margin-top:12px;font-size:12px;color:#aaa">No WeChat on desktop? Scan with your phone</p>
         </div>
     </div>
 </div>
 
 <script>
-    // 检测是否在 微信/企业微信 环境
     function isWechat() {
         var ua = navigator.userAgent.toLowerCase();
         return ua.indexOf('micromessenger') !== -1 || ua.indexOf('wxwork') !== -1;
     }
-
     var kfLink = 'https://work.weixin.qq.com/kfid/kfc3140957a868bacd5';
     var btn = document.getElementById('wx-kefu');
     var tip = document.getElementById('kefu-tip');
     var modal = document.getElementById('kefu-modal');
-
     btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
     btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
-
     btn.addEventListener('click', function(e) {
         e.preventDefault();
-        e.stopPropagation();
         if (isWechat()) {
-            // 微信内直接打开客服
             window.location.href = kfLink;
         } else {
-            // 非微信环境弹出二维码
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
     });
-
     function closeKefu() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
-
     modal.addEventListener('click', function(e) {
         if (e.target === modal) closeKefu();
     });
-
     function copyWechat() {
         var wx = '17551350093';
         if (navigator.clipboard) {
             navigator.clipboard.writeText(wx).then(function() {
-                alert('微信号已复制：' + wx);
+                alert('WeChat ID copied: ' + wx);
             }).catch(function() {
                 fallbackCopy(wx);
             });
@@ -439,7 +458,6 @@
             fallbackCopy(wx);
         }
     }
-
     function fallbackCopy(text) {
         var input = document.createElement('input');
         input.value = text;
@@ -449,18 +467,16 @@
         input.select();
         try {
             document.execCommand('copy');
-            alert('微信号已复制：' + text);
+            alert('WeChat ID copied: ' + text);
         } catch(err) {
-            alert('请手动复制微信号：' + text);
+            alert('Please manually copy: ' + text);
         }
         document.body.removeChild(input);
     }
-
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeKefu();
     });
 </script>
-<!-- ===== /企业微信客服 ===== -->
 
 </body>
 </html>
