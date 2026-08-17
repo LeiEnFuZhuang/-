@@ -368,5 +368,30 @@ function switchColor(btn) {
 // ========== 启动 ==========
 loadProducts();
 </script>
-</body>
+<!-- ===== 企业微信客服悬浮按钮 ===== -->
+<div id="wx-kefu" style="position:fixed;bottom:28px;right:28px;z-index:9999;cursor:pointer;">
+  <div style="width:56px;height:56px;background:#07C160;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(7,193,96,0.35);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <!-- 客服图标 -->
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+      <path d="M18.6 11.1c.9 0 1.7.2 2.4.6.7-.9 1.1-2 1.1-3.2 0-3.2-3.1-5.8-7-5.8s-7 2.6-7 5.8c0 3.2 3.1 5.8 7 5.8.6 0 1.2-.1 1.8-.2-.1-.4-.2-.9-.2-1.3 0-1 .4-1.9 1-2.7-.4-.1-.7-.1-1.1-.1z" fill="white"/>
+      <path d="M18.6 12.1c-2.2 0-4 1.6-4 3.5s1.8 3.5 4 3.5 4-1.6 4-3.5-1.8-3.5-4-3.5zm-2.5 3.5c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5zm2.5 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5zm2.5 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5z" fill="white"/>
+    </svg>
+  </div>
+  <div style="position:absolute;top:-32px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:5px 10px;border-radius:4px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity 0.3s;pointer-events:none;" id="kefu-tip">微信咨询</div>
+</div>
+
+<script>
+  var btn = document.getElementById('wx-kefu');
+  var tip = document.getElementById('kefu-tip');
+  
+  btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
+  btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
+  
+  btn.addEventListener('click', function() {
+    // ⚠️ 把下面这行换成你从企业微信后台复制的真实客服链接
+    var kfLink = 'https://work.weixin.qq.com/kfid/kfc3140957a868bacd5';
+    window.open(kfLink, 'weixin_kefu', 'width=800,height=700,top=80,left=100,resizable=yes,scrollbars=yes');
+  });
+</script>
+<!-- ===== /企业微信客服悬浮按钮 ===== --></body>
 </html>
