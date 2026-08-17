@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>莱恩制造 Laien Manufacturing | 女装OEM/ODM工厂</title>
-<meta name="description" content="广州莱恩制造——专业女装休闲服装OEM/ODM制造商。SS 2026春夏系列，MOQ 100件，7-10天出样，10-15天大货。">
+<meta name="description" content="Laien — Women's casual apparel OEM/ODM supply chain. SS 2026 collection, MOQ 100 pcs, 7-10 days sampling, 10-15 days express production.">
 <style>
 /* ===== 产品卡片链接 & 按钮 ===== */
 .card-img-link{display:block;text-decoration:none;color:inherit}
@@ -87,8 +87,11 @@ img{max-width:100%;display:block}
 .product-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--border);transition:.35s;cursor:pointer}
 .product-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
 .product-card.hidden{display:none}
-.product-img{height:340px;background:var(--light);position:relative;overflow:hidden}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.product-img{height:340px;background:linear-gradient(90deg,#f0ede8 25%,#f8f6f3 50%,#f0ede8 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;position:relative;overflow:hidden}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:.5s;opacity:0}
+.product-img img.loaded{opacity:1}
+.product-img img[src]{animation:none}
 .product-card:hover .product-img img{transform:scale(1.05)}
 .product-tag{position:absolute;top:10px;left:10px;background:var(--primary);color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
 .product-info{padding:18px}
@@ -202,7 +205,7 @@ img{max-width:100%;display:block}
 .hero-stats{gap:24px;margin-top:40px}
 .section{padding:60px 0}
 .products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-.product-img{height:220px}
+.product-img{height:220px}.product-img img.loaded{opacity:1}
 .modal-body{grid-template-columns:1fr}
 .modal-img{min-height:260px}
 .about-grid{grid-template-columns:1fr;gap:32px}
@@ -564,7 +567,7 @@ img{max-width:100%;display:block}
   <section style="background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:130px 0 60px;text-align:center">
     <div class="container">
       <h1 style="font-size:36px;font-weight:800;margin-bottom:10px" data-i18n="about_title">关于莱恩制造</h1>
-      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="about_sub">专注女装休闲服装 OEM/ODM · 广州白云 · 服务全球品牌</p>
+      <p style="color:rgba(255,255,255,.75);font-size:15px" data-i18n="about_sub">Women's Casual Apparel OEM/ODM · Guangzhou · Serving Global Brands</p>
     </div>
   </section>
   <section class="section">
@@ -573,14 +576,14 @@ img{max-width:100%;display:block}
         <div class="about-img"><img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=600&fit=crop" alt="factory"></div>
         <div class="about-content">
           <h2 data-i18n="about_h2">从设计到成衣<br>一站式柔性供应链</h2>
-          <p data-i18n="about_p1">莱恩制造位于中国广州白云区，是一家专注于<b>女装休闲服装 OEM/ODM</b>生产的专业制造商。我们服务全球独立设计师品牌、电商卖家、批发商及连锁零售商。</p>
+          <p data-i18n="about_p1">Laien is a Guangzhou-based apparel supply chain company specializing in <b>women's casual wear OEM/ODM</b>. We partner with certified factories to serve independent designer brands, e-commerce sellers, wholesalers, and retail chains worldwide.</p>
           <p data-i18n="about_p2">从 SS 2026 春夏系列开始，我们推出了多款全新设计，涵盖裤装、套装、连衣裙、连体裤及上衣等品类。所有款式均支持<b>颜色定制、尺码调整、标签包装定制</b>，满足品牌差异化需求。</p>
           <p data-i18n="about_p3">我们坚持 <b>AQL 2.5 质检标准</b>，配备专业 QC 团队进行面料检验、中期巡检及尾期全检，确保每一件出厂产品都符合客户要求。</p>
           <div class="stats-bar">
-            <div class="stat-item"><div class="num">10+</div><div class="label" data-i18n="s1">年行业经验</div></div>
-            <div class="stat-item"><div class="num">200+</div><div class="label" data-i18n="s2">合作客户</div></div>
-            <div class="stat-item"><div class="num">50+</div><div class="label" data-i18n="s3">月产能(万件)</div></div>
-            <div class="stat-item"><div class="num">98%</div><div class="label" data-i18n="s4">客户满意度</div></div>
+            <div class="stat-item"><div class="num">60+</div><div class="label" data-i18n="s1">Styles Available</div></div>
+            <div class="stat-item"><div class="num">100</div><div class="label" data-i18n="s2">pcs MOQ</div></div>
+            <div class="stat-item"><div class="num">7-10</div><div class="label" data-i18n="s3">Days Sampling</div></div>
+            <div class="stat-item"><div class="num">10-15</div><div class="label" data-i18n="s4">Days Express</div></div>
           </div>
         </div>
       </div>
@@ -673,7 +676,7 @@ img{max-width:100%;display:block}
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo"><div class="logo-icon">莱</div><span data-i18n="brand">莱恩制造</span></div>
-        <p data-i18n="footer_desc">广州专业女装休闲服装 OEM/ODM 制造商。SS 2026 春夏系列已全面上线，欢迎品牌方、批发商、电商卖家洽谈合作。</p>
+        <p data-i18n="footer_desc">Guangzhou women's casual apparel OEM/ODM supply chain. SS 2026 collection now available. Welcome brands, wholesalers, and e-commerce sellers.</p>
       </div>
       <div>
         <h4 data-i18n="f_nav">快速导航</h4>
@@ -756,8 +759,8 @@ async function loadProducts() {
 const i18n = {
   zh: {
     brand:"莱恩制造", nav_home:"首页", nav_products:"产品中心", nav_catalog:"电子画册", nav_about:"关于我们", nav_contact:"联系我们",
-    hero_title:"专业女装 <span>OEM / ODM</span><br>一站式制造服务",
-    hero_desc:"广州莱恩制造，专注女装休闲服装生产。从设计打样到批量出货，为全球品牌提供高品质、快交期的柔性供应链解决方案。",
+    hero_title:"Professional Women's Apparel<br><span>OEM / ODM</span> Supply Chain",
+    hero_desc:"Based in Guangzhou, we connect global brands with vetted manufacturing partners. From design sampling to bulk production, we deliver flexible, fast-turnaround supply chain solutions.",
     btn_browse:"浏览产品系列", btn_catalog:"查看电子画册", btn_all:"查看全部产品 →",
     stat_moq:"件起订 MOQ", stat_sample:"天出样", stat_bulk:"天大货", stat_styles:"持续上新",
     feat_title:"SS 2026 春夏精选", feat_sub:"从画册中精选热门款式，支持 OEM/ODM 定制，100 件起订",
@@ -772,30 +775,30 @@ const i18n = {
     p1_t:"需求沟通", p1_d:"提供款式图/样衣，确认面料、颜色、数量",
     p2_t:"报价确认", p2_d:"核算成本，确认价格、交期及付款方式",
     p3_t:"样衣制作", p3_d:"7-10 天出样，确认版型、工艺、尺寸",
-    p4_t:"大货生产", p4_d:"10-15 天批量生产，全程 QC 跟进",
+    p4_t:"大货生产", p4_d:"10-15 days bulk production at partner factories, with on-site QC monitoring",
     p5_t:"质检出货", p5_d:"尾期全检，安排物流，交付成品",
     cta_title:"下载完整 SS 2026 产品画册", cta_desc:"春夏新品，含高清产品图、详细尺码表、面料及工艺说明",
     btn_download:"下载 PDF 画册", btn_preview:"在线预览",
     prod_title:"产品中心", prod_sub:"SS 2026 春夏系列 · 可定制产品 · 100 件起订", filt_all:"全部",
     cat_title:"电子画册", cat_sub:"在线预览或下载完整 PDF 产品目录 · 海量春夏新品",
-    about_title:"关于莱恩制造", about_sub:"专注女装休闲服装 OEM/ODM · 广州白云 · 服务全球品牌",
+    about_title:"About Laien", about_sub:"Women's Casual Apparel OEM/ODM · Guangzhou · Serving Global Brands",
     about_h2:"从设计到成衣<br>一站式柔性供应链",
-    about_p1:"莱恩制造位于中国广州白云区，是一家专注于<b>女装休闲服装 OEM/ODM</b>生产的专业制造商。我们服务全球独立设计师品牌、电商卖家、批发商及连锁零售商。",
-    about_p2:"从 SS 2026 春夏系列开始，我们推出了多款全新设计，涵盖裤装、套装、连衣裙、连体裤及上衣等品类。所有款式均支持<b>颜色定制、尺码调整、标签包装定制</b>，满足品牌差异化需求。",
-    about_p3:"我们坚持 <b>AQL 2.5 质检标准</b>，配备专业 QC 团队进行面料检验、中期巡检及尾期全检，确保每一件出厂产品都符合客户要求。",
-    s1:"年行业经验", s2:"合作客户", s3:"月产能(万件)", s4:"客户满意度",
+    about_p1:"Laien is a Guangzhou-based apparel supply chain company specializing in <b>women's casual wear OEM/ODM</b>. We partner with certified factories to serve independent designer brands, e-commerce sellers, wholesalers, and retail chains worldwide.",
+    about_p2:"Starting from the SS 2026 collection, we have launched a wide range of new designs covering pants, sets, dresses, jumpsuits, and tops. All styles support <b>color customization, size adjustment, and private labeling/packaging</b> to meet brand differentiation needs.",
+    about_p3:"We adhere to <b>AQL 2.5 quality standards</b> with dedicated QC personnel stationed at partner factories for fabric inspection, in-line checks, and final inspection to ensure every piece meets client requirements.",
+    s1:"在售款式", s2:"件起订", s3:"天出样", s4:"天快返",
     svc_title:"核心服务",
-    sv1_t:"OEM 来样加工", sv1_d:"客户提供样衣或设计图，我们负责打版、选料、生产。支持来样复刻、来图定制，保留客户原有设计细节。",
-    sv2_t:"ODM 自主设计", sv2_d:"基于市场趋势和我们的设计能力，为客户提供从款式开发到成品交付的全套方案。适合希望快速上新的品牌。",
+    sv1_t:"OEM 来样加工", sv1_d:"Clients provide samples or tech packs. We coordinate with partner factories for pattern-making, sourcing, and production. Sample replication and design-to-order supported.",
+    sv2_t:"ODM 自主设计", sv2_d:"Based on market trends and our design capabilities, we develop styles and coordinate production through partner factories. Ideal for brands looking to launch quickly.",
     sv3_t:"版型定制", sv3_d:"支持根据客户目标市场的体型数据调整版型，提供 EU 34-46 全尺码覆盖，可定制加大码及特殊尺码。",
-    sv4_t:"面料开发", sv4_d:"与广州中大面料市场及多家面料厂深度合作，可为客户寻找、开发、定制专属面料，提供面料色卡。",
+    sv4_t:"面料开发", sv4_d:"Through our network in Guangzhou Zhongda fabric market and partnerships with mills, we source, develop, and customize exclusive fabrics with swatch cards.",
     sv5_t:"标签包装定制", sv5_d:"支持定制品牌吊牌、洗水唛、尺码标、包装袋、包装盒，帮助客户打造完整的品牌视觉体系。",
-    sv6_t:"一件代发支持", sv6_d:"可为跨境电商卖家提供贴单代发服务，支持混款混色小批量发货，降低库存压力。",
+    sv6_t:"一件代发支持", sv6_d:"Dropshipping support for cross-border e-commerce sellers. Mixed style/color small batch shipping coordinated through partner warehouses.",
     qc_title:"质量控制体系",
-    q1_t:"面料入库检验", q1_d:"所有面料入仓前进行色牢度、克重、幅宽、瑕疵点检验，不合格面料直接退回供应商。",
+    q1_t:"面料入库检验", q1_d:"All fabrics are inspected at partner factories for color fastness, weight, width, and defects before cutting. Rejected fabrics are returned to suppliers.",
     q2_t:"产前样确认", q2_d:"大货生产前制作产前样（PP Sample），客户确认版型、工艺、尺寸后方可开裁。",
-    q3_t:"中期巡检", q3_d:"生产进行到 30%-50% 时进行中期巡检，检查车缝工艺、尺寸偏差、对称性等关键指标。",
-    q4_t:"尾期全检", q4_d:"成品完成后进行 100% 全检，按 AQL 2.5 标准验收，确保无脏污、破洞、线头、尺寸超标等问题。",
+    q3_t:"中期巡检", q3_d:"At 30-50% production progress, our on-site QC conducts in-line inspections at partner factories, checking stitching, measurement deviation, and symmetry.",
+    q4_t:"尾期全检", q4_d:"Finished goods undergo 100% final inspection at partner factories per AQL 2.5 standard. Ensuring no stains, holes, loose threads, or out-of-tolerance sizes.",
     q5_t:"包装复核", q5_d:"包装前再次核对款号、颜色、尺码、数量，确保与客户订单完全一致。",
     ready_title:"准备好开始合作了吗？", ready_desc:"无论您是初创品牌还是成熟卖家，我们都能为您提供灵活的生产方案和专业的服务支持。",
     btn_contact:"联系我们获取报价",
@@ -807,14 +810,14 @@ const i18n = {
     btn_submit:"提交询盘", tip_form:"提示：您也可以直接通过右侧 WhatsApp / 微信联系我们，响应更快",
     info_title:"联系方式", info_tel:"电话", info_addr:"地址",
     map_tip:"地图占位 — 建议替换为 Google Maps / 百度地图嵌入代码",
-    footer_desc:"广州专业女装休闲服装 OEM/ODM 制造商。SS 2026 春夏系列已全面上线，欢迎品牌方、批发商、电商卖家洽谈合作。",
+    footer_desc:"Guangzhou women's casual apparel OEM/ODM supply chain. SS 2026 collection now available. Welcome brands, wholesalers, and e-commerce sellers.",
     f_nav:"快速导航", f_svc:"服务支持", f_contact:"联系方式", f_addr:"Guangzhou, China",
     f_sample:"样衣申请", f_cap:"生产能力", f_qc:"质量控制", f_tag:"女装休闲服装 OEM/ODM | 广州"
   },
   en: {
     brand:"Laien Mfg", nav_home:"Home", nav_products:"Products", nav_catalog:"Catalog", nav_about:"About", nav_contact:"Contact",
-    hero_title:"Professional Women's Apparel<br><span>OEM / ODM</span> Manufacturing",
-    hero_desc:"Based in Guangzhou, China. From design sampling to bulk production, we provide high-quality, fast-turnaround flexible supply chain solutions for global brands.",
+    hero_title:"Professional Women's Apparel<br><span>OEM / ODM</span> Supply Chain",
+    hero_desc:"Based in Guangzhou, we connect global brands with vetted manufacturing partners. From design sampling to bulk production, we deliver flexible, fast-turnaround supply chain solutions.",
     btn_browse:"Browse Collection", btn_catalog:"View Catalog", btn_all:"View All Products →",
     stat_moq:"pcs MOQ", stat_sample:"Days Sample", stat_bulk:"Days Bulk", stat_styles:"New Arrivals",
     feat_title:"SS 2026 Featured Collection", feat_sub:"Selected styles from our catalog. OEM/ODM customization available. 100 pcs MOQ.",
@@ -829,30 +832,30 @@ const i18n = {
     p1_t:"Inquiry", p1_d:"Share designs/samples. Confirm fabric, color, and quantity.",
     p2_t:"Quotation", p2_d:"Cost calculation. Confirm price, lead time, and payment terms.",
     p3_t:"Sampling", p3_d:"7-10 days for samples. Confirm fit, workmanship, and measurements.",
-    p4_t:"Production", p4_d:"10-15 days bulk production with ongoing QC monitoring.",
+    p4_t:"Production", p4_d:"10-15 days bulk production at partner factories, with on-site QC monitoring.",
     p5_t:"Inspection & Delivery", p5_d:"Final inspection, logistics arrangement, and delivery.",
     cta_title:"Download Full SS 2026 Catalog", cta_desc:"New styles with high-res images, detailed size charts, fabric and workmanship specs.",
     btn_download:"Download PDF Catalog", btn_preview:"Preview Online",
     prod_title:"Products", prod_sub:"SS 2026 Collection · Customizable Styles · 100 pcs MOQ", filt_all:"All",
     cat_title:"Digital Catalog", cat_sub:"Preview or download the full PDF product catalog · Wide range of SS styles",
-    about_title:"About Laien Manufacturing", about_sub:"Women's Casual Apparel OEM/ODM · Baiyun, Guangzhou · Serving Global Brands",
+    about_title:"About Laien", about_sub:"Women's Casual Apparel OEM/ODM · Guangzhou · Serving Global Brands",
     about_h2:"From Design to Garment<br>One-Stop Flexible Supply Chain",
-    about_p1:"Laien Manufacturing is a professional <b>women's casual apparel OEM/ODM</b> manufacturer based in Baiyun District, Guangzhou, China. We serve independent designer brands, e-commerce sellers, wholesalers, and retail chains worldwide.",
+    about_p1:"Laien is a Guangzhou-based apparel supply chain company specializing in <b>women's casual wear OEM/ODM</b>. We partner with certified factories to serve independent designer brands, e-commerce sellers, wholesalers, and retail chains worldwide.",
     about_p2:"Starting from the SS 2026 collection, we launched a wide range of new designs covering pants, sets, dresses, jumpsuits, and tops. All styles support <b>color customization, size adjustment, and private labeling/packaging</b> to meet brand differentiation needs.",
-    about_p3:"We adhere to <b>AQL 2.5 quality standards</b> with a dedicated QC team for fabric inspection, in-line checks, and final inspection to ensure every piece meets client requirements.",
-    s1:"Years Experience", s2:"Clients", s3:"Monthly Capacity (10K)", s4:"Satisfaction",
+    about_p3:"We adhere to <b>AQL 2.5 quality standards</b> with dedicated QC personnel stationed at partner factories for fabric inspection, in-line checks, and final inspection to ensure every piece meets client requirements.",
+    s1:"Styles Available", s2:"pcs MOQ", s3:"Days Sampling", s4:"Days Express",
     svc_title:"Core Services",
-    sv1_t:"OEM Production", sv1_d:"Clients provide samples or tech packs. We handle pattern-making, sourcing, and production. Sample replication and design-to-order supported.",
-    sv2_t:"ODM Development", sv2_d:"Based on market trends and our design capabilities, we provide full-package solutions from style development to finished goods delivery.",
+    sv1_t:"OEM Production", sv1_d:"Clients provide samples or tech packs. We coordinate with partner factories for pattern-making, sourcing, and production. Sample replication and design-to-order supported.",
+    sv2_t:"ODM Development", sv2_d:"Based on market trends and our design capabilities, we develop styles and coordinate production through partner factories.",
     sv3_t:"Fit Customization", sv3_d:"Adjust patterns based on target market body data. Full EU 34-46 size range. Plus sizes and special fits available.",
     sv4_t:"Fabric Sourcing", sv4_d:"Deep partnerships with Zhongda fabric market and mills. We can source, develop, and customize exclusive fabrics with swatch cards.",
     sv5_t:"Private Label & Packaging", sv5_d:"Custom hang tags, care labels, size labels, poly bags, and cartons to build a complete brand visual system.",
-    sv6_t:"Dropshipping Support", sv6_d:"Dropshipping services for cross-border e-commerce sellers. Mixed style/color small batch shipping supported.",
+    sv6_t:"Dropshipping Support", sv6_d:"Dropshipping support for cross-border e-commerce sellers. Mixed style/color small batch shipping coordinated through partner warehouses.",
     qc_title:"Quality Control System",
     q1_t:"Incoming Fabric Inspection", q1_d:"All fabrics are inspected for color fastness, weight, width, and defects before warehousing. Rejected fabrics are returned.",
     q2_t:"Pre-Production Sample", q2_d:"PP samples are made before bulk cutting. Clients approve fit, workmanship, and measurements before production starts.",
-    q3_t:"In-Line Inspection", q3_d:"Mid-production inspection at 30-50% completion. Checking stitching, measurement deviation, and symmetry.",
-    q4_t:"Final Inspection", q4_d:"100% final inspection per AQL 2.5 standard. Ensuring no stains, holes, loose threads, or out-of-tolerance sizes.",
+    q3_t:"In-Line Inspection", q3_d:"At 30-50% production progress, our on-site QC conducts in-line inspections at partner factories, checking stitching, measurement deviation, and symmetry.",
+    q4_t:"Final Inspection", q4_d:"Finished goods undergo 100% final inspection at partner factories per AQL 2.5 standard. Ensuring no stains, holes, loose threads, or out-of-tolerance sizes.",
     q5_t:"Packing Verification", q5_d:"Re-checking style numbers, colors, sizes, and quantities before packing to ensure order accuracy.",
     ready_title:"Ready to Partner?", ready_desc:"Whether you are a startup brand or an established seller, we offer flexible production solutions and professional support.",
     btn_contact:"Contact for Quote",
@@ -864,8 +867,8 @@ const i18n = {
     btn_submit:"Submit Inquiry", tip_form:"Tip: You can also reach us directly via WhatsApp / WeChat on the right for faster response.",
     info_title:"Contact Info", info_tel:"Tel", info_addr:"Address",
     map_tip:"Map placeholder — Replace with Google Maps / Baidu Maps embed code",
-    footer_desc:"Professional women's casual apparel OEM/ODM manufacturer in Guangzhou. SS 2026 collection now available. Welcome brands, wholesalers, and e-commerce sellers.",
-    f_nav:"Quick Links", f_svc:"Services", f_contact:"Contact", f_addr:"Baiyun, Guangzhou",
+    footer_desc:"Guangzhou women's casual apparel OEM/ODM supply chain. SS 2026 collection now available. Welcome brands, wholesalers, and e-commerce sellers.",
+    f_nav:"Quick Links", f_svc:"Services", f_contact:"Contact", f_addr:"Guangzhou, China",
     f_sample:"Sample Request", f_cap:"Capacity", f_qc:"Quality Control", f_tag:"Women's Apparel OEM/ODM | Guangzhou"
   }
 };
@@ -915,7 +918,7 @@ function renderCard(p, lang){
   const moq = lang === 'en' ? p.moq : p.moq.replace('pcs/color','件/色');
   return `<div class="product-card">
     <a href="product.html?style=${p.id}" class="card-img-link" onclick="event.stopPropagation()">
-      <div class="product-img"><img src="${p.img}" alt="${p.id}" loading="lazy"><span class="product-tag">${cat}</span></div>
+      <div class="product-img"><img src="${p.img}" alt="${p.id}" loading="lazy" onload="this.classList.add('loaded')" onerror="this.style.display='none';this.parentElement.style.background='var(--light)';this.parentElement.innerHTML+='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:13px;font-weight:600;\'>${p.id}</div>'"><span class="product-tag">${cat}</span></div>
     </a>
     <div class="product-info">
       <div class="product-id">${p.id}</div>
