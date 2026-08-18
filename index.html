@@ -71,10 +71,10 @@
 
         /* Stats */
         .stats{background:#fff;padding:70px 0;border-bottom:1px solid var(--border)}
-        .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
+        .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
         .stat-number{font-size:40px;font-weight:700;margin-bottom:6px;color:var(--brand-blue)}
         .stat-label{color:var(--text-light);font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
-        @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}}
+        @media(max-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
 
         /* Services */
         .services{padding:100px 0;background:var(--bg-light)}
@@ -105,7 +105,7 @@
         .cat-tab:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
         .cat-tab.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
-        .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .products-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
         .product-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s}
         .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
         .product-img{aspect-ratio:3/4;background:#f5f5f5;position:relative;overflow:hidden}
@@ -183,6 +183,7 @@
     <link rel="dns-prefetch" href="https://www.laingarments.com">
     <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -233,6 +234,10 @@
                 <div class="stat-number">70+</div>
                 <div class="stat-label">New Styles SS2026</div>
             </div>
+            <div>
+                <div class="stat-number">30/70</div>
+                <div class="stat-label">Payment Terms</div>
+            </div>
         </div>
     </div>
 </section>
@@ -273,6 +278,11 @@
                 <div class="service-icon">🏷️</div>
                 <h3>Custom Branding</h3>
                 <p>Custom hang tags, care labels, size labels, poly bags, and cartons to build your complete brand identity.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💳</div>
+                <h3>Payment Terms</h3>
+                <p>30% deposit upon order confirmation to start production. 70% balance due before shipment. Secure T/T transfer.</p>
             </div>
         </div>
     </div>
@@ -1050,7 +1060,7 @@
             </button>
         </div>
     </div>
-</section>ection>
+</section>
 
 <!-- Process -->
 <section class="process" id="process">
@@ -1076,13 +1086,13 @@
             </div>
             <div class="process-step">
                 <div class="step-num">4</div>
-                <h4>Production</h4>
-                <p>Bulk production at partner factories with on-site QC monitoring.</p>
+                <h4>Deposit & Production</h4>
+                <p>30% deposit to start bulk production. On-site QC monitoring at partner factories.</p>
             </div>
             <div class="process-step">
                 <div class="step-num">5</div>
-                <h4>Delivery</h4>
-                <p>Final inspection and logistics arrangement. Door-to-door delivery.</p>
+                <h4>Balance & Delivery</h4>
+                <p>70% balance before shipment. Final inspection and door-to-door delivery.</p>
             </div>
         </div>
     </div>
@@ -1143,6 +1153,9 @@
                 </div>
                 <button type="submit" class="submit-btn">Submit Inquiry</button>
                 <p style="font-size:12px;color:#aaa;margin-top:14px;text-align:center">We will reply within 24 hours</p>
+                <p style="font-size:12px;color:#1e5bb5;margin-top:8px;text-align:center;font-weight:500;">
+                    💳 Payment Terms: 30% deposit to start production, 70% balance before shipment
+                </p>
             </form>
         </div>
     </div>
