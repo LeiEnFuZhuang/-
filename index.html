@@ -105,20 +105,20 @@
         .cat-tab:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
         .cat-tab.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
-        .products-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+        .products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
         .product-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s}
         .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
         .product-img{aspect-ratio:1/1;background:#f5f5f5;position:relative;overflow:hidden}
         .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
         .product-card:hover .product-img img{transform:scale(1.05)}
         .product-tag{position:absolute;top:12px;left:12px;background:var(--brand-blue);color:#fff;padding:3px 8px;font-size:10px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
-        .product-info{padding:10px}
+        .product-info{padding:12px}
         .product-info h4{font-size:13px;margin-bottom:6px;color:var(--text-dark);font-weight:600}
         .product-info p{color:var(--text-light);font-size:13px;line-height:1.5}
         .product-meta{display:flex;gap:6px;margin-top:6px;font-size:10px;color:var(--text-light)}
         .product-meta span{display:flex;align-items:center;gap:4px}
-        @media(max-width:1024px){.products-grid{grid-template-columns:repeat(6,1fr)}}
-        @media(max-width:768px){.products-grid{grid-template-columns:repeat(3,1fr);gap:8px}}
+        @media(max-width:1024px){.products-grid{grid-template-columns:repeat(4,1fr)}}
+        @media(max-width:768px){.products-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
 
         /* Process */
         .process{padding:100px 0;background:var(--bg-light)}
@@ -179,20 +179,16 @@
         #mail-kefu a{width:56px;height:56px;background:var(--text-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
         #mail-kefu a:hover{transform:scale(1.1);background:var(--text-dark)}
 
-        /* ===== Quote Button on Product Cards ===== */
-        .quote-btn{
-            width:100%;margin-top:14px;padding:10px 0;background:var(--brand-blue);color:#fff;
-            border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
-            transition:all .2s;text-transform:uppercase;letter-spacing:0.5px;
-            display:flex;align-items:center;justify-content:center;gap:6px
-        }
+        /* ===== Quote Button ===== */
+        .quote-btn{width:100%;margin-top:12px;padding:8px 0;background:var(--brand-blue);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;justify-content:center;gap:6px}
         .quote-btn:hover{background:var(--brand-blue-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(30,91,181,0.25)}
 
-        /* Hidden card handling */
+        /* ===== Grid Fixes ===== */
         .hidden-card{display:none}
         .product-card.visible{display:block}
+        #product-grid > .product-card{box-sizing:border-box}
 
-        /* Quote Modal */
+        /* ===== Quote Modal ===== */
         #quote-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10001;display:none;align-items:center;justify-content:center}
         #quote-modal.active{display:flex}
         .quote-box{background:#fff;padding:36px;border-radius:16px;max-width:480px;width:90%;position:relative;animation:modalIn .3s ease;max-height:90vh;overflow-y:auto}
@@ -337,10 +333,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Shirt 242CS6</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 242CS67177-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="242CS67177-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 242CS67177-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="242CS67177-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="top">
@@ -350,10 +345,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Shirt 266CS0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266CS02977-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266CS02977-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266CS02977-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266CS02977-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="top">
@@ -363,10 +357,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Shirt 266CS0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266CS03734-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266CS03734-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266CS03734-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266CS03734-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -376,10 +369,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 251KZ6</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 251KZ65215-A199</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="251KZ65215-A199">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 251KZ65215-A199</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="251KZ65215-A199">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -389,10 +381,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ02112-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265KZ02112-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265KZ02112-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265KZ02112-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -402,10 +393,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ03007-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265KZ03007-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265KZ03007-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265KZ03007-A886">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -415,10 +405,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ1</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ102299-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265KZ102299-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265KZ102299-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265KZ102299-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -428,10 +417,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03197-A882_-1</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ03197-A882_-1">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ03197-A882_-1</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ03197-A882_-1">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -441,10 +429,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03459-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ03459-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ03459-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ03459-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -454,10 +441,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03525-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ03525-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ03525-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ03525-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -467,10 +453,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03941-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ03941-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ03941-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ03941-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -480,10 +465,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04356-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04356-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04356-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04356-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -493,10 +477,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04422-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04422-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04422-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04422-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -506,10 +489,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04507-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04507-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04507-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04507-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -519,10 +501,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04532-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04532-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04532-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04532-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card visible" data-cat="pants">
@@ -532,10 +513,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04660-A905</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04660-A905">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04660-A905</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04660-A905">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="pants">
@@ -545,10 +525,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04744-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266KZ04744-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266KZ04744-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266KZ04744-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -558,10 +537,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 252LQ6</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 252LQ63534-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="252LQ63534-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 252LQ63534-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="252LQ63534-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -571,10 +549,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ02834-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ02834-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ02834-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ02834-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -584,10 +561,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ02959-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ02959-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ02959-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ02959-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -597,10 +573,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03024-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03024-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03024-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03024-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -610,10 +585,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03104-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03104-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03104-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03104-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -623,10 +597,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03424-A895</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03424-A895">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03424-A895</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03424-A895">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -636,10 +609,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03495-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03495-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03495-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03495-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -649,10 +621,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03810-A888</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03810-A888">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03810-A888</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03810-A888">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -662,10 +633,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03942-A895</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ03942-A895">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ03942-A895</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ03942-A895">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -675,10 +645,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04104-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04104-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04104-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04104-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -688,10 +657,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04150-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04150-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04150-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04150-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -701,10 +669,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04239-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04239-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04239-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04239-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -714,10 +681,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04257-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04257-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04257-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04257-A886">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -727,10 +693,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04363-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04363-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04363-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04363-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -740,10 +705,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04485-A888</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04485-A888">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04485-A888</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04485-A888">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -753,10 +717,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04536-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04536-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04536-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04536-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -766,10 +729,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04577-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04577-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04577-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04577-A886">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -779,10 +741,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04580-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04580-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04580-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04580-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -792,10 +753,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04653-A882_1</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04653-A882_1">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04653-A882_1</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04653-A882_1">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -805,10 +765,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04655-A882_1</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04655-A882_1">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04655-A882_1</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04655-A882_1">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="dress">
@@ -818,10 +777,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Dress 266LQ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04897-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266LQ04897-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266LQ04897-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266LQ04897-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -831,10 +789,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 265SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY00209-A886墨绿色</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265SY00209-A886墨绿色">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265SY00209-A886墨绿色</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265SY00209-A886墨绿色">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -844,10 +801,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 265SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY00209-A886白色</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265SY00209-A886白色">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265SY00209-A886白色</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265SY00209-A886白色">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -857,10 +813,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 265SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY02419-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265SY02419-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265SY02419-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265SY02419-A886">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -870,10 +825,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 265SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY02799-A882</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265SY02799-A882">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265SY02799-A882</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265SY02799-A882">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -883,10 +837,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY02766-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY02766-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY02766-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY02766-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -896,10 +849,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY02813-A905</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY02813-A905">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY02813-A905</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY02813-A905">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -909,10 +861,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04340-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY04340-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY04340-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY04340-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -922,10 +873,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04362-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY04362-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY04362-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY04362-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -935,10 +885,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04405-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY04405-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY04405-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY04405-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -948,10 +897,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04506-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY04506-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY04506-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY04506-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -961,10 +909,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Blouse 266SY0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04599-A884</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266SY04599-A884">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266SY04599-A884</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266SY04599-A884">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -974,10 +921,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 2525TZ</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 2525TZ63224-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="2525TZ63224-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 2525TZ63224-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="2525TZ63224-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -987,10 +933,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00686-A882红色</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ00686-A882红色">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ00686-A882红色</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ00686-A882红色">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1000,10 +945,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00934-A888</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ00934-A888">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ00934-A888</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ00934-A888">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1013,10 +957,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00935-A886蓝色</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ00935-A886蓝色">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ00935-A886蓝色</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ00935-A886蓝色">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1026,10 +969,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00935-A886黄色</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ00935-A886黄色">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ00935-A886黄色</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ00935-A886黄色">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1039,10 +981,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01074-A905</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ01074-A905">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ01074-A905</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ01074-A905">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1052,10 +993,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01791-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ01791-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ01791-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ01791-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1065,10 +1005,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01857-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ01857-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ01857-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ01857-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1078,10 +1017,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01961-A882</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ01961-A882">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ01961-A882</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ01961-A882">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1091,10 +1029,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ02058-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ02058-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ02058-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ02058-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1104,10 +1041,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ02196-A882</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ02196-A882">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ02196-A882</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ02196-A882">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1117,10 +1053,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 265TZ7</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ70203-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="265TZ70203-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 265TZ70203-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="265TZ70203-A886">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1130,10 +1065,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 266TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03381-A895</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266TZ03381-A895">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266TZ03381-A895</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266TZ03381-A895">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1143,10 +1077,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 266TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03392-A895</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266TZ03392-A895">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266TZ03392-A895</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266TZ03392-A895">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1156,10 +1089,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 266TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03640-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266TZ03640-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266TZ03640-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266TZ03640-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="set">
@@ -1169,10 +1101,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Set 266TZ0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ04761-A882_1</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266TZ04761-A882_1">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266TZ04761-A882_1</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266TZ04761-A882_1">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="top">
@@ -1182,10 +1113,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Tee 266TX0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TX04298-A008</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266TX04298-A008">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266TX04298-A008</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266TX04298-A008">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="outer">
@@ -1195,10 +1125,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Jacket 266WT0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266WT04123-A899</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266WT04123-A899">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266WT04123-A899</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266WT04123-A899">📧 Request Quote</button></div>
                 </div>
             </div>
             <div class="product-card hidden-card" data-cat="outer">
@@ -1208,10 +1137,9 @@
                 </div>
                 <div class="product-info">
                     <h4>Coat 266WT0</h4>
-                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266WT04829-A886</p>
-                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span></div>
-                    <button class="quote-btn" data-style="266WT04829-A886">📧 Request Quote</button>
-                </div>
+                    <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:4px;margin-bottom:2px;">Style No: 266WT04829-A886</p>
+                    <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
+                    <button class="quote-btn" data-style="266WT04829-A886">📧 Request Quote</button></div>
                 </div>
                     </div>
         <div style="text-align:center;margin-top:32px;">
@@ -1505,14 +1433,6 @@
     document.getElementById('mail-kefu').addEventListener('click', function(e) {
         e.preventDefault();
         openQuoteModal('');
-    });
-
-    // Escape key closes both modals
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeKefu();
-            closeQuoteModal();
-        }
     });
 
 </script>
