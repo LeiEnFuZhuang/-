@@ -106,8 +106,8 @@
         .cat-tab.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
         .products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-        .product-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all .3s}
-        .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1)}
+        .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e8e8;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:#d0d0d0}
         .product-img{aspect-ratio:1/1;background:#f5f5f5;position:relative;overflow:hidden}
         .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
         .product-card:hover .product-img img{transform:scale(1.05)}
@@ -198,6 +198,15 @@
         .quote-box h3{margin-bottom:8px;font-size:20px;color:var(--text-dark)}
         .quote-box > p{color:var(--text-light);font-size:14px;margin-bottom:20px}
         #modal-style-no{background:#f0f4ff;color:var(--brand-blue);font-weight:600}
+
+
+        /* ===== White Background Model Image Support ===== */
+        .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e8e8;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:#d0d0d0}
+        .product-img{border-bottom:1px solid #f0f0f0}
+        .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        /* For white background images, add subtle shadow to define edges */
+        .product-img{box-shadow:inset 0 -1px 0 rgba(0,0,0,0.05)}
 
     </style>
     <link rel="preconnect" href="https://www.laingarments.com">
@@ -326,7 +335,7 @@
         </div>
 
         <div class="products-grid" id="product-grid">
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="high" decoding="async" src="images/242CS67177-A008.jpg" alt="One-Shoulder Asymmetric White Blouse - Style 242CS67177-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -338,7 +347,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('242CS67177-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="high" decoding="async" src="images/266CS02977-A008.jpg" alt="Navy Sleeveless Keyhole Peplum Top - Style 266CS02977-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -350,7 +359,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266CS02977-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="high" decoding="async" src="images/266CS03734-A899.jpg" alt="Brown One-Shoulder Ruched Long Sleeve Top - Style 266CS03734-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -374,7 +383,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('251KZ65215-A199')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265KZ02112-A008.jpg" alt="Women's Fashion Pants - Style 265KZ02112-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -386,7 +395,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('265KZ02112-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265KZ03007-A886.jpg" alt="Women's Trousers - Style 265KZ03007-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -458,7 +467,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ03941-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04356-A008.jpg" alt="266KZ04356-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -470,7 +479,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04356-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04422-A008.jpg" alt="266KZ04422-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -482,7 +491,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04422-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04507-A008.jpg" alt="266KZ04507-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -494,7 +503,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04507-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04532-A884.jpg" alt="266KZ04532-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -506,7 +515,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04532-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04660-A905.jpg" alt="266KZ04660-A905" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -530,7 +539,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04744-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card visible" data-cat="dress">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/252LQ63534-A008.jpg" alt="252LQ63534-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -542,7 +551,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('252LQ63534-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card visible" data-cat="dress">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ02834-A899.jpg" alt="266LQ02834-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -554,7 +563,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ02834-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card visible" data-cat="dress">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ02959-A899.jpg" alt="266LQ02959-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -578,7 +587,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03024-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card visible" data-cat="dress">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03104-A008.jpg" alt="266LQ03104-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -782,7 +791,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04897-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY00209-A886墨绿色.jpg" alt="265SY00209-A886墨绿色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -806,7 +815,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('265SY00209-A886白色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY02419-A886.jpg" alt="265SY02419-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -830,7 +839,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('265SY02799-A882')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY02766-A008.jpg" alt="266SY02766-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -914,7 +923,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04599-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card visible" data-cat="set">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/2525TZ63224-A008.jpg" alt="2525TZ63224-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -938,7 +947,7 @@
                     <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ00686-A882红色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card visible" data-cat="set">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ00934-A888.jpg" alt="265TZ00934-A888" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
