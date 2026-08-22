@@ -106,7 +106,7 @@
         .cat-tab.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
         .products-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-        .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e8e8;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+        .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e8e8;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04);cursor:pointer}
         .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:#d0d0d0}
         .product-img{aspect-ratio:1/1;background:#f5f5f5;position:relative;overflow:hidden}
         .product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
@@ -199,7 +199,6 @@
         .quote-box > p{color:var(--text-light);font-size:14px;margin-bottom:20px}
         #modal-style-no{background:#f0f4ff;color:var(--brand-blue);font-weight:600}
 
-
         /* ===== White Background Model Image Support ===== */
         .product-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e8e8e8;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
         .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.12);border-color:#d0d0d0}
@@ -208,6 +207,39 @@
         /* For white background images, add subtle shadow to define edges */
         .product-img{box-shadow:inset 0 -1px 0 rgba(0,0,0,0.05)}
 
+        /* ===== Product Detail Modal ===== */
+        #product-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);z-index:10002;display:none;align-items:center;justify-content:center;padding:20px}
+        #product-modal.active{display:flex}
+        .product-modal-box{background:#fff;border-radius:16px;max-width:900px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalIn .3s ease}
+        .product-modal-close{position:absolute;top:10px;right:16px;font-size:28px;color:#bbb;cursor:pointer;line-height:1;background:none;border:none;padding:0;z-index:3;transition:color .2s}
+        .product-modal-close:hover{color:var(--text-dark)}
+        .product-modal-body{display:grid;grid-template-columns:1.2fr 1fr;gap:0}
+        @media(max-width:768px){.product-modal-body{grid-template-columns:1fr}}
+
+        .modal-gallery-side{padding:28px;background:#fafafa}
+        .modal-main-img{position:relative;aspect-ratio:3/4;background:#f0f0f0;border-radius:12px;overflow:hidden;margin-bottom:16px}
+        .modal-main-img img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+        .modal-img-nav{position:absolute;bottom:12px;right:12px;display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.6);color:#fff;padding:6px 14px;border-radius:20px;font-size:13px}
+        .modal-img-nav button{background:none;border:none;color:#fff;font-size:18px;cursor:pointer;padding:0 4px;line-height:1}
+        .modal-img-tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+        .modal-tab{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--text-mid);font-size:12px;cursor:pointer;transition:all .2s;font-weight:500}
+        .modal-tab.active{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
+        .modal-thumbs{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+        .modal-thumbs::-webkit-scrollbar{display:none}
+        .modal-thumb{flex-shrink:0;width:64px;height:85px;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;opacity:.7;transition:all .2s;background:#e8e8e8}
+        .modal-thumb img{width:100%;height:100%;object-fit:cover}
+        .modal-thumb.active{border-color:var(--brand-blue);opacity:1}
+        .modal-thumb:hover{opacity:1}
+
+        .modal-info-side{padding:32px;display:flex;flex-direction:column;justify-content:center}
+        .modal-info-side h3{font-size:22px;margin-bottom:8px;color:var(--text-dark);font-weight:700}
+        .modal-info-side .style-text{font-size:13px;color:var(--brand-blue);font-weight:600;margin-bottom:20px}
+        .modal-info-side .modal-meta{display:flex;gap:16px;margin-bottom:24px;font-size:13px;color:var(--text-light)}
+        .modal-info-side .modal-meta span{display:flex;align-items:center;gap:4px}
+        .modal-info-side .btn-primary{width:100%;text-align:center;border:none;cursor:pointer;font-size:15px}
+        .modal-info-side .detail-list{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+        .modal-info-side .detail-list li{list-style:none;font-size:13px;color:var(--text-mid);margin-bottom:10px;display:flex;align-items:flex-start;gap:8px}
+        .modal-info-side .detail-list li::before{content:'✓';color:var(--brand-blue);font-weight:700;flex-shrink:0}
     </style>
     <link rel="preconnect" href="https://www.laingarments.com">
     <link rel="dns-prefetch" href="https://www.laingarments.com">
@@ -322,7 +354,6 @@
     <div class="container">
         <div class="products-header">
             <h2>SS 2026 Collection</h2>
-            
         </div>
 
         <div class="cat-tabs">
@@ -335,103 +366,103 @@
         </div>
 
         <div class="products-grid" id="product-grid">
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top" onclick="openProductModal('Shirt 242CS6','242CS67177-A008','[{&quot;src&quot;:&quot;images/242CS67177-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;One-Shoulder Asymmetric White Blouse&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="high" decoding="async" src="images/242CS67177-A008.jpg" alt="One-Shoulder Asymmetric White Blouse - Style 242CS67177-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="high" decoding="async" src="images/242CS67177-A008.jpg" alt="One-Shoulder Asymmetric White Blouse" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
                 </div>
                 <div class="product-info">
                     <h4>Shirt 242CS6</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 242CS67177-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('242CS67177-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('242CS67177-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top" onclick="openProductModal('Shirt 266CS0','266CS02977-A008','[{&quot;src&quot;:&quot;images/266CS02977-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Navy Sleeveless Keyhole Peplum Top&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="high" decoding="async" src="images/266CS02977-A008.jpg" alt="Navy Sleeveless Keyhole Peplum Top - Style 266CS02977-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="high" decoding="async" src="images/266CS02977-A008.jpg" alt="Navy Sleeveless Keyhole Peplum Top" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
                 </div>
                 <div class="product-info">
                     <h4>Shirt 266CS0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266CS02977-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266CS02977-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266CS02977-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card visible" data-cat="top" onclick="openProductModal('Shirt 266CS0','266CS03734-A899','[{&quot;src&quot;:&quot;images/266CS03734-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Brown One-Shoulder Ruched Long Sleeve Top&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="high" decoding="async" src="images/266CS03734-A899.jpg" alt="Brown One-Shoulder Ruched Long Sleeve Top - Style 266CS03734-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="high" decoding="async" src="images/266CS03734-A899.jpg" alt="Brown One-Shoulder Ruched Long Sleeve Top" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
                 </div>
                 <div class="product-info">
                     <h4>Shirt 266CS0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266CS03734-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266CS03734-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266CS03734-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 251KZ6','251KZ65215-A199','[{&quot;src&quot;:&quot;images/251KZ65215-A199.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Women's Casual Pants&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="high" decoding="async" src="images/251KZ65215-A199.jpg" alt="Women's Casual Pants - Style 251KZ65215-A199" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="high" decoding="async" src="images/251KZ65215-A199.jpg" alt="Women's Casual Pants" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
                 </div>
                 <div class="product-info">
                     <h4>Pants 251KZ6</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 251KZ65215-A199</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('251KZ65215-A199')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('251KZ65215-A199')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 265KZ0','265KZ02112-A008','[{&quot;src&quot;:&quot;images/265KZ02112-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Women's Fashion Pants&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="low" decoding="async" src="images/265KZ02112-A008.jpg" alt="Women's Fashion Pants - Style 265KZ02112-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="low" decoding="async" src="images/265KZ02112-A008.jpg" alt="Women's Fashion Pants" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ02112-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265KZ02112-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265KZ02112-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 265KZ0','265KZ03007-A886','[{&quot;src&quot;:&quot;images/265KZ03007-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Women's Trousers&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="low" decoding="async" src="images/265KZ03007-A886.jpg" alt="Women's Trousers - Style 265KZ03007-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="low" decoding="async" src="images/265KZ03007-A886.jpg" alt="Women's Trousers" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ03007-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265KZ03007-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265KZ03007-A886')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 265KZ1','265KZ102299-A899','[{&quot;src&quot;:&quot;images/265KZ102299-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Women's Pants&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="low" decoding="async" src="images/265KZ102299-A899.jpg" alt="Women's Pants - Style 265KZ102299-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="low" decoding="async" src="images/265KZ102299-A899.jpg" alt="Women's Pants" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
                 </div>
                 <div class="product-info">
                     <h4>Pants 265KZ1</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265KZ102299-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265KZ102299-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265KZ102299-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ03197-A882_-1','[{&quot;src&quot;:&quot;images/266KZ03197-A882_-1.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;Women's Casual Pants&quot;}]')">
                 <div class="product-img">
-                    <img fetchpriority="low" decoding="async" src="images/266KZ03197-A882_-1.jpg" alt="Women's Casual Pants - Style 266KZ03197-A882" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
+                    <img fetchpriority="low" decoding="async" src="images/266KZ03197-A882_-1.jpg" alt="Women's Casual Pants" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
                 </div>
                 <div class="product-info">
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03197-A882_-1</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ03197-A882_-1')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ03197-A882_-1')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ03459-A899','[{&quot;src&quot;:&quot;images/266KZ03459-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ03459-A899&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ03459-A899.jpg" alt="266KZ03459-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -440,10 +471,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03459-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ03459-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ03459-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ03525-A008','[{&quot;src&quot;:&quot;images/266KZ03525-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ03525-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ03525-A008.jpg" alt="266KZ03525-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -452,10 +483,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03525-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ03525-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ03525-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ03941-A008','[{&quot;src&quot;:&quot;images/266KZ03941-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ03941-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ03941-A008.jpg" alt="266KZ03941-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -464,10 +495,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ03941-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ03941-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ03941-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04356-A008','[{&quot;src&quot;:&quot;images/266KZ04356-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04356-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04356-A008.jpg" alt="266KZ04356-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -476,10 +507,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04356-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04356-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04356-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04422-A008','[{&quot;src&quot;:&quot;images/266KZ04422-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04422-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04422-A008.jpg" alt="266KZ04422-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -488,10 +519,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04422-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04422-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04422-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04507-A008','[{&quot;src&quot;:&quot;images/266KZ04507-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04507-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04507-A008.jpg" alt="266KZ04507-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -500,10 +531,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04507-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04507-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04507-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04532-A884','[{&quot;src&quot;:&quot;images/266KZ04532-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04532-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04532-A884.jpg" alt="266KZ04532-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -512,10 +543,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04532-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04532-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04532-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card visible" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04660-A905','[{&quot;src&quot;:&quot;images/266KZ04660-A905.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04660-A905&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04660-A905.jpg" alt="266KZ04660-A905" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -524,10 +555,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04660-A905</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04660-A905')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04660-A905')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="pants">
+            <div class="product-card hidden-card" data-cat="pants" onclick="openProductModal('Pants 266KZ0','266KZ04744-A884','[{&quot;src&quot;:&quot;images/266KZ04744-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266KZ04744-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266KZ04744-A884.jpg" alt="266KZ04744-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -536,10 +567,10 @@
                     <h4>Pants 266KZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266KZ04744-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266KZ04744-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266KZ04744-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 252LQ6','252LQ63534-A008','[{&quot;src&quot;:&quot;images/252LQ63534-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;252LQ63534-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/252LQ63534-A008.jpg" alt="252LQ63534-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -548,10 +579,10 @@
                     <h4>Dress 252LQ6</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 252LQ63534-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('252LQ63534-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('252LQ63534-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ02834-A899','[{&quot;src&quot;:&quot;images/266LQ02834-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ02834-A899&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ02834-A899.jpg" alt="266LQ02834-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -560,10 +591,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ02834-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ02834-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ02834-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ02959-A899','[{&quot;src&quot;:&quot;images/266LQ02959-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ02959-A899&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ02959-A899.jpg" alt="266LQ02959-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -572,10 +603,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ02959-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ02959-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ02959-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03024-A008','[{&quot;src&quot;:&quot;images/266LQ03024-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03024-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03024-A008.jpg" alt="266LQ03024-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -584,10 +615,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03024-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03024-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03024-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03104-A008','[{&quot;src&quot;:&quot;images/266LQ03104-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03104-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03104-A008.jpg" alt="266LQ03104-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -596,10 +627,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03104-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03104-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03104-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03424-A895','[{&quot;src&quot;:&quot;images/266LQ03424-A895.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03424-A895&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03424-A895.jpg" alt="266LQ03424-A895" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -608,10 +639,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03424-A895</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03424-A895')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03424-A895')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03495-A008','[{&quot;src&quot;:&quot;images/266LQ03495-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03495-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03495-A008.jpg" alt="266LQ03495-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -620,10 +651,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03495-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03495-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03495-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03810-A888','[{&quot;src&quot;:&quot;images/266LQ03810-A888.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03810-A888&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03810-A888.jpg" alt="266LQ03810-A888" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -632,10 +663,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03810-A888</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03810-A888')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03810-A888')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ03942-A895','[{&quot;src&quot;:&quot;images/266LQ03942-A895.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ03942-A895&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ03942-A895.jpg" alt="266LQ03942-A895" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -644,10 +675,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ03942-A895</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ03942-A895')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ03942-A895')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04104-A008','[{&quot;src&quot;:&quot;images/266LQ04104-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04104-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04104-A008.jpg" alt="266LQ04104-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -656,10 +687,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04104-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04104-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04104-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04150-A899','[{&quot;src&quot;:&quot;images/266LQ04150-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04150-A899&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04150-A899.jpg" alt="266LQ04150-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -668,10 +699,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04150-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04150-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04150-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04239-A008','[{&quot;src&quot;:&quot;images/266LQ04239-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04239-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04239-A008.jpg" alt="266LQ04239-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -680,10 +711,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04239-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04239-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04239-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04257-A886','[{&quot;src&quot;:&quot;images/266LQ04257-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04257-A886&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04257-A886.jpg" alt="266LQ04257-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -692,10 +723,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04257-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04257-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04257-A886')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04363-A008','[{&quot;src&quot;:&quot;images/266LQ04363-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04363-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04363-A008.jpg" alt="266LQ04363-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -704,10 +735,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04363-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04363-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04363-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04485-A888','[{&quot;src&quot;:&quot;images/266LQ04485-A888.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04485-A888&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04485-A888.jpg" alt="266LQ04485-A888" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -716,10 +747,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04485-A888</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04485-A888')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04485-A888')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04536-A884','[{&quot;src&quot;:&quot;images/266LQ04536-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04536-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04536-A884.jpg" alt="266LQ04536-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -728,10 +759,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04536-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04536-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04536-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04577-A886','[{&quot;src&quot;:&quot;images/266LQ04577-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04577-A886&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04577-A886.jpg" alt="266LQ04577-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -740,10 +771,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04577-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04577-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04577-A886')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04580-A884','[{&quot;src&quot;:&quot;images/266LQ04580-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04580-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04580-A884.jpg" alt="266LQ04580-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -752,10 +783,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04580-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04580-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04580-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04653-A882_1','[{&quot;src&quot;:&quot;images/266LQ04653-A882_1.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04653-A882_1&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04653-A882_1.jpg" alt="266LQ04653-A882_1" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -764,10 +795,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04653-A882_1</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04653-A882_1')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04653-A882_1')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04655-A882_1','[{&quot;src&quot;:&quot;images/266LQ04655-A882_1.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04655-A882_1&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04655-A882_1.jpg" alt="266LQ04655-A882_1" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -776,10 +807,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04655-A882_1</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04655-A882_1')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04655-A882_1')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="dress">
+            <div class="product-card hidden-card" data-cat="dress" onclick="openProductModal('Dress 266LQ0','266LQ04897-A008','[{&quot;src&quot;:&quot;images/266LQ04897-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266LQ04897-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266LQ04897-A008.jpg" alt="266LQ04897-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -788,10 +819,10 @@
                     <h4>Dress 266LQ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266LQ04897-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266LQ04897-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266LQ04897-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 265SY0','265SY00209-A886墨绿色','[{&quot;src&quot;:&quot;images/265SY00209-A886墨绿色.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265SY00209-A886墨绿色&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY00209-A886墨绿色.jpg" alt="265SY00209-A886墨绿色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -800,10 +831,10 @@
                     <h4>Blouse 265SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY00209-A886墨绿色</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265SY00209-A886墨绿色')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265SY00209-A886墨绿色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 265SY0','265SY00209-A886白色','[{&quot;src&quot;:&quot;images/265SY00209-A886白色.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265SY00209-A886白色&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY00209-A886白色.jpg" alt="265SY00209-A886白色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -812,10 +843,10 @@
                     <h4>Blouse 265SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY00209-A886白色</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265SY00209-A886白色')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265SY00209-A886白色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 265SY0','265SY02419-A886','[{&quot;src&quot;:&quot;images/265SY02419-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265SY02419-A886&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY02419-A886.jpg" alt="265SY02419-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -824,10 +855,10 @@
                     <h4>Blouse 265SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY02419-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265SY02419-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265SY02419-A886')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 265SY0','265SY02799-A882','[{&quot;src&quot;:&quot;images/265SY02799-A882.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265SY02799-A882&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265SY02799-A882.jpg" alt="265SY02799-A882" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -836,10 +867,10 @@
                     <h4>Blouse 265SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265SY02799-A882</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265SY02799-A882')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265SY02799-A882')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY02766-A008','[{&quot;src&quot;:&quot;images/266SY02766-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY02766-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY02766-A008.jpg" alt="266SY02766-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -848,10 +879,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY02766-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY02766-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY02766-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY02813-A905','[{&quot;src&quot;:&quot;images/266SY02813-A905.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY02813-A905&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY02813-A905.jpg" alt="266SY02813-A905" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -860,10 +891,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY02813-A905</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY02813-A905')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY02813-A905')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY04340-A884','[{&quot;src&quot;:&quot;images/266SY04340-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY04340-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY04340-A884.jpg" alt="266SY04340-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -872,10 +903,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04340-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04340-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY04340-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY04362-A884','[{&quot;src&quot;:&quot;images/266SY04362-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY04362-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY04362-A884.jpg" alt="266SY04362-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -884,10 +915,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04362-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04362-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY04362-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY04405-A008','[{&quot;src&quot;:&quot;images/266SY04405-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY04405-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY04405-A008.jpg" alt="266SY04405-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -896,10 +927,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04405-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04405-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY04405-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY04506-A008','[{&quot;src&quot;:&quot;images/266SY04506-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY04506-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY04506-A008.jpg" alt="266SY04506-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -908,10 +939,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04506-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04506-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY04506-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Blouse 266SY0','266SY04599-A884','[{&quot;src&quot;:&quot;images/266SY04599-A884.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266SY04599-A884&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266SY04599-A884.jpg" alt="266SY04599-A884" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -920,10 +951,10 @@
                     <h4>Blouse 266SY0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266SY04599-A884</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266SY04599-A884')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266SY04599-A884')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 2525TZ','2525TZ63224-A008','[{&quot;src&quot;:&quot;images/2525TZ63224-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;2525TZ63224-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/2525TZ63224-A008.jpg" alt="2525TZ63224-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -932,10 +963,10 @@
                     <h4>Set 2525TZ</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 2525TZ63224-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('2525TZ63224-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('2525TZ63224-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ00686-A882红色','[{&quot;src&quot;:&quot;images/265TZ00686-A882红色.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ00686-A882红色&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ00686-A882红色.jpg" alt="265TZ00686-A882红色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -944,10 +975,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00686-A882红色</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ00686-A882红色')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ00686-A882红色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card visible" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ00934-A888','[{&quot;src&quot;:&quot;images/265TZ00934-A888.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ00934-A888&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ00934-A888.jpg" alt="265TZ00934-A888" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -956,10 +987,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00934-A888</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ00934-A888')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ00934-A888')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ00935-A886蓝色','[{&quot;src&quot;:&quot;images/265TZ00935-A886蓝色.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ00935-A886蓝色&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ00935-A886蓝色.jpg" alt="265TZ00935-A886蓝色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -968,10 +999,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00935-A886蓝色</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ00935-A886蓝色')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ00935-A886蓝色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ00935-A886黄色','[{&quot;src&quot;:&quot;images/265TZ00935-A886黄色.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ00935-A886黄色&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ00935-A886黄色.jpg" alt="265TZ00935-A886黄色" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -980,10 +1011,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ00935-A886黄色</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ00935-A886黄色')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ00935-A886黄色')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ01074-A905','[{&quot;src&quot;:&quot;images/265TZ01074-A905.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ01074-A905&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ01074-A905.jpg" alt="265TZ01074-A905" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -992,10 +1023,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01074-A905</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ01074-A905')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ01074-A905')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ01791-A008','[{&quot;src&quot;:&quot;images/265TZ01791-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ01791-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ01791-A008.jpg" alt="265TZ01791-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -1004,10 +1035,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01791-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ01791-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ01791-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ01857-A008','[{&quot;src&quot;:&quot;images/265TZ01857-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ01857-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ01857-A008.jpg" alt="265TZ01857-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1016,10 +1047,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01857-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ01857-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ01857-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ01961-A882','[{&quot;src&quot;:&quot;images/265TZ01961-A882.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ01961-A882&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ01961-A882.jpg" alt="265TZ01961-A882" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -1028,10 +1059,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ01961-A882</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ01961-A882')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ01961-A882')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ02058-A008','[{&quot;src&quot;:&quot;images/265TZ02058-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ02058-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ02058-A008.jpg" alt="265TZ02058-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1040,10 +1071,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ02058-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ02058-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ02058-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ0','265TZ02196-A882','[{&quot;src&quot;:&quot;images/265TZ02196-A882.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ02196-A882&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ02196-A882.jpg" alt="265TZ02196-A882" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1052,10 +1083,10 @@
                     <h4>Set 265TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ02196-A882</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ02196-A882')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ02196-A882')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 265TZ7','265TZ70203-A886','[{&quot;src&quot;:&quot;images/265TZ70203-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;265TZ70203-A886&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/265TZ70203-A886.jpg" alt="265TZ70203-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -1064,10 +1095,10 @@
                     <h4>Set 265TZ7</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 265TZ70203-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('265TZ70203-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('265TZ70203-A886')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 266TZ0','266TZ03381-A895','[{&quot;src&quot;:&quot;images/266TZ03381-A895.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266TZ03381-A895&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266TZ03381-A895.jpg" alt="266TZ03381-A895" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1076,10 +1107,10 @@
                     <h4>Set 266TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03381-A895</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266TZ03381-A895')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266TZ03381-A895')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 266TZ0','266TZ03392-A895','[{&quot;src&quot;:&quot;images/266TZ03392-A895.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266TZ03392-A895&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266TZ03392-A895.jpg" alt="266TZ03392-A895" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -1088,10 +1119,10 @@
                     <h4>Set 266TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03392-A895</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266TZ03392-A895')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266TZ03392-A895')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 266TZ0','266TZ03640-A008','[{&quot;src&quot;:&quot;images/266TZ03640-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266TZ03640-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266TZ03640-A008.jpg" alt="266TZ03640-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1100,10 +1131,10 @@
                     <h4>Set 266TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ03640-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266TZ03640-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266TZ03640-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="set">
+            <div class="product-card hidden-card" data-cat="set" onclick="openProductModal('Set 266TZ0','266TZ04761-A882_1','[{&quot;src&quot;:&quot;images/266TZ04761-A882_1.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266TZ04761-A882_1&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266TZ04761-A882_1.jpg" alt="266TZ04761-A882_1" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1112,10 +1143,10 @@
                     <h4>Set 266TZ0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TZ04761-A882_1</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266TZ04761-A882_1')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266TZ04761-A882_1')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="top">
+            <div class="product-card hidden-card" data-cat="top" onclick="openProductModal('Tee 266TX0','266TX04298-A008','[{&quot;src&quot;:&quot;images/266TX04298-A008.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266TX04298-A008&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266TX04298-A008.jpg" alt="266TX04298-A008" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">New</span>
@@ -1124,10 +1155,10 @@
                     <h4>Tee 266TX0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266TX04298-A008</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266TX04298-A008')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266TX04298-A008')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="outer">
+            <div class="product-card hidden-card" data-cat="outer" onclick="openProductModal('Jacket 266WT0','266WT04123-A899','[{&quot;src&quot;:&quot;images/266WT04123-A899.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266WT04123-A899&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266WT04123-A899.jpg" alt="266WT04123-A899" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     
@@ -1136,10 +1167,10 @@
                     <h4>Jacket 266WT0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266WT04123-A899</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266WT04123-A899')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266WT04123-A899')">📧 Get Quote</button></div>
                 </div>
             </div>
-            <div class="product-card hidden-card" data-cat="outer">
+            <div class="product-card hidden-card" data-cat="outer" onclick="openProductModal('Coat 266WT0','266WT04829-A886','[{&quot;src&quot;:&quot;images/266WT04829-A886.jpg&quot;,&quot;type&quot;:&quot;front&quot;,&quot;alt&quot;:&quot;266WT04829-A886&quot;}]')">
                 <div class="product-img">
                     <img fetchpriority="low" decoding="async" src="images/266WT04829-A886.jpg" alt="266WT04829-A886" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='#e8e8e8'">
                     <span class="product-tag">Hot</span>
@@ -1148,9 +1179,9 @@
                     <h4>Coat 266WT0</h4>
                     <p style="font-size:10px;color:#1e5bb5;font-weight:600;margin-top:3px;margin-bottom:2px;">Style No: 266WT04829-A886</p>
                     <div class="product-meta"><span>📦 MOQ 100</span><span>⏱ 10-15 days</span>
-                    <button type="button" class="quote-btn" onclick="openQuoteModal('266WT04829-A886')">📧 Get Quote</button></div>
+                    <button type="button" class="quote-btn" onclick="event.stopPropagation();openQuoteModal('266WT04829-A886')">📧 Get Quote</button></div>
                 </div>
-                    </div>
+            </div>
         <div style="text-align:center;margin-top:28px;">
             <button id="load-more-btn" class="btn-primary" style="padding:14px 48px;font-size:16px;">
                 Load More Products (<span id="remaining-count">52</span> remaining)
@@ -1321,6 +1352,86 @@
     </div>
 </div>
 
+<!-- Product Detail Modal -->
+<div id="product-modal" onclick="if(event.target===this)closeProductModal()">
+  <div class="product-modal-box">
+    <button type="button" class="product-modal-close" onclick="closeProductModal()">&times;</button>
+    <div class="product-modal-body">
+      <div class="modal-gallery-side">
+        <div class="modal-main-img">
+          <img id="modal-main-img" src="" alt="" style="opacity:1">
+          <div class="modal-img-nav">
+            <button onclick="modalChangeImg(-1)">‹</button>
+            <span id="modal-img-counter">1 / 1</span>
+            <button onclick="modalChangeImg(1)">›</button>
+          </div>
+        </div>
+        <div class="modal-img-tabs">
+          <button class="modal-tab active" onclick="filterModalImages('all',this)">All</button>
+          <button class="modal-tab" onclick="filterModalImages('front',this)">Front</button>
+          <button class="modal-tab" onclick="filterModalImages('back',this)">Back</button>
+          <button class="modal-tab" onclick="filterModalImages('detail',this)">Details</button>
+          <button class="modal-tab" onclick="filterModalImages('fabric',this)">Fabric</button>
+        </div>
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+      </div>
+      <div class="modal-info-side">
+        <h3 id="modal-prod-name">Product Name</h3>
+        <p class="style-text" id="modal-prod-style">Style No: —</p>
+        <div class="modal-meta">
+          <span>📦 MOQ 100 pcs</span>
+          <span>⏱ 10-15 days</span>
+        </div>
+        <ul class="detail-list">
+          <li>OEM / ODM sample-based production available</li>
+          <li>Custom fabric, color, and sizing supported</li>
+          <li>AQL 2.5 quality inspection</li>
+          <li>30% deposit to start, 70% before shipment</li>
+        </ul>
+        <button type="button" class="btn-primary" onclick="openQuoteModal(currentModalStyle)" style="margin-top:24px;padding:14px 0;">
+          📧 Get Quote for This Style
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quote Modal -->
+<div id="quote-modal" onclick="if(event.target===this)closeQuoteModal()">
+    <div class="quote-box">
+        <button type="button" class="quote-close" onclick="closeQuoteModal()">&times;</button>
+        <h3>📧 Request a Quote</h3>
+        <p>Fill in your details and we'll get back to you within 24 hours.</p>
+        <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
+            <input type="hidden" name="_next" value="https://www.laingarments.com/?submitted=1">
+            <input type="hidden" name="_subject" value="[Laien Garments] New Quote Request">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label>Email *</label>
+                <input type="email" name="email" placeholder="For receiving quotation" required>
+            </div>
+            <div class="form-group">
+                <label>Style No *</label>
+                <input type="text" name="style_no" id="modal-style-no" placeholder="Style number" required readonly>
+            </div>
+            <div class="form-group">
+                <label>Estimated Quantity</label>
+                <input type="text" name="quantity" placeholder="e.g. 100 pcs per color">
+            </div>
+            <div class="form-group">
+                <label>Project Details</label>
+                <textarea name="message" placeholder="Fabric requirements, color, target market, delivery date..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Quote Request</button>
+            <p style="font-size:12px;color:#aaa;margin-top:14px;text-align:center">We will reply within 24 hours</p>
+        </form>
+    </div>
+</div>
+
 <script>
     // Category Filter
     document.querySelectorAll('.cat-tab').forEach(tab => {
@@ -1410,6 +1521,121 @@
         if (e.key === 'Escape') closeKefu();
     });
 
+    // ===== Product Detail Gallery =====
+    var currentModalImages = [];
+    var currentModalIndex = 0;
+    var currentModalStyle = '';
+    var currentModalFilter = 'all';
+
+    function openProductModal(name, styleNo, imagesJson) {
+        currentModalStyle = styleNo;
+        try {
+            currentModalImages = JSON.parse(imagesJson);
+        } catch(e) {
+            currentModalImages = [{src: 'images/' + styleNo + '.jpg', type: 'front', alt: name}];
+        }
+        if (!currentModalImages.length) {
+            currentModalImages = [{src: 'images/' + styleNo + '.jpg', type: 'front', alt: name}];
+        }
+
+        document.getElementById('modal-prod-name').textContent = name;
+        document.getElementById('modal-prod-style').textContent = 'Style No: ' + styleNo;
+
+        currentModalFilter = 'all';
+        document.querySelectorAll('.modal-img-tabs .modal-tab').forEach(function(t) { t.classList.remove('active'); });
+        document.querySelector('.modal-img-tabs .modal-tab').classList.add('active');
+
+        currentModalIndex = 0;
+        renderModalGallery();
+
+        document.getElementById('product-modal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+        document.getElementById('product-modal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function getFilteredModalImages() {
+        if (currentModalFilter === 'all') return currentModalImages;
+        return currentModalImages.filter(function(img) { return img.type === currentModalFilter; });
+    }
+
+    function renderModalGallery() {
+        var list = getFilteredModalImages();
+        var mainImg = document.getElementById('modal-main-img');
+        var counter = document.getElementById('modal-img-counter');
+        var thumbContainer = document.getElementById('modal-thumbs');
+
+        if (!list.length) {
+            mainImg.src = '';
+            counter.textContent = '0 / 0';
+            thumbContainer.innerHTML = '';
+            return;
+        }
+
+        if (currentModalIndex >= list.length) currentModalIndex = 0;
+
+        mainImg.style.opacity = '0.5';
+        setTimeout(function() {
+            mainImg.src = list[currentModalIndex].src;
+            mainImg.alt = list[currentModalIndex].alt || '';
+            mainImg.style.opacity = '1';
+        }, 100);
+
+        counter.textContent = (currentModalIndex + 1) + ' / ' + list.length;
+
+        thumbContainer.innerHTML = list.map(function(img, idx) {
+            return '<div class="modal-thumb ' + (idx === currentModalIndex ? 'active' : '') + '" onclick="modalGoToImg(' + idx + ')">' +
+                   '<img src="' + img.src + '" alt="' + (img.alt || '') + '">' +
+                   '</div>';
+        }).join('');
+
+        var activeThumb = thumbContainer.querySelector('.modal-thumb.active');
+        if (activeThumb) {
+            activeThumb.scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+        }
+    }
+
+    function modalGoToImg(idx) {
+        currentModalIndex = idx;
+        renderModalGallery();
+    }
+
+    function modalChangeImg(dir) {
+        var list = getFilteredModalImages();
+        currentModalIndex = (currentModalIndex + dir + list.length) % list.length;
+        renderModalGallery();
+    }
+
+    function filterModalImages(type, btn) {
+        currentModalFilter = type;
+        currentModalIndex = 0;
+        if (btn) {
+            document.querySelectorAll('.modal-img-tabs .modal-tab').forEach(function(t) { t.classList.remove('active'); });
+            btn.classList.add('active');
+        }
+        renderModalGallery();
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('product-modal').classList.contains('active')) return;
+        if (e.key === 'Escape') closeProductModal();
+        if (e.key === 'ArrowLeft') modalChangeImg(-1);
+        if (e.key === 'ArrowRight') modalChangeImg(1);
+    });
+
+    var modalTouchStartX = 0;
+    var modalMainImg = document.querySelector('.modal-main-img');
+    if (modalMainImg) {
+        modalMainImg.addEventListener('touchstart', function(e) { modalTouchStartX = e.touches[0].clientX; });
+        modalMainImg.addEventListener('touchend', function(e) {
+            var diff = modalTouchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 40) modalChangeImg(diff > 0 ? 1 : -1);
+        });
+    }
+
     // ===== Quote Modal (Global Functions) =====
     function openQuoteModal(styleNo) {
         var modal = document.getElementById('quote-modal');
@@ -1428,45 +1654,7 @@
         if (modal) modal.classList.remove('active');
         document.body.style.overflow = '';
     }
-
 </script>
-
-
-<!-- Quote Modal -->
-<div id="quote-modal" onclick="if(event.target===this)closeQuoteModal()">
-    <div class="quote-box">
-        <button type="button" class="quote-close" onclick="closeQuoteModal()">&times;</button>
-        <h3>📧 Request a Quote</h3>
-        <p>Fill in your details and we'll get back to you within 24 hours.</p>
-        <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
-            <input type="hidden" name="_next" value="https://www.laingarments.com/?submitted=1">
-            <input type="hidden" name="_subject" value="[Laien Garments] New Quote Request">
-            <input type="hidden" name="_captcha" value="false">
-            <div class="form-group">
-                <label>Full Name *</label>
-                <input type="text" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-                <label>Email *</label>
-                <input type="email" name="email" placeholder="For receiving quotation" required>
-            </div>
-            <div class="form-group">
-                <label>Style No *</label>
-                <input type="text" name="style_no" id="modal-style-no" placeholder="Style number" required readonly>
-            </div>
-            <div class="form-group">
-                <label>Estimated Quantity</label>
-                <input type="text" name="quantity" placeholder="e.g. 100 pcs per color">
-            </div>
-            <div class="form-group">
-                <label>Project Details</label>
-                <textarea name="message" placeholder="Fabric requirements, color, target market, delivery date..."></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Submit Quote Request</button>
-            <p style="font-size:12px;color:#aaa;margin-top:14px;text-align:center">We will reply within 24 hours</p>
-        </form>
-    </div>
-</div>
 
 </body>
 </html>
