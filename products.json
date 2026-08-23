@@ -1,0 +1,942 @@
+{
+  "242CS67177-A008": {
+    "name": "Shirt 242CS6",
+    "images": [
+      {
+        "src": "images/242CS67177-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/242CS67177-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/242CS67177-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266CS02977-A008": {
+    "name": "Shirt 266CS0",
+    "images": [
+      {
+        "src": "images/266CS02977-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266CS02977-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266CS02977-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266CS03734-A899": {
+    "name": "Shirt 266CS0",
+    "images": [
+      {
+        "src": "images/266CS03734-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266CS03734-A899-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "251KZ65215-A199": {
+    "name": "Pants 251KZ6",
+    "images": [
+      {
+        "src": "images/251KZ65215-A199.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265KZ02112-A008": {
+    "name": "Pants 265KZ0",
+    "images": [
+      {
+        "src": "images/265KZ02112-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/265KZ02112-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/265KZ02112-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      },
+      {
+        "src": "images/265KZ02112-A008-fabric.jpg",
+        "type": "fabric",
+        "alt": "Fabric Close-up"
+      }
+    ]
+  },
+  "265KZ03007-A886": {
+    "name": "Pants 265KZ0",
+    "images": [
+      {
+        "src": "images/265KZ03007-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265KZ102299-A899": {
+    "name": "Pants 265KZ1",
+    "images": [
+      {
+        "src": "images/265KZ102299-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266KZ03197-A882_-1": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ03197-A882_-1.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ03197-A882_-1-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266KZ03459-A899": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ03459-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266KZ03525-A008": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ03525-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ03525-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266KZ03525-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266KZ03941-A008": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ03941-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266KZ04356-A008": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04356-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ04356-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266KZ04422-A008": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04422-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266KZ04507-A008": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04507-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ04507-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266KZ04507-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266KZ04532-A884": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04532-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ04532-A884-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266KZ04660-A905": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04660-A905.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266KZ04660-A905-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266KZ04660-A905-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266KZ04744-A884": {
+    "name": "Pants 266KZ0",
+    "images": [
+      {
+        "src": "images/266KZ04744-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "252LQ63534-A008": {
+    "name": "Dress 252LQ6",
+    "images": [
+      {
+        "src": "images/252LQ63534-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266LQ02834-A899": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ02834-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266LQ02959-A899": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ02959-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ02959-A899-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ03024-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03024-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ03024-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266LQ03024-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266LQ03104-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03104-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266LQ03424-A895": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03424-A895.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ03424-A895-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ03495-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03495-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266LQ03810-A888": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03810-A888.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ03810-A888-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266LQ03810-A888-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266LQ03942-A895": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ03942-A895.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266LQ04104-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04104-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04104-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04150-A899": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04150-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04150-A899-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04239-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04239-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04239-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04257-A886": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04257-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04257-A886-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04363-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04363-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04363-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04485-A888": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04485-A888.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04485-A888-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04536-A884": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04536-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04536-A884-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04577-A886": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04577-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04577-A886-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04580-A884": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04580-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04580-A884-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04653-A882_1": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04653-A882_1.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04653-A882_1-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04655-A882_1": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04655-A882_1.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04655-A882_1-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266LQ04897-A008": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04897-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04897-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "265SY00209-A886墨绿色": {
+    "name": "Blouse 265SY0",
+    "images": [
+      {
+        "src": "images/265SY00209-A886墨绿色.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265SY00209-A886白色": {
+    "name": "Blouse 265SY0",
+    "images": [
+      {
+        "src": "images/265SY00209-A886白色.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265SY02419-A886": {
+    "name": "Blouse 265SY0",
+    "images": [
+      {
+        "src": "images/265SY02419-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265SY02799-A882": {
+    "name": "Blouse 265SY0",
+    "images": [
+      {
+        "src": "images/265SY02799-A882.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/265SY02799-A882-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/265SY02799-A882-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266SY02766-A008": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY02766-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266SY02766-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266SY02813-A905": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY02813-A905.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266SY04340-A884": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY04340-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266SY04362-A884": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY04362-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266SY04405-A008": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY04405-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266SY04405-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266SY04405-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266SY04506-A008": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY04506-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266SY04506-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266SY04506-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266SY04599-A884": {
+    "name": "Blouse 266SY0",
+    "images": [
+      {
+        "src": "images/266SY04599-A884.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266SY04599-A884-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "2525TZ63224-A008": {
+    "name": "Set 2525TZ",
+    "images": [
+      {
+        "src": "images/2525TZ63224-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ00686-A882红色": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ00686-A882红色.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ00934-A888": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ00934-A888.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ00935-A886蓝色": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ00935-A886蓝色.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ00935-A886黄色": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ00935-A886黄色.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ01074-A905": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ01074-A905.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ01791-A008": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ01791-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/265TZ01791-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "265TZ01857-A008": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ01857-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/265TZ01857-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "265TZ01961-A882": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ01961-A882.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ02058-A008": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ02058-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/265TZ02058-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/265TZ02058-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "265TZ02196-A882": {
+    "name": "Set 265TZ0",
+    "images": [
+      {
+        "src": "images/265TZ02196-A882.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "265TZ70203-A886": {
+    "name": "Set 265TZ7",
+    "images": [
+      {
+        "src": "images/265TZ70203-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266TZ03381-A895": {
+    "name": "Set 266TZ0",
+    "images": [
+      {
+        "src": "images/266TZ03381-A895.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266TZ03392-A895": {
+    "name": "Set 266TZ0",
+    "images": [
+      {
+        "src": "images/266TZ03392-A895.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266TZ03640-A008": {
+    "name": "Set 266TZ0",
+    "images": [
+      {
+        "src": "images/266TZ03640-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266TZ03640-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      }
+    ]
+  },
+  "266TZ04761-A882_1": {
+    "name": "Set 266TZ0",
+    "images": [
+      {
+        "src": "images/266TZ04761-A882_1.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  },
+  "266TX04298-A008": {
+    "name": "Tee 266TX0",
+    "images": [
+      {
+        "src": "images/266TX04298-A008.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266TX04298-A008-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266TX04298-A008-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266WT04123-A899": {
+    "name": "Jacket 266WT0",
+    "images": [
+      {
+        "src": "images/266WT04123-A899.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266WT04123-A899-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266WT04123-A899-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
+  },
+  "266WT04829-A886": {
+    "name": "Coat 266WT0",
+    "images": [
+      {
+        "src": "images/266WT04829-A886.jpg",
+        "type": "front",
+        "alt": "Front View"
+      }
+    ]
+  }
+}
