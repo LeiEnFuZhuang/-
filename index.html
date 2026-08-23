@@ -1437,6 +1437,13 @@
 </div>
 
 <script>
+    // Load fabric data from external JSON
+    var fabricData = {};
+    fetch('fabric.json')
+        .then(r => r.json())
+        .then(data => { fabricData = data; })
+        .catch(err => console.log('Fabric data not loaded:', err));
+
     // Category Filter
     document.querySelectorAll('.cat-tab').forEach(tab => {
         tab.addEventListener('click', function() {
@@ -1525,75 +1532,9 @@
         if (e.key === 'Escape') closeKefu();
     });
 
-    // ===== Fabric Composition Data =====
-    // 按 Style No 填写面料成分，弹窗时自动显示
-    // 格式: "StyleNo": "成分 · 克重"
-    var fabricData = {
-        "242CS67177-A008": "95% Polyester, 5% Elastane · 210gsm",
-        "266CS02977-A008": "100% Viscose · 180gsm",
-        "266CS03734-A899": "95% Polyester, 5% Elastane · 210gsm",
-        "251KZ65215-A199": "Cotton Blend · 200gsm",
-        "265KZ02112-A008": "Polyester Blend · 190gsm",
-        "265KZ03007-A886": "95% Polyester, 5% Elastane · 210gsm",
-        "265KZ102299-A899": "Viscose Blend · 185gsm",
-        "266KZ03197-A882_-1": "Polyester · 200gsm",
-        "266KZ03459-A899": "Cotton Blend · 195gsm",
-        "266KZ03525-A008": "95% Polyester, 5% Spandex · 210gsm",
-        "266KZ03941-A008": "Polyester · 180gsm",
-        "266KZ04356-A008": "Viscose · 175gsm",
-        "266KZ04507-A008": "Cotton Blend · 200gsm",
-        "266KZ04532-A884": "Polyester Blend · 190gsm",
-        "266KZ04660-A905": "95% Polyester, 5% Elastane · 210gsm",
-        "266LQ02959-A899": "Viscose · 180gsm",
-        "266LQ03024-A008": "Polyester · 195gsm",
-        "266LQ03104-A008": "88% Polyester, 12% Elastane · 180gsm",
-        "266LQ03424-A895": "Cotton Blend · 200gsm",
-        "266LQ03810-A888": "95% Polyester, 5% Elastane · 210gsm",
-        "266LQ04104-A008": "Viscose Blend · 185gsm",
-        "266LQ04150-A899": "Polyester · 190gsm",
-        "266LQ04239-A008": "Cotton · 200gsm",
-        "266LQ04257-A886": "Polyester Blend · 195gsm",
-        "266LQ04363-A008": "95% Polyester, 5% Spandex · 210gsm",
-        "266LQ04485-A888": "Viscose · 180gsm",
-        "266LQ04536-A884": "Polyester · 190gsm",
-        "266LQ04577-A886": "Cotton Blend · 200gsm",
-        "266LQ04580-A884": "Polyester Blend · 195gsm",
-        "266LQ04653-A882_1": "95% Polyester, 5% Elastane · 210gsm",
-        "266LQ04655-A882_1": "Viscose · 180gsm",
-        "266LQ04897-A008": "Polyester · 190gsm",
-        "265SY00209-A886墨绿色": "Polyester Blend · 195gsm",
-        "265SY00209-A886白色": "Polyester Blend · 195gsm",
-        "265SY02419-A886": "Cotton · 200gsm",
-        "265SY02799-A882": "95% Polyester, 5% Elastane · 210gsm",
-        "266SY02766-A008": "Viscose · 180gsm",
-        "266SY02813-A905": "Polyester · 190gsm",
-        "266SY04340-A884": "Cotton Blend · 200gsm",
-        "266SY04362-A884": "Polyester Blend · 195gsm",
-        "266SY04405-A008": "95% Polyester, 5% Spandex · 210gsm",
-        "266SY04506-A008": "Viscose · 185gsm",
-        "266SY04599-A884": "Polyester · 190gsm",
-        "2525TZ63224-A008": "Cotton Blend · 200gsm",
-        "265TZ00686-A882红色": "Polyester · 195gsm",
-        "265TZ00934-A888": "Viscose Blend · 185gsm",
-        "265TZ00935-A886蓝色": "95% Polyester, 5% Elastane · 210gsm",
-        "265TZ00935-A886黄色": "95% Polyester, 5% Elastane · 210gsm",
-        "265TZ01074-A905": "Polyester · 190gsm",
-        "265TZ01791-A008": "Cotton · 200gsm",
-        "265TZ01857-A008": "Polyester Blend · 195gsm",
-        "265TZ02058-A008": "95% Polyester, 5% Spandex · 210gsm",
-        "265TZ02196-A882": "Viscose · 180gsm",
-        "265TZ70203-A886": "Polyester · 190gsm",
-        "266TZ03381-A895": "Cotton Blend · 200gsm",
-        "266TZ03392-A895": "Polyester Blend · 195gsm",
-        "266TZ03640-A008": "95% Polyester, 5% Elastane · 210gsm",
-        "266TZ04761-A882_1": "Viscose · 185gsm",
-        "266TX04298-A008": "Polyester · 190gsm",
-        "266WT04123-A899": "Cotton Blend · 200gsm",
-        "266WT04829-A886": "Polyester · 195gsm",
-    };
+    // Fabric data loaded from fabric.json
 
-    // ===== Product Detail Gallery =====
-    var currentModalImages = [];
+        var currentModalImages = [];
     var currentModalIndex = 0;
     var currentModalStyle = '';
     var currentModalFilter = 'all';
