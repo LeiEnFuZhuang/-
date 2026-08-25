@@ -938,5 +938,25 @@
         "alt": "Front View"
       }
     ]
+  },
+  "266LQ04927-A882_1": {
+    "name": "Dress 266LQ0",
+    "images": [
+      {
+        "src": "images/266LQ04927-A882_1.jpg",
+        "type": "front",
+        "alt": "Front View"
+      },
+      {
+        "src": "images/266LQ04927-A882_1-back.jpg",
+        "type": "back",
+        "alt": "Back View"
+      },
+      {
+        "src": "images/266LQ04927-A882_1-detail.jpg",
+        "type": "detail",
+        "alt": "Detail View"
+      }
+    ]
   }
 }
