@@ -267,6 +267,13 @@
         .modal-info-side .detail-list{margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
         .modal-info-side .detail-list li{list-style:none;font-size:13px;color:var(--text-mid);margin-bottom:10px;display:flex;align-items:flex-start;gap:8px}
         .modal-info-side .detail-list li::before{content:'✓';color:var(--brand-blue);font-weight:700;flex-shrink:0}
+        /* Auth0 Login Button Styles */
+        .auth-btn{background:#fff;color:var(--brand-blue);padding:8px 18px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s;border:1.5px solid var(--brand-blue);cursor:pointer;display:flex;align-items:center;gap:6px}
+        .auth-btn:hover{background:var(--brand-blue);color:#fff}
+        .auth-btn img{width:18px;height:18px;border-radius:50%}
+        .auth-user{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-mid)}
+        .auth-user img{width:28px;height:28px;border-radius:50%;border:2px solid var(--brand-blue-light)}
+        @media(max-width:768px){.auth-btn,.auth-user{font-size:12px;padding:6px 12px}.auth-user img{width:24px;height:24px}}
     </style>
     <link rel="preconnect" href="https://www.laingarments.com">
     <link rel="dns-prefetch" href="https://www.laingarments.com">
@@ -276,6 +283,7 @@
 <base target="_blank">
 <base target="_blank">
     <meta name="msvalidate.01" content="B6751119C5E2A4C4C2884B12B21600AE" />
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -291,6 +299,15 @@
     <a href="#process">Process</a>
     <a href="blog-start-clothing-brand.html">Blog</a>
     <a href="#contact" class="nav-cta">Get a Quote</a>
+    <button id="auth-btn" class="auth-btn" onclick="handleAuthClick()" style="display:none;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/></svg>
+        Sign In
+    </button>
+    <div id="auth-user" class="auth-user" style="display:none;">
+        <img id="auth-avatar" src="" alt="">
+        <span id="auth-name"></span>
+        <button class="auth-btn" onclick="logout()" style="padding:4px 10px;font-size:12px;margin-left:4px;">Sign Out</button>
+    </div>
 </div>
     </div>
 </nav>
@@ -1696,5 +1713,87 @@ w.chaportConfig = {
 if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
 </script>
 <!-- End of Chaport Live Chat code -->
+
+<!-- Auth0 Google Login Integration -->
+<script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+<script>
+    let auth0Client = null;
+    const AUTH0_DOMAIN = "dev-734nc6rxzm0falqw.us.auth0.com";
+    const AUTH0_CLIENT_ID = "7mpgnEi0B2Toq7Qq51Tho4y5G0kb9UPg";
+    const AUTH0_REDIRECT_URI = "https://www.laingarments.com/";
+
+    async function initAuth0() {
+        try {
+            auth0Client = await auth0.createAuth0Client({
+                domain: AUTH0_DOMAIN,
+                clientId: AUTH0_CLIENT_ID,
+                authorizationParams: {
+                    redirect_uri: AUTH0_REDIRECT_URI
+                }
+            });
+
+            // Handle redirect callback after Google login
+            if (location.search.includes("code=") && location.search.includes("state=")) {
+                await auth0Client.handleRedirectCallback();
+                window.history.replaceState({}, document.title, "/");
+            }
+
+            await updateAuthUI();
+        } catch (err) {
+            console.error("Auth0 init error:", err);
+        }
+    }
+
+    async function updateAuthUI() {
+        try {
+            const isAuthenticated = await auth0Client.isAuthenticated();
+            const authBtn = document.getElementById("auth-btn");
+            const authUser = document.getElementById("auth-user");
+            const authAvatar = document.getElementById("auth-avatar");
+            const authName = document.getElementById("auth-name");
+
+            if (isAuthenticated) {
+                const user = await auth0Client.getUser();
+                authBtn.style.display = "none";
+                authUser.style.display = "flex";
+                authAvatar.src = user.picture || "";
+                authAvatar.alt = user.name || "User";
+                authName.textContent = user.name || user.email || "User";
+            } else {
+                authBtn.style.display = "flex";
+                authUser.style.display = "none";
+            }
+        } catch (err) {
+            console.error("Auth0 UI error:", err);
+        }
+    }
+
+    async function handleAuthClick() {
+        if (!auth0Client) return;
+        await auth0Client.loginWithRedirect({
+            authorizationParams: {
+                redirect_uri: AUTH0_REDIRECT_URI,
+                connection: "google-oauth2"
+            }
+        });
+    }
+
+    async function logout() {
+        if (!auth0Client) return;
+        await auth0Client.logout({
+            logoutParams: {
+                returnTo: AUTH0_REDIRECT_URI
+            }
+        });
+    }
+
+    // Initialize Auth0 when page loads
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAuth0);
+    } else {
+        initAuth0();
+    }
+</script>
+
 </body>
 </html>
