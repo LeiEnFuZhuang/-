@@ -3,27 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- ===== SEO 核心标签 ===== -->
+
     <title>About Us | Guangzhou Clothing Manufacturer | LAIEN GARMENTS</title>
-    <meta name="description" content="LAIEN GARMENTS is a women's apparel manufacturer based in Guangzhou, China. 10+ years OEM/ODM experience, 100 pcs MOQ, AQL 2.5 QC. Serving global fashion brands with end-to-end supply chain solutions.">
-    <meta name="keywords" content="clothing manufacturer china, guangzhou apparel factory, OEM clothing factory, about laien garments, women's clothing supplier, apparel supply chain partner">
+    <meta name="description" content="LAIEN GARMENTS is a vertically integrated apparel manufacturer in Guangzhou with our own factory. 10+ years OEM/ODM experience, 100 pcs MOQ, AQL 2.5 QC. Factory-direct pricing for global fashion brands.">
+    <meta name="keywords" content="clothing manufacturer china, guangzhou apparel factory, OEM clothing factory, own garment factory, vertically integrated manufacturer, factory direct clothing, about laien garments, women's clothing supplier">
     <link rel="canonical" href="https://www.laingarments.com/about.html">
-    
-    <!-- ===== Open Graph ===== -->
+
     <meta property="og:title" content="About Us | Guangzhou Clothing Manufacturer | LAIEN GARMENTS">
-    <meta property="og:description" content="10+ years OEM/ODM experience. 100 pcs MOQ, AQL 2.5 QC. Serving global fashion brands from Guangzhou, China.">
+    <meta property="og:description" content="Vertically integrated manufacturer with own factory in Guangzhou. 10+ years OEM/ODM, factory-direct pricing, AQL 2.5 QC.">
     <meta property="og:url" content="https://www.laingarments.com/about.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.laingarments.com/images/og-image.jpg">
-    
-    <!-- ===== Twitter Card ===== -->
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Us | Guangzhou Clothing Manufacturer">
-    <meta name="twitter:description" content="10+ years OEM/ODM experience. Serving global fashion brands from Guangzhou.">
+    <meta name="twitter:description" content="Vertically integrated manufacturer with own factory. Factory-direct pricing.">
     <meta name="twitter:image" content="https://www.laingarments.com/images/og-image.jpg">
-    
-    <!-- ===== Breadcrumb Schema ===== -->
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,16 +30,38 @@
       ]
     }
     </script>
-    
-    <base target="_blank">
-    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LAIEN GARMENTS",
+      "url": "https://www.laingarments.com",
+      "logo": "https://www.laingarments.com/images/logo.png",
+      "description": "Vertically integrated women's clothing manufacturer in Guangzhou, China. Own garment factory with 10+ years OEM/ODM experience.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guangzhou",
+        "addressRegion": "Guangdong",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "email": "shawnlin@laingarments.com",
+        "telephone": "+86-17551350093",
+        "availableLanguage": ["English", "Chinese"]
+      }
+    }
+    </script>
+
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#333;background:#fff}
         a{text-decoration:none;color:inherit}
         img{max-width:100%;height:auto;display:block}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        
+
         :root{
             --brand-blue:#1e5bb5;
             --brand-blue-dark:#174a94;
@@ -54,7 +72,7 @@
             --bg-light:#f8f9fa;
             --border:#e8e8e8;
         }
-        
+
         nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
         nav .container{display:flex;justify-content:space-between;align-items:center;height:64px}
         .logo{font-size:20px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark)}
@@ -64,15 +82,26 @@
         .nav-links a.active{color:var(--brand-blue)}
         .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s}
         .nav-cta:hover{background:var(--brand-blue-dark)}
-        
+
+        /* Language Switcher */
+        .lang-switcher{position:relative}
+        .lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text-mid);font-size:13px;cursor:pointer;transition:all .2s;font-weight:500}
+        .lang-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
+        .lang-btn svg{width:16px;height:16px}
+        .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.1);padding:8px 0;min-width:160px;display:none;z-index:200}
+        .lang-dropdown.active{display:block}
+        .lang-dropdown a{display:block;padding:8px 16px;font-size:13px;color:var(--text-dark);transition:all .2s}
+        .lang-dropdown a:hover{background:var(--bg-light);color:var(--brand-blue)}
+        .lang-dropdown a.active{background:var(--brand-blue-light);color:var(--brand-blue);font-weight:600}
+
         .hero{background:linear-gradient(160deg, #f0f4ff 0%, #ffffff 40%, #e8f0fe 100%);padding:100px 0 80px;text-align:center}
         .hero h1{font-size:48px;font-weight:700;margin-bottom:16px;color:var(--text-dark)}
         .hero p{font-size:18px;color:var(--text-mid);max-width:700px;margin:0 auto 32px}
-        
+
         .section{padding:80px 0}
         .section-title{text-align:center;font-size:36px;margin-bottom:14px;color:var(--text-dark);font-weight:700}
         .section-subtitle{text-align:center;color:var(--text-light);margin-bottom:50px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
-        
+
         .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
         .about-text h2{font-size:32px;margin-bottom:20px;color:var(--text-dark);font-weight:700}
         .about-text p{color:var(--text-mid);font-size:16px;line-height:1.8;margin-bottom:16px}
@@ -80,44 +109,70 @@
         .about-text li{padding:8px 0;padding-left:28px;position:relative;color:var(--text-mid);font-size:15px}
         .about-text li::before{content:'✓';position:absolute;left:0;color:var(--brand-blue);font-weight:700;font-size:18px}
         .about-img{background:var(--bg-light);border-radius:16px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:80px;border:1px solid var(--border)}
-        
+
+        .factory-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand-blue),#3b82f6);color:#fff;padding:8px 18px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:20px}
+        .factory-badge::before{content:'🏭'}
+
+        .advantage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .advantage-card{background:#fff;padding:32px 24px;border-radius:16px;border:1px solid var(--border);text-align:center;transition:all .3s}
+        .advantage-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.08);border-color:var(--brand-blue)}
+        .advantage-card .icon{font-size:40px;margin-bottom:16px}
+        .advantage-card h3{font-size:16px;margin-bottom:8px;color:var(--text-dark);font-weight:600}
+        .advantage-card p{color:var(--text-light);font-size:13px;line-height:1.6}
+
         .stats-bar{background:var(--brand-blue);padding:60px 0;color:#fff}
-        .stats-bar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
-        .stats-bar .number{font-size:48px;font-weight:700;margin-bottom:8px}
+        .stats-bar-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
+        .stats-bar .number{font-size:44px;font-weight:700;margin-bottom:8px}
         .stats-bar .label{font-size:14px;opacity:0.9}
-        
+
         .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
         .feature-card{background:#fff;padding:36px 32px;border-radius:16px;border:1px solid var(--border);transition:all .3s}
         .feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.08)}
         .feature-card .icon{font-size:40px;margin-bottom:16px}
         .feature-card h3{font-size:18px;margin-bottom:10px;color:var(--text-dark);font-weight:600}
         .feature-card p{color:var(--text-mid);font-size:14px;line-height:1.7}
-        
+
         .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
         .process-card{background:#fff;padding:28px;border-radius:12px;border:1px solid var(--border);text-align:center}
         .process-card .step-num{width:48px;height:48px;background:var(--brand-blue);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:700;font-size:18px}
         .process-card h4{font-size:16px;margin-bottom:8px;color:var(--text-dark)}
         .process-card p{font-size:13px;color:var(--text-light);line-height:1.6}
-        
+
+        .factory-section{background:var(--bg-light)}
+        .factory-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+        .factory-info h2{font-size:32px;margin-bottom:20px;color:var(--text-dark);font-weight:700}
+        .factory-info h2 span{color:var(--brand-blue)}
+        .factory-info p{color:var(--text-mid);font-size:16px;line-height:1.8;margin-bottom:16px}
+        .factory-specs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+        .factory-spec{background:#fff;padding:16px;border-radius:12px;border:1px solid var(--border)}
+        .factory-spec .spec-label{font-size:12px;color:var(--text-light);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+        .factory-spec .spec-value{font-size:18px;font-weight:700;color:var(--text-dark)}
+
         .cta-section{padding:100px 0;background:linear-gradient(135deg,var(--brand-blue) 0%,#3b82f6 100%);text-align:center;color:#fff}
         .cta-section h2{font-size:36px;margin-bottom:16px}
         .cta-section p{font-size:18px;margin-bottom:32px;opacity:0.9}
         .cta-btn{background:#fff;color:var(--brand-blue);padding:16px 40px;border-radius:8px;font-size:16px;font-weight:600;display:inline-block;transition:all .2s}
         .cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
-        
+
         footer{background:var(--text-dark);color:#888;padding:50px 0 30px;text-align:center;font-size:13px}
         footer a{color:#aaa;margin:0 16px;font-size:13px;transition:color .2s}
         footer a:hover{color:#fff}
         .footer-brand{font-size:18px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:1px}
-        
+
         @media(max-width:768px){
             .about-grid{grid-template-columns:1fr;gap:40px}
+            .factory-grid{grid-template-columns:1fr;gap:40px}
             .stats-bar-grid{grid-template-columns:repeat(2,1fr)}
+            .advantage-grid{grid-template-columns:repeat(2,1fr)}
             .features-grid{grid-template-columns:1fr}
             .process-steps{grid-template-columns:repeat(2,1fr)}
+            .factory-specs{grid-template-columns:1fr}
             .hero h1{font-size:32px}
+            .nav-links{gap:16px}
+            .lang-switcher{display:none}
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -126,11 +181,31 @@
         <a href="index.html" class="logo">LAIEN GARMENTS</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="index.html#services">Services</a>
+            <a href="services.html">Services</a>
             <a href="products.html">Products</a>
             <a href="index.html#process">Process</a>
             <a href="blog-start-clothing-brand.html">Blog</a>
-            <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+            <a href="about.html" class="active">About</a>
+            <a href="contact.html" class="nav-cta">Get a Quote</a>
+            <!-- Language Switcher -->
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="toggleLang()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    <span>EN</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <a href="#" class="active" onclick="setLang('en')">English</a>
+                    <a href="#" onclick="setLang('es')">Espanol</a>
+                    <a href="#" onclick="setLang('fr')">Francais</a>
+                    <a href="#" onclick="setLang('de')">Deutsch</a>
+                    <a href="#" onclick="setLang('ru')">Russkiy</a>
+                    <a href="#" onclick="setLang('pt')">Portugues</a>
+                    <a href="#" onclick="setLang('it')">Italiano</a>
+                    <a href="#" onclick="setLang('ar')">Arabic</a>
+                    <a href="#" onclick="setLang('ja')">Japanese</a>
+                    <a href="#" onclick="setLang('ko')">Korean</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -138,7 +213,7 @@
 <section class="hero">
     <div class="container">
         <h1>About LAIEN GARMENTS</h1>
-        <p>Your reliable apparel supply chain partner based in Guangzhou, China. Connecting global brands with quality manufacturing since 2016.</p>
+        <p>A vertically integrated apparel manufacturer with our own factory in Guangzhou. We combine in-house production with export trading expertise to deliver factory-direct quality and pricing to global fashion brands.</p>
     </div>
 </section>
 
@@ -146,10 +221,13 @@
     <div class="container">
         <div class="about-grid">
             <div class="about-text">
+                <div class="factory-badge">Own Garment Factory</div>
                 <h2>Who We Are</h2>
-                <p>LAIEN GARMENTS is a Guangzhou-based women's apparel manufacturer specializing in OEM, ODM, and private label clothing production. We bridge the gap between emerging fashion brands and reliable manufacturing partners across China.</p>
-                <p>With over 10 years of industry experience, we understand the challenges brands face when sourcing apparel from overseas. That's why we've built a streamlined process that handles everything from design sampling to bulk production — so you can focus on growing your brand.</p>
+                <p>LAIEN GARMENTS is a <strong>vertically integrated manufacturer</strong> based in Panyu District, Guangzhou. Unlike pure trading companies, we own and operate our own garment factory — giving you direct access to production, transparent pricing, and full quality control.</p>
+                <p>With over 10 years of industry experience, we handle the entire apparel supply chain in-house: from fabric sourcing and pattern making to cutting, sewing, finishing, and export logistics. This means faster turnaround, better quality consistency, and no middleman markup.</p>
                 <ul>
+                    <li>Own garment factory in Guangzhou Panyu District</li>
+                    <li>Factory-direct pricing — no trading company markup</li>
                     <li>100 pieces minimum order quantity per color</li>
                     <li>7-10 days sampling turnaround</li>
                     <li>AQL 2.5 three-stage quality control</li>
@@ -170,6 +248,10 @@
                 <div class="label">Years Experience</div>
             </div>
             <div>
+                <div class="number">Own</div>
+                <div class="label">Garment Factory</div>
+            </div>
+            <div>
                 <div class="number">200+</div>
                 <div class="label">Brands Served</div>
             </div>
@@ -187,6 +269,75 @@
 
 <section class="section" style="background:var(--bg-light)">
     <div class="container">
+        <h2 class="section-title">Why Factory-Direct Matters</h2>
+        <p class="section-subtitle">As a manufacturer with our own factory, we offer advantages that trading companies simply cannot match</p>
+        <div class="advantage-grid">
+            <div class="advantage-card">
+                <div class="icon">💰</div>
+                <h3>Better Pricing</h3>
+                <p>No middleman markup. You pay factory-direct prices with full cost transparency.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="icon">⚡</div>
+                <h3>Faster Response</h3>
+                <p>Direct communication with production floor. No delays through trading company layers.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="icon">🔒</div>
+                <h3>Quality Control</h3>
+                <p>Our own QC team monitors every stage in-house, not outsourced to third parties.</p>
+            </div>
+            <div class="advantage-card">
+                <div class="icon">🔄</div>
+                <h3>Flexible Adjustments</h3>
+                <p>Need last-minute changes? We can adjust production directly without coordinating external factories.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section factory-section">
+    <div class="container">
+        <div class="factory-grid">
+            <div class="about-img" style="order:2">🏭</div>
+            <div class="factory-info" style="order:1">
+                <div class="factory-badge">Our Factory</div>
+                <h2>Production <span>Capabilities</span></h2>
+                <p>Our garment factory is located in Panyu District, Guangzhou — the heart of China's apparel manufacturing hub. With direct access to Zhongda Fabric Market (Asia's largest), we source materials efficiently and control every step of production under one roof.</p>
+                <p>We maintain a flexible production model: our core in-house team handles sampling, small-batch orders, and quality-critical styles, while our vetted partner workshops support larger volume runs and specialized categories.</p>
+                <div class="factory-specs">
+                    <div class="factory-spec">
+                        <div class="spec-label">Location</div>
+                        <div class="spec-value">Panyu, GZ</div>
+                    </div>
+                    <div class="factory-spec">
+                        <div class="spec-label">MOQ</div>
+                        <div class="spec-value">100 pcs</div>
+                    </div>
+                    <div class="factory-spec">
+                        <div class="spec-label">Sampling</div>
+                        <div class="spec-value">7-10 Days</div>
+                    </div>
+                    <div class="factory-spec">
+                        <div class="spec-label">Bulk Lead</div>
+                        <div class="spec-value">10-15 Days</div>
+                    </div>
+                    <div class="factory-spec">
+                        <div class="spec-label">QC Standard</div>
+                        <div class="spec-value">AQL 2.5</div>
+                    </div>
+                    <div class="factory-spec">
+                        <div class="spec-label">Payment</div>
+                        <div class="spec-value">30/70</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" style="background:#fff">
+    <div class="container">
         <h2 class="section-title">Our Capabilities</h2>
         <p class="section-subtitle">End-to-end manufacturing solutions tailored for fashion brands of all sizes</p>
         <div class="features-grid">
@@ -198,12 +349,12 @@
             <div class="feature-card">
                 <div class="icon">⚡</div>
                 <h3>Fast Turnaround</h3>
-                <p>7-10 days for sample development. 10-15 days for express bulk orders. We understand speed-to-market is critical in fashion.</p>
+                <p>7-10 days for sample development. 10-15 days for express bulk orders. Our in-house team controls the timeline directly.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">🏭</div>
-                <h3>Vetted Partner Network</h3>
-                <p>We work with a curated network of garment factories in Guangzhou and surrounding regions, each specializing in different categories and production scales.</p>
+                <h3>In-House Production</h3>
+                <p>Own cutting, sewing, and finishing lines in Guangzhou. Direct oversight of workmanship and output quality every day.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">✅</div>
@@ -213,21 +364,21 @@
             <div class="feature-card">
                 <div class="icon">🎨</div>
                 <h3>Design & Development</h3>
-                <p>From tech packs to finished samples. Our team can help refine designs, suggest fabrics, and optimize patterns for production efficiency.</p>
+                <p>From tech packs to finished samples. Our in-house team refines designs, suggests fabrics, and optimizes patterns for production.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">📦</div>
-                <h3>Global Logistics</h3>
+                <h3>Global Export</h3>
                 <p>Door-to-door shipping coordination. We handle customs documentation, freight forwarding, and delivery tracking to your warehouse.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section" style="background:#fff">
+<section class="section" style="background:var(--bg-light)">
     <div class="container">
         <h2 class="section-title">Our Quality Process</h2>
-        <p class="section-subtitle">Every order follows a rigorous quality control protocol</p>
+        <p class="section-subtitle">Every order follows a rigorous in-house quality control protocol</p>
         <div class="process-steps">
             <div class="process-card">
                 <div class="step-num">1</div>
@@ -253,21 +404,21 @@
     </div>
 </section>
 
-<section class="section" style="background:var(--bg-light)">
+<section class="section" style="background:#fff">
     <div class="container">
         <div class="about-grid">
-            <div class="about-img" style="order:2">🌍</div>
-            <div class="about-text" style="order:1">
+            <div class="about-img">🌍</div>
+            <div class="about-text">
                 <h2>Why Guangzhou?</h2>
                 <p>Guangzhou is one of the world's largest apparel manufacturing hubs, with a complete supply chain ecosystem spanning fabric markets, accessory suppliers, dyeing houses, and garment factories.</p>
-                <p>Being based in Panyu District — the heart of Guangzhou's garment industry — gives us direct access to:</p>
+                <p>Being based in Panyu District — the heart of Guangzhou's garment industry — gives our factory direct access to:</p>
                 <ul>
                     <li>Zhongda Fabric Market (largest in Asia)</li>
                     <li>Specialized accessory and trim suppliers</li>
                     <li>Experienced pattern makers and sample rooms</li>
                     <li>Efficient logistics to Guangzhou Port and airports</li>
                 </ul>
-                <p>This proximity means faster sourcing, lower costs, and better quality control for your orders.</p>
+                <p>This proximity means faster sourcing, lower costs, and better quality control for your orders — all managed in-house from our factory.</p>
             </div>
         </div>
     </div>
@@ -276,26 +427,51 @@
 <section class="cta-section">
     <div class="container">
         <h2>Ready to Partner With Us?</h2>
-        <p>Whether you're launching your first collection or scaling an established brand, we're here to make manufacturing simple and reliable.</p>
-        <a href="index.html#contact" class="cta-btn">Start Your Project</a>
+        <p>Whether you are launching your first collection or scaling an established brand, our factory is here to make manufacturing simple, fast, and cost-effective.</p>
+        <a href="contact.html" class="cta-btn">Start Your Project</a>
     </div>
 </section>
 
 <footer>
     <div class="container">
         <div class="footer-brand">LAIEN GARMENTS</div>
-        <p style="margin-bottom:16px">Women's Casual Apparel Supply Chain · Guangzhou · Serving Global Brands</p>
+        <p style="margin-bottom:16px">Women's Casual Apparel Manufacturer · Own Factory in Guangzhou · Serving Global Brands</p>
         <p>
             <a href="index.html">Home</a>
-            <a href="index.html#services">Services</a>
+            <a href="services.html">Services</a>
             <a href="products.html">Products</a>
             <a href="index.html#process">Process</a>
             <a href="blog-start-clothing-brand.html">Blog</a>
-            <a href="index.html#contact">Contact</a>
+            <a href="contact.html">Contact</a>
         </p>
         <p style="margin-top:24px;color:#555">© 2026 Laien Garments. All rights reserved.</p>
     </div>
 </footer>
+
+<!-- GTranslate Widget -->
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
+
+<script>
+    function toggleLang() {
+        document.getElementById('langDropdown').classList.toggle('active');
+    }
+    function setLang(lang) {
+        var gtCombo = document.querySelector('.gt_selector');
+        if (gtCombo) {
+            gtCombo.value = lang;
+            gtCombo.dispatchEvent(new Event('change'));
+        }
+        document.getElementById('langDropdown').classList.remove('active');
+        return false;
+    }
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.lang-switcher')) {
+            document.getElementById('langDropdown').classList.remove('active');
+        }
+    });
+</script>
 
 </body>
 </html>
