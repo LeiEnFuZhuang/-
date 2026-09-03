@@ -164,7 +164,18 @@
             .contact-form{padding:28px 20px}
             .team-card{padding:22px 18px}
         }
-    </style>
+            /* Language Switcher */
+        .lang-switcher{position:relative}
+        .lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text-mid);font-size:13px;cursor:pointer;transition:all .2s;font-weight:500}
+        .lang-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
+        .lang-btn svg{width:16px;height:16px}
+        .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.1);padding:8px 0;min-width:160px;display:none;z-index:200}
+        .lang-dropdown.active{display:block}
+        .lang-dropdown a{display:block;padding:8px 16px;font-size:13px;color:var(--text-dark);transition:all .2s}
+        .lang-dropdown a:hover{background:var(--bg-light);color:var(--brand-blue)}
+        .lang-dropdown a.active{background:var(--brand-blue-light);color:var(--brand-blue);font-weight:600}
+        @media(max-width:768px){.lang-switcher{display:none}}
+</style>
 <base target="_blank">
 </head>
 <body>
@@ -180,6 +191,24 @@
             <a href="blog-start-clothing-brand.html">Blog</a>
             <a href="about.html">About</a>
             <a href="contact.html" class="nav-cta">Get a Quote</a>
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="toggleLang()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    <span>EN</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <a href="#" class="active" onclick="setLang('en')">English</a>
+                    <a href="#" onclick="setLang('es')">Espanol</a>
+                    <a href="#" onclick="setLang('fr')">Francais</a>
+                    <a href="#" onclick="setLang('de')">Deutsch</a>
+                    <a href="#" onclick="setLang('ru')">Russkiy</a>
+                    <a href="#" onclick="setLang('pt')">Portugues</a>
+                    <a href="#" onclick="setLang('it')">Italiano</a>
+                    <a href="#" onclick="setLang('ar')">Arabic</a>
+                    <a href="#" onclick="setLang('ja')">Japanese</a>
+                    <a href="#" onclick="setLang('ko')">Korean</a>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -379,5 +408,29 @@
     </div>
 </footer>
 
+<!-- GTranslate Widget -->
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
+
+<script>
+    function toggleLang() {
+        document.getElementById('langDropdown').classList.toggle('active');
+    }
+    function setLang(lang) {
+        var gtCombo = document.querySelector('.gt_selector');
+        if (gtCombo) {
+            gtCombo.value = lang;
+            gtCombo.dispatchEvent(new Event('change'));
+        }
+        document.getElementById('langDropdown').classList.remove('active');
+        return false;
+    }
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.lang-switcher')) {
+            document.getElementById('langDropdown').classList.remove('active');
+        }
+    });
+</script>
 </body>
 </html>
