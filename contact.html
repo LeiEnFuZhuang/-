@@ -4,26 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ===== SEO 核心标签 ===== -->
     <title>Contact Us | Clothing Manufacturer China | LAIEN GARMENTS</title>
     <meta name="description" content="Get in touch with LAIEN GARMENTS. Request a free quote for OEM/ODM clothing manufacturing. Email, WhatsApp, WeChat, or fill out our contact form. Based in Guangzhou, China.">
     <meta name="keywords" content="contact clothing manufacturer, apparel factory contact, clothing manufacturer quote, guangzhou garment factory, OEM clothing inquiry">
     <link rel="canonical" href="https://www.laingarments.com/contact.html">
 
-    <!-- ===== Open Graph ===== -->
     <meta property="og:title" content="Contact Us | Clothing Manufacturer China | LAIEN GARMENTS">
     <meta property="og:description" content="Request a free quote for OEM/ODM clothing manufacturing. Email, WhatsApp, WeChat, or fill out our contact form.">
     <meta property="og:url" content="https://www.laingarments.com/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://www.laingarments.com/images/og-image.jpg">
 
-    <!-- ===== Twitter Card ===== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact Us | Clothing Manufacturer China">
     <meta name="twitter:description" content="Request a free quote for OEM/ODM clothing manufacturing.">
     <meta name="twitter:image" content="https://www.laingarments.com/images/og-image.jpg">
 
-    <!-- ===== Breadcrumb Schema ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,7 +31,6 @@
     }
     </script>
 
-    <!-- ===== Organization Schema ===== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -84,6 +79,18 @@
         .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s}
         .nav-cta:hover{background:var(--brand-blue-dark)}
 
+        /* Language Switcher */
+        .lang-switcher{position:relative}
+        .lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text-mid);font-size:13px;cursor:pointer;transition:all .2s;font-weight:500}
+        .lang-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
+        .lang-btn svg{width:16px;height:16px}
+        .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.1);padding:8px 0;min-width:160px;display:none;z-index:200}
+        .lang-dropdown.active{display:block}
+        .lang-dropdown a{display:block;padding:8px 16px;font-size:13px;color:var(--text-dark);transition:all .2s}
+        .lang-dropdown a:hover{background:var(--bg-light);color:var(--brand-blue)}
+        .lang-dropdown a.active{background:var(--brand-blue-light);color:var(--brand-blue);font-weight:600}
+        @media(max-width:768px){.lang-switcher{display:none}}
+
         .hero{background:linear-gradient(160deg, #f0f4ff 0%, #ffffff 40%, #e8f0fe 100%);padding:100px 0 80px;text-align:center}
         .hero h1{font-size:48px;font-weight:700;margin-bottom:16px;color:var(--text-dark)}
         .hero p{font-size:18px;color:var(--text-mid);max-width:640px;margin:0 auto 32px}
@@ -127,6 +134,25 @@
         .team-qr img{width:140px;border-radius:10px;border:1px solid var(--border);margin:0 auto}
         .team-qr p{font-size:12px;color:var(--text-light);margin-top:8px}
 
+        /* ===== PayPal Payment Section ===== */
+        .payment-section{background:#fff;border-radius:16px;border:1px solid var(--border);padding:28px;margin-bottom:28px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:all .3s;position:relative;overflow:hidden}
+        .payment-section:hover{box-shadow:0 8px 32px rgba(30,91,181,0.1);border-color:var(--brand-blue)}
+        .payment-section::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#003087,#0070e0)}
+        .payment-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+        .payment-header .pp-icon{font-size:28px}
+        .payment-header .pp-title{font-size:18px;font-weight:700;color:var(--text-dark)}
+        .payment-header .pp-subtitle{font-size:13px;color:var(--text-light);margin-top:2px}
+        .payment-options{display:grid;gap:12px}
+        .payment-option{background:var(--bg-light);padding:16px;border-radius:12px;border:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;transition:all .2s}
+        .payment-option:hover{border-color:var(--brand-blue);background:#fff}
+        .payment-option .pp-info h4{font-size:15px;color:var(--text-dark);font-weight:600;margin-bottom:4px}
+        .payment-option .pp-info p{font-size:13px;color:var(--text-light)}
+        .payment-option .pp-price{font-size:20px;font-weight:700;color:var(--brand-blue)}
+        .paypal-btn{background:#0070e0;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+        .paypal-btn:hover{background:#003087;transform:translateY(-1px)}
+        .paypal-btn img{height:16px}
+        .payment-note{font-size:12px;color:var(--text-light);margin-top:12px;padding-top:12px;border-top:1px solid var(--border);line-height:1.6}
+
         .contact-form{background:#fff;padding:40px;border-radius:16px;border:1px solid var(--border);box-shadow:0 4px 24px rgba(0,0,0,0.04)}
         .contact-form h2{font-size:24px;margin-bottom:8px;color:var(--text-dark);font-weight:700}
         .contact-form .subtitle{color:var(--text-light);font-size:14px;margin-bottom:28px}
@@ -163,19 +189,9 @@
             .hero h1{font-size:32px}
             .contact-form{padding:28px 20px}
             .team-card{padding:22px 18px}
+            .payment-section{padding:22px 18px}
         }
-            /* Language Switcher */
-        .lang-switcher{position:relative}
-        .lang-btn{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text-mid);font-size:13px;cursor:pointer;transition:all .2s;font-weight:500}
-        .lang-btn:hover{border-color:var(--brand-blue);color:var(--brand-blue)}
-        .lang-btn svg{width:16px;height:16px}
-        .lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.1);padding:8px 0;min-width:160px;display:none;z-index:200}
-        .lang-dropdown.active{display:block}
-        .lang-dropdown a{display:block;padding:8px 16px;font-size:13px;color:var(--text-dark);transition:all .2s}
-        .lang-dropdown a:hover{background:var(--bg-light);color:var(--brand-blue)}
-        .lang-dropdown a.active{background:var(--brand-blue-light);color:var(--brand-blue);font-weight:600}
-        @media(max-width:768px){.lang-switcher{display:none}}
-</style>
+    </style>
 <base target="_blank">
 </head>
 <body>
@@ -278,7 +294,40 @@
                     </div>
                 </div>
 
-                <!-- ===== Shawn 的联系方式（原封不动保留） ===== -->
+                <!-- ===== PayPal Payment Section ===== -->
+                <div class="payment-section">
+                    <div class="payment-header">
+                        <div class="pp-icon">💳</div>
+                        <div>
+                            <div class="pp-title">Secure Payment</div>
+                            <div class="pp-subtitle">Pay sample fee or deposit via PayPal</div>
+                        </div>
+                    </div>
+                    <div class="payment-options">
+                        <div class="payment-option">
+                            <div class="pp-info">
+                                <h4>Sample Order</h4>
+                                <p>Per style / Refundable upon bulk order</p>
+                            </div>
+                            <div style="text-align:right">
+                                <div class="pp-price">$100</div>
+                                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="margin-top:8px">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="CY3SHG5AWSNQS">
+                                    <button type="submit" class="paypal-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-1.027-.707-2.647-.991-4.754-.991h-7.46a1.27 1.27 0 0 0-1.253 1.064L2.095 20.597a.27.27 0 0 0 .267.313h4.606c.523 0 .968-.382 1.05-.9l.95-6.024h2.19c3.88 0 6.915-1.55 7.8-5.917.325-1.62.197-2.974-.536-4.152z"/></svg>
+                                        Pay Now
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="payment-note">
+                        Secure payment processed by PayPal. You can pay with PayPal balance, credit card, or debit card. Contact us for a custom invoice if you need a different amount.
+                    </div>
+                </div>
+
+                <!-- ===== Shawn Contact Info ===== -->
                 <div class="contact-method">
                     <div class="icon">📧</div>
                     <div class="info">
@@ -394,7 +443,7 @@
 <footer>
     <div class="container">
         <div class="footer-brand">LAIEN GARMENTS</div>
-        <p style="margin-bottom:16px">Women's Casual Apparel Supply Chain · Guangzhou · Serving Global Brands</p>
+        <p style="margin-bottom:16px">Women's Casual Apparel Manufacturer · Own Factory in Guangzhou · Serving Global Brands</p>
         <p>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
@@ -432,5 +481,6 @@
         }
     });
 </script>
+
 </body>
 </html>
