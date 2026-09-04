@@ -12,6 +12,9 @@
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- PayPal SDK (第1部分代码) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BA5FpITrU7p2kYfBIAWr6yZ_i0QdQmeyZXwJ0Ekg9CdxWcSDrsHTCgEux2h5JTvkxYZ_kF_gWjEKZWMC&components=host-buttons&disable-funding=venmo&currency=USD"></script>
+
     <title>Laien Garments | Women's Clothing Manufacturer China | OEM/ODM Factory</title>
     <meta name="description" content="Laien Garments is a vertically integrated women's clothing manufacturer in Guangzhou with our own factory. OEM/ODM apparel, 100 pcs MOQ, factory-direct pricing, 7-10 days sampling.">
     <meta name="keywords" content="women's clothing manufacturer, apparel factory China, OEM clothing, ODM garments, private label clothing, wholesale women's apparel, Guangzhou garment factory">
@@ -306,8 +309,6 @@
     <link rel="dns-prefetch" href="https://www.laingarments.com">
 
     <meta name="msvalidate.01" content="B6751119C5E2A4C4C2884B12B21600AE" />
-<base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
@@ -354,14 +355,13 @@
         <div class="hero-btns">
             <a href="#products" class="btn-primary">Browse Products</a>
             <a href="#contact" class="btn-secondary">Request a Quote</a>
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-                <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="CY3SHG5AWSNQS">
-                <button type="submit" class="paypal-btn">
-                    <svg viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-1.027-.707-2.647-.991-4.754-.991h-7.46a1.27 1.27 0 0 0-1.253 1.064L2.095 20.597a.27.27 0 0 0 .267.313h4.606c.523 0 .968-.382 1.05-.9l.95-6.024h2.19c3.88 0 6.915-1.55 7.8-5.917.325-1.62.197-2.974-.536-4.152z"/></svg>
-                    Pay Sample $100
-                </button>
-            </form>
+            <!-- PayPal Hosted Button (第2部分代码) -->
+            <div id="paypal-container-Y8J46MC32VTBW"></div>
+            <script>
+                paypal.HostedButtons({
+                    hostedButtonId: "Y8J46MC32VTBW",
+                }).render("#paypal-container-Y8J46MC32VTBW")
+            </script>
         </div>
     </div>
 </section>
@@ -530,18 +530,16 @@
                     </div>
                 </div>
 
-                <!-- ===== PayPal Payment ===== -->
+                <!-- ===== PayPal Payment (同步替换) ===== -->
                 <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;">
                     <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">💳 Secure Payment</div>
                     <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;line-height:1.6;">Pay sample fee via PayPal. Refundable upon bulk order.</p>
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:inline">
-                        <input type="hidden" name="cmd" value="_s-xclick">
-                        <input type="hidden" name="hosted_button_id" value="CY3SHG5AWSNQS">
-                        <button type="submit" class="paypal-mini-btn" style="padding:12px 24px;font-size:14px;">
-                            <svg viewBox="0 0 24 24" fill="white"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-1.027-.707-2.647-.991-4.754-.991h-7.46a1.27 1.27 0 0 0-1.253 1.064L2.095 20.597a.27.27 0 0 0 .267.313h4.606c.523 0 .968-.382 1.05-.9l.95-6.024h2.19c3.88 0 6.915-1.55 7.8-5.917.325-1.62.197-2.974-.536-4.152z"/></svg>
-                            Pay Sample Fee $100
-                        </button>
-                    </form>
+                    <div id="paypal-container-Y8J46MC32VTBW-inquiry"></div>
+                    <script>
+                        paypal.HostedButtons({
+                            hostedButtonId: "Y8J46MC32VTBW",
+                        }).render("#paypal-container-Y8J46MC32VTBW-inquiry")
+                    </script>
                     <p style="font-size:11px;color:var(--text-light);margin-top:10px;">After payment, email your design to shawnlin@laingarments.com</p>
                 </div>
             </div>
