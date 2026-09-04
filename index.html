@@ -355,13 +355,8 @@
         <div class="hero-btns">
             <a href="#products" class="btn-primary">Browse Products</a>
             <a href="#contact" class="btn-secondary">Request a Quote</a>
-            <!-- PayPal Hosted Button (第2部分代码) -->
-            <div id="paypal-container-Y8J46MC32VTBW"></div>
-            <script>
-                paypal.HostedButtons({
-                    hostedButtonId: "Y8J46MC32VTBW",
-                }).render("#paypal-container-Y8J46MC32VTBW")
-            </script>
+            <!-- PayPal 按钮容器 -->
+            <div id="paypal-hero-btn" style="display:inline-block;min-width:180px;"></div>
         </div>
     </div>
 </section>
@@ -493,7 +488,7 @@
                     <span>shawnlin@laingarments.com</span>
                 </div>
                 <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Guangzhou, China</span>
                 </div>
                 <div class="contact-item">
@@ -534,12 +529,7 @@
                 <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;">
                     <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">💳 Secure Payment</div>
                     <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;line-height:1.6;">Pay sample fee via PayPal. Refundable upon bulk order.</p>
-                    <div id="paypal-container-Y8J46MC32VTBW-inquiry"></div>
-                    <script>
-                        paypal.HostedButtons({
-                            hostedButtonId: "Y8J46MC32VTBW",
-                        }).render("#paypal-container-Y8J46MC32VTBW-inquiry")
-                    </script>
+                    <div id="paypal-inquiry-btn" style="display:inline-block;min-width:180px;"></div>
                     <p style="font-size:11px;color:var(--text-light);margin-top:10px;">After payment, email your design to shawnlin@laingarments.com</p>
                 </div>
             </div>
@@ -645,6 +635,47 @@
 </div>
 
 <script>
+    // ===== PayPal 按钮渲染（hero 和 inquiry） =====
+    function renderPayPalButtons() {
+        // Hero 按钮
+        var heroContainer = document.getElementById('paypal-hero-btn');
+        if (heroContainer && typeof paypal !== 'undefined' && paypal.HostedButtons) {
+            try {
+                paypal.HostedButtons({
+                    hostedButtonId: "Y8J46MC32VTBW"
+                }).render("#paypal-hero-btn");
+            } catch(e) {
+                console.log('PayPal Hero 渲染失败，使用备用链接:', e);
+                heroContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="btn-primary" style="background:#0070e0;padding:12px 28px;border-radius:8px;color:#fff;font-weight:600;">Pay Sample $100</a>';
+            }
+        } else if (heroContainer) {
+            heroContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="btn-primary" style="background:#0070e0;padding:12px 28px;border-radius:8px;color:#fff;font-weight:600;">Pay Sample $100</a>';
+        }
+
+        // Inquiry 按钮
+        var inquiryContainer = document.getElementById('paypal-inquiry-btn');
+        if (inquiryContainer && typeof paypal !== 'undefined' && paypal.HostedButtons) {
+            try {
+                paypal.HostedButtons({
+                    hostedButtonId: "Y8J46MC32VTBW"
+                }).render("#paypal-inquiry-btn");
+            } catch(e) {
+                console.log('PayPal Inquiry 渲染失败，使用备用链接:', e);
+                inquiryContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="paypal-mini-btn" style="padding:12px 24px;font-size:14px;">Pay Sample Fee $100</a>';
+            }
+        } else if (inquiryContainer) {
+            inquiryContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="paypal-mini-btn" style="padding:12px 24px;font-size:14px;">Pay Sample Fee $100</a>';
+        }
+    }
+
+    // 确保在页面完全加载后执行
+    if (document.readyState === 'complete') {
+        renderPayPalButtons();
+    } else {
+        window.addEventListener('load', renderPayPalButtons);
+    }
+
+    // ===== 原有功能（语言切换、微信客服等） =====
     function isWechat() {
         var ua = navigator.userAgent.toLowerCase();
         return ua.indexOf('micromessenger') !== -1 || ua.indexOf('wxwork') !== -1;
@@ -653,24 +684,28 @@
     var btn = document.getElementById('wx-kefu');
     var tip = document.getElementById('kefu-tip');
     var modal = document.getElementById('kefu-modal');
-    btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
-    btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if (isWechat()) {
-            window.location.href = kfLink;
-        } else {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    });
+    if (btn) {
+        btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
+        btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isWechat()) {
+                window.location.href = kfLink;
+            } else {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
     function closeKefu() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeKefu();
-    });
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeKefu();
+        });
+    }
     function copyWechat(wx) {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(wx).then(function() {
@@ -700,23 +735,7 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeKefu();
     });
-</script>
-<!-- Begin of Chaport Live Chat code -->
-<script type="text/javascript">
-(function(w,d,v3){
-w.chaportConfig = {
-  appId : '6a8c5eea3ec8f6e5c3cd41e7',
-};
-if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
-</script>
-<!-- End of Chaport Live Chat code -->
 
-<!-- GTranslate Widget -->
-<div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
-
-<script>
     function toggleLang() {
         document.getElementById('langDropdown').classList.toggle('active');
     }
@@ -735,5 +754,21 @@ if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v
         }
     });
 </script>
+
+<!-- Begin of Chaport Live Chat code -->
+<script type="text/javascript">
+(function(w,d,v3){
+w.chaportConfig = {
+  appId : '6a8c5eea3ec8f6e5c3cd41e7',
+};
+if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
+</script>
+<!-- End of Chaport Live Chat code -->
+
+<!-- GTranslate Widget -->
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
+
 </body>
 </html>
