@@ -12,9 +12,6 @@
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- PayPal SDK (第1部分代码) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=BA5FpITrU7p2kYfBIAWr6yZ_i0QdQmeyZXwJ0Ekg9CdxWcSDrsHTCgEux2h5JTvkxYZ_kF_gWjEKZWMC&components=host-buttons&disable-funding=venmo&currency=USD"></script>
-
     <title>Laien Garments | Women's Clothing Manufacturer China | OEM/ODM Factory</title>
     <meta name="description" content="Laien Garments is a vertically integrated women's clothing manufacturer in Guangzhou with our own factory. OEM/ODM apparel, 100 pcs MOQ, factory-direct pricing, 7-10 days sampling.">
     <meta name="keywords" content="women's clothing manufacturer, apparel factory China, OEM clothing, ODM garments, private label clothing, wholesale women's apparel, Guangzhou garment factory">
@@ -108,6 +105,14 @@
         .btn-primary:hover{background:var(--brand-blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,91,181,0.35)}
         .btn-secondary{background:transparent;color:var(--brand-blue);padding:15px 36px;border-radius:8px;font-size:15px;border:1.5px solid var(--brand-blue);display:inline-block;transition:all .2s;font-weight:500}
         .btn-secondary:hover{background:var(--brand-blue);color:#fff}
+
+        /* PayPal 按钮样式 */
+        .paypal-btn-custom{background:#0070e0;color:#fff;padding:14px 36px;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;min-width:11.625rem;box-shadow:0 4px 16px rgba(0,112,224,0.28);transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+        .paypal-btn-custom:hover{background:#003087;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,112,224,0.35)}
+        .paypal-btn-custom svg{height:18px;width:18px;fill:white}
+        .paypal-mini-custom{background:#0070e0;color:#fff;padding:12px 24px;border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;min-width:11.625rem;box-shadow:0 4px 16px rgba(0,112,224,0.25);transition:all .2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+        .paypal-mini-custom:hover{background:#003087;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,112,224,0.3)}
+        .paypal-mini-custom svg{height:16px;width:16px;fill:white}
 
         .stats{background:#fff;padding:70px 0;border-bottom:1px solid var(--border)}
         .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
@@ -304,7 +309,7 @@
         .payment-bar h3{font-size:20px;margin-bottom:8px;color:var(--text-dark)}
         .payment-bar p{color:var(--text-mid);font-size:14px;margin-bottom:16px}
         .payment-note{font-size:12px;color:var(--text-light);margin-top:12px}
-</style>
+    </style>
     <link rel="preconnect" href="https://www.laingarments.com">
     <link rel="dns-prefetch" href="https://www.laingarments.com">
 
@@ -355,8 +360,13 @@
         <div class="hero-btns">
             <a href="#products" class="btn-primary">Browse Products</a>
             <a href="#contact" class="btn-secondary">Request a Quote</a>
-            <!-- PayPal 按钮容器 -->
-            <div id="paypal-hero-btn" style="display:inline-block;min-width:180px;"></div>
+            <!-- PayPal 付款按钮（传统表单方式，兼容性最好，不依赖JS SDK） -->
+            <form action="https://www.paypal.com/ncp/payment/Y8J46MC32VTBW" method="post" target="_blank" style="display:inline;">
+                <button type="submit" class="paypal-btn-custom">
+                    <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-1.027-.707-2.647-.991-4.754-.991h-7.46a1.27 1.27 0 0 0-1.253 1.064L2.095 20.597a.27.27 0 0 0 .267.313h4.606c.523 0 .968-.382 1.05-.9l.95-6.024h2.19c3.88 0 6.915-1.55 7.8-5.917.325-1.62.197-2.974-.536-4.152z"/></svg>
+                    Pay Sample $100
+                </button>
+            </form>
         </div>
     </div>
 </section>
@@ -525,11 +535,16 @@
                     </div>
                 </div>
 
-                <!-- ===== PayPal Payment (同步替换) ===== -->
+                <!-- ===== PayPal 付款按钮（传统表单方式） ===== -->
                 <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;">
                     <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">💳 Secure Payment</div>
                     <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;line-height:1.6;">Pay sample fee via PayPal. Refundable upon bulk order.</p>
-                    <div id="paypal-inquiry-btn" style="display:inline-block;min-width:180px;"></div>
+                    <form action="https://www.paypal.com/ncp/payment/Y8J46MC32VTBW" method="post" target="_blank" style="display:inline;">
+                        <button type="submit" class="paypal-mini-custom">
+                            <svg viewBox="0 0 24 24"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-1.027-.707-2.647-.991-4.754-.991h-7.46a1.27 1.27 0 0 0-1.253 1.064L2.095 20.597a.27.27 0 0 0 .267.313h4.606c.523 0 .968-.382 1.05-.9l.95-6.024h2.19c3.88 0 6.915-1.55 7.8-5.917.325-1.62.197-2.974-.536-4.152z"/></svg>
+                            Pay Sample Fee $100
+                        </button>
+                    </form>
                     <p style="font-size:11px;color:var(--text-light);margin-top:10px;">After payment, email your design to shawnlin@laingarments.com</p>
                 </div>
             </div>
@@ -635,47 +650,6 @@
 </div>
 
 <script>
-    // ===== PayPal 按钮渲染（hero 和 inquiry） =====
-    function renderPayPalButtons() {
-        // Hero 按钮
-        var heroContainer = document.getElementById('paypal-hero-btn');
-        if (heroContainer && typeof paypal !== 'undefined' && paypal.HostedButtons) {
-            try {
-                paypal.HostedButtons({
-                    hostedButtonId: "Y8J46MC32VTBW"
-                }).render("#paypal-hero-btn");
-            } catch(e) {
-                console.log('PayPal Hero 渲染失败，使用备用链接:', e);
-                heroContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="btn-primary" style="background:#0070e0;padding:12px 28px;border-radius:8px;color:#fff;font-weight:600;">Pay Sample $100</a>';
-            }
-        } else if (heroContainer) {
-            heroContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="btn-primary" style="background:#0070e0;padding:12px 28px;border-radius:8px;color:#fff;font-weight:600;">Pay Sample $100</a>';
-        }
-
-        // Inquiry 按钮
-        var inquiryContainer = document.getElementById('paypal-inquiry-btn');
-        if (inquiryContainer && typeof paypal !== 'undefined' && paypal.HostedButtons) {
-            try {
-                paypal.HostedButtons({
-                    hostedButtonId: "Y8J46MC32VTBW"
-                }).render("#paypal-inquiry-btn");
-            } catch(e) {
-                console.log('PayPal Inquiry 渲染失败，使用备用链接:', e);
-                inquiryContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="paypal-mini-btn" style="padding:12px 24px;font-size:14px;">Pay Sample Fee $100</a>';
-            }
-        } else if (inquiryContainer) {
-            inquiryContainer.innerHTML = '<a href="https://www.paypal.com/ncp/pay/Y8J46MC32VTBW" target="_blank" class="paypal-mini-btn" style="padding:12px 24px;font-size:14px;">Pay Sample Fee $100</a>';
-        }
-    }
-
-    // 确保在页面完全加载后执行
-    if (document.readyState === 'complete') {
-        renderPayPalButtons();
-    } else {
-        window.addEventListener('load', renderPayPalButtons);
-    }
-
-    // ===== 原有功能（语言切换、微信客服等） =====
     function isWechat() {
         var ua = navigator.userAgent.toLowerCase();
         return ua.indexOf('micromessenger') !== -1 || ua.indexOf('wxwork') !== -1;
@@ -684,28 +658,24 @@
     var btn = document.getElementById('wx-kefu');
     var tip = document.getElementById('kefu-tip');
     var modal = document.getElementById('kefu-modal');
-    if (btn) {
-        btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
-        btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (isWechat()) {
-                window.location.href = kfLink;
-            } else {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-    }
+    btn.addEventListener('mouseenter', function() { tip.style.opacity = '1'; });
+    btn.addEventListener('mouseleave', function() { tip.style.opacity = '0'; });
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (isWechat()) {
+            window.location.href = kfLink;
+        } else {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
     function closeKefu() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeKefu();
-        });
-    }
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeKefu();
+    });
     function copyWechat(wx) {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(wx).then(function() {
@@ -735,7 +705,23 @@
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeKefu();
     });
+</script>
+<!-- Begin of Chaport Live Chat code -->
+<script type="text/javascript">
+(function(w,d,v3){
+w.chaportConfig = {
+  appId : '6a8c5eea3ec8f6e5c3cd41e7',
+};
+if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
+</script>
+<!-- End of Chaport Live Chat code -->
 
+<!-- GTranslate Widget -->
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
+
+<script>
     function toggleLang() {
         document.getElementById('langDropdown').classList.toggle('active');
     }
@@ -754,21 +740,5 @@
         }
     });
 </script>
-
-<!-- Begin of Chaport Live Chat code -->
-<script type="text/javascript">
-(function(w,d,v3){
-w.chaportConfig = {
-  appId : '6a8c5eea3ec8f6e5c3cd41e7',
-};
-if(w.chaport)return;v3=w.chaport={};v3._q=[];v3._l={};v3.on=function(e,fn){if(!v3._l[e])v3._l[e]=[];v3._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
-</script>
-<!-- End of Chaport Live Chat code -->
-
-<!-- GTranslate Widget -->
-<div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
-
 </body>
 </html>
