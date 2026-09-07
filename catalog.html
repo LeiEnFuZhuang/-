@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Full Collection - Laien Garments</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; margin: 0; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        
+        /* 分类按钮样式 */
+        .cat-btns { text-align: center; margin-bottom: 20px; }
+        .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; }
+        .cat-btn.active { background: #1e5bb5; color: #fff; border-color: #1e5bb5; }
+
+        /* 产品网格布局 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; }
+        .product img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; display: block; }
+        .product p { margin-top: 8px; font-weight: bold; font-size: 14px; }
+
+        /* 手机端适配：一行显示两个，间距更舒服 */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product { padding: 5px; }
+            .product img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <h2>Our Full Collection</h2>
+
+    <!-- 分类按钮（你想加裤子就加个裤子，想加外套就加个外套） -->
+    <div class="cat-btns">
+        <button class="cat-btn active" onclick="filter('all')">All</button>
+        <button class="cat-btn" onclick="filter('dress')">Dresses</button>
+        <button class="cat-btn" onclick="filter('set')">Sets</button>
+        <button class="cat-btn" onclick="filter('top')">Tops</button>
+        <button class="cat-btn" onclick="filter('pants')">Pants</button>
+    </div>
+
+    <!-- 产品列表区（以后加新款式，只需要复制 <div class="product"> 到 </div> 这一行即可！） -->
+    <div class="grid">
+        
+        <!-- 示例1：连衣裙类 (dress) -->
+        <div class="product" data-cat="dress">
+            <img src="LIA-130.jpg" alt="LIA-130">
+            <p>LIA-130</p>
+        </div>
+
+        <!-- 示例2：套装类 (set) -->
+        <div class="product" data-cat="set">
+            <img src="LIA-060.jpg" alt="LIA-060">
+            <p>LIA-060</p>
+        </div>
+
+        <!-- 示例3：套装类 (set) -->
+        <div class="product" data-cat="set">
+            <img src="LIA-169.jpg" alt="LIA-169">
+            <p>LIA-169</p>
+        </div>
+        
+        <!-- 以后怎么加新款式？复制上面的 <div> 到 </div>，改掉 src="图片名.jpg"，把 data-cat="set" 改成 "dress" 或 "top" 即可。 -->
+
+    </div>
+
+    <script>
+        function filter(cat) {
+            var items = document.querySelectorAll('.product');
+            items.forEach(function(item) {
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            // 切换按钮背景色
+            var btns = document.querySelectorAll('.cat-btn');
+            btns.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
