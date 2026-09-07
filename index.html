@@ -310,6 +310,36 @@
         .payment-bar p{color:var(--text-mid);font-size:14px;margin-bottom:16px}
         .payment-note{font-size:12px;color:var(--text-light);margin-top:12px}
     </style>
+    /* ===== 手机端专属适配（不再拥挤） ===== */
+@media screen and (max-width: 768px) {
+    body { padding: 0 10px; }
+    .container { padding: 0 10px; }
+    
+    /* 工厂区和产品区图片：在手机上变成一行一张，高度自动，间距拉大 */
+    section[style*="text-align: center;"] > div > div[style*="min-width"] {
+        width: 100% !important;
+        min-width: 100% !important;
+        margin-bottom: 25px;
+    }
+    
+    /* 强制图片高度变小，不再占据整个手机屏幕 */
+    img[src*="Factory-"], img[src*="sewing-"], img[src*="qc.jpg"], img[src*="LIA-"] {
+        height: auto !important;
+        max-height: 320px !important;
+        object-fit: cover;
+    }
+    
+    /* 导航栏缩小，防止挤成一团 */
+    .logo { font-size: 16px; letter-spacing: 1px; }
+    .nav-links { gap: 8px; }
+    .nav-links a { font-size: 12px; }
+    .nav-cta { padding: 6px 8px; font-size: 11px; }
+    
+    /* 字体和标题大小调整 */
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 15px; padding: 0 10px; }
+    .section-title { font-size: 28px; }
+}
     <link rel="preconnect" href="https://www.laingarments.com">
     <link rel="dns-prefetch" href="https://www.laingarments.com">
 
