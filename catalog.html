@@ -7,33 +7,48 @@
     <style>
         body { font-family: sans-serif; padding: 20px; background: #f9f9f9; margin: 0; }
         h2 { text-align: center; margin-bottom: 20px; }
+        
+        /* 分类按钮样式 */
         .cat-btns { text-align: center; margin-bottom: 20px; }
         .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; }
         .cat-btn.active { background: #1e5bb5; color: #fff; border-color: #1e5bb5; }
+
+        /* 产品网格布局（解决了长页面问题！） */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; }
+        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; text-decoration: none; color: inherit; }
+        
+        /* 强制统一高度：保证每张图都是正方形，不会拉成一条长条 */
         .product img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; display: block; }
         .product p { margin-top: 8px; font-weight: bold; font-size: 14px; }
+
+        /* 手机端适配：一行两个，间距更舒服 */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .product { padding: 5px; }
+            .product img { height: 200px; }
+        }
     </style>
 </head>
 <body>
     <h2>Our Full Collection</h2>
+
     <div class="cat-btns">
         <button class="cat-btn active" onclick="filter('all')">All</button>
         <button class="cat-btn" onclick="filter('dress')">Dresses</button>
         <button class="cat-btn" onclick="filter('set')">Sets</button>
     </div>
 
-   <div class="product" data-cat="dress"><img src="LIA-257.jpg" alt="LIA-257"><p>LIA-257</p></div>
-<div class="product" data-cat="set"><img src="LIA-259.jpg" alt="LIA-259"><p>LIA-259</p></div>
-<div class="product" data-cat="set"><img src="LIA-260.jpg" alt="LIA-260"><p>LIA-260</p></div>
-<div class="product" data-cat="dress"><img src="LIA-261.jpg" alt="LIA-261"><p>LIA-261</p></div>
-<div class="product" data-cat="dress"><img src="LIA-263.jpg" alt="LIA-263"><p>LIA-263</p></div>
-<div class="product" data-cat="dress"><img src="LIA267.jpg" alt="LIA-267"><p>LIA-267</p></div>
-<div class="product" data-cat="set"><img src="LIA-268.jpg" alt="LIA-268"><p>LIA-268</p></div>
-<div class="product" data-cat="set"><img src="LIA269.jpg" alt="LIA-269"><p>LIA-269</p></div>
-<div class="product" data-cat="dress"><img src="LIA-270.jpg" alt="LIA-270"><p>LIA-270</p></div>
-<div class="product" data-cat="set"><img src="LIA-271.jpg" alt="LIA-271"><p>LIA-271</p></div>
+    <div class="grid">
+        <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-257"><img src="LIA-257.jpg" alt="LIA-257"><p>LIA-257</p></a>
+        <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-259"><img src="LIA-259.jpg" alt="LIA-259"><p>LIA-259</p></a>
+        <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-260"><img src="LIA-260.jpg" alt="LIA-260"><p>LIA-260</p></a>
+        <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-261"><img src="LIA-261.jpg" alt="LIA-261"><p>LIA-261</p></a>
+        <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-263"><img src="LIA-263.jpg" alt="LIA-263"><p>LIA-263</p></a>
+        <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-267"><img src="LIA267.jpg" alt="LIA-267"><p>LIA-267</p></a>
+        <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-268"><img src="LIA-268.jpg" alt="LIA-268"><p>LIA-268</p></a>
+        <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-269"><img src="LIA269.jpg" alt="LIA-269"><p>LIA-269</p></a>
+        <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-270"><img src="LIA-270.jpg" alt="LIA-270"><p>LIA-270</p></a>
+        <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-271"><img src="LIA-271.jpg" alt="LIA-271"><p>LIA-271</p></a>
     </div>
 
     <script>
