@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Full Collection - Laien Garments</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; margin: 0; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        .cat-btns { text-align: center; margin-bottom: 20px; }
+        .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; }
+        .cat-btn.active { background: #1e5bb5; color: #fff; border-color: #1e5bb5; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; }
+        .product img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; display: block; }
+        .product p { margin-top: 8px; font-weight: bold; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h2>Our Full Collection</h2>
+    <div class="cat-btns">
+        <button class="cat-btn active" onclick="filter('all')">All</button>
+        <button class="cat-btn" onclick="filter('dress')">Dresses</button>
+        <button class="cat-btn" onclick="filter('set')">Sets</button>
+    </div>
+
+    <div class="grid">
+        <div class="product" data-cat="dress"><img src="LIA-257-dress.jpg" alt="LIA-257"><p>LIA-257</p></div>
+        <div class="product" data-cat="set"><img src="LIA-259-set.jpg" alt="LIA-259"><p>LIA-259</p></div>
+        <div class="product" data-cat="set"><img src="LIA-260-set.jpg" alt="LIA-260"><p>LIA-260</p></div>
+        <div class="product" data-cat="dress"><img src="LIA-261-dress.jpg" alt="LIA-261"><p>LIA-261</p></div>
+        <div class="product" data-cat="dress"><img src="LIA-263-dress.jpg" alt="LIA-263"><p>LIA-263</p></div>
+        <div class="product" data-cat="dress"><img src="LIA267-dress.jpg" alt="LIA-267"><p>LIA-267</p></div>
+        <div class="product" data-cat="set"><img src="LIA-268.jpg" alt="LIA-268"><p>LIA-268</p></div>
+        <div class="product" data-cat="set"><img src="LIA269.jpg" alt="LIA-269"><p>LIA-269</p></div>
+        <div class="product" data-cat="dress"><img src="LIA-270-dress.jpg" alt="LIA-270"><p>LIA-270</p></div>
+        <div class="product" data-cat="set"><img src="LIA-271-set.jpg" alt="LIA-271"><p>LIA-271</p></div>
+    </div>
+
+    <script>
+        function filter(cat) {
+            var items = document.querySelectorAll('.product');
+            items.forEach(function(item) {
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            var btns = document.querySelectorAll('.cat-btn');
+            btns.forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
