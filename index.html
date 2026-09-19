@@ -605,31 +605,6 @@
     }
 </script>
 
-<!-- GTranslate Widget -->
-<div class="gtranslate_wrapper"></div>
-<script>window.gtranslateSettings = {"default_language":"en","languages":["en","es","fr","de","ru","pt","it","ar","ja","ko"],"wrapper_selector":".gtranslate_wrapper","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
-<script src="https://cdn.gtranslate.net/widgets/latest/fn.js" defer></script>
-
-<script>
-    function toggleLang() {
-        document.getElementById('langDropdown').classList.toggle('active');
-    }
-    function setLang(lang) {
-        var gtCombo = document.querySelector('.gt_selector');
-        if (gtCombo) {
-            gtCombo.value = lang;
-            gtCombo.dispatchEvent(new Event('change'));
-        }
-        document.getElementById('langDropdown').classList.remove('active');
-        return false;
-    }
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.lang-switcher')) {
-            document.getElementById('langDropdown').classList.remove('active');
-        }
-    });
-</script>
-
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
