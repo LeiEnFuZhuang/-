@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQPVW683Z8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BQPVW683Z8');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQPVW683Z8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BQPVW683Z8');
+    </script>
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -125,16 +125,14 @@
         .service-card p{color:var(--text-mid);font-size:14.5px;line-height:1.7}
         @media(max-width:768px){.services-grid{grid-template-columns:1fr}}
 
-        /* 新品展示区样式 (融合自catalog) */
+        /* 产品展示区样式 */
         .products{padding:50px 0;background:#fff}
         .products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;flex-wrap:wrap;gap:16px}
         .products-header h2{font-size:36px;font-weight:700;color:var(--text-dark)}
-
         .cat-btns { text-align: center; margin-bottom: 30px; }
         .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; transition: all .2s; }
         .cat-btn:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
         .cat-btn.active { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); }
-        
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; text-decoration: none; color: inherit; display: block; transition: all .3s; }
         .product:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); border-color: #d0d0d0; }
@@ -167,7 +165,7 @@
         .submit-btn:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
         @media(max-width:768px){.inquiry-grid{grid-template-columns:1fr;gap:48px}}
 
-        /* ===== Team Card on Homepage ===== */
+        /* Team Card on Homepage */
         .team-mini{background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:all .3s;position:relative;overflow:hidden}
         .team-mini:hover{box-shadow:0 8px 32px rgba(30,91,181,0.1);border-color:var(--brand-blue)}
         .team-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand-blue),#3b82f6)}
@@ -189,6 +187,7 @@
         footer a:hover{color:#fff}
         .footer-brand{font-size:18px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:1px}
 
+        /* 悬浮按钮 */
         #kefu-modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:10000;display:none;align-items:center;justify-content:center}
         #kefu-modal.active{display:flex}
         .kefu-box{background:#fff;padding:36px;border-radius:16px;text-align:center;max-width:380px;width:90%;position:relative;animation:kefuIn .3s ease}
@@ -212,7 +211,7 @@
         #mail-kefu a{width:56px;height:56px;background:var(--text-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
         #mail-kefu a:hover{transform:scale(1.1);background:var(--text-dark)}
 
-        /* ===== 手机端专属适配（不再拥挤） ===== */
+        /* 手机端适配 */
         @media screen and (max-width: 768px) {
             body { padding: 0 10px; }
             .container { padding: 0 10px; }
@@ -261,24 +260,6 @@
             <a href="blog-start-clothing-brand.html">Blog</a>
             <a href="about.html">About</a>
             <a href="contact.html" class="nav-cta">Get a Quote</a>
-            <div class="lang-switcher">
-                <button class="lang-btn" onclick="toggleLang()">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                    <span>EN</span>
-                </button>
-                <div class="lang-dropdown" id="langDropdown">
-                    <a href="#" class="active" onclick="setLang('en')">English</a>
-                    <a href="#" onclick="setLang('es')">Espanol</a>
-                    <a href="#" onclick="setLang('fr')">Francais</a>
-                    <a href="#" onclick="setLang('de')">Deutsch</a>
-                    <a href="#" onclick="setLang('ru')">Russkiy</a>
-                    <a href="#" onclick="setLang('pt')">Portugues</a>
-                    <a href="#" onclick="setLang('it')">Italiano</a>
-                    <a href="#" onclick="setLang('ar')">Arabic</a>
-                    <a href="#" onclick="setLang('ja')">Japanese</a>
-                    <a href="#" onclick="setLang('ko')">Korean</a>
-                </div>
-            </div>
         </div>
     </div>
 </nav>
@@ -326,7 +307,7 @@
     </div>
 </section>
 
-<!-- Products (All Collections from Catalog) -->
+<!-- Products (全部款式) -->
 <section class="products" id="products">
     <div class="container">
         <div class="products-header">
@@ -342,7 +323,7 @@
             <button class="cat-btn" onclick="filter('top')">Tops</button>
         </div>
 
-        <!-- 产品网格 (包含所有款式) -->
+        <!-- 产品网格 (包含所有款式，点击图片直接发邮件) -->
         <div class="grid">
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-008"><img src="LIA-008.jpg" alt="LIA-008"><p>LIA-008</p></a>
             <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-033"><img src="LIA-033.jpg" alt="LIA-033"><p>LIA-033</p></a>
@@ -387,7 +368,7 @@
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-371"><img src="LIA-371.jpg" alt="LIA-371"><p>LIA-371</p></a>
             <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-383"><img src="LIA-383.jpg" alt="LIA-383"><p>LIA-383</p></a>
             <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-198"><img src="LIA-198.jpg" alt="LIA-198"><p>LIA-198</p></a>
-<a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="LIA-193 Black"><p>LIA-193 (Black)</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="LIA-193 Black"><p>LIA-193 (Black)</p></a>
         </div>
 
         <!-- 引导语和邮箱按钮 -->
@@ -439,7 +420,6 @@
                     <span>Mon - Sat: 9:00 AM - 6:00 PM (GMT+8)</span>
                 </div>
 
-                <!-- Team Mini Card: Vic -->
                 <div class="team-mini">
                     <div class="team-mini-header">
                         <div class="team-mini-avatar">V</div>
@@ -457,7 +437,6 @@
                     </div>
                 </div>
 
-                <!-- 付款方式说明 -->
                 <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;">
                     <div style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">💳 Payment Information</div>
                     <p style="font-size:13px;color:var(--text-mid);margin-bottom:14px;line-height:1.6;">
@@ -587,7 +566,7 @@
         if (e.key === 'Escape') closeKefu();
     });
 
-    // 筛选功能 JS
+    // 筛选功能 JS (确保产品分类按钮可用)
     function filter(cat) {
         var items = document.querySelectorAll('.product');
         items.forEach(function(item) {
