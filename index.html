@@ -626,13 +626,17 @@ document.querySelectorAll('.product').forEach(item => {
         modalImg.src = imgSrc; // 把缩略图替换成大图
         modalInquiry.href = mailtoLink; // 保留发邮件功能
         modal.style.display = 'flex'; // 显示弹窗
+        document.body.style.overflow = 'hidden'; 
     });
 });
 
 // 点击关闭按钮或背景关闭弹窗
+// 点击关闭按钮或背景关闭弹窗
 function closeModal() {
     document.getElementById('imageModal').style.display = 'none';
+    document.body.style.overflow = ''; // 恢复背景滚动
 }
+
 // 点背景也能关
 document.getElementById('imageModal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
