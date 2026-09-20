@@ -603,5 +603,40 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<!-- 图片放大模态框 (灯箱效果) -->
+<div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; flex-direction:column;">
+    <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer; font-weight:bold; line-height:1;">&times;</span>
+    <img id="modalImg" src="" style="max-width:90%; max-height:80%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+    <!-- 下方保留询盘按钮 -->
+    <a id="modalInquiry" href="" style="margin-top:24px; background:#1e5bb5; color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire About This Style</a>
+</div>
+
+<!-- 自动拦截点击放大的 JS 逻辑 -->
+<script>
+document.querySelectorAll('.product').forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault(); // 阻止默认的直接发邮件行为，改为先看图
+        const imgSrc = this.querySelector('img').src;
+        const mailtoLink = this.getAttribute('href');
+        
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalInquiry = document.getElementById('modalInquiry');
+        
+        modalImg.src = imgSrc; // 把缩略图替换成大图
+        modalInquiry.href = mailtoLink; // 保留发邮件功能
+        modal.style.display = 'flex'; // 显示弹窗
+    });
+});
+
+// 点击关闭按钮或背景关闭弹窗
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+}
+// 点背景也能关
+document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+</script>    
 </body>
 </html>
