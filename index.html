@@ -96,16 +96,18 @@
         .nav-cta:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
         .nav-links a.active{color:var(--brand-blue)}
 
-        .hero{background:linear-gradient(160deg, #f0f4ff 0%, #ffffff 40%, #e8f0fe 100%);padding:120px 0 100px;text-align:center;color:var(--text-dark);position:relative;overflow:hidden}
-        .hero::before{content:'';position:absolute;top:-120px;right:-80px;width:450px;height:450px;background:radial-gradient(circle, rgba(30,91,181,0.07) 0%, transparent 70%);border-radius:50%;pointer-events:none}
-        .hero::after{content:'';position:absolute;bottom:-100px;left:-60px;width:380px;height:380px;background:radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);border-radius:50%;pointer-events:none}
-        .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:var(--text-dark)}
-        .hero p{font-size:18px;color:var(--text-mid);margin-bottom:40px;max-width:640px;margin-left:auto;margin-right:auto;position:relative}
+        /* 修改后的 Hero 区域：使用展厅背景图 + 深色半透明遮罩，文字全白 */
+        .hero{background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('D-24S-SY-001-2.jpg') center/cover no-repeat;padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
+        
+        .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
+        .hero p{font-size:18px;color:rgba(255, 255, 255, 0.85);margin-bottom:40px;max-width:640px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         .btn-primary{background:var(--brand-blue);color:#fff;padding:15px 36px;border-radius:8px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:500;box-shadow:0 4px 16px rgba(30,91,181,0.28)}
         .btn-primary:hover{background:var(--brand-blue-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,91,181,0.35)}
-        .btn-secondary{background:transparent;color:var(--brand-blue);padding:15px 36px;border-radius:8px;font-size:15px;border:1.5px solid var(--brand-blue);display:inline-block;transition:all .2s;font-weight:500}
-        .btn-secondary:hover{background:var(--brand-blue);color:#fff}
+        
+        /* 透明按钮文字与边框改为白色，适配深色背景 */
+        .btn-secondary{background:transparent;color:#ffffff;padding:15px 36px;border-radius:8px;font-size:15px;border:1.5px solid #ffffff;display:inline-block;transition:all .2s;font-weight:500}
+        .btn-secondary:hover{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
 
         .stats{background:#fff;padding:70px 0;border-bottom:1px solid var(--border)}
         .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
@@ -294,7 +296,7 @@
     <div class="container">
         <h1>Your Reliable Apparel<br>Manufacturer in Guangzhou</h1>
         <p>A vertically integrated manufacturer with our own garment factory in Guangzhou. From design sampling to bulk production, we handle everything in-house — no middlemen, no markup.</p>
-        <p style="font-size:15px;color:#1e5bb5;font-weight:600;margin-top:-24px;margin-bottom:32px;">✦ Sample fee refundable upon bulk order</p>
+        <p style="font-size:15px;color:#a8c7fa;font-weight:600;margin-top:-24px;margin-bottom:32px;">✦ Sample fee refundable upon bulk order</p>
         <div class="hero-btns">
             <a href="#products" class="btn-primary">Browse Products</a>
             <a href="#contact" class="btn-secondary">Request a Quote</a>
