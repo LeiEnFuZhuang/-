@@ -43,9 +43,8 @@
     }
     </script>
 
-    <!-- 👇 新PayPal代码：第1部分（放入head） 👇 -->
+    <!-- 👇 PayPal SDK 引入代码 👇 -->
     <script src="https://www.paypal.com/sdk/js?client-id=BAaz9E4TBYLCQ9KHhpUe0xNn5SwFKzYvmnlsQBiQxvUMTj7shIDUfC7poHxJJUOiIwPRWUIZWlWC0Bz9njbQ&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
-    <!-- 👆 新PayPal代码：第1部分结束 👆 -->
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -288,6 +287,7 @@
             <button class="cat-btn" onclick="filter('top')">Tops</button>
         </div>
 
+        <!-- 完整的产品网格，保留所有数据 -->
         <div class="grid">
             <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06576"><img src="A06576.jpg" alt="Women's halter neck crinkled two piece set manufacturer"><p>A06576</p></a>
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05100"><img src="A05100.jpg" alt="Women's brown wide leg jumpsuit manufacturer"><p>A05100</p></a>
@@ -439,17 +439,54 @@
                     <button type="submit" class="submit-btn" onclick="gtag('event', 'submit_inquiry', {'event_category': 'Contact', 'event_label': 'Form Submit'});">Request Catalog</button>
                 </form>
                 
-                <!-- 👇 新PayPal代码：第2部分（放入body） 👇 -->
+                <!-- 👇 优化后的 PayPal 代码：带有加载检测和自动降级 👇 -->
                 <div style="text-align: center; margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 1px dashed #ddd;">
                   <h3 style="margin-bottom: 15px; font-size: 18px; color: #333;">Pay Sample Fee Directly</h3>
-                  <div id="paypal-container-WXPQTKAZ9QWFJ"></div>
+                  
+                  <!-- PayPal 按钮容器 -->
+                  <div id="paypal-container-WXPQTKAZ9QWFJ">
+                      <p style="font-size: 13px; color: #666;">Loading secure payment...</p>
+                  </div>
+
+                  <!-- 备用支付方案（如果按钮加载失败，会自动显示这个） -->
+                  <div id="paypal-fallback" style="display: none; margin-top: 15px;">
+                      <p style="font-size: 14px; color: #333; font-weight: bold; margin-bottom: 10px;">Having trouble with the payment button?</p>
+                      <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Please contact us directly to get a payment link:</p>
+                      <a href="https://wa.me/8613534489365" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none;">WhatsApp Us</a>
+                      <a href="mailto:shawnlin@laingarments.com" style="display: inline-block; background: #1e5bb5; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none;">Email Us</a>
+                  </div>
+                  
                   <script>
-                    paypal.HostedButtons({
-                      hostedButtonId: "WXPQTKAZ9QWFJ",
-                    }).render("#paypal-container-WXPQTKAZ9QWFJ")
+                    window.addEventListener('load', function() {
+                        setTimeout(function() {
+                            if (typeof paypal !== 'undefined') {
+                                try {
+                                    paypal.HostedButtons({
+                                      hostedButtonId: "WXPQTKAZ9QWFJ",
+                                    }).render("#paypal-container-WXPQTKAZ9QWFJ").then(() => {
+                                        // 成功加载，隐藏备用方案
+                                        document.getElementById("paypal-fallback").style.display = "none";
+                                    }).catch(function(error) {
+                                        // 账户受限或报错
+                                        console.error("PayPal Render Error:", error);
+                                        document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
+                                        document.getElementById("paypal-fallback").style.display = "block";
+                                    });
+                                } catch (e) {
+                                    document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
+                                    document.getElementById("paypal-fallback").style.display = "block";
+                                }
+                            } else {
+                                // SDK根本没有加载成功（网络问题）
+                                console.error("PayPal SDK blocked or failed to load.");
+                                document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
+                                document.getElementById("paypal-fallback").style.display = "block";
+                            }
+                        }, 2000); // 等2秒确保网络加载完毕
+                    });
                   </script>
                 </div>
-                <!-- 👆 新PayPal代码：第2部分结束 👆 -->
+                <!-- 👆 优化后的 PayPal 代码结束 👆 -->
                 
             </div>
         </div>
