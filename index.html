@@ -439,54 +439,48 @@
                     <button type="submit" class="submit-btn" onclick="gtag('event', 'submit_inquiry', {'event_category': 'Contact', 'event_label': 'Form Submit'});">Request Catalog</button>
                 </form>
                 
-                <!-- 👇 优化后的 PayPal 代码：带有加载检测和自动降级 👇 -->
+                                <!-- 👇 纯 HTML 表单 PayPal 按钮（稳定版） 👇 -->
                 <div style="text-align: center; margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 1px dashed #ddd;">
                   <h3 style="margin-bottom: 15px; font-size: 18px; color: #333;">Pay Sample Fee Directly</h3>
                   
-                  <!-- PayPal 按钮容器 -->
-                  <div id="paypal-container-WXPQTKAZ9QWFJ">
-                      <p style="font-size: 13px; color: #666;">Loading secure payment...</p>
+                  <div>
+                    <style>
+                      .pp-WXPQTKAZ9QWFJ {
+                        text-align: center;
+                        border: none;
+                        border-radius: 0.25rem;
+                        min-width: 11.625rem;
+                        padding: 0 2rem;
+                        height: 2.625rem;
+                        font-weight: bold;
+                        background-color: #FFD140;
+                        color: #000000;
+                        font-family: "Helvetica Neue", Arial, sans-serif;
+                        font-size: 1rem;
+                        line-height: 1.25rem;
+                        cursor: pointer;
+                        transition: all 0.2s;
+                      }
+                      .pp-WXPQTKAZ9QWFJ:hover {
+                        background-color: #f2c53d;
+                      }
+                    </style>
+                    <!-- 表单提交，target="_blank" 表示在新窗口打开 -->
+                    <form action="https://www.paypal.com/ncp/payment/WXPQTKAZ9QWFJ" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+                      <input class="pp-WXPQTKAZ9QWFJ" type="submit" value="Pay Now" />
+                      <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" style="display: block;" />
+                      <section style="font-size: 0.75rem; color: #666;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle; display:inline-block;"/></section>
+                    </form>
                   </div>
 
-                  <!-- 备用支付方案（如果按钮加载失败，会自动显示这个） -->
-                  <div id="paypal-fallback" style="display: none; margin-top: 15px;">
-                      <p style="font-size: 14px; color: #333; font-weight: bold; margin-bottom: 10px;">Having trouble with the payment button?</p>
-                      <p style="font-size: 13px; color: #666; margin-bottom: 10px;">Please contact us directly to get a payment link:</p>
-                      <a href="https://wa.me/8613534489365" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none;">WhatsApp Us</a>
-                      <a href="mailto:shawnlin@laingarments.com" style="display: inline-block; background: #1e5bb5; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none;">Email Us</a>
+                  <!-- 备用联系按钮（万一客户点进去报错，可以立刻联系你） -->
+                  <div style="margin-top: 20px;">
+                      <p style="font-size: 12px; color: #888; margin-bottom: 10px;">Having payment issues? Contact us directly:</p>
+                      <a href="https://wa.me/8613534489365" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none; font-size: 14px;">WhatsApp Us</a>
+                      <a href="mailto:shawnlin@laingarments.com" style="display: inline-block; background: #1e5bb5; color: white; padding: 8px 16px; border-radius: 8px; font-weight: bold; margin: 5px; text-decoration: none; font-size: 14px;">Email Us</a>
                   </div>
-                  
-                  <script>
-                    window.addEventListener('load', function() {
-                        setTimeout(function() {
-                            if (typeof paypal !== 'undefined') {
-                                try {
-                                    paypal.HostedButtons({
-                                      hostedButtonId: "WXPQTKAZ9QWFJ",
-                                    }).render("#paypal-container-WXPQTKAZ9QWFJ").then(() => {
-                                        // 成功加载，隐藏备用方案
-                                        document.getElementById("paypal-fallback").style.display = "none";
-                                    }).catch(function(error) {
-                                        // 账户受限或报错
-                                        console.error("PayPal Render Error:", error);
-                                        document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
-                                        document.getElementById("paypal-fallback").style.display = "block";
-                                    });
-                                } catch (e) {
-                                    document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
-                                    document.getElementById("paypal-fallback").style.display = "block";
-                                }
-                            } else {
-                                // SDK根本没有加载成功（网络问题）
-                                console.error("PayPal SDK blocked or failed to load.");
-                                document.getElementById("paypal-container-WXPQTKAZ9QWFJ").style.display = "none";
-                                document.getElementById("paypal-fallback").style.display = "block";
-                            }
-                        }, 2000); // 等2秒确保网络加载完毕
-                    });
-                  </script>
                 </div>
-                <!-- 👆 优化后的 PayPal 代码结束 👆 -->
+                <!-- 👆 纯 HTML 表单 PayPal 按钮结束 👆 -->
                 
             </div>
         </div>
