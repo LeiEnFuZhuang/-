@@ -41,6 +41,9 @@
         .product:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
         .product img { width: 100%; height: 350px; object-fit: cover; border-radius: 5px; }
         .product p { margin-top: 10px; font-weight: bold; font-size: 16px; }
+        
+        /* 👇 新增：预设的价格样式 👇 */
+        .product-price { color: #d9534f; font-size: 18px; margin-top: 5px; font-weight: bold; }
 
         footer{background:var(--text-dark);color:#888;padding:30px 0;text-align:center;font-size:13px;}
     </style>
@@ -74,26 +77,53 @@
         <h2 class="section-title">Our Bridal Collection</h2>
         <div class="grid">
             
+            <!-- 👇 产品1 👇 -->
             <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001">
                 <img src="BR-001.jpg" alt="Custom lace wedding dress manufacturer">
                 <p>Style: BR-001</p>
+                <p class="product-price">Price: From $599</p>
             </a>
 
+            <!-- 👇 产品2 👇 -->
             <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-002">
                 <img src="BR-002.jpg" alt="Elegant evening gown OEM factory">
                 <p>Style: BR-002</p>
+                <p class="product-price">Price: From $599</p>
             </a>
 
+            <!-- 👇 产品3 👇 -->
             <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-003">
                 <img src="BR-003.jpg" alt="Heavy beaded bridal gown manufacturer">
                 <p>Style: BR-003</p>
+                <p class="product-price">Price: From $599</p>
             </a>
+            
+            <!-- 👇 产品4 👇 -->
             <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-004">
                 <img src="BR-004.jpg" alt="Elegant garden wedding dress manufacturer">
                 <p>Style: BR-004</p>
+                <p class="product-price">Price: From $599</p>
             </a>
+            
+            <!-- 👇 以后上新，直接复制下面这段模板，修改括号里的内容即可 👇 -->
+            <!-- 
+            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style 【款号】">
+                <img src="【图片名.jpg】" alt="【SEO描述】">
+                <p>Style: 【款号】</p>
+                <p class="product-price">Price: From $【价格】</p>
+            </a>
+            -->
+            
         </div>
         
+        <!-- 👇 新增：价格说明面板（防砍价神器） 👇 -->
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center;">
+            <h3 style="font-size: 22px; margin-bottom: 15px;">Why Our Prices Vary?</h3>
+            <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 15px;">
+                The price shown is for reference only. As a direct OEM factory, the final price depends on your specific fabric, beadwork details, and order quantity. We offer <strong>significant wholesale discounts for bulk orders</strong>. Contact us to get an exact quote for your project!
+            </p>
+        </div>
+
         <div style="text-align: center; margin-top: 50px;">
             <p style="font-size: 18px; margin-bottom: 20px;">Want to see our full bridal catalog or start a custom project?</p>
             <a href="mailto:shawnlin@laingarments.com" style="background: var(--brand-blue); color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 18px; text-decoration: none;">Inquire Now</a>
