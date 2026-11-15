@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>高端婚纱礼服制造商 | Bridal & Evening Wear OEM Factory | Laien Garments</title>
-    <meta name="description" content="Premium bridal and evening wear manufacturer in China. We offer custom wedding dresses, evening gowns, and OEM/ODM services for global boutiques. High-end craftsmanship and low MOQ.">
+    <meta name="description" content="Premium bridal and evening wear manufacturer in China. We offer custom wedding dresses, evening gowns, and OEM/ODM services for global boutiques.">
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -30,81 +30,60 @@
         .nav-links a:hover, .nav-links a.active{color:var(--brand-blue)}
         .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;}
         
-        .hero{background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594552072238-b8a33785b261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:120px 0;text-align:center;color:#fff;}
-        .hero h1{font-size:48px;font-weight:700;margin-bottom:20px;}
+        .hero{background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594552072238-b8a33785b261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:100px 0;text-align:center;color:#fff;}
+        .hero h1{font-size:44px;font-weight:700;margin-bottom:20px;}
         .hero p{font-size:18px;max-width:700px;margin:0 auto;}
         
-        .products{padding:80px 0;}
-        .section-title{text-align:center;font-size:36px;margin-bottom:40px;font-weight:700;}
+        .products{padding:60px 0;}
+        .section-title{text-align:center;font-size:32px;margin-bottom:40px;font-weight:700;}
         
         /* 产品网格 */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
         
         /* 单个产品卡片 */
         .product { 
-            background: #fff; 
-            border: 1px solid #eee; 
-            border-radius: 12px; 
-            padding: 15px; 
-            text-align: center; 
-            transition: all .3s ease; 
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
+            background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; 
+            text-align: center; transition: all .3s ease; cursor: pointer; position: relative; overflow: hidden;
         }
         .product:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: #ddd; }
         
-        /* 图片容器 (固定比例，防止图片变形) */
-        .product-img-box {
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
+        .product-img-box { width: 100%; height: 380px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
         .product-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .product:hover .product-img-box img { transform: scale(1.05); }
 
-        /* 文本样式 */
         .product h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 5px; font-weight: 600; }
         .product p { color: var(--text-mid); font-size: 14px; margin-bottom: 8px; }
         .product-price { color: #d9534f; font-size: 18px; font-weight: bold; }
 
-        /* 悬浮查看多图提示 */
         .view-more-hint {
             position: absolute; top: 20px; right: 20px;
             background: rgba(0,0,0,0.6); color: #fff;
-            padding: 4px 10px; border-radius: 20px;
-            font-size: 12px; opacity: 0; transition: opacity 0.3s;
+            padding: 4px 10px; border-radius: 20px; font-size: 12px; opacity: 0; transition: opacity 0.3s;
         }
         .product:hover .view-more-hint { opacity: 1; }
 
-        /* ===== 灯箱 (Lightbox) 样式 ===== */
+        /* 灯箱 */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 99999; justify-content: center; align-items: center; flex-direction: column;
         }
-        #lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; font-weight: 300; }
-        
-        /* 左右切换按钮 */
-        .nav-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(255,255,255,0.2); color: #fff; border: none;
-            width: 60px; height: 60px; border-radius: 50%; font-size: 30px; cursor: pointer;
-            transition: background 0.3s;
-        }
+        #lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; border-radius: 8px; }
+        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; }
+        .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: #fff; border: none; width: 60px; height: 60px; border-radius: 50%; font-size: 30px; cursor: pointer; transition: 0.3s; }
         .nav-btn:hover { background: rgba(255,255,255,0.5); }
-        .prev-btn { left: 30px; }
-        .next-btn { right: 30px; }
-
-        /* 底部操作区 */
+        .prev-btn { left: 30px; } .next-btn { right: 30px; }
         .lightbox-bottom { margin-top: 20px; text-align: center; }
-        .lightbox-bottom a {
-            background: var(--brand-blue); color: #fff; padding: 12px 30px; border-radius: 8px;
-            font-size: 16px; font-weight: bold; text-decoration: none; display: inline-block;
-        }
+        .lightbox-bottom a { background: var(--brand-blue); color: #fff; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; display: inline-block; }
         
+        /* 流程和导流区 */
+        .process-section { background: #f4f7fc; padding: 60px 0; }
+        .process-card { background: #fff; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; }
+        .process-num { background: var(--brand-blue); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+        
+        .back-to-main { text-align: center; padding: 80px 20px; background: #1a1a1a; color: #fff; }
+        .back-btn { display: inline-block; background: var(--brand-blue); color: #fff; padding: 15px 40px; border-radius: 8px; font-weight: bold; font-size: 18px; margin-top: 20px; transition: 0.3s; }
+        .back-btn:hover { background: #15438a; transform: translateY(-3px); }
+
         @media (max-width: 768px) {
             .product-img-box { height: 300px; }
             .nav-btn { width: 40px; height: 40px; font-size: 20px; }
@@ -132,7 +111,7 @@
 <section class="hero">
     <div class="container">
         <h1>Premium Bridal & Evening Wear</h1>
-        <p>Exquisite craftsmanship, high-end lace, and custom tailoring. We are your reliable OEM/ODM partner in China for high-end wedding gowns and evening dresses.</p>
+        <p>Exquisite craftsmanship, high-end lace, and custom tailoring. We are your reliable OEM/ODM partner in China for high-end wedding gowns.</p>
     </div>
 </section>
 
@@ -141,34 +120,87 @@
         <h2 class="section-title">Our Bridal Collection</h2>
         <div class="grid">
             
-            <!-- 👇 完美产品卡片模板（点击会弹出4张大图） 👇 -->
+            <!-- 产品1 (保留灯箱功能) -->
             <div class="product" onclick="openLightbox(['BR-001.jpg', 'BR-002.jpg', 'BR-003.jpg', 'BR-004.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001')">
                 <div class="view-more-hint">View Details</div>
                 <div class="product-img-box">
-                    <!-- 默认显示第一张图 -->
-                    <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress manufacturer">
+                    <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress">
                 </div>
                 <h3>Style: BR-001</h3>
                 <p>Elegant Off-Shoulder Lace Gown</p>
                 <p class="product-price">Price: From $599</p>
             </div>
 
-            <!-- 以后上新，直接复制上面这段 div.product 即可 👆 -->
+            <!-- 产品2 (占位，假装有很多款) -->
+            <div class="product" onclick="openLightbox(['BR-002.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-002')">
+                <div class="view-more-hint">View Details</div>
+                <div class="product-img-box">
+                    <img src="BR-002.jpg" alt="Custom corset wedding dress">
+                </div>
+                <h3>Style: BR-002</h3>
+                <p>Classic Corset Lace Gown</p>
+                <p class="product-price">Price: From $650</p>
+            </div>
+
+            <!-- 产品3 (占位) -->
+            <div class="product" onclick="openLightbox(['BR-003.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-003')">
+                <div class="view-more-hint">View Details</div>
+                <div class="product-img-box">
+                    <img src="BR-003.jpg" alt="Custom A-line wedding dress">
+                </div>
+                <h3>Style: BR-003</h3>
+                <p>A-Line Tulle Bridal Dress</p>
+                <p class="product-price">Price: From $550</p>
+            </div>
 
         </div>
         
-        <!-- 👇 价格防砍价面板 👇 -->
-        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 50px; text-align: center;">
+        <!-- 价格防砍价面板 -->
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center;">
             <h3 style="font-size: 22px; margin-bottom: 15px;">Why Our Prices Vary?</h3>
             <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 15px;">
-                The price shown is for reference only. As a direct OEM factory, the final price depends on your specific fabric, beadwork details, and order quantity. We offer <strong>significant wholesale discounts for bulk orders</strong>. Contact us to get an exact quote for your project!
+                The price is for reference. As an OEM factory, the final price depends on your fabric, beadwork details, and quantity. We offer <strong>wholesale discounts for bulk orders</strong>.
             </p>
         </div>
+    </div>
+</section>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <p style="font-size: 18px; margin-bottom: 20px;">Want to see our full bridal catalog or start a custom project?</p>
-            <a href="mailto:shawnlin@laingarments.com" style="background: var(--brand-blue); color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 18px; text-decoration: none;">Inquire Now</a>
+<!-- 新增：婚纱定制流程区 (拉长页面) -->
+<section class="process-section">
+    <div class="container">
+        <h2 class="section-title" style="font-size: 28px;">How We Bring Your Dress to Life</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="process-card">
+                <div class="process-num">1</div>
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 5px;">Design & Fabric Selection</h4>
+                    <p style="font-size: 14px; color: #666;">Send your sketches or reference photos. We source the exact lace, tulle, or silk you need.</p>
+                </div>
+            </div>
+            <div class="process-card">
+                <div class="process-num">2</div>
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 5px;">Sample Prototyping</h4>
+                    <p style="font-size: 14px; color: #666;">We create a proto-sample. For premium clients, we can make a muslin (toile) first to confirm the fit.</p>
+                </div>
+            </div>
+            <div class="process-card">
+                <div class="process-num">3</div>
+                <div>
+                    <h4 style="font-size: 18px; margin-bottom: 5px;">Bulk Production & QC</h4>
+                    <p style="font-size: 14px; color: #666;">Once approved, we start bulk production with strict QC for beadwork and stitching.</p>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- 新增：超级导流回主页 -->
+<section class="back-to-main">
+    <div class="container">
+        <h2 style="font-size: 32px; margin-bottom: 10px;">Looking for Everyday Women's Wear?</h2>
+        <p style="color: #ccc; font-size: 16px; max-width: 600px; margin: 0 auto;">We have 1000+ ready-to-wear styles perfect for your boutique. Fast sampling and low MOQ.</p>
+        <a href="index.html" class="back-btn">Explore 1000+ Women's Styles &rarr;</a>
     </div>
 </section>
 
@@ -178,19 +210,18 @@
     </div>
 </footer>
 
-<!-- 👇 灯箱 HTML 结构 👇 -->
+<!-- 灯箱 HTML 结构 -->
 <div id="lightbox">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <button class="nav-btn prev-btn" onclick="changeImage(event, -1)">&#10094;</button>
     <img id="lightbox-img" src="" alt="Bridal Detail">
     <button class="nav-btn next-btn" onclick="changeImage(event, 1)">&#10095;</button>
-    
     <div class="lightbox-bottom">
         <a id="lightbox-inquiry" href="">Inquire About This Style</a>
     </div>
 </div>
 
-<!-- 👇 灯箱 JS 逻辑 👇 -->
+<!-- 灯箱 JS 逻辑 -->
 <script>
     let currentImages = [];
     let currentIndex = 0;
@@ -200,27 +231,22 @@
         currentImages = images;
         currentIndex = 0;
         currentMailto = mailtoLink;
-        
         document.getElementById('lightbox-img').src = currentImages[0];
         document.getElementById('lightbox-inquiry').href = currentMailto;
         document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // 禁止背景滚动
+        document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-
     function changeImage(event, direction) {
-        event.stopPropagation(); // 阻止冒泡
+        event.stopPropagation();
         currentIndex += direction;
         if (currentIndex >= currentImages.length) currentIndex = 0;
         if (currentIndex < 0) currentIndex = currentImages.length - 1;
         document.getElementById('lightbox-img').src = currentImages[currentIndex];
     }
-
-    // 点击灯箱背景关闭
     document.getElementById('lightbox').addEventListener('click', function(e) {
         if (e.target === this) closeLightbox();
     });
