@@ -22,6 +22,7 @@
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
         :root{--brand-blue:#1e5bb5;--text-dark:#1a1a1a;--text-mid:#666;--border:#e8e8e8;}
         
+        /* 导航栏 */
         nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
         nav .container{display:flex;justify-content:space-between;align-items:center;height:64px}
         .logo{font-size:20px;font-weight:700;letter-spacing:1.5px;}
@@ -30,62 +31,63 @@
         .nav-links a:hover, .nav-links a.active{color:var(--brand-blue)}
         .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;}
         
+        /* 首屏大图 */
         .hero{background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594552072238-b8a33785b261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:100px 0;text-align:center;color:#fff;}
         .hero h1{font-size:44px;font-weight:700;margin-bottom:20px;}
         .hero p{font-size:18px;max-width:700px;margin:0 auto;}
         
+        /* 产品展示 */
         .products{padding:60px 0;}
         .section-title{text-align:center;font-size:32px;margin-bottom:40px;font-weight:700;}
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; justify-content: center; max-width: 400px; margin: 0 auto; } /* 只有一个产品，限制最大宽度居中 */
         
-        /* 产品网格 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        
-        /* 单个产品卡片 */
         .product { 
             background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; 
             text-align: center; transition: all .3s ease; cursor: pointer; position: relative; overflow: hidden;
         }
         .product:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: #ddd; }
         
-        .product-img-box { width: 100%; height: 380px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
+        .product-img-box { width: 100%; height: 450px; overflow: hidden; border-radius: 8px; margin-bottom: 15px; }
         .product-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .product:hover .product-img-box img { transform: scale(1.05); }
 
-        .product h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 5px; font-weight: 600; }
-        .product p { color: var(--text-mid); font-size: 14px; margin-bottom: 8px; }
-        .product-price { color: #d9534f; font-size: 18px; font-weight: bold; }
+        .product h3 { font-size: 18px; color: var(--text-dark); margin-bottom: 5px; font-weight: 600; }
+        .product p { color: var(--text-mid); font-size: 15px; margin-bottom: 8px; }
+        .product-price { color: #d9534f; font-size: 20px; font-weight: bold; margin-top: 10px; }
 
         .view-more-hint {
-            position: absolute; top: 20px; right: 20px;
-            background: rgba(0,0,0,0.6); color: #fff;
-            padding: 4px 10px; border-radius: 20px; font-size: 12px; opacity: 0; transition: opacity 0.3s;
+            position: absolute; top: 25px; right: 25px;
+            background: rgba(0,0,0,0.7); color: #fff;
+            padding: 5px 12px; border-radius: 20px; font-size: 13px; opacity: 1; /* 默认显示 */
         }
-        .product:hover .view-more-hint { opacity: 1; }
 
-        /* 灯箱 */
+        /* 灯箱样式 */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.9); z-index: 99999; justify-content: center; align-items: center; flex-direction: column;
         }
         #lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; border-radius: 8px; }
-        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; }
+        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; font-weight: 300; }
         .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: #fff; border: none; width: 60px; height: 60px; border-radius: 50%; font-size: 30px; cursor: pointer; transition: 0.3s; }
         .nav-btn:hover { background: rgba(255,255,255,0.5); }
         .prev-btn { left: 30px; } .next-btn { right: 30px; }
         .lightbox-bottom { margin-top: 20px; text-align: center; }
         .lightbox-bottom a { background: var(--brand-blue); color: #fff; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; display: inline-block; }
         
-        /* 流程和导流区 */
+        /* 流程区 */
         .process-section { background: #f4f7fc; padding: 60px 0; }
-        .process-card { background: #fff; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; }
+        .process-card { background: #fff; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
         .process-num { background: var(--brand-blue); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
         
+        /* 导流回主页区 */
         .back-to-main { text-align: center; padding: 80px 20px; background: #1a1a1a; color: #fff; }
         .back-btn { display: inline-block; background: var(--brand-blue); color: #fff; padding: 15px 40px; border-radius: 8px; font-weight: bold; font-size: 18px; margin-top: 20px; transition: 0.3s; }
         .back-btn:hover { background: #15438a; transform: translateY(-3px); }
 
+        footer{background:#fff; color:#888; padding:30px 0; text-align:center; font-size:13px;}
+
         @media (max-width: 768px) {
-            .product-img-box { height: 300px; }
+            .product-img-box { height: 380px; }
             .nav-btn { width: 40px; height: 40px; font-size: 20px; }
             .prev-btn { left: 10px; } .next-btn { right: 10px; }
         }
@@ -118,11 +120,11 @@
 <section class="products">
     <div class="container">
         <h2 class="section-title">Our Bridal Collection</h2>
+        
         <div class="grid">
-            
-            <!-- 产品1 (保留灯箱功能) -->
+            <!-- 👇 完美展示卡片（点击弹出4张大图） 👇 -->
             <div class="product" onclick="openLightbox(['BR-001.jpg', 'BR-002.jpg', 'BR-003.jpg', 'BR-004.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001')">
-                <div class="view-more-hint">View Details</div>
+                <div class="view-more-hint">View 4 Photos</div>
                 <div class="product-img-box">
                     <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress">
                 </div>
@@ -130,42 +132,27 @@
                 <p>Elegant Off-Shoulder Lace Gown</p>
                 <p class="product-price">Price: From $599</p>
             </div>
+        </div>
 
-            <!-- 产品2 (占位，假装有很多款) -->
-            <div class="product" onclick="openLightbox(['BR-002.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-002')">
-                <div class="view-more-hint">View Details</div>
-                <div class="product-img-box">
-                    <img src="BR-002.jpg" alt="Custom corset wedding dress">
-                </div>
-                <h3>Style: BR-002</h3>
-                <p>Classic Corset Lace Gown</p>
-                <p class="product-price">Price: From $650</p>
-            </div>
-
-            <!-- 产品3 (占位) -->
-            <div class="product" onclick="openLightbox(['BR-003.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-003')">
-                <div class="view-more-hint">View Details</div>
-                <div class="product-img-box">
-                    <img src="BR-003.jpg" alt="Custom A-line wedding dress">
-                </div>
-                <h3>Style: BR-003</h3>
-                <p>A-Line Tulle Bridal Dress</p>
-                <p class="product-price">Price: From $550</p>
-            </div>
-
+        <!-- 👇 高情商占位提示 👇 -->
+        <div style="text-align: center; margin-top: 40px; padding: 25px; border: 2px dashed #ddd; border-radius: 12px; background: #fafafa; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 16px; color: #666; font-weight: 500; margin: 0; line-height: 1.8;">
+                ✨ <strong>New bridal designs are arriving soon.</strong><br>
+                We also specialize in full custom couture. Send us your inspiration photos!
+            </p>
         </div>
         
-        <!-- 价格防砍价面板 -->
-        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center;">
+        <!-- 👇 价格防砍价面板 👇 -->
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
             <h3 style="font-size: 22px; margin-bottom: 15px;">Why Our Prices Vary?</h3>
-            <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 15px;">
-                The price is for reference. As an OEM factory, the final price depends on your fabric, beadwork details, and quantity. We offer <strong>wholesale discounts for bulk orders</strong>.
+            <p style="color: #666; margin: 0 auto; font-size: 15px; line-height: 1.7;">
+                The price shown is for reference only. As a direct OEM factory, the final price depends on your specific fabric, beadwork details, and order quantity. We offer <strong>significant wholesale discounts for bulk orders</strong>. Contact us to get an exact quote for your project!
             </p>
         </div>
     </div>
 </section>
 
-<!-- 新增：婚纱定制流程区 (拉长页面) -->
+<!-- 👇 婚纱定制流程区 👇 -->
 <section class="process-section">
     <div class="container">
         <h2 class="section-title" style="font-size: 28px;">How We Bring Your Dress to Life</h2>
@@ -173,29 +160,29 @@
             <div class="process-card">
                 <div class="process-num">1</div>
                 <div>
-                    <h4 style="font-size: 18px; margin-bottom: 5px;">Design & Fabric Selection</h4>
-                    <p style="font-size: 14px; color: #666;">Send your sketches or reference photos. We source the exact lace, tulle, or silk you need.</p>
+                    <h4 style="font-size: 18px; margin-bottom: 5px; color: #333;">Design & Fabric Selection</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">Send your sketches or reference photos. We source the exact lace, tulle, or silk you need.</p>
                 </div>
             </div>
             <div class="process-card">
                 <div class="process-num">2</div>
                 <div>
-                    <h4 style="font-size: 18px; margin-bottom: 5px;">Sample Prototyping</h4>
-                    <p style="font-size: 14px; color: #666;">We create a proto-sample. For premium clients, we can make a muslin (toile) first to confirm the fit.</p>
+                    <h4 style="font-size: 18px; margin-bottom: 5px; color: #333;">Sample Prototyping</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">We create a proto-sample. For premium clients, we can make a muslin (toile) first to confirm the fit.</p>
                 </div>
             </div>
             <div class="process-card">
                 <div class="process-num">3</div>
                 <div>
-                    <h4 style="font-size: 18px; margin-bottom: 5px;">Bulk Production & QC</h4>
-                    <p style="font-size: 14px; color: #666;">Once approved, we start bulk production with strict QC for beadwork and stitching.</p>
+                    <h4 style="font-size: 18px; margin-bottom: 5px; color: #333;">Bulk Production & QC</h4>
+                    <p style="font-size: 14px; color: #666; margin: 0;">Once approved, we start bulk production with strict QC for beadwork and stitching.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- 新增：超级导流回主页 -->
+<!-- 👇 超级导流回主页（核心！） 👇 -->
 <section class="back-to-main">
     <div class="container">
         <h2 style="font-size: 32px; margin-bottom: 10px;">Looking for Everyday Women's Wear?</h2>
@@ -231,15 +218,18 @@
         currentImages = images;
         currentIndex = 0;
         currentMailto = mailtoLink;
+        
         document.getElementById('lightbox-img').src = currentImages[0];
         document.getElementById('lightbox-inquiry').href = currentMailto;
         document.getElementById('lightbox').style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
+
     function closeLightbox() {
         document.getElementById('lightbox').style.display = 'none';
         document.body.style.overflow = 'auto';
     }
+
     function changeImage(event, direction) {
         event.stopPropagation();
         currentIndex += direction;
@@ -247,6 +237,7 @@
         if (currentIndex < 0) currentIndex = currentImages.length - 1;
         document.getElementById('lightbox-img').src = currentImages[currentIndex];
     }
+
     document.getElementById('lightbox').addEventListener('click', function(e) {
         if (e.target === this) closeLightbox();
     });
