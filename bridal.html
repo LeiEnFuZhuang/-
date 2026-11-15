@@ -36,16 +36,80 @@
         
         .products{padding:80px 0;}
         .section-title{text-align:center;font-size:36px;margin-bottom:40px;font-weight:700;}
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; transition: all .3s; }
-        .product:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
-        .product img { width: 100%; height: 350px; object-fit: cover; border-radius: 5px; }
-        .product p { margin-top: 10px; font-weight: bold; font-size: 16px; }
         
-        /* 👇 新增：预设的价格样式 👇 */
-        .product-price { color: #d9534f; font-size: 18px; margin-top: 5px; font-weight: bold; }
+        /* 产品网格 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        
+        /* 单个产品卡片 */
+        .product { 
+            background: #fff; 
+            border: 1px solid #eee; 
+            border-radius: 12px; 
+            padding: 15px; 
+            text-align: center; 
+            transition: all .3s ease; 
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .product:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: #ddd; }
+        
+        /* 图片容器 (固定比例，防止图片变形) */
+        .product-img-box {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-img-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .product:hover .product-img-box img { transform: scale(1.05); }
 
-        footer{background:var(--text-dark);color:#888;padding:30px 0;text-align:center;font-size:13px;}
+        /* 文本样式 */
+        .product h3 { font-size: 16px; color: var(--text-dark); margin-bottom: 5px; font-weight: 600; }
+        .product p { color: var(--text-mid); font-size: 14px; margin-bottom: 8px; }
+        .product-price { color: #d9534f; font-size: 18px; font-weight: bold; }
+
+        /* 悬浮查看多图提示 */
+        .view-more-hint {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(0,0,0,0.6); color: #fff;
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 12px; opacity: 0; transition: opacity 0.3s;
+        }
+        .product:hover .view-more-hint { opacity: 1; }
+
+        /* ===== 灯箱 (Lightbox) 样式 ===== */
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9); z-index: 99999; justify-content: center; align-items: center; flex-direction: column;
+        }
+        #lightbox img { max-width: 90%; max-height: 80%; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .close-lightbox { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 50px; cursor: pointer; font-weight: 300; }
+        
+        /* 左右切换按钮 */
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.2); color: #fff; border: none;
+            width: 60px; height: 60px; border-radius: 50%; font-size: 30px; cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.5); }
+        .prev-btn { left: 30px; }
+        .next-btn { right: 30px; }
+
+        /* 底部操作区 */
+        .lightbox-bottom { margin-top: 20px; text-align: center; }
+        .lightbox-bottom a {
+            background: var(--brand-blue); color: #fff; padding: 12px 30px; border-radius: 8px;
+            font-size: 16px; font-weight: bold; text-decoration: none; display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .product-img-box { height: 300px; }
+            .nav-btn { width: 40px; height: 40px; font-size: 20px; }
+            .prev-btn { left: 10px; } .next-btn { right: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -77,47 +141,24 @@
         <h2 class="section-title">Our Bridal Collection</h2>
         <div class="grid">
             
-            <!-- 👇 产品1 👇 -->
-            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001">
-                <img src="BR-001.jpg" alt="Custom lace wedding dress manufacturer">
-                <p>Style: BR-001</p>
+            <!-- 👇 完美产品卡片模板（点击会弹出4张大图） 👇 -->
+            <div class="product" onclick="openLightbox(['BR-001.jpg', 'BR-002.jpg', 'BR-003.jpg', 'BR-004.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001')">
+                <div class="view-more-hint">View Details</div>
+                <div class="product-img-box">
+                    <!-- 默认显示第一张图 -->
+                    <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress manufacturer">
+                </div>
+                <h3>Style: BR-001</h3>
+                <p>Elegant Off-Shoulder Lace Gown</p>
                 <p class="product-price">Price: From $599</p>
-            </a>
+            </div>
 
-            <!-- 👇 产品2 👇 -->
-            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-002">
-                <img src="BR-002.jpg" alt="Elegant evening gown OEM factory">
-                <p>Style: BR-002</p>
-                <p class="product-price">Price: From $599</p>
-            </a>
+            <!-- 以后上新，直接复制上面这段 div.product 即可 👆 -->
 
-            <!-- 👇 产品3 👇 -->
-            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-003">
-                <img src="BR-003.jpg" alt="Heavy beaded bridal gown manufacturer">
-                <p>Style: BR-003</p>
-                <p class="product-price">Price: From $599</p>
-            </a>
-            
-            <!-- 👇 产品4 👇 -->
-            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-004">
-                <img src="BR-004.jpg" alt="Elegant garden wedding dress manufacturer">
-                <p>Style: BR-004</p>
-                <p class="product-price">Price: From $599</p>
-            </a>
-            
-            <!-- 👇 以后上新，直接复制下面这段模板，修改括号里的内容即可 👇 -->
-            <!-- 
-            <a class="product" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style 【款号】">
-                <img src="【图片名.jpg】" alt="【SEO描述】">
-                <p>Style: 【款号】</p>
-                <p class="product-price">Price: From $【价格】</p>
-            </a>
-            -->
-            
         </div>
         
-        <!-- 👇 新增：价格说明面板（防砍价神器） 👇 -->
-        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 40px; text-align: center;">
+        <!-- 👇 价格防砍价面板 👇 -->
+        <div style="background: #f9f9f9; padding: 30px; border-radius: 8px; margin-top: 50px; text-align: center;">
             <h3 style="font-size: 22px; margin-bottom: 15px;">Why Our Prices Vary?</h3>
             <p style="color: #666; max-width: 800px; margin: 0 auto; font-size: 15px;">
                 The price shown is for reference only. As a direct OEM factory, the final price depends on your specific fabric, beadwork details, and order quantity. We offer <strong>significant wholesale discounts for bulk orders</strong>. Contact us to get an exact quote for your project!
@@ -136,6 +177,54 @@
         <p>© <script>document.write(new Date().getFullYear())</script> Laien Garments. All rights reserved.</p>
     </div>
 </footer>
+
+<!-- 👇 灯箱 HTML 结构 👇 -->
+<div id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <button class="nav-btn prev-btn" onclick="changeImage(event, -1)">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Bridal Detail">
+    <button class="nav-btn next-btn" onclick="changeImage(event, 1)">&#10095;</button>
+    
+    <div class="lightbox-bottom">
+        <a id="lightbox-inquiry" href="">Inquire About This Style</a>
+    </div>
+</div>
+
+<!-- 👇 灯箱 JS 逻辑 👇 -->
+<script>
+    let currentImages = [];
+    let currentIndex = 0;
+    let currentMailto = "";
+
+    function openLightbox(images, mailtoLink) {
+        currentImages = images;
+        currentIndex = 0;
+        currentMailto = mailtoLink;
+        
+        document.getElementById('lightbox-img').src = currentImages[0];
+        document.getElementById('lightbox-inquiry').href = currentMailto;
+        document.getElementById('lightbox').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // 禁止背景滚动
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    function changeImage(event, direction) {
+        event.stopPropagation(); // 阻止冒泡
+        currentIndex += direction;
+        if (currentIndex >= currentImages.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = currentImages.length - 1;
+        document.getElementById('lightbox-img').src = currentImages[currentIndex];
+    }
+
+    // 点击灯箱背景关闭
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+    });
+</script>
 
 </body>
 </html>
