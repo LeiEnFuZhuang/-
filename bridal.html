@@ -39,7 +39,9 @@
         /* 产品展示 */
         .products{padding:60px 0;}
         .section-title{text-align:center;font-size:32px;margin-bottom:40px;font-weight:700;}
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; justify-content: center; max-width: 400px; margin: 0 auto; } /* 只有一个产品，限制最大宽度居中 */
+        
+        /* 👇 修改了 grid 宽度，让多个产品并排更好看 👇 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; } 
         
         .product { 
             background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 15px; 
@@ -58,7 +60,7 @@
         .view-more-hint {
             position: absolute; top: 25px; right: 25px;
             background: rgba(0,0,0,0.7); color: #fff;
-            padding: 5px 12px; border-radius: 20px; font-size: 13px; opacity: 1; /* 默认显示 */
+            padding: 5px 12px; border-radius: 20px; font-size: 13px; opacity: 1;
         }
 
         /* 灯箱样式 */
@@ -122,7 +124,7 @@
         <h2 class="section-title">Our Bridal Collection</h2>
         
         <div class="grid">
-            <!-- 👇 完美展示卡片（点击弹出4张大图） 👇 -->
+            <!-- 👇 第一款 BR-001 👇 -->
             <div class="product" onclick="openLightbox(['BR-001.jpg', 'BR-002.jpg', 'BR-003.jpg', 'BR-004.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001')">
                 <div class="view-more-hint">View 4 Photos</div>
                 <div class="product-img-box">
@@ -132,6 +134,18 @@
                 <p>Elegant Off-Shoulder Lace Gown</p>
                 <p class="product-price">Price: From $599</p>
             </div>
+
+            <!-- 👇 第二款 L6002 (新加的款式) 👇 -->
+            <div class="product" onclick="openLightbox(['L6002-1.jpg', 'L6002-2.jpg', 'L6002-3.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style L6002')">
+                <div class="view-more-hint">View 3 Photos</div>
+                <div class="product-img-box">
+                    <img src="L6002-1.jpg" alt="Classic strapless lace A-line wedding dress">
+                </div>
+                <h3>Style: L6002</h3>
+                <p>Classic Strapless Lace Gown</p>
+                <p class="product-price">Price: From $599</p>
+            </div>
+
         </div>
 
         <!-- 👇 高情商占位提示 👇 -->
