@@ -13,7 +13,7 @@
     <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 👇 针对搜索引擎和AI的强力 SEO 标签 👇 -->
+    <!-- 👇 修改点1：保留你的流量标题 👇 -->
     <title>中国女装服装制造商 | OEM/ODM 工厂 | Laien Garments</title>
     <meta name="description" content="Laien Garments is a leading women's clothing manufacturer in Guangzhou, China. We offer OEM (custom from your tech pack), ODM (modify our 1000+ designs), and ready-to-wear wholesale. Low MOQ, factory-direct.">
     <meta name="keywords" content="中国女装服装制造商, OEM/ODM 工厂, 莱恩服装, 广州女装工厂, China Women's Clothing Manufacturer, OEM Factory, ODM Manufacturer, Guangzhou Apparel Factory, Wholesale Women's Clothing">
@@ -63,7 +63,9 @@
         .nav-cta:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
         .nav-links a.active{color:var(--brand-blue)}
         
-        .hero{background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('D-24S-SY-001-2.jpg') center/cover no-repeat;padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
+        /* 👇 修改点2：更换Hero背景图，避免与展厅图重复加载 👇 */
+        .hero{background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1594552072238-b8a33785b261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
+        
         .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
         .hero p{font-size:18px;color:rgba(255, 255, 255, 0.85);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
@@ -146,7 +148,6 @@
         .qr-container { text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
         .qr-container img { width: 160px; height: 160px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin: 0 auto 8px; object-fit: cover; display: block; }
 
-        /* 隐藏的中英双语 SEO 文本区域样式 */
         .seo-text-section { padding: 60px 0; background: #fff; border-top: 1px solid var(--border); }
         .seo-text-content { max-width: 900px; margin: 0 auto; color: var(--text-mid); font-size: 15px; line-height: 1.8; }
         .seo-text-content h2 { font-size: 28px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 700; }
@@ -180,9 +181,10 @@
         #mail-kefu a{width:56px;height:56px;background:var(--text-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
         #mail-kefu a:hover{transform:scale(1.1);background:var(--text-dark)}
 
+        /* 👇 修改点3：修复手机端两边留白问题 👇 */
         @media screen and (max-width: 768px) {
-            body { padding: 0 10px; }
-            .container { padding: 0 10px; }
+            body { padding: 0; } /* 去掉 body 的 padding */
+            .container { padding: 0 15px; } /* 加在 container 上，保持内容缩进 */
             section[style*="text-align: center;"] > div > div[style*="min-width"] { width: 100% !important; min-width: 100% !important; margin-bottom: 25px; }
             img[src*="Factory-"], img[src*="sewing-"], img[src*="qc.jpg"], img[src*="LIA-"] { height: auto !important; max-height: 320px !important; object-fit: cover; }
             .logo { font-size: 16px; letter-spacing: 1px; }
@@ -201,21 +203,15 @@
 </head>
 <body>
 
-<!-- 工厂实拍展示区 -->
-<section style="width: 100%; padding: 30px; background-color: #f9f9f9; text-align: center;">
-    <h2 style="font-size: 2em; margin-bottom: 20px;">Our Factory</h2>
-    <p style="margin-bottom: 30px; color: #666;">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
-    <div style="display: flex; justify-content: center; margin-top: 20px;">
-        <iframe width="80%" height="450" src="https://www.youtube.com/embed/L7gFldHtffs" title="Factory Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);"></iframe>
-    </div>
-</section>
-
-<!-- 展厅图片展示区 -->
-<section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center;">
+<!-- 👇 修改点4：展厅图片优化。第二张图是 LCP 核心图，加上 fetchpriority="high" 和宽高 👇 -->
+<section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center; padding-top: 30px;">
+    <h2 style="font-size: 2em; margin-bottom: 10px; padding-top: 10px;">Our Showroom</h2>
+    <p style="margin-bottom: 30px; color: #666;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" loading="lazy" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" loading="lazy" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <!-- 核心图片：立即加载 -->
+        <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" fetchpriority="high" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
     </div>
 </section>
 
@@ -236,7 +232,7 @@
     </div>
 </nav>
 
-<!-- 👇 Hero 区域：纯正英文，专业外贸排面 👇 -->
+<!-- Hero 区域 -->
 <section class="hero" id="home">
     <div class="container">
         <h1>Women's Clothing OEM/ODM<br>Manufacturer in China</h1>
@@ -294,93 +290,91 @@
             <button class="cat-btn" onclick="filter('top')">Tops</button>
         </div>
 
-        <!-- 产品网格 (全部加上了 loading="lazy" 提升加载速度) -->
         <div class="grid">
-            
             <!-- 最新上架款 A06444 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06444">
-                <img src="A06444.jpg" alt="Women's elegant brown long dress manufacturer A06444" loading="lazy">
+                <img src="A06444.jpg" alt="Women's elegant brown long dress manufacturer A06444" loading="lazy" width="300" height="400">
                 <p>A06444</p>
             </a>          
             
             <!-- 最新上架款 A06997 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06997">
-                <img src="A06997.jpg" alt="Women's new fashion dress manufacturer A06997" loading="lazy">
+                <img src="A06997.jpg" alt="Women's new fashion dress manufacturer A06997" loading="lazy" width="300" height="400">
                 <p>A06997</p>
             </a>
 
             <!-- 最新上架款 A06886 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06886">
-                <img src="A06886.jpg" alt="Women's new fashion dress manufacturer A06886" loading="lazy">
+                <img src="A06886.jpg" alt="Women's new fashion dress manufacturer A06886" loading="lazy" width="300" height="400">
                 <p>A06886</p>
             </a>
 
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06576"><img src="A06576.jpg" alt="Women's halter neck crinkled two piece set manufacturer" loading="lazy"><p>A06576</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05100"><img src="A05100.jpg" alt="Women's brown wide leg jumpsuit manufacturer" loading="lazy"><p>A05100</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06325"><img src="A06325.jpg" alt="Women's new dress manufacturer" loading="lazy"><p>A06325</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06015"><img src="A06015.jpg" alt="Women's lace long sleeve top manufacturer" loading="lazy"><p>A06015</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05854"><img src="A05854.jpg" alt="Women's striped button up cardigan manufacturer" loading="lazy"><p>A05854</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05944"><img src="A05944.jpg" alt="Women's green midi dress manufacturer" loading="lazy"><p>A05944</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A70794"><img src="A70794.jpg" alt="Women's brown one shoulder maxi dress manufacturer" loading="lazy"><p>A70794</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-621"><img src="LIA-621.jpg" alt="Women's two piece set manufacturer" loading="lazy"><p>LIA-621</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-622"><img src="LIA-622.jpg" alt="Women's black maxi dress manufacturer" loading="lazy"><p>LIA-622</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-400"><img src="LIA-400.jpg" alt="Women's beige knit set manufacturer" loading="lazy"><p>LIA-400</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-450"><img src="LIA-450.jpg" alt="Women's brown long sleeve dress manufacturer" loading="lazy"><p>LIA-450</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-462"><img src="LIA-462.jpg" alt="Women's black blazer and skirt set manufacturer" loading="lazy"><p>LIA-462</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-463"><img src="LIA-463.jpg" alt="Women's black polka dot top manufacturer" loading="lazy"><p>LIA-463</p></a>
-            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-464"><img src="LIA-464.jpg" alt="Women's yellow pants manufacturer" loading="lazy"><p>LIA-464</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-406"><img src="LIA-406.jpg" alt="Women's brown ruched mini dress manufacturer" loading="lazy"><p>LIA-406</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-421"><img src="LIA-421.jpg" alt="Women's checkered jacket manufacturer" loading="lazy"><p>LIA-421</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-423"><img src="LIA-423.jpg" alt="Women's polka dot two piece set manufacturer" loading="lazy"><p>LIA-423</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-397"><img src="LIA-397.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-397</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-399"><img src="LIA-399.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-399</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-008"><img src="LIA-008.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-008</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-033"><img src="LIA-033.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-033</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-037"><img src="LIA-037.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-037</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-038"><img src="LIA-038.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-038</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-040"><img src="LIA-040.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-040</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-042"><img src="LIA-042.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-042</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-044"><img src="LIA-044.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-044</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-050"><img src="LIA-050.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-050</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-069"><img src="LIA-069.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-069</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-074"><img src="LIA-074.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-074</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-080"><img src="LIA-080.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-080</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-087"><img src="LIA-087.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-087</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-088"><img src="LIA-088.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-088</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-253"><img src="LIA-253.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-253</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-254"><img src="LIA-254.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-254</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-255"><img src="LIA-255.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-255</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-256"><img src="LIA-256.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-256</p></a>
-            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-262"><img src="LIA-262.jpg" alt="Women's casual pants manufacturer" loading="lazy"><p>LIA-262</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-257"><img src="LIA-257.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-257</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-259"><img src="LIA-259.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-259</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-260"><img src="LIA-260.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-260</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-261"><img src="LIA-261.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-261</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-263"><img src="LIA-263.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-263</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-267"><img src="LIA267.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-267</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-268"><img src="LIA-268.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-268</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-269"><img src="LIA269.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-269</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-270"><img src="LIA-270.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-270</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-271"><img src="LIA-271.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-271</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-159"><img src="LIA-159.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-159</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-172"><img src="LIA-172.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-172</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-173"><img src="LIA-173.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-173</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-174"><img src="LIA-174.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-174</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-197"><img src="LIA-197.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-197</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-306"><img src="LIA-306.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-306</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-307"><img src="LIA-307.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-307</p></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-316"><img src="LIA-316.jpg" alt="Women's casual set manufacturer" loading="lazy"><p>LIA-316</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-323"><img src="LIA-323.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-323</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-325"><img src="LIA-325.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-325</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-336"><img src="LIA-336.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-336</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-395"><img src="LIA-395.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-395</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-371"><img src="LIA-371.jpg" alt="Women's casual dress manufacturer" loading="lazy"><p>LIA-371</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-383"><img src="LIA-383.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-383</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-198"><img src="LIA-198.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-198</p></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="Women's black dress manufacturer" loading="lazy"><p>LIA-193 (Black)</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-305"><img src="LIA-305.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-305</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-229"><img src="LIA-229.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-229</p></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-201"><img src="LIA-201.jpg" alt="Women's casual top manufacturer" loading="lazy"><p>LIA-201</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06576"><img src="A06576.jpg" alt="Women's halter neck crinkled two piece set manufacturer" loading="lazy" width="300" height="400"><p>A06576</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05100"><img src="A05100.jpg" alt="Women's brown wide leg jumpsuit manufacturer" loading="lazy" width="300" height="400"><p>A05100</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06325"><img src="A06325.jpg" alt="Women's new dress manufacturer" loading="lazy" width="300" height="400"><p>A06325</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06015"><img src="A06015.jpg" alt="Women's lace long sleeve top manufacturer" loading="lazy" width="300" height="400"><p>A06015</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05854"><img src="A05854.jpg" alt="Women's striped button up cardigan manufacturer" loading="lazy" width="300" height="400"><p>A05854</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05944"><img src="A05944.jpg" alt="Women's green midi dress manufacturer" loading="lazy" width="300" height="400"><p>A05944</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A70794"><img src="A70794.jpg" alt="Women's brown one shoulder maxi dress manufacturer" loading="lazy" width="300" height="400"><p>A70794</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-621"><img src="LIA-621.jpg" alt="Women's two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-621</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-622"><img src="LIA-622.jpg" alt="Women's black maxi dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-622</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-400"><img src="LIA-400.jpg" alt="Women's beige knit set manufacturer" loading="lazy" width="300" height="400"><p>LIA-400</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-450"><img src="LIA-450.jpg" alt="Women's brown long sleeve dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-450</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-462"><img src="LIA-462.jpg" alt="Women's black blazer and skirt set manufacturer" loading="lazy" width="300" height="400"><p>LIA-462</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-463"><img src="LIA-463.jpg" alt="Women's black polka dot top manufacturer" loading="lazy" width="300" height="400"><p>LIA-463</p></a>
+            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-464"><img src="LIA-464.jpg" alt="Women's yellow pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-464</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-406"><img src="LIA-406.jpg" alt="Women's brown ruched mini dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-406</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-421"><img src="LIA-421.jpg" alt="Women's checkered jacket manufacturer" loading="lazy" width="300" height="400"><p>LIA-421</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-423"><img src="LIA-423.jpg" alt="Women's polka dot two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-423</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-397"><img src="LIA-397.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-397</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-399"><img src="LIA-399.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-399</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-008"><img src="LIA-008.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-008</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-033"><img src="LIA-033.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-033</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-037"><img src="LIA-037.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-037</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-038"><img src="LIA-038.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-038</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-040"><img src="LIA-040.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-040</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-042"><img src="LIA-042.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-042</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-044"><img src="LIA-044.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-044</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-050"><img src="LIA-050.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-050</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-069"><img src="LIA-069.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-069</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-074"><img src="LIA-074.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-074</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-080"><img src="LIA-080.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-080</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-087"><img src="LIA-087.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-087</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-088"><img src="LIA-088.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-088</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-253"><img src="LIA-253.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-253</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-254"><img src="LIA-254.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-254</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-255"><img src="LIA-255.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-255</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-256"><img src="LIA-256.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-256</p></a>
+            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-262"><img src="LIA-262.jpg" alt="Women's casual pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-262</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-257"><img src="LIA-257.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-257</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-259"><img src="LIA-259.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-259</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-260"><img src="LIA-260.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-260</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-261"><img src="LIA-261.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-261</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-263"><img src="LIA-263.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-263</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-267"><img src="LIA267.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-267</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-268"><img src="LIA-268.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-268</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-269"><img src="LIA269.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-269</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-270"><img src="LIA-270.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-270</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-271"><img src="LIA-271.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-271</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-159"><img src="LIA-159.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-159</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-172"><img src="LIA-172.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-172</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-173"><img src="LIA-173.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-173</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-174"><img src="LIA-174.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-174</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-197"><img src="LIA-197.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-197</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-306"><img src="LIA-306.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-306</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-307"><img src="LIA-307.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-307</p></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-316"><img src="LIA-316.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-316</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-323"><img src="LIA-323.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-323</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-325"><img src="LIA-325.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-325</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-336"><img src="LIA-336.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-336</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-395"><img src="LIA-395.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-395</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-371"><img src="LIA-371.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-371</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-383"><img src="LIA-383.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-383</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-198"><img src="LIA-198.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-198</p></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="Women's black dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-193 (Black)</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-305"><img src="LIA-305.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-305</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-229"><img src="LIA-229.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-229</p></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-201"><img src="LIA-201.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-201</p></a>
         </div>
 
         <!-- 👇 安全的防偷图目录索取区 👇 -->
@@ -394,6 +388,15 @@
                 <a href="mailto:shawnlin@laingarments.com?subject=Request for Full Catalog" style="background: var(--brand-blue); color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(30, 91, 181, 0.3); transition: 0.3s;">Request Catalog via Email</a>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- 👇 修改点5：将 YouTube 视频移到了这里（流程区上方），并加上了 loading="lazy" 避免阻塞 👇 -->
+<section style="width: 100%; padding: 30px; background-color: #f9f9f9; text-align: center;">
+    <h2 style="font-size: 2em; margin-bottom: 20px;">Our Factory</h2>
+    <p style="margin-bottom: 30px; color: #666;">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <iframe width="80%" height="450" src="https://www.youtube.com/embed/L7gFldHtffs" title="Factory Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);"></iframe>
     </div>
 </section>
 
@@ -420,7 +423,7 @@
                 <a href="#products" style="display: block; text-align: center; background: var(--brand-blue); color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none;">Browse Ready Styles</a>
             </div>
 
-            <!-- 👇 OEM 卡片（修改为灵活报价） 👇 -->
+            <!-- OEM 卡片 -->
             <div style="background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px 30px;">
                 <h3 style="font-size: 24px; color: var(--text-dark); margin-bottom: 10px;">OEM: Start from Scratch</h3>
                 <p style="color: var(--text-mid); margin-bottom: 20px; font-size: 14px;">Send us your tech pack or sketches. We develop the pattern from zero to make it 100% exclusive to you.</p>
@@ -513,7 +516,7 @@
                         <span class="team-mini-link"><span class="dot wx"></span> WeChat: 17551350093</span>
                     </div>
                     <div class="qr-container">
-                        <img src="shawnlin-qr.png" alt="Shawn WhatsApp QR" loading="lazy">
+                        <img src="shawnlin-qr.png" alt="Shawn WhatsApp QR" loading="lazy" width="160" height="160">
                         <p style="font-size:12px;color:var(--text-light);margin-top:6px;">Scan to chat with Shawn on WhatsApp</p>
                     </div>
                 </div>
@@ -714,7 +717,6 @@ document.querySelectorAll('.product').forEach(item => {
         const oldNav = document.getElementById('img-nav');
         if (oldNav) oldNav.remove();
 
-        // 改进后的正则替换逻辑，兼容 .jpg, .png, .jpeg, .webp 以及 URL 后缀
         const getVariantUrl = (src, suffix) => {
             return src.replace(/\.(jpg|jpeg|png|webp)(\?.*)?$/i, `${suffix}.$1$2`);
         };
