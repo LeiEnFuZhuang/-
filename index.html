@@ -62,14 +62,14 @@
         .nav-cta:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
         .nav-links a.active{color:var(--brand-blue)}
         
-        /* 👇 核心修改：去掉了婚纱背景图，换成了深蓝色渐变 👇 */
+        /* 👇 核心修改：深蓝色渐变背景，去掉了婚纱图 👇 */
         .hero{background:linear-gradient(135deg, #1e5bb5 0%, #0d2a5c 100%);padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
         
         .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
         .hero p{font-size:18px;color:rgba(255, 255, 255, 0.85);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         
-        /* 为了在深色背景下更醒目，主按钮改成了白底蓝字 */
+        /* 主按钮改成白底蓝字，深色背景更醒目 */
         .btn-primary{background:#ffffff;color:var(--brand-blue);padding:15px 36px;border-radius:8px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
         .btn-primary:hover{background:#f0f0f0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
         
@@ -209,6 +209,7 @@
     <p style="margin-bottom: 30px; color: #666;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <!-- 核心图片：立即加载，已优化 -->
         <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" fetchpriority="high" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
         <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
     </div>
@@ -507,23 +508,49 @@
                     </p>
                 </div>
             </div>
+            
+            <!-- 👇 修改点：表单无障碍优化，解决 AI 警告 👇 -->
             <div class="contact-form">
                 <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
                     <input type="hidden" name="_next" value="https://www.laingarments.com/index.html?submitted=1">
                     <input type="hidden" name="_subject" value="[Laien Garments] OEM / ODM / Catalog Request">
                     <input type="hidden" name="_captcha" value="false">
-                    <div class="form-group"><label>Your Name <span>*</span></label><input type="text" name="name" placeholder="John Smith" required></div>
-                    <div class="form-group"><label>Email <span>*</span></label><input type="email" name="email" placeholder="john@example.com" required></div>
-                    <div class="form-group"><label>What service do you need?</label>
-                        <select name="service_type">
+                    
+                    <div class="form-group">
+                        <label for="user-name">Your Name <span>*</span></label>
+                        <input type="text" name="name" id="user-name" placeholder="John Smith" required aria-label="Your Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-email">Email <span>*</span></label>
+                        <input type="email" name="email" id="user-email" placeholder="john@example.com" required aria-label="Email Address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service-type">What service do you need?</label>
+                        <select name="service_type" id="service-type" aria-label="What service do you need?">
                             <option>ODM: Modify a style from your catalog</option>
                             <option>OEM: Custom manufacturing from my tech pack</option>
                             <option>Just want the Full Catalog (Wholesale)</option>
                             <option>Other Inquiry</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Estimated Order Quantity</label><select name="quantity"><option>100 - 300 pcs</option><option>300 - 500 pcs</option><option>500 - 1000 pcs</option><option>1000+ pcs</option></select></div>
-                    <div class="form-group"><label>Message</label><textarea name="message" placeholder="Tell us which styles you like or describe your OEM project..."></textarea></div>
+                    
+                    <div class="form-group">
+                        <label for="order-quantity">Estimated Order Quantity</label>
+                        <select name="quantity" id="order-quantity" aria-label="Estimated Order Quantity">
+                            <option>100 - 300 pcs</option>
+                            <option>300 - 500 pcs</option>
+                            <option>500 - 1000 pcs</option>
+                            <option>1000+ pcs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="user-message">Message</label>
+                        <textarea name="message" id="user-message" placeholder="Tell us which styles you like or describe your OEM project..." aria-label="Message"></textarea>
+                    </div>
+                    
                     <button type="submit" class="submit-btn" onclick="gtag('event', 'submit_inquiry', {'event_category': 'Contact', 'event_label': 'Form Submit'});">Send Inquiry</button>
                 </form>
             </div>
