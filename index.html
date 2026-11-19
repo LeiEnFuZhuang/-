@@ -52,7 +52,6 @@
         img{max-width:100%;height:auto;display:block}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
         
-        /* 👇 优化点：把 --text-light 改深，让副标题和文字清晰可见 👇 */
         :root{--brand-blue:#1e5bb5;--brand-blue-dark:#0d2a5c;--brand-blue-light:#e8f0fe;--text-dark:#1a1a1a;--text-mid:#555;--text-light:#666;--bg-light:#f8f9fa;--border:#e8e8e8;}
         
         nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
@@ -62,7 +61,6 @@
         .nav-links a{color:var(--text-mid);font-size:15px;transition:color .2s;font-weight:500}
         .nav-links a:hover{color:var(--brand-blue)}
         
-        /* 👇 优化点：按钮背景加深，解决白字看不清的问题 👇 */
         .nav-cta{background:var(--brand-blue-dark);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s}
         .nav-cta:hover{background:#071831;transform:translateY(-1px)}
         
@@ -71,7 +69,6 @@
         .hero{background:linear-gradient(135deg, #1e5bb5 0%, #0d2a5c 100%);padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
         .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
         
-        /* 👇 优化点：把 rgba(255,255,255,0.85) 改成 0.95，提高在深蓝背景上的对比度 👇 */
         .hero p{font-size:18px;color:rgba(255, 255, 255, 0.95);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         
@@ -209,16 +206,7 @@
 </head>
 <body>
 
-<section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center; padding-top: 30px;">
-    <h2 style="font-size: 2em; margin-bottom: 10px; padding-top: 10px;">Our Showroom</h2>
-    <p style="margin-bottom: 30px; color: #555;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" fetchpriority="high" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-    </div>
-</section>
-
+<!-- 1. 导航栏移到最顶部 -->
 <nav>
     <div class="container">
         <a href="index.html" class="logo">LAIEN GARMENTS</a>
@@ -235,6 +223,7 @@
     </div>
 </nav>
 
+<!-- 2. 纯色 Hero 区域（秒加载） -->
 <section class="hero" id="home">
     <div class="container">
         <h1>Women's Clothing OEM/ODM<br>Manufacturer in China</h1>
@@ -247,6 +236,7 @@
     </div>
 </section>
 
+<!-- 3. 数字统计 -->
 <section class="stats">
     <div class="container">
         <div class="stats-grid">
@@ -259,6 +249,19 @@
     </div>
 </section>
 
+<!-- 4. 展厅图片（移到首屏下面了！） -->
+<section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center; padding-top: 30px;">
+    <h2 style="font-size: 2em; margin-bottom: 10px; padding-top: 10px;">Our Showroom</h2>
+    <p style="margin-bottom: 30px; color: #555;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <!-- 第一张图：取消懒加载，优先加载 -->
+        <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" fetchpriority="high" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+        <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+    </div>
+</section>
+
+<!-- Services -->
 <section class="services" id="services">
     <div class="container">
         <h2 class="section-title">Why Choose Us</h2>
@@ -274,6 +277,7 @@
     </div>
 </section>
 
+<!-- Products -->
 <section class="products" id="products">
     <div class="container">
         <div class="products-header" style="justify-content: center; text-align: center; flex-direction: column;">
@@ -383,6 +387,7 @@
     </div>
 </section>
 
+<!-- 5. 工厂视频 -->
 <section style="width: 100%; padding: 30px; background-color: #f9f9f9; text-align: center;">
     <h2 style="font-size: 2em; margin-bottom: 20px;">Our Factory</h2>
     <p style="margin-bottom: 30px; color: var(--text-mid);">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
@@ -391,6 +396,7 @@
     </div>
 </section>
 
+<!-- 6. 流程 -->
 <section class="process" id="process" style="background:#fff; padding: 80px 0;">
     <div class="container">
         <h2 class="section-title">Our Sampling & Production Process</h2>
