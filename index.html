@@ -51,26 +51,31 @@
         a{text-decoration:none;color:inherit}
         img{max-width:100%;height:auto;display:block}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        :root{--brand-blue:#1e5bb5;--brand-blue-dark:#174a94;--brand-blue-light:#e8f0fe;--text-dark:#1a1a1a;--text-mid:#666;--text-light:#888;--bg-light:#f8f9fa;--border:#e8e8e8;}
+        
+        /* 👇 优化点：把 --text-light 改深，让副标题和文字清晰可见 👇 */
+        :root{--brand-blue:#1e5bb5;--brand-blue-dark:#0d2a5c;--brand-blue-light:#e8f0fe;--text-dark:#1a1a1a;--text-mid:#555;--text-light:#666;--bg-light:#f8f9fa;--border:#e8e8e8;}
+        
         nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
         nav .container{display:flex;justify-content:space-between;align-items:center;height:64px}
         .logo{font-size:20px;font-weight:700;letter-spacing:1.5px;color:var(--text-dark)}
         .nav-links{display:flex;gap:32px;align-items:center}
         .nav-links a{color:var(--text-mid);font-size:15px;transition:color .2s;font-weight:500}
         .nav-links a:hover{color:var(--brand-blue)}
-        .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s}
-        .nav-cta:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
+        
+        /* 👇 优化点：按钮背景加深，解决白字看不清的问题 👇 */
+        .nav-cta{background:var(--brand-blue-dark);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;transition:all .2s}
+        .nav-cta:hover{background:#071831;transform:translateY(-1px)}
+        
         .nav-links a.active{color:var(--brand-blue)}
         
-        /* 👇 核心修改：深蓝色渐变背景，去掉了婚纱图 👇 */
         .hero{background:linear-gradient(135deg, #1e5bb5 0%, #0d2a5c 100%);padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
-        
         .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
-        .hero p{font-size:18px;color:rgba(255, 255, 255, 0.85);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
+        
+        /* 👇 优化点：把 rgba(255,255,255,0.85) 改成 0.95，提高在深蓝背景上的对比度 👇 */
+        .hero p{font-size:18px;color:rgba(255, 255, 255, 0.95);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         
-        /* 主按钮改成白底蓝字，深色背景更醒目 */
-        .btn-primary{background:#ffffff;color:var(--brand-blue);padding:15px 36px;border-radius:8px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
+        .btn-primary{background:#ffffff;color:var(--brand-blue-dark);padding:15px 36px;border-radius:8px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
         .btn-primary:hover{background:#f0f0f0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
         
         .btn-secondary{background:transparent;color:#ffffff;padding:15px 36px;border-radius:8px;font-size:15px;border:1.5px solid #ffffff;display:inline-block;transition:all .2s;font-weight:500}
@@ -79,12 +84,12 @@
         .stats{background:#fff;padding:70px 0;border-bottom:1px solid var(--border)}
         .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
         .stat-number{font-size:40px;font-weight:700;margin-bottom:6px;color:var(--brand-blue)}
-        .stat-label{color:var(--text-light);font-size:14px;text-transform:uppercase;letter-spacing:0.5px}
+        .stat-label{color:var(--text-mid);font-size:14px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
         @media(max-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
 
         .services{padding:100px 0;background:var(--bg-light)}
         .section-title{text-align:center;font-size:36px;margin-bottom:14px;color:var(--text-dark);font-weight:700}
-        .section-subtitle{text-align:center;color:var(--text-light);margin-bottom:60px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
+        .section-subtitle{text-align:center;color:var(--text-mid);margin-bottom:60px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
         .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
         .service-card{background:#fff;padding:36px 32px;border-radius:16px;border:1px solid var(--border);transition:all .3s;position:relative}
         .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.08);border-color:#d0d0d0}
@@ -98,7 +103,7 @@
         .products-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;flex-wrap:wrap;gap:16px}
         .products-header h2{font-size:36px;font-weight:700;color:var(--text-dark)}
         .cat-btns { text-align: center; margin-bottom: 30px; }
-        .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; transition: all .2s; }
+        .cat-btn { padding: 10px 20px; margin: 5px; border: 1px solid #ddd; background: #fff; cursor: pointer; border-radius: 20px; font-size: 14px; transition: all .2s; color: var(--text-mid); }
         .cat-btn:hover { border-color: var(--brand-blue); color: var(--brand-blue); }
         .cat-btn.active { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
@@ -114,7 +119,7 @@
         .step-num{width:56px;height:56px;background:#fff;color:var(--brand-blue);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:700;font-size:18px;border:2px solid var(--border);transition:all .3s}
         .process-step:hover .step-num{background:var(--brand-blue);color:#fff;border-color:var(--brand-blue)}
         .process-step h4{font-size:15px;margin-bottom:8px;color:var(--text-dark);font-weight:600}
-        .process-step p{color:var(--text-light);font-size:13px;line-height:1.6}
+        .process-step p{color:var(--text-mid);font-size:13px;line-height:1.6}
         @media(max-width:768px){.process-grid{flex-direction:column;gap:32px}.process-grid::before{display:none}}
 
         .inquiry{padding:100px 0;background:#fff}
@@ -123,14 +128,14 @@
         .inquiry-info > p{color:var(--text-mid);margin-bottom:32px;font-size:16px;line-height:1.7}
         .contact-item{display:flex;align-items:center;gap:14px;margin-bottom:18px}
         .contact-item svg{width:20px;height:20px;color:var(--brand-blue);flex-shrink:0}
-        .contact-item span{color:var(--text-dark);font-size:15px}
+        .contact-item span{color:var(--text-dark);font-size:15px;font-weight:500}
         .form-group{margin-bottom:22px}
-        .form-group label{display:block;font-size:13px;margin-bottom:8px;color:var(--text-mid);font-weight:500;text-transform:uppercase;letter-spacing:0.5px}
-        .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font-size:15px;font-family:inherit;background:#fafafa;transition:all .2s}
+        .form-group label{display:block;font-size:13px;margin-bottom:8px;color:var(--text-mid);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font-size:15px;font-family:inherit;background:#fafafa;transition:all .2s; color: var(--text-dark);}
         .form-group textarea{min-height:130px;resize:vertical}
         .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brand-blue);background:#fff;box-shadow:0 0 0 3px rgba(30,91,181,0.08)}
-        .submit-btn{background:var(--brand-blue);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:15px;cursor:pointer;width:100%;transition:all .2s;font-weight:500}
-        .submit-btn:hover{background:var(--brand-blue-dark);transform:translateY(-1px)}
+        .submit-btn{background:var(--brand-blue-dark);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:15px;cursor:pointer;width:100%;transition:all .2s;font-weight:600}
+        .submit-btn:hover{background:#071831;transform:translateY(-1px)}
         @media(max-width:768px){.inquiry-grid{grid-template-columns:1fr;gap:48px}}
 
         .team-mini{background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:all .3s;position:relative;overflow:hidden}
@@ -155,8 +160,8 @@
         .seo-text-content h2 { font-size: 28px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 700; }
         .seo-text-content p { margin-bottom: 15px; }
 
-        footer{background:var(--text-dark);color:#888;padding:50px 0 30px;text-align:center;font-size:13px}
-        footer a{color:#aaa;margin:0 16px;font-size:13px;transition:color .2s}
+        footer{background:var(--text-dark);color:#ccc;padding:50px 0 30px;text-align:center;font-size:13px}
+        footer a{color:#ccc;margin:0 16px;font-size:13px;transition:color .2s}
         footer a:hover{color:#fff}
         .footer-brand{font-size:18px;font-weight:700;color:#fff;margin-bottom:12px;letter-spacing:1px}
 
@@ -165,14 +170,14 @@
         .kefu-box{background:#fff;padding:36px;border-radius:16px;text-align:center;max-width:380px;width:90%;position:relative;animation:kefuIn .3s ease}
         @keyframes kefuIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
         .kefu-box h3{margin-bottom:10px;font-size:18px;color:var(--text-dark)}
-        .kefu-box > p{color:var(--text-light);font-size:14px;margin-bottom:24px}
+        .kefu-box > p{color:var(--text-mid);font-size:14px;margin-bottom:24px}
         .kefu-qr{width:200px;height:200px;margin:0 auto 20px;background:#f5f5f5;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--border)}
         .kefu-qr img{width:100%;height:100%;object-fit:cover}
         .kefu-alt{border-top:1px solid var(--border);padding-top:18px;margin-top:18px}
-        .kefu-alt p{font-size:13px;color:var(--text-light);margin-bottom:10px}
+        .kefu-alt p{font-size:13px;color:var(--text-mid);margin-bottom:10px}
         .kefu-copy{background:#f5f5f5;border:1px solid #e0e0e0;padding:10px 20px;border-radius:8px;font-size:14px;cursor:pointer;transition:all .2s;font-family:inherit;color:var(--text-dark);width:100%;margin-bottom:8px}
         .kefu-copy:hover{background:#eee;border-color:#ccc}
-        .kefu-close{position:absolute;top:12px;right:16px;font-size:28px;color:#bbb;cursor:pointer;line-height:1;background:none;border:none;padding:0;transition:color .2s}
+        .kefu-close{position:absolute;top:12px;right:16px;font-size:28px;color:#999;cursor:pointer;line-height:1;background:none;border:none;padding:0;transition:color .2s}
         .kefu-close:hover{color:var(--text-dark)}
         #wx-kefu{position:fixed;bottom:28px;left:28px;z-index:9999;cursor:pointer}
         #wx-kefu .kefu-btn{width:56px;height:56px;background:#07C160;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(7,193,96,0.35);transition:all .2s}
@@ -206,10 +211,9 @@
 
 <section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center; padding-top: 30px;">
     <h2 style="font-size: 2em; margin-bottom: 10px; padding-top: 10px;">Our Showroom</h2>
-    <p style="margin-bottom: 30px; color: #666;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
+    <p style="margin-bottom: 30px; color: #555;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
         <img src="D-24S-SY-001-1.jpg" alt="Showroom Display 1" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-        <!-- 核心图片：立即加载，已优化 -->
         <img src="D-24S-SY-001-2.jpg" alt="Showroom Display 2" fetchpriority="high" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
         <img src="D-24S-SY-001-3.jpg" alt="Showroom Display 3" loading="lazy" width="800" height="600" style="width: 30%; min-width: 280px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
     </div>
@@ -368,12 +372,12 @@
 
         <div style="text-align: center; margin-top: 50px; background: #f8f9fa; padding: 40px 20px; border-radius: 16px; border: 1px solid var(--border);">
             <h3 style="font-size: 24px; font-weight: 700; color: var(--brand-blue); margin-bottom: 15px;">Explore 1000+ Styles in Our Full Catalog</h3>
-            <p style="font-size: 16px; color: #666; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">
+            <p style="font-size: 16px; color: var(--text-mid); margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto;">
                 To protect our original designs and copyright, we do not provide direct downloads. Please contact us to get the latest PDF catalog and wholesale pricing.
             </p>
             <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
                 <a href="https://wa.me/8613534489365" target="_blank" style="background: #25D366; color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); transition: 0.3s;">Get Catalog via WhatsApp</a>
-                <a href="mailto:shawnlin@laingarments.com?subject=Request for Full Catalog" style="background: var(--brand-blue); color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(30, 91, 181, 0.3); transition: 0.3s;">Request Catalog via Email</a>
+                <a href="mailto:shawnlin@laingarments.com?subject=Request for Full Catalog" style="background: var(--brand-blue-dark); color: #fff; padding: 15px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(30, 91, 181, 0.3); transition: 0.3s;">Request Catalog via Email</a>
             </div>
         </div>
     </div>
@@ -381,7 +385,7 @@
 
 <section style="width: 100%; padding: 30px; background-color: #f9f9f9; text-align: center;">
     <h2 style="font-size: 2em; margin-bottom: 20px;">Our Factory</h2>
-    <p style="margin-bottom: 30px; color: #666;">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
+    <p style="margin-bottom: 30px; color: var(--text-mid);">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
     <div style="display: flex; justify-content: center; margin-top: 20px;">
         <iframe width="80%" height="450" src="https://www.youtube.com/embed/L7gFldHtffs" title="Factory Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);"></iframe>
     </div>
@@ -395,7 +399,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
             
             <div style="background: var(--brand-blue-light); border: 2px solid var(--brand-blue); border-radius: 16px; padding: 40px 30px; position: relative;">
-                <div style="position: absolute; top: -15px; right: 20px; background: var(--brand-blue); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px;">RECOMMENDED</div>
+                <div style="position: absolute; top: -15px; right: 20px; background: var(--brand-blue-dark); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; letter-spacing: 1px;">RECOMMENDED</div>
                 <h3 style="font-size: 24px; color: var(--brand-blue-dark); margin-bottom: 10px;">ODM: Ready Patterns</h3>
                 <p style="color: var(--text-mid); margin-bottom: 20px; font-size: 14px;">Modify our existing 1000+ designs. The fastest and most cost-effective way to launch your brand.</p>
                 <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
@@ -404,7 +408,7 @@
                     <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;"><span style="color: var(--brand-blue); font-weight: bold;">✓</span> <strong>Pattern Fee:</strong> $0 (Use our ready pattern)</li>
                     <li style="margin-bottom: 12px; display: flex; align-items: center; gap: 10px;"><span style="color: var(--brand-blue); font-weight: bold;">✓</span> <strong>Customization:</strong> Fabric, Color, Label, Slight size tweak</li>
                 </ul>
-                <a href="#products" style="display: block; text-align: center; background: var(--brand-blue); color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none;">Browse Ready Styles</a>
+                <a href="#products" style="display: block; text-align: center; background: var(--brand-blue-dark); color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none;">Browse Ready Styles</a>
             </div>
 
             <div style="background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px 30px;">
@@ -412,23 +416,23 @@
                 <p style="color: var(--text-mid); margin-bottom: 20px; font-size: 14px;">Send us your tech pack or sketches. We develop the pattern from zero to make it 100% exclusive to you.</p>
                 <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
                     <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
-                        <span style="color: var(--text-light); font-weight: bold;">✓</span> 
+                        <span style="color: var(--brand-blue); font-weight: bold;">✓</span> 
                         <div><strong>Sampling Time:</strong> 7-15 Days (Based on complexity)</div>
                     </li>
                     <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
-                        <span style="color: var(--text-light); font-weight: bold;">✓</span> 
+                        <span style="color: var(--brand-blue); font-weight: bold;">✓</span> 
                         <div><strong>Sample Fee:</strong> <span style="color: #d9534f; font-weight: bold;">Custom Quote</span> (Evaluated by design, fabric & details)</div>
                     </li>
                     <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
-                        <span style="color: var(--text-light); font-weight: bold;">✓</span> 
-                        <div><strong>Advantage:</strong> Sample fee is fully <span style="color: #25D366; font-weight: bold;">refundable</span> upon bulk order.</div>
+                        <span style="color: #28a745; font-weight: bold;">✓</span> 
+                        <div><strong>Advantage:</strong> Sample fee is fully <span style="color: #28a745; font-weight: bold;">refundable</span> upon bulk order.</div>
                     </li>
                     <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;">
-                        <span style="color: var(--text-light); font-weight: bold;">✓</span> 
+                        <span style="color: var(--brand-blue); font-weight: bold;">✓</span> 
                         <div><strong>Customization:</strong> Fully custom design, silhouette & private label</div>
                     </li>
                 </ul>
-                <a href="#contact" style="display: block; text-align: center; background: transparent; color: var(--text-dark); border: 1px solid var(--text-dark); padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none;">Request OEM Quote</a>
+                <a href="#contact" style="display: block; text-align: center; background: transparent; color: var(--brand-blue-dark); border: 1px solid var(--brand-blue-dark); padding: 12px 20px; border-radius: 8px; font-weight: bold; text-decoration: none;">Request OEM Quote</a>
             </div>
         </div>
 
@@ -497,7 +501,7 @@
                     </div>
                     <div class="qr-container">
                         <img src="shawnlin-qr.png" alt="Shawn WhatsApp QR" loading="lazy" width="160" height="160">
-                        <p style="font-size:12px;color:var(--text-light);margin-top:6px;">Scan to chat with Shawn on WhatsApp</p>
+                        <p style="font-size:12px;color:var(--text-mid);margin-top:6px;">Scan to chat with Shawn on WhatsApp</p>
                     </div>
                 </div>
                 <div style="background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);text-align:center;">
@@ -509,7 +513,6 @@
                 </div>
             </div>
             
-            <!-- 👇 修改点：表单无障碍优化，解决 AI 警告 👇 -->
             <div class="contact-form">
                 <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
                     <input type="hidden" name="_next" value="https://www.laingarments.com/index.html?submitted=1">
@@ -573,7 +576,7 @@
             <a href="legal.html">Privacy Policy</a>
             <a href="legal.html">Return & Shipping Policy</a>
         </p>
-        <p style="margin-top:24px;color:#555">© <script>document.write(new Date().getFullYear())</script> Laien Garments. All rights reserved.</p>
+        <p style="margin-top:24px;color:#888">© <script>document.write(new Date().getFullYear())</script> Laien Garments. All rights reserved.</p>
     </div>
 </footer>
 
@@ -596,12 +599,12 @@
         <button class="kefu-close" onclick="closeKefu()">&times;</button>
         <h3>📱 Scan to Chat</h3>
         <p>Use WeChat to scan the QR code<br>and chat with our team</p>
-        <div class="kefu-qr"><img fetchpriority="low" decoding="async" src="images/kefu-qr.jpg" alt="WeChat QR" onerror="this.parentElement.innerHTML='<span style=color:#999;font-size:13px;>Please upload QR code to images/kefu-qr.jpg</span>'"></div>
+        <div class="kefu-qr"><img fetchpriority="low" decoding="async" src="images/kefu-qr.jpg" alt="WeChat QR" onerror="this.parentElement.innerHTML='<span style=color:#666;font-size:13px;>Please upload QR code to images/kefu-qr.jpg</span>'"></div>
         <div class="kefu-alt">
             <p>Copy WeChat ID</p>
             <button class="kefu-copy" onclick="copyWechat('17551350093')">📋 Shawn: 17551350093</button>
             <button class="kefu-copy" onclick="copyWechat('17551350093')">📋 WeChat: 17551350093</button>
-            <p style="margin-top:12px;font-size:12px;color:#aaa">No WeChat on desktop? Scan with your phone</p>
+            <p style="margin-top:12px;font-size:12px;color:#666">No WeChat on desktop? Scan with your phone</p>
         </div>
     </div>
 </div>
@@ -695,7 +698,7 @@ s0.parentNode.insertBefore(s1,s0);
 <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; flex-direction:column;">
     <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer; font-weight:bold; line-height:1;">&times;</span>
     <img id="modalImg" src="" style="max-width:90%; max-height:80%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-    <a id="modalInquiry" href="" style="margin-top:24px; background:#1e5bb5; color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire About This Style</a>
+    <a id="modalInquiry" href="" style="margin-top:24px; background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire About This Style</a>
 </div>
 
 <script>
@@ -792,8 +795,8 @@ document.getElementById('imageModal').addEventListener('click', function(e) {
     <span style="display:inline-block; margin-bottom: 8px;">We use cookies to improve your experience. By continuing to visit this site you agree to our use of cookies. </span>
     <a href="legal.html" style="color:#a8c7fa; text-decoration:underline; margin:0 5px;">Learn more</a>
     <div style="margin-top: 10px;">
-        <button onclick="acceptCookies()" style="background:#1e5bb5; color:#fff; border:none; padding:8px 24px; border-radius:4px; margin: 0 5px; cursor:pointer; font-weight:bold; font-family:inherit;">Accept</button>
-        <button onclick="rejectCookies()" style="background:transparent; color:#aaa; border:1px solid #aaa; padding:8px 24px; border-radius:4px; margin: 0 5px; cursor:pointer; font-family:inherit;">Reject</button>
+        <button onclick="acceptCookies()" style="background:var(--brand-blue-dark); color:#fff; border:none; padding:8px 24px; border-radius:4px; margin: 0 5px; cursor:pointer; font-weight:bold; font-family:inherit;">Accept</button>
+        <button onclick="rejectCookies()" style="background:transparent; color:#ccc; border:1px solid #ccc; padding:8px 24px; border-radius:4px; margin: 0 5px; cursor:pointer; font-family:inherit;">Reject</button>
     </div>
 </div>
 
