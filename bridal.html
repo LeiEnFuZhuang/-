@@ -12,9 +12,27 @@
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 修改：纯英文 SEO 标题和描述，去掉了中文，利于谷歌和 AI 抓取 -->
+    <!-- 纯英文 SEO 标题和描述 -->
     <title>Bridal & Evening Wear OEM Manufacturer | Laien Garments</title>
     <meta name="description" content="Premium bridal and evening wear manufacturer in China. We offer custom wedding dresses, evening gowns, and OEM/ODM services for global boutiques. Contact us for wholesale pricing.">
+    <!-- 补充关键词 -->
+    <meta name="keywords" content="Bridal OEM Manufacturer, Custom Wedding Dresses, Evening Gowns Manufacturer, Private Label Wedding Dress, Guangzhou Bridal Factory, Wholesale Wedding Dresses China">
+
+    <!-- 👇 新增：JSON-LD 结构化数据，帮助 Google 识别你们是婚纱工厂 👇 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Custom Bridal & Evening Wear Manufacturing",
+      "provider": {
+        "@type": "Organization",
+        "name": "Laien Garments",
+        "url": "https://www.laingarments.com"
+      },
+      "description": "OEM and ODM manufacturing services for premium wedding dresses and evening gowns. Custom tailoring from tech packs or ready designs.",
+      "areaServed": "Worldwide"
+    }
+    </script>
 
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
@@ -22,7 +40,7 @@
         a{text-decoration:none;color:inherit}
         img{max-width:100%;height:auto;display:block}
         .container{max-width:1200px;margin:0 auto;padding:0 20px}
-        :root{--brand-blue:#1e5bb5;--text-dark:#1a1a1a;--text-mid:#666;--border:#e8e8e8;}
+        :root{--brand-blue:#1e5bb5;--brand-blue-dark:#0d2a5c;--text-dark:#1a1a1a;--text-mid:#555;--text-light:#666;--border:#e8e8e8;}
         
         /* 导航栏 */
         nav{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
@@ -31,7 +49,8 @@
         .nav-links{display:flex;gap:32px;align-items:center}
         .nav-links a{color:var(--text-mid);font-size:15px;transition:color .2s;font-weight:500}
         .nav-links a:hover, .nav-links a.active{color:var(--brand-blue)}
-        .nav-cta{background:var(--brand-blue);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500;}
+        .nav-cta{background:var(--brand-blue-dark);color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:500; transition:all .2s;}
+        .nav-cta:hover{background:#071831; transform:translateY(-1px);}
         
         /* 首屏大图 */
         .hero{background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1594552072238-b8a33785b261?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;padding:100px 0;text-align:center;color:#fff;}
@@ -57,7 +76,7 @@
         .product h3 { font-size: 18px; color: var(--text-dark); margin-bottom: 5px; font-weight: 600; }
         .product p { color: var(--text-mid); font-size: 15px; margin-bottom: 8px; }
         
-        /* 修改：价格笼统化样式 */
+        /* 价格笼统化样式 */
         .product-price { color: var(--brand-blue); font-size: 15px; font-weight: 600; margin-top: 12px; letter-spacing: 0.5px;}
 
         .view-more-hint {
@@ -77,28 +96,28 @@
         .nav-btn:hover { background: rgba(255,255,255,0.5); }
         .prev-btn { left: 30px; } .next-btn { right: 30px; }
         .lightbox-bottom { margin-top: 20px; text-align: center; }
-        .lightbox-bottom a { background: var(--brand-blue); color: #fff; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; display: inline-block; }
+        .lightbox-bottom a { background: var(--brand-blue-dark); color: #fff; padding: 12px 30px; border-radius: 8px; font-size: 16px; font-weight: bold; display: inline-block; }
         
         /* 流程区 */
         .process-section { background: #f4f7fc; padding: 60px 0; }
         .process-card { background: #fff; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .process-num { background: var(--brand-blue); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+        .process-num { background: var(--brand-blue-dark); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
         
         /* 导流回主页区 */
         .back-to-main { text-align: center; padding: 80px 20px; background: #1a1a1a; color: #fff; }
-        .back-btn { display: inline-block; background: var(--brand-blue); color: #fff; padding: 15px 40px; border-radius: 8px; font-weight: bold; font-size: 18px; margin-top: 20px; transition: 0.3s; }
-        .back-btn:hover { background: #15438a; transform: translateY(-3px); }
+        .back-btn { display: inline-block; background: var(--brand-blue-dark); color: #fff; padding: 15px 40px; border-radius: 8px; font-weight: bold; font-size: 18px; margin-top: 20px; transition: 0.3s; }
+        .back-btn:hover { background: #071831; transform: translateY(-3px); }
 
         /* 底部联系我们面板 */
         .contact-strip { background: #fff; padding: 60px 20px; text-align: center; border-top: 1px solid #eee; }
         .contact-strip h3 { font-size: 28px; margin-bottom: 10px; color: #333; font-weight: 700; }
-        .contact-strip p { font-size: 16px; color: #666; margin-bottom: 30px; }
+        .contact-strip p { font-size: 16px; color: var(--text-mid); margin-bottom: 30px; }
         
         .inquiry-form-box { max-width: 600px; margin: 0 auto; background: #fafafa; padding: 30px; border-radius: 12px; border: 1px solid #eee; text-align: left; }
         .inquiry-form-box input, .inquiry-form-box textarea { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: inherit; }
         .inquiry-form-box input:focus, .inquiry-form-box textarea:focus { outline: none; border-color: var(--brand-blue); }
-        .inquiry-form-box button { width: 100%; background: var(--brand-blue); color: #fff; border: none; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .inquiry-form-box button:hover { background: #15438a; }
+        .inquiry-form-box button { width: 100%; background: var(--brand-blue-dark); color: #fff; border: none; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .inquiry-form-box button:hover { background: #071831; }
 
         .contact-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s; background: #25D366; color: #fff; margin-top: 20px; width: 100%; text-decoration: none;}
         .contact-btn:hover { background: #1ebc54; }
@@ -121,6 +140,11 @@
             .nav-btn { width: 40px; height: 40px; font-size: 20px; }
             .prev-btn { left: 10px; } .next-btn { right: 10px; }
         }
+
+        /* 新增：SEO 底部文本样式 */
+        .seo-text-section { padding: 50px 0; background: #f8f9fa; border-top: 1px solid #eee; }
+        .seo-text-content { max-width: 900px; margin: 0 auto; color: var(--text-mid); font-size: 14px; line-height: 1.8; }
+        .seo-text-content h2 { font-size: 22px; color: var(--text-dark); margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -153,33 +177,33 @@
         
         <div class="grid">
             
-            <!-- 修改：L-001 的邮件正文和价格 -->
+            <!-- L-001 -->
             <div class="product" onclick="openLightbox(['L-001.jpg', 'L-001-2.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style L-001&body=Hi Shawn,%0D%0A%0D%0AI am interested in Style L-001. Please send me the wholesale price and details.%0D%0A%0D%0AQuantity needed: %0D%0AEvent date: ')">
                 <div class="view-more-hint">View 2 Photos</div>
                 <div class="product-img-box">
-                    <img src="L-001.jpg" alt="Elegant Red Tulle Ball Gown">
+                    <img src="L-001.jpg" alt="Elegant Red Tulle Ball Gown Manufacturer">
                 </div>
                 <h3>Style: L-001</h3>
                 <p>Elegant Red Tulle Ball Gown</p>
                 <p class="product-price">Wholesale Price: Contact for Quote</p>
             </div>
 
-            <!-- 修改：BR-001 的邮件正文和价格 -->
+            <!-- BR-001 -->
             <div class="product" onclick="openLightbox(['BR-001.jpg', 'BR-002.jpg', 'BR-003.jpg', 'BR-004.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style BR-001&body=Hi Shawn,%0D%0A%0D%0AI am interested in Style BR-001. Please send me the wholesale price and details.%0D%0A%0D%0AQuantity needed: %0D%0AEvent date: ')">
                 <div class="view-more-hint">View 4 Photos</div>
                 <div class="product-img-box">
-                    <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress">
+                    <img src="BR-001.jpg" alt="Custom lace off-shoulder wedding dress OEM">
                 </div>
                 <h3>Style: BR-001</h3>
                 <p>Elegant Off-Shoulder Lace Gown</p>
                 <p class="product-price">Wholesale Price: Contact for Quote</p>
             </div>
 
-            <!-- 修改：L6002 的邮件正文和价格 -->
+            <!-- L6002 -->
             <div class="product" onclick="openLightbox(['L6002-1.jpg', 'L6002-2.jpg', 'L6002-3.jpg'], 'mailto:shawnlin@laingarments.com?subject=Inquiry for Bridal Style L6002&body=Hi Shawn,%0D%0A%0D%0AI am interested in Style L6002. Please send me the wholesale price and details.%0D%0A%0D%0AQuantity needed: %0D%0AEvent date: ')">
                 <div class="view-more-hint">View 3 Photos</div>
                 <div class="product-img-box">
-                    <img src="L6002-1.jpg" alt="Classic strapless lace A-line wedding dress">
+                    <img src="L6002-1.jpg" alt="Classic strapless lace A-line wedding dress factory">
                 </div>
                 <h3>Style: L6002</h3>
                 <p>Classic Strapless Lace Gown</p>
@@ -235,6 +259,17 @@
     </div>
 </section>
 
+<!-- 👇 新增：底部 SEO 文本块，用长尾词喂饱 Google 爬虫 👇 -->
+<section class="seo-text-section">
+    <div class="container">
+        <div class="seo-text-content">
+            <h2>Custom Wedding Dresses & Evening Gowns Manufacturer</h2>
+            <p>Laien Garments is a leading <strong>Bridal OEM Manufacturer in China</strong>, specializing in high-end custom wedding dresses, evening gowns, and bridesmaid dresses for global boutiques and emerging brands. Whether you are looking for a reliable <strong>Wedding Dress Factory in Guangzhou</strong> or need <strong>Private Label Wedding Gowns</strong> produced from your own tech packs, we provide end-to-end manufacturing solutions.</p>
+            <p>We source only the finest lace, tulle, duchesse satin, and mikado fabrics. Our experienced tailors excel in structured tailoring, hand beadwork, and corset construction. We support low MOQs for emerging designers, allowing you to test the market with premium quality without over-inventorying. Contact us today to start your custom evening wear or bridal collection.</p>
+        </div>
+    </div>
+</section>
+
 <!-- 可直接提交的留言表单 -->
 <section class="contact-strip">
     <div class="container">
@@ -246,10 +281,26 @@
                 <input type="hidden" name="_subject" value="[Laien Bridal] New Inquiry from Bridal Page">
                 <input type="hidden" name="_captcha" value="false">
                 
-                <input type="text" name="name" placeholder="Your Name *" required>
-                <input type="email" name="email" placeholder="Your Email *" required>
-                <input type="text" name="style_number" placeholder="Style Number (e.g. L-001, BR-001)">
-                <textarea name="message" placeholder="Tell us your requirements (Quantity, custom design details, etc.) *" rows="4" required></textarea>
+                <!-- 新增 id 和 label，解决无障碍警告 -->
+                <div class="form-group">
+                    <label for="b-name" style="display:block; font-size:13px; color:#555; margin-bottom:5px;">Your Name *</label>
+                    <input type="text" name="name" id="b-name" placeholder="Your Name" required aria-label="Your Name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="b-email" style="display:block; font-size:13px; color:#555; margin-bottom:5px;">Your Email *</label>
+                    <input type="email" name="email" id="b-email" placeholder="Your Email" required aria-label="Your Email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="b-style" style="display:block; font-size:13px; color:#555; margin-bottom:5px;">Style Number</label>
+                    <input type="text" name="style_number" id="b-style" placeholder="Style Number (e.g. L-001)" aria-label="Style Number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="b-message" style="display:block; font-size:13px; color:#555; margin-bottom:5px;">Requirements *</label>
+                    <textarea name="message" id="b-message" placeholder="Tell us your requirements (Quantity, custom design details, etc.)" rows="4" required aria-label="Requirements"></textarea>
+                </div>
                 
                 <button type="submit">Send Inquiry</button>
             </form>
