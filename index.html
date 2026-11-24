@@ -100,13 +100,11 @@
         .cat-btn.active { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         
-        /* 产品卡片优化 */
         .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; text-decoration: none; color: inherit; display: block; transition: all .3s; }
         .product:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); border-color: #d0d0d0; }
         .product img { width: 100%; height: 250px; object-fit: cover; object-position: top; border-radius: 5px; display: block; }
         .product p { margin-top: 8px; font-weight: bold; font-size: 14px; }
         
-        /* 👇 新增：区间价格样式 👇 */
         .product-price { margin-top: 6px; font-size: 15px; font-weight: bold; color: var(--brand-blue); }
         .product-price .moq { font-size: 11px; font-weight: normal; color: var(--text-mid); display: block; margin-top: 2px; }
 
@@ -157,6 +155,7 @@
         .seo-text-content { max-width: 900px; margin: 0 auto; color: var(--text-mid); font-size: 15px; line-height: 1.8; }
         .seo-text-content h2 { font-size: 28px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 700; }
         .seo-text-content p { margin-bottom: 15px; }
+        .seo-text-content a { color: var(--brand-blue); text-decoration: underline; font-weight: 600; }
 
         footer{background:var(--text-dark);color:#ccc;padding:50px 0 30px;text-align:center;font-size:13px}
         footer a{color:#ccc;margin:0 16px;font-size:13px;transition:color .2s}
@@ -186,11 +185,10 @@
         #mail-kefu a{width:56px;height:56px;background:var(--text-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
         #mail-kefu a:hover{transform:scale(1.1);background:var(--text-dark)}
 
-        /* 修改：WhatsApp 悬浮按钮放到左上角 */
         .wa-top-left-btn {
             position: fixed;
-            top: 80px; /* 在导航栏下方 */
-            left: 20px; /* 靠左 */
+            top: 80px;
+            left: 20px;
             z-index: 9999;
             background-color: #25D366;
             color: white;
@@ -207,7 +205,7 @@
         }
 
         .wa-top-left-btn:hover {
-            transform: scale(1.05); /* 去掉水平居中后，只保留放大 */
+            transform: scale(1.05);
             background-color: #20b858;
         }
 
@@ -228,7 +226,6 @@
             .product img { height: 200px; }
             .qr-container { display: none !important; }
             
-            /* 手机端适配左上角按钮 */
             .wa-top-left-btn {
                 top: 70px;
                 left: 15px;
@@ -240,7 +237,6 @@
 </head>
 <body>
 
-<!-- 1. 导航栏移到最顶部 -->
 <nav>
     <div class="container">
         <a href="index.html" class="logo">LAIEN GARMENTS</a>
@@ -257,7 +253,6 @@
     </div>
 </nav>
 
-<!-- 2. 纯色 Hero 区域（秒加载） -->
 <section class="hero" id="home">
     <div class="container">
         <h1>Women's Clothing OEM/ODM Manufacturer in China</h1>
@@ -270,7 +265,6 @@
     </div>
 </section>
 
-<!-- 3. 数字统计 -->
 <section class="stats">
     <div class="container">
         <div class="stats-grid">
@@ -283,7 +277,6 @@
     </div>
 </section>
 
-<!-- 4. 展厅图片 -->
 <section style="width: 100%; padding: 0 30px 30px; background-color: #f9f9f9; text-align: center; padding-top: 30px;">
     <h2 style="font-size: 2em; margin-bottom: 10px; padding-top: 10px;">Our Showroom</h2>
     <p style="margin-bottom: 30px; color: #555;">Welcome to visit our Guangzhou showroom. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
@@ -294,7 +287,6 @@
     </div>
 </section>
 
-<!-- Services -->
 <section class="services" id="services">
     <div class="container">
         <h2 class="section-title">Why Choose Us</h2>
@@ -310,7 +302,6 @@
     </div>
 </section>
 
-<!-- Products -->
 <section class="products" id="products">
     <div class="container">
         <div class="products-header" style="justify-content: center; text-align: center; flex-direction: column;">
@@ -327,21 +318,18 @@
         </div>
 
         <div class="grid">
-            <!-- 最新上架款 A06444 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06444">
                 <img src="A06444.jpg" alt="Women's elegant brown long dress manufacturer A06444" loading="lazy" width="300" height="400">
                 <p>A06444</p>
                 <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
             </a>          
             
-            <!-- 最新上架款 A06997 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06997">
                 <img src="A06997.jpg" alt="Women's new fashion dress manufacturer A06997" loading="lazy" width="300" height="400">
                 <p>A06997</p>
                 <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
             </a>
 
-            <!-- 最新上架款 A06886 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06886">
                 <img src="A06886.jpg" alt="Women's new fashion dress manufacturer A06886" loading="lazy" width="300" height="400">
                 <p>A06886</p>
@@ -429,7 +417,6 @@
     </div>
 </section>
 
-<!-- 5. 工厂视频 -->
 <section style="width: 100%; padding: 30px; background-color: #f9f9f9; text-align: center;">
     <h2 style="font-size: 2em; margin-bottom: 20px;">Our Factory</h2>
     <p style="margin-bottom: 30px; color: var(--text-mid);">Authentic video of our production line. We welcome factory audits. Factory size: 1,000 sqm | Staff: 50+ workers.</p>
@@ -438,7 +425,6 @@
     </div>
 </section>
 
-<!-- 6. 流程 -->
 <section class="process" id="process" style="background:#fff; padding: 80px 0;">
     <div class="container">
         <h2 class="section-title">Our Sampling & Production Process</h2>
@@ -509,6 +495,7 @@
     </div>
 </section>
 
+<!-- 新增了内链指向新博客的 SEO 文本区 -->
 <section class="seo-text-section">
     <div class="container">
         <div class="seo-text-content">
@@ -516,6 +503,9 @@
             <p><strong>莱恩服装 (Laien Garments)</strong> 是一家位于中国广州的资深<strong>中国女装服装制造商</strong>。作为一家垂直整合型的 <strong>OEM/ODM 工厂</strong>，我们拥有完整的生产线，致力于为全球精品店、新兴品牌和成熟企业提供高品质的女装制造服务。</p>
             <p>我们的核心优势在于将庞大的原创设计库与灵活的制造能力相结合。如果您有自己设计的图纸或样衣，我们的 <strong>OEM 代工服务</strong>可以严格按照您的规格进行生产；如果您希望快速上架，我们的 <strong>ODM 贴牌服务</strong>提供 1000+ 现货款式，并支持更换面料、颜色和定制您的专属水洗标及吊牌。</p>
             <p>As a professional <strong>Women's Clothing Manufacturer in China</strong>, our OEM/ODM factory in Guangzhou ensures strict quality control (AQL 2.5), low MOQ (100 pcs), and fast turnaround. Whether you are looking for custom apparel manufacturing or ready-to-wear wholesale, we are your reliable partner.</p>
+            <p style="margin-top: 25px; text-align: center; font-size: 16px;">
+                👉 Read our latest guide: <a href="blog-low-moq-manufacturer.html">How to Find a Reliable Low MOQ Clothing Manufacturer in China</a>
+            </p>
         </div>
     </div>
 </section>
@@ -628,7 +618,6 @@
     </div>
 </footer>
 
-<!-- 悬浮按钮移到左上角 -->
 <a href="https://wa.me/8613534489365" target="_blank" class="wa-top-left-btn">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
