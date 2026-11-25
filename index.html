@@ -318,13 +318,19 @@
         </div>
 
         <div class="grid">
-            <!-- 新增的 A02104 款式（已放置在最前面展示） -->
+            <!-- 最新款 A03865，价格改为起步价 $9.50 -->
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A03865">
+                <img src="A03865.jpg" alt="Women's new arrival clothing manufacturer A03865" loading="lazy" width="300" height="400">
+                <p>A03865</p>
+                <div class="product-price">From $9.50 / pc <span class="moq">MOQ 100 pcs</span></div>
+            </a>
+
+            <!-- 上一批新增的 A02104 款式，价格改为起步价 $9.50 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A02104">
                 <img src="A02104.jpg" alt="Women's new arrival clothing manufacturer A02104" loading="lazy" width="300" height="400">
                 <p>A02104</p>
-                <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <div class="product-price">From $9.50 / pc <span class="moq">MOQ 100 pcs</span></div>
             </a>
-            <!-- 新增结束 -->
 
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06444">
                 <img src="A06444.jpg" alt="Women's elegant brown long dress manufacturer A06444" loading="lazy" width="300" height="400">
@@ -742,8 +748,19 @@ s0.parentNode.insertBefore(s1,s0);
 
 <div id="imageModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; flex-direction:column;">
     <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer; font-weight:bold; line-height:1;">&times;</span>
-    <img id="modalImg" src="" style="max-width:90%; max-height:80%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
-    <a id="modalInquiry" href="" style="margin-top:24px; background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire About This Style</a>
+    <img id="modalImg" src="" style="max-width:90%; max-height:65%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+    
+    <!-- 新增：专业的价格说明文本 -->
+    <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 8px; margin-top: 15px; text-align: center; max-width: 600px; color: #eee;">
+        <p style="font-size: 15px; margin-bottom: 8px; font-weight: bold; color: #fff;">Wholesale Pricing Details:</p>
+        <p style="font-size: 13px; line-height: 1.6;">
+            The listed price is a <strong>base price (Ex-works Guangzhou)</strong> for standard fabrics at 100 pcs. <br>
+            Final price depends on fabric choice, custom printing/embroidery, and order quantity. <br>
+            <em>*Shipping cost & taxes are quoted separately.</em>
+        </p>
+    </div>
+
+    <a id="modalInquiry" href="" style="margin-top:20px; background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire For Exact Price</a>
 </div>
 
 <script>
@@ -803,7 +820,7 @@ document.querySelectorAll('.product').forEach(item => {
 
             const navDiv = document.createElement('div');
             navDiv.id = 'img-nav';
-            navDiv.style.cssText = 'position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; box-sizing: border-box; pointer-events: none;';
+            navDiv.style.cssText = 'position: absolute; top: 45%; width: 100%; display: flex; justify-content: space-between; padding: 0 20px; box-sizing: border-box; pointer-events: none;';
             navDiv.innerHTML = `
                 <button onclick="event.stopPropagation(); prevImage(event)" style="pointer-events: auto; background: rgba(255,255,255,0.8); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">&lt;</button>
                 <button onclick="event.stopPropagation(); nextImage(event)" style="pointer-events: auto; background: rgba(255,255,255,0.8); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">&gt;</button>
