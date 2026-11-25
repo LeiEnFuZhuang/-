@@ -61,27 +61,31 @@
         
         .nav-links a.active{color:var(--brand-blue)}
         
-        .hero{background:linear-gradient(135deg, #1e5bb5 0%, #0d2a5c 100%);padding:120px 0 100px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
+        .hero{background:linear-gradient(135deg, #1e5bb5 0%, #0d2a5c 100%);padding:100px 0 80px;text-align:center;color:#ffffff;position:relative;overflow:hidden}
         .hero h1{font-size:52px;font-weight:700;margin-bottom:20px;letter-spacing:-1.5px;line-height:1.15;position:relative;color:#ffffff}
         
-        .hero p{font-size:18px;color:rgba(255, 255, 255, 0.95);margin-bottom:40px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
+        .hero p{font-size:18px;color:rgba(255, 255, 255, 0.95);margin-bottom:30px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         
+        /* 新增：首屏信任徽章 */
+        .trust-badges { display: flex; justify-content: center; gap: 24px; margin-bottom: 35px; position: relative; flex-wrap: wrap;}
+        .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #fff; font-weight: 500; background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);}
+
         .btn-primary{background:#ffffff;color:var(--brand-blue-dark);padding:15px 36px;border-radius:8px;font-size:15px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,0.15)}
         .btn-primary:hover{background:#f0f0f0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2)}
         
         .btn-secondary{background:transparent;color:#ffffff;padding:15px 36px;border-radius:8px;font-size:15px;border:1.5px solid #ffffff;display:inline-block;transition:all .2s;font-weight:500}
         .btn-secondary:hover{background:rgba(255,255,255,0.1);color:#fff;border-color:#fff}
 
-        .stats{background:#fff;padding:70px 0;border-bottom:1px solid var(--border)}
+        .stats{background:#fff;padding:60px 0;border-bottom:1px solid var(--border)}
         .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:40px;text-align:center}
         .stat-number{font-size:40px;font-weight:700;margin-bottom:6px;color:var(--brand-blue)}
         .stat-label{color:var(--text-mid);font-size:14px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600}
         @media(max-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:32px}}
 
-        .services{padding:100px 0;background:var(--bg-light)}
+        .services{padding:80px 0;background:var(--bg-light)}
         .section-title{text-align:center;font-size:36px;margin-bottom:14px;color:var(--text-dark);font-weight:700}
-        .section-subtitle{text-align:center;color:var(--text-mid);margin-bottom:60px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
+        .section-subtitle{text-align:center;color:var(--text-mid);margin-bottom:50px;font-size:16px;max-width:600px;margin-left:auto;margin-right:auto}
         .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
         .service-card{background:#fff;padding:36px 32px;border-radius:16px;border:1px solid var(--border);transition:all .3s;position:relative}
         .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.08);border-color:#d0d0d0}
@@ -100,15 +104,19 @@
         .cat-btn.active { background: var(--brand-blue); color: #fff; border-color: var(--brand-blue); }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         
-        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; text-decoration: none; color: inherit; display: block; transition: all .3s; }
+        .product { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 10px; text-align: center; text-decoration: none; color: inherit; display: block; transition: all .3s; position: relative;}
         .product:hover { transform: translateY(-5px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); border-color: #d0d0d0; }
         .product img { width: 100%; height: 250px; object-fit: cover; object-position: top; border-radius: 5px; display: block; }
-        .product p { margin-top: 8px; font-weight: bold; font-size: 14px; }
+        .product p { margin-top: 8px; font-weight: bold; font-size: 14px; color: var(--text-dark);}
         
-        .product-price { margin-top: 6px; font-size: 15px; font-weight: bold; color: var(--brand-blue); }
+        .product-price { margin-top: 4px; font-size: 15px; font-weight: bold; color: var(--brand-blue); }
         .product-price .moq { font-size: 11px; font-weight: normal; color: var(--text-mid); display: block; margin-top: 2px; }
+        
+        /* 新增：引导点击提示 */
+        .click-hint { display: block; font-size: 11px; color: #999; margin-top: 6px; opacity: 0; transition: opacity 0.3s; }
+        .product:hover .click-hint { opacity: 1; color: var(--brand-blue); font-weight: 600;}
 
-        .process{padding:100px 0;background:var(--bg-light)}
+        .process{padding:80px 0;background:var(--bg-light)}
         .process-grid{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
         .process-grid::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(to right,transparent,#ddd 10%,#ddd 90%,transparent);z-index:0}
         .process-step{flex:1;text-align:center;padding:0 12px;position:relative;z-index:1}
@@ -118,21 +126,25 @@
         .process-step p{color:var(--text-mid);font-size:13px;line-height:1.6}
         @media(max-width:768px){.process-grid{flex-direction:column;gap:32px}.process-grid::before{display:none}}
 
-        .inquiry{padding:100px 0;background:#fff}
-        .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+        .inquiry{padding:80px 0;background:#fff}
+        .inquiry-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
         .inquiry-info h2{font-size:36px;margin-bottom:16px;color:var(--text-dark);font-weight:700}
         .inquiry-info > p{color:var(--text-mid);margin-bottom:32px;font-size:16px;line-height:1.7}
         .contact-item{display:flex;align-items:center;gap:14px;margin-bottom:18px}
         .contact-item svg{width:20px;height:20px;color:var(--brand-blue);flex-shrink:0}
         .contact-item span{color:var(--text-dark);font-size:15px;font-weight:500}
-        .form-group{margin-bottom:22px}
-        .form-group label{display:block;font-size:13px;margin-bottom:8px;color:var(--text-mid);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+        
+        .form-group{margin-bottom:20px}
+        .form-group label{display:block;font-size:13px;margin-bottom:6px;color:var(--text-mid);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
         .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font-size:15px;font-family:inherit;background:#fafafa;transition:all .2s; color: var(--text-dark);}
-        .form-group textarea{min-height:130px;resize:vertical}
+        .form-group textarea{min-height:110px;resize:vertical}
         .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brand-blue);background:#fff;box-shadow:0 0 0 3px rgba(30,91,181,0.08)}
-        .submit-btn{background:var(--brand-blue-dark);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:15px;cursor:pointer;width:100%;transition:all .2s;font-weight:600}
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; } /* 新增：表单紧凑布局 */
+        
+        .submit-btn{background:var(--brand-blue-dark);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:16px;cursor:pointer;width:100%;transition:all .2s;font-weight:600}
         .submit-btn:hover{background:#071831;transform:translateY(-1px)}
-        @media(max-width:768px){.inquiry-grid{grid-template-columns:1fr;gap:48px}}
+        @media(max-width:768px){.inquiry-grid{grid-template-columns:1fr;gap:40px} .form-row{grid-template-columns: 1fr;}}
 
         .team-mini{background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:all .3s;position:relative;overflow:hidden}
         .team-mini:hover{box-shadow:0 8px 32px rgba(30,91,181,0.1);border-color:var(--brand-blue)}
@@ -151,7 +163,7 @@
         .qr-container { text-align: center; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
         .qr-container img { width: 160px; height: 160px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin: 0 auto 8px; object-fit: cover; display: block; }
 
-        .seo-text-section { padding: 60px 0; background: #fff; border-top: 1px solid var(--border); }
+        .seo-text-section { padding: 50px 0; background: #fff; border-top: 1px solid var(--border); }
         .seo-text-content { max-width: 900px; margin: 0 auto; color: var(--text-mid); font-size: 15px; line-height: 1.8; }
         .seo-text-content h2 { font-size: 28px; color: var(--text-dark); margin-bottom: 20px; text-align: center; font-weight: 700; }
         .seo-text-content p { margin-bottom: 15px; }
@@ -180,10 +192,6 @@
         #wx-kefu .kefu-btn{width:56px;height:56px;background:#07C160;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(7,193,96,0.35);transition:all .2s}
         #wx-kefu .kefu-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(7,193,96,0.45)}
         #kefu-tip{position:absolute;top:-40px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;font-weight:500}
-
-        #mail-kefu{position:fixed;bottom:28px;left:96px;z-index:9999}
-        #mail-kefu a{width:56px;height:56px;background:var(--text-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all .2s}
-        #mail-kefu a:hover{transform:scale(1.1);background:var(--text-dark)}
 
         .wa-top-left-btn {
             position: fixed;
@@ -215,11 +223,12 @@
             section[style*="text-align: center;"] > div > div[style*="min-width"] { width: 100% !important; min-width: 100% !important; margin-bottom: 25px; }
             img[src*="Factory-"], img[src*="sewing-"], img[src*="qc.jpg"], img[src*="LIA-"] { height: auto !important; max-height: 320px !important; object-fit: cover; }
             .logo { font-size: 16px; letter-spacing: 1px; }
-            .nav-links { gap: 8px; }
-            .nav-links a { font-size: 12px; }
-            .nav-cta { padding: 6px 8px; font-size: 11px; }
+            .nav-links { gap: 8px; display: none; } /* 移动端建议隐藏默认导航，或用汉堡菜单 */
+            .nav-cta { padding: 6px 8px; font-size: 11px; display: block; position: absolute; right: 15px;}
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 15px; padding: 0 10px; }
+            .trust-badges { gap: 10px; margin-bottom: 25px; }
+            .trust-badge { font-size: 12px; padding: 4px 10px; }
             .section-title { font-size: 28px; }
             .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .product { padding: 5px; }
@@ -227,10 +236,12 @@
             .qr-container { display: none !important; }
             
             .wa-top-left-btn {
-                top: 70px;
-                left: 15px;
+                top: auto;
+                bottom: 20px;
+                left: 20px;
                 font-size: 14px;
                 padding: 10px 20px;
+                z-index: 1000;
             }
         }
     </style>
@@ -244,7 +255,6 @@
             <a href="index.html" class="active">Home</a>
             <a href="services.html">Services</a>
             <a href="catalog.html">Full Catalog</a>
-            <a href="bridal.html">Bridal & Evening</a>
             <a href="index.html#process">Process</a>
             <a href="blog-low-moq-manufacturer.html">Blog</a>
             <a href="about.html">About</a>
@@ -257,7 +267,14 @@
     <div class="container">
         <h1>Women's Clothing OEM/ODM Manufacturer in China</h1>
         <p>Laien Garments is a vertically integrated apparel factory in Guangzhou. We offer complete OEM production from your tech packs, ODM services to customize our 1000+ designs, and ready-to-wear wholesale. No middlemen, direct factory pricing.</p>
-        <p style="font-size:15px;color:#a8c7fa;font-weight:600;margin-top:-24px;margin-bottom:32px;">✦ Sample fee refundable upon bulk order</p>
+        
+        <!-- 新增：首屏信任徽章 -->
+        <div class="trust-badges">
+            <div class="trust-badge">🏭 Verified Factory</div>
+            <div class="trust-badge">📦 Low MOQ (100 pcs)</div>
+            <div class="trust-badge">⚡ 7-10 Days Sampling</div>
+        </div>
+
         <div class="hero-btns">
             <a href="#products" class="btn-primary">Browse Styles (ODM)</a>
             <a href="#contact" class="btn-secondary">Custom OEM Order</a>
@@ -318,104 +335,109 @@
         </div>
 
         <div class="grid">
-            <!-- 最新款 A03865，价格改为起步价 $9.50 -->
+            <!-- 最新款 A03865 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A03865">
                 <img src="A03865.jpg" alt="Women's new arrival clothing manufacturer A03865" loading="lazy" width="300" height="400">
                 <p>A03865</p>
                 <div class="product-price">From $9.50 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <span class="click-hint">Click to view gallery & details</span>
             </a>
 
-            <!-- 上一批新增的 A02104 款式，价格改为起步价 $9.50 -->
+            <!-- A02104 款式 -->
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A02104">
                 <img src="A02104.jpg" alt="Women's new arrival clothing manufacturer A02104" loading="lazy" width="300" height="400">
                 <p>A02104</p>
                 <div class="product-price">From $9.50 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <span class="click-hint">Click to view gallery & details</span>
             </a>
 
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06444">
                 <img src="A06444.jpg" alt="Women's elegant brown long dress manufacturer A06444" loading="lazy" width="300" height="400">
                 <p>A06444</p>
-                <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <span class="click-hint">Click to view gallery & details</span>
             </a>          
             
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06997">
                 <img src="A06997.jpg" alt="Women's new fashion dress manufacturer A06997" loading="lazy" width="300" height="400">
                 <p>A06997</p>
-                <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <span class="click-hint">Click to view gallery & details</span>
             </a>
 
             <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06886">
                 <img src="A06886.jpg" alt="Women's new fashion dress manufacturer A06886" loading="lazy" width="300" height="400">
                 <p>A06886</p>
-                <div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div>
+                <span class="click-hint">Click to view gallery & details</span>
             </a>
 
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06576"><img src="A06576.jpg" alt="Women's halter neck crinkled two piece set manufacturer" loading="lazy" width="300" height="400"><p>A06576</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05100"><img src="A05100.jpg" alt="Women's brown wide leg jumpsuit manufacturer" loading="lazy" width="300" height="400"><p>A05100</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06325"><img src="A06325.jpg" alt="Women's new dress manufacturer" loading="lazy" width="300" height="400"><p>A06325</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06015"><img src="A06015.jpg" alt="Women's lace long sleeve top manufacturer" loading="lazy" width="300" height="400"><p>A06015</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05854"><img src="A05854.jpg" alt="Women's striped button up cardigan manufacturer" loading="lazy" width="300" height="400"><p>A05854</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05944"><img src="A05944.jpg" alt="Women's green midi dress manufacturer" loading="lazy" width="300" height="400"><p>A05944</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A70794"><img src="A70794.jpg" alt="Women's brown one shoulder maxi dress manufacturer" loading="lazy" width="300" height="400"><p>A70794</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-621"><img src="LIA-621.jpg" alt="Women's two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-621</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-622"><img src="LIA-622.jpg" alt="Women's black maxi dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-622</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-400"><img src="LIA-400.jpg" alt="Women's beige knit set manufacturer" loading="lazy" width="300" height="400"><p>LIA-400</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-450"><img src="LIA-450.jpg" alt="Women's brown long sleeve dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-450</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-462"><img src="LIA-462.jpg" alt="Women's black blazer and skirt set manufacturer" loading="lazy" width="300" height="400"><p>LIA-462</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-463"><img src="LIA-463.jpg" alt="Women's black polka dot top manufacturer" loading="lazy" width="300" height="400"><p>LIA-463</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-464"><img src="LIA-464.jpg" alt="Women's yellow pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-464</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-406"><img src="LIA-406.jpg" alt="Women's brown ruched mini dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-406</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-421"><img src="LIA-421.jpg" alt="Women's checkered jacket manufacturer" loading="lazy" width="300" height="400"><p>LIA-421</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-423"><img src="LIA-423.jpg" alt="Women's polka dot two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-423</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-397"><img src="LIA-397.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-397</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-399"><img src="LIA-399.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-399</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-008"><img src="LIA-008.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-008</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-033"><img src="LIA-033.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-033</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-037"><img src="LIA-037.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-037</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-038"><img src="LIA-038.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-038</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-040"><img src="LIA-040.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-040</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-042"><img src="LIA-042.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-042</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-044"><img src="LIA-044.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-044</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-050"><img src="LIA-050.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-050</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-069"><img src="LIA-069.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-069</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-074"><img src="LIA-074.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-074</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-080"><img src="LIA-080.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-080</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-087"><img src="LIA-087.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-087</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-088"><img src="LIA-088.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-088</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-253"><img src="LIA-253.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-253</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-254"><img src="LIA-254.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-254</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-255"><img src="LIA-255.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-255</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-256"><img src="LIA-256.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-256</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-262"><img src="LIA-262.jpg" alt="Women's casual pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-262</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-257"><img src="LIA-257.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-257</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-259"><img src="LIA-259.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-259</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-260"><img src="LIA-260.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-260</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-261"><img src="LIA-261.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-261</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-263"><img src="LIA-263.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-263</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-267"><img src="LIA267.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-267</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-268"><img src="LIA-268.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-268</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-269"><img src="LIA269.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-269</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-270"><img src="LIA-270.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-270</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-271"><img src="LIA-271.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-271</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-159"><img src="LIA-159.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-159</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-172"><img src="LIA-172.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-172</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-173"><img src="LIA-173.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-173</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-174"><img src="LIA-174.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-174</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-197"><img src="LIA-197.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-197</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-306"><img src="LIA-306.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-306</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-307"><img src="LIA-307.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-307</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-316"><img src="LIA-316.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-316</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-323"><img src="LIA-323.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-323</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-325"><img src="LIA-325.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-325</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-336"><img src="LIA-336.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-336</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-395"><img src="LIA-395.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-395</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-371"><img src="LIA-371.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-371</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-383"><img src="LIA-383.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-383</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-198"><img src="LIA-198.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-198</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="Women's black dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-193 (Black)</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-305"><img src="LIA-305.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-305</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-229"><img src="LIA-229.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-229</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
-            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-201"><img src="LIA-201.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-201</p><div class="product-price">$5.00 - $10.00 / pc <span class="moq">MOQ 100 pcs</span></div></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06576"><img src="A06576.jpg" alt="Women's halter neck crinkled two piece set manufacturer" loading="lazy" width="300" height="400"><p>A06576</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05100"><img src="A05100.jpg" alt="Women's brown wide leg jumpsuit manufacturer" loading="lazy" width="300" height="400"><p>A05100</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06325"><img src="A06325.jpg" alt="Women's new dress manufacturer" loading="lazy" width="300" height="400"><p>A06325</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A06015"><img src="A06015.jpg" alt="Women's lace long sleeve top manufacturer" loading="lazy" width="300" height="400"><p>A06015</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05854"><img src="A05854.jpg" alt="Women's striped button up cardigan manufacturer" loading="lazy" width="300" height="400"><p>A05854</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A05944"><img src="A05944.jpg" alt="Women's green midi dress manufacturer" loading="lazy" width="300" height="400"><p>A05944</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style A70794"><img src="A70794.jpg" alt="Women's brown one shoulder maxi dress manufacturer" loading="lazy" width="300" height="400"><p>A70794</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-621"><img src="LIA-621.jpg" alt="Women's two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-621</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-622"><img src="LIA-622.jpg" alt="Women's black maxi dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-622</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-400"><img src="LIA-400.jpg" alt="Women's beige knit set manufacturer" loading="lazy" width="300" height="400"><p>LIA-400</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-450"><img src="LIA-450.jpg" alt="Women's brown long sleeve dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-450</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-462"><img src="LIA-462.jpg" alt="Women's black blazer and skirt set manufacturer" loading="lazy" width="300" height="400"><p>LIA-462</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-463"><img src="LIA-463.jpg" alt="Women's black polka dot top manufacturer" loading="lazy" width="300" height="400"><p>LIA-463</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-464"><img src="LIA-464.jpg" alt="Women's yellow pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-464</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-406"><img src="LIA-406.jpg" alt="Women's brown ruched mini dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-406</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-421"><img src="LIA-421.jpg" alt="Women's checkered jacket manufacturer" loading="lazy" width="300" height="400"><p>LIA-421</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-423"><img src="LIA-423.jpg" alt="Women's polka dot two piece set manufacturer" loading="lazy" width="300" height="400"><p>LIA-423</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-397"><img src="LIA-397.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-397</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-399"><img src="LIA-399.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-399</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-008"><img src="LIA-008.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-008</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-033"><img src="LIA-033.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-033</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-037"><img src="LIA-037.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-037</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-038"><img src="LIA-038.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-038</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-040"><img src="LIA-040.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-040</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-042"><img src="LIA-042.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-042</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-044"><img src="LIA-044.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-044</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-050"><img src="LIA-050.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-050</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-069"><img src="LIA-069.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-069</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-074"><img src="LIA-074.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-074</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-080"><img src="LIA-080.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-080</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-087"><img src="LIA-087.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-087</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-088"><img src="LIA-088.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-088</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-253"><img src="LIA-253.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-253</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-254"><img src="LIA-254.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-254</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-255"><img src="LIA-255.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-255</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-256"><img src="LIA-256.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-256</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="pants" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-262"><img src="LIA-262.jpg" alt="Women's casual pants manufacturer" loading="lazy" width="300" height="400"><p>LIA-262</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-257"><img src="LIA-257.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-257</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-259"><img src="LIA-259.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-259</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-260"><img src="LIA-260.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-260</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-261"><img src="LIA-261.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-261</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-263"><img src="LIA-263.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-263</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-267"><img src="LIA267.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-267</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-268"><img src="LIA-268.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-268</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-269"><img src="LIA269.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-269</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-270"><img src="LIA-270.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-270</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-271"><img src="LIA-271.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-271</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-159"><img src="LIA-159.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-159</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-172"><img src="LIA-172.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-172</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-173"><img src="LIA-173.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-173</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-174"><img src="LIA-174.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-174</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-197"><img src="LIA-197.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-197</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-306"><img src="LIA-306.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-306</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-307"><img src="LIA-307.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-307</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="set" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-316"><img src="LIA-316.jpg" alt="Women's casual set manufacturer" loading="lazy" width="300" height="400"><p>LIA-316</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-323"><img src="LIA-323.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-323</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-325"><img src="LIA-325.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-325</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-336"><img src="LIA-336.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-336</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-395"><img src="LIA-395.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-395</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-371"><img src="LIA-371.jpg" alt="Women's casual dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-371</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-383"><img src="LIA-383.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-383</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-198"><img src="LIA-198.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-198</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="dress" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-193"><img src="LIA-193-black.jpg" alt="Women's black dress manufacturer" loading="lazy" width="300" height="400"><p>LIA-193 (Black)</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-305"><img src="LIA-305.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-305</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-229"><img src="LIA-229.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-229</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
+            <a class="product" data-cat="top" href="mailto:shawnlin@laingarments.com?subject=Inquiry for Style LIA-201"><img src="LIA-201.jpg" alt="Women's casual top manufacturer" loading="lazy" width="300" height="400"><p>LIA-201</p><div class="product-price">From $5.00 / pc <span class="moq">MOQ 100 pcs</span></div><span class="click-hint">Click to view gallery & details</span></a>
         </div>
 
         <div style="text-align: center; margin-top: 50px; background: #f8f9fa; padding: 40px 20px; border-radius: 16px; border: 1px solid var(--border);">
@@ -580,28 +602,30 @@
                         <input type="email" name="email" id="user-email" placeholder="john@example.com" required aria-label="Email Address">
                     </div>
                     
-                    <div class="form-group">
-                        <label for="service-type">What service do you need?</label>
-                        <select name="service_type" id="service-type" aria-label="What service do you need?">
-                            <option>ODM: Modify a style from your catalog</option>
-                            <option>OEM: Custom manufacturing from my tech pack</option>
-                            <option>Just want the Full Catalog (Wholesale)</option>
-                            <option>Other Inquiry</option>
-                        </select>
+                    <!-- 新增：紧凑表单布局 -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="service-type">Service Needed</label>
+                            <select name="service_type" id="service-type" aria-label="What service do you need?">
+                                <option>ODM: Customize Catalog Style</option>
+                                <option>OEM: Produce My Designs</option>
+                                <option>Request Full Catalog</option>
+                                <option>Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="order-quantity">Est. Quantity</label>
+                            <select name="quantity" id="order-quantity" aria-label="Estimated Order Quantity">
+                                <option>100 - 300 pcs</option>
+                                <option>300 - 500 pcs</option>
+                                <option>500 - 1000 pcs</option>
+                                <option>1000+ pcs</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="order-quantity">Estimated Order Quantity</label>
-                        <select name="quantity" id="order-quantity" aria-label="Estimated Order Quantity">
-                            <option>100 - 300 pcs</option>
-                            <option>300 - 500 pcs</option>
-                            <option>500 - 1000 pcs</option>
-                            <option>1000+ pcs</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="user-message">Message</label>
+                        <label for="user-message">Message (Include style numbers if inquiring about ODM)</label>
                         <textarea name="message" id="user-message" placeholder="Tell us which styles you like or describe your OEM project..." aria-label="Message"></textarea>
                     </div>
                     
@@ -750,7 +774,7 @@ s0.parentNode.insertBefore(s1,s0);
     <span onclick="closeModal()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer; font-weight:bold; line-height:1;">&times;</span>
     <img id="modalImg" src="" style="max-width:90%; max-height:65%; object-fit:contain; border-radius:8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
     
-    <!-- 新增：专业的价格说明文本 -->
+    <!-- 价格说明文本 -->
     <div style="background: rgba(255,255,255,0.1); padding: 15px 30px; border-radius: 8px; margin-top: 15px; text-align: center; max-width: 600px; color: #eee;">
         <p style="font-size: 15px; margin-bottom: 8px; font-weight: bold; color: #fff;">Wholesale Pricing Details:</p>
         <p style="font-size: 13px; line-height: 1.6;">
@@ -760,7 +784,14 @@ s0.parentNode.insertBefore(s1,s0);
         </p>
     </div>
 
-    <a id="modalInquiry" href="" style="margin-top:20px; background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Inquire For Exact Price</a>
+    <!-- 优化：增加 WhatsApp 按钮，与邮件按钮并排 -->
+    <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: center;">
+        <a id="modalInquiry" href="" style="background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Email Inquiry</a>
+        <a id="modalWhatsApp" href="" target="_blank" style="background:#25D366; color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s; display: flex; align-items: center; gap: 8px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+        </a>
+    </div>
 </div>
 
 <script>
@@ -768,14 +799,19 @@ document.querySelectorAll('.product').forEach(item => {
     item.addEventListener('click', function(e) {
         e.preventDefault(); 
         const mainImgSrc = this.querySelector('img').src;
+        const productName = this.querySelector('p').innerText;
         const mailtoLink = this.getAttribute('href');
         
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImg');
         const modalInquiry = document.getElementById('modalInquiry');
+        const modalWhatsApp = document.getElementById('modalWhatsApp');
         
         modalImg.src = mainImgSrc; 
         modalInquiry.href = mailtoLink; 
+        // 动态生成 WhatsApp 链接，自动带上款式名
+        modalWhatsApp.href = `https://wa.me/8613534489365?text=Hi, I am interested in style ${productName}. Could you send me the exact price and details?`;
+        
         modal.style.display = 'flex'; 
         document.body.style.overflow = 'hidden'; 
 
