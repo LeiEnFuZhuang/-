@@ -67,7 +67,7 @@
         .hero p{font-size:18px;color:rgba(255, 255, 255, 0.95);margin-bottom:30px;max-width:680px;margin-left:auto;margin-right:auto;position:relative}
         .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
         
-        /* 新增：首屏信任徽章 */
+        /* 首屏信任徽章 */
         .trust-badges { display: flex; justify-content: center; gap: 24px; margin-bottom: 35px; position: relative; flex-wrap: wrap;}
         .trust-badge { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #fff; font-weight: 500; background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);}
 
@@ -112,7 +112,7 @@
         .product-price { margin-top: 4px; font-size: 15px; font-weight: bold; color: var(--brand-blue); }
         .product-price .moq { font-size: 11px; font-weight: normal; color: var(--text-mid); display: block; margin-top: 2px; }
         
-        /* 新增：引导点击提示 */
+        /* 引导点击提示 */
         .click-hint { display: block; font-size: 11px; color: #999; margin-top: 6px; opacity: 0; transition: opacity 0.3s; }
         .product:hover .click-hint { opacity: 1; color: var(--brand-blue); font-weight: 600;}
 
@@ -140,7 +140,7 @@
         .form-group textarea{min-height:110px;resize:vertical}
         .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brand-blue);background:#fff;box-shadow:0 0 0 3px rgba(30,91,181,0.08)}
         
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; } /* 新增：表单紧凑布局 */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; } /* 表单紧凑布局 */
         
         .submit-btn{background:var(--brand-blue-dark);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:16px;cursor:pointer;width:100%;transition:all .2s;font-weight:600}
         .submit-btn:hover{background:#071831;transform:translateY(-1px)}
@@ -268,7 +268,7 @@
         <h1>Women's Clothing OEM/ODM Manufacturer in China</h1>
         <p>Laien Garments is a vertically integrated apparel factory in Guangzhou. We offer complete OEM production from your tech packs, ODM services to customize our 1000+ designs, and ready-to-wear wholesale. No middlemen, direct factory pricing.</p>
         
-        <!-- 新增：首屏信任徽章 -->
+        <!-- 首屏信任徽章 -->
         <div class="trust-badges">
             <div class="trust-badge">🏭 Verified Factory</div>
             <div class="trust-badge">📦 Low MOQ (100 pcs)</div>
@@ -555,6 +555,11 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
                     <span>shawnlin@laingarments.com</span>
                 </div>
+                <!-- 新增电话联系方式 -->
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>+86 188 2035 3144</span>
+                </div>
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="12" r="3"/></svg>
                     <span>Guangzhou, China</span>
@@ -602,7 +607,7 @@
                         <input type="email" name="email" id="user-email" placeholder="john@example.com" required aria-label="Email Address">
                     </div>
                     
-                    <!-- 新增：紧凑表单布局 -->
+                    <!-- 紧凑表单布局 -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="service-type">Service Needed</label>
@@ -651,7 +656,9 @@
             <a href="legal.html">Privacy Policy</a>
             <a href="legal.html">Return & Shipping Policy</a>
         </p>
-        <p style="margin-top:24px;color:#888">© <script>document.write(new Date().getFullYear())</script> Laien Garments. All rights reserved.</p>
+        <!-- 在页脚新增电话 -->
+        <p style="margin-top:24px;color:#888;font-size:14px;margin-bottom:12px;">📞 Phone / WhatsApp: +86 188 2035 3144</p>
+        <p style="margin-top:0;color:#888">© <script>document.write(new Date().getFullYear())</script> Laien Garments. All rights reserved.</p>
     </div>
 </footer>
 
@@ -784,7 +791,7 @@ s0.parentNode.insertBefore(s1,s0);
         </p>
     </div>
 
-    <!-- 优化：增加 WhatsApp 按钮，与邮件按钮并排 -->
+    <!-- 增加 WhatsApp 按钮，与邮件按钮并排 -->
     <div style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap; justify-content: center;">
         <a id="modalInquiry" href="" style="background:var(--brand-blue-dark); color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s;">Email Inquiry</a>
         <a id="modalWhatsApp" href="" target="_blank" style="background:#25D366; color:#fff; padding:14px 28px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; transition: background 0.2s; display: flex; align-items: center; gap: 8px;">
