@@ -131,18 +131,6 @@
         .contact-item svg{width:20px;height:20px;color:var(--brand-blue);flex-shrink:0}
         .contact-item span{color:var(--text-dark);font-size:15px;font-weight:500}
         
-        .form-group{margin-bottom:20px}
-        .form-group label{display:block;font-size:13px;margin-bottom:6px;color:var(--text-mid);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
-        .form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #e0e0e0;border-radius:10px;font-size:15px;font-family:inherit;background:#fafafa;transition:all .2s; color: var(--text-dark);}
-        .form-group textarea{min-height:110px;resize:vertical}
-        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brand-blue);background:#fff;box-shadow:0 0 0 3px rgba(30,91,181,0.08)}
-        
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        
-        .submit-btn{background:var(--brand-blue-dark);color:#fff;padding:16px 32px;border:none;border-radius:10px;font-size:16px;cursor:pointer;width:100%;transition:all .2s;font-weight:600}
-        .submit-btn:hover{background:#071831;transform:translateY(-1px)}
-        @media(max-width:768px){.inquiry-grid{grid-template-columns:1fr;gap:40px} .form-row{grid-template-columns: 1fr;}}
-
         .team-mini{background:#fff;border-radius:16px;border:1px solid var(--border);padding:24px;margin-top:24px;box-shadow:0 4px 24px rgba(0,0,0,0.04);transition:all .3s;position:relative;overflow:hidden}
         .team-mini:hover{box-shadow:0 8px 32px rgba(30,91,181,0.1);border-color:var(--brand-blue)}
         .team-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brand-blue),#3b82f6)}
@@ -549,7 +537,6 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
                     <span>shawnlin@laingarments.com</span>
                 </div>
-                <!-- 电话联系方式 -->
                 <div class="contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <span>+86 188 2035 3144</span>
@@ -585,53 +572,28 @@
                 </div>
             </div>
             
+            <!-- 右侧表单已替换为快捷联系卡片 -->
             <div class="contact-form">
-                <!-- 表单接收地址已修正为真实邮箱 -->
-                <form action="https://formsubmit.co/shawnlin@laingarments.com" method="POST">
-                    <input type="hidden" name="_next" value="https://www.laingarments.com/index.html?submitted=1">
-                    <input type="hidden" name="_subject" value="[Laien Garments] OEM / ODM / Catalog Request">
-                    <input type="hidden" name="_captcha" value="false">
+                <div style="background: #f8f9fa; padding: 50px 30px; border-radius: 16px; border: 1px solid #e0e0e0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <h3 style="font-size: 24px; margin-bottom: 15px; color: #1e5bb5; font-weight: 700;">Ready to Start Your Project?</h3>
+                    <p style="color: #555; margin-bottom: 35px; font-size: 15px; line-height: 1.6;">Skip the form! Contact our sales manager directly for a faster response and instant catalog.</p>
                     
-                    <div class="form-group">
-                        <label for="user-name">Your Name <span>*</span></label>
-                        <input type="text" name="name" id="user-name" placeholder="John Smith" required aria-label="Your Name">
-                    </div>
+                    <!-- 邮件按钮 -->
+                    <a href="mailto:shawnlin@laingarments.com?subject=Inquiry for Clothing Manufacturing" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #0d2a5c; color: #fff; padding: 18px 20px; border-radius: 10px; font-size: 16px; font-weight: bold; text-decoration: none; margin-bottom: 20px; transition: 0.3s; box-shadow: 0 6px 15px rgba(13,42,92,0.2);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                        Email Us Now
+                    </a>
                     
-                    <div class="form-group">
-                        <label for="user-email">Email <span>*</span></label>
-                        <input type="email" name="email" id="user-email" placeholder="john@example.com" required aria-label="Email Address">
-                    </div>
+                    <!-- WhatsApp 按钮 -->
+                    <a href="https://wa.me/8613534489365?text=Hi, I am interested in your OEM/ODM services. Could you send me the catalog?" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #fff; padding: 18px 20px; border-radius: 10px; font-size: 16px; font-weight: bold; text-decoration: none; transition: 0.3s; box-shadow: 0 6px 15px rgba(37,211,102,0.3);">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.458 5.705 1.459h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Chat on WhatsApp
+                    </a>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="service-type">Service Needed</label>
-                            <select name="service_type" id="service-type" aria-label="What service do you need?">
-                                <option>ODM: Customize Catalog Style</option>
-                                <option>OEM: Produce My Designs</option>
-                                <option>Request Full Catalog</option>
-                                <option>Other Inquiry</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="order-quantity">Est. Quantity</label>
-                            <select name="quantity" id="order-quantity" aria-label="Estimated Order Quantity">
-                                <option>100 - 300 pcs</option>
-                                <option>300 - 500 pcs</option>
-                                <option>500 - 1000 pcs</option>
-                                <option>1000+ pcs</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="user-message">Message (Include style numbers if inquiring about ODM)</label>
-                        <textarea name="message" id="user-message" placeholder="Tell us which styles you like or describe your OEM project..." aria-label="Message"></textarea>
-                    </div>
-                    
-                    <!-- 增加了点击后 Sending... 的反馈 -->
-                    <button type="submit" class="submit-btn" onclick="gtag('event', 'submit_inquiry', {'event_category': 'Contact', 'event_label': 'Form Submit'}); this.innerHTML='Sending... Please wait'; this.style.opacity='0.7';">Send Inquiry</button>
-                </form>
+                    <p style="margin-top: 25px; font-size: 13px; color: #888;">We usually reply within 24 hours.</p>
+                </div>
             </div>
+            
         </div>
     </div>
 </section>
